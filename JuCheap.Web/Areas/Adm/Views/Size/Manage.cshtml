@@ -1,0 +1,186 @@
+﻿
+@{
+    ViewBag.Title = "Manage";
+    Layout = "~/Areas/Adm/Views/Shared/_Layout_Body.cshtml";
+}
+
+ 
+<script src="~/Template/Admin/jucheap/js/jquery-1.11.1.min.js"></script>
+
+
+<section class="panel">
+    <header class="panel-heading head-border">
+        所有尺码表
+    </header>
+    <div class="panel-body">
+        <div class="col-md-12">
+            <div class="form-group">
+                <label for="name">尺码表适用版型</label>
+                <select class="form-control" name="size_banxing" onchange="loadSelect()">
+                    <option value="XF">西服</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="name">尺码表适用类型</label>
+                <select class="form-control" name="size_type"  onchange="loadSelect()">
+                    <option value="SY">上衣</option>
+                    <option value="KZ">裤子</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="name">尺码表适用性别</label>
+                <select class="form-control" name="size_gender"  onchange="loadSelect()">
+                    <option value="NAN">男</option>
+                    <option value="NU">女</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="name">选择尺码表</label>
+                <select class="form-control" name="size_code">
+                     
+                </select>
+            </div>
+
+            <br>
+            <br>
+            <div class="input-group">
+                <button type="button" class="btn btn-success" onclick="load()">查询</button>
+
+            </div>
+            <input type="file" name="up_file" style="display:none" />
+        </div>
+
+ 
+    </div>
+
+
+</section>
+
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" style="width: 70%">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <h4 class="modal-title" id="myModalLabel">
+                    检视
+                </h4>
+            </div>
+            <div class="modal-body">
+                <div class="x_panel">
+                    <div class="x_title">
+
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+                        <div class="table-responsive" style="height: 400px; overflow: auto" id="scroll-1">
+                            <form action="/Adm/Size/UpdateCode" method="post" enctype="multipart/form-data" id="updateID">
+                                <input type="hidden" name="Action" />
+                                <table class="table table-striped custom-table table-hover" id="manageList">
+                                    <thead>
+
+                                    </thead>
+                                    <tbody id="code_list"></tbody>
+                                </table>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" onclick="save()">
+                    保存
+                </button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">
+                    取消
+                </button>
+
+            </div>
+        </div>
+    </div>
+    <!-- /.modal-content -->
+</div>
+<!-- /.modal -->
+
+
+
+<script>
+    $(function () {
+        loadSelect();
+    })
+        function  load() {
+            var action = $("select[name='size_banxing']").val() + "_" + $("select[name='size_type']").val() + "_" + $("select[name='size_gender']").val();
+            $.post("/Adm/Size/Manage", { Code: $("select[name='size_code']").val(),  Action: action }, function (result) {
+                if (result.state == 1) {
+                    switch (action) {
+                        case "XF_SY_NAN":
+                            thead = XF_SY_NAN_thead
+                            break;
+                        case "XF_SY_NU":
+                            thead = XF_SY_NU_thead
+                            break;
+                    }
+
+                    var data = result.msg;
+                    var th_html = "";
+                    for (var i = 0; i < thead.length; i++) {
+                        th_html += '<th class="hidden-xs">' + thead[i].split("/")[0] + ' </th>';
+                    }
+                    $("#manageList thead th").remove();
+                    $("#manageList thead").append(th_html)
+                    var html = "";
+                    for (var i = 0; i < data.length; i++) {
+                        html += "<tr class='even pointer insert_excel_list' >"
+ 
+                        for (var a = 0; a < thead.length; a++) {
+
+                            var txt = data[i][thead[a].split("/")[1]];
+
+                            html += "<td style='padding:2px 0px'> "+ txt + "</td>";
+                        }
+
+                        html += "</tr>";
+                    }
+                    $("#manageList tbody tr").remove();
+                    $("#manageList tbody").append(html)
+                    $("#manageList").append();
+                    show_dig();
+                } else {
+                    alert(result.msg)
+                }
+
+            })
+
+ 
+        }
+
+        function loadSelect() {
+            var action = $("select[name='size_banxing']").val() + "_" + $("select[name='size_type']").val() + "_" + $("select[name='size_gender']").val();
+            $.post("/Adm/Size/SizeCodeSelect", { Code: $("select[name='size_code']").val(), Action: action }, function (result) {
+                if (result.state == 1) {
+ 
+                    var data = result.msg;
+ 
+                    var html = "";
+                    alert(JSON.stringify(data))
+                    $("select[name='size_code'] option").remove();
+                    for (var i = 0; i < data.length; i++) {
+                        html += "<option value='" + data[i]["Size_Code"] + "'>" + data[i]["Size_Code"] + "</option>"
+                    }
+           
+                    $("select[name='size_code']").append(html);
+                } else {
+                    alert(result.msg)
+                }
+
+            })
+
+
+        }
+
+
+ 
+
+</script>

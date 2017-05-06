@@ -1,0 +1,242 @@
+﻿
+@{
+    ViewBag.Title = "Examine";
+    Layout = "/Areas/Adm/Views/Shared/_Layout_Body.cshtml";
+}
+
+
+<section class="panel">
+    <header class="panel-heading head-border">
+        所有尺码表
+    </header>
+
+
+    <div class="panel-body">
+        <div class="col-md-12">
+            <div class="form-group">
+                <label for="name">尺码表适用版型</label>
+                <select class="form-control" name="size_banxing">
+                    <option value="XF">西服</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="name">尺码表适用类型</label>
+                <select class="form-control" name="size_type">
+                    <option value="SY">上衣</option>
+                    <option value="KZ">裤子</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="name">尺码表适用性别</label>
+                <select class="form-control" name="size_gender">
+                    <option value="NAN">男</option>
+                    <option value="NU">女</option>
+                </select>
+            </div>
+            <br>
+            <br>
+            <div class="input-group">
+                <button type="button" class="btn btn-success" onclick="load()">查询</button>
+
+            </div>
+            <input type="file" name="up_file" style="display:none" />
+        </div>
+    </div>
+
+
+
+
+    <table class="table table-striped custom-table table-hover">
+        <thead>
+            <tr>
+                <th> 尺码表名称</th>
+                <th class="hidden-xs">  创建时间</th>
+                <th class="hidden-xs">  操作</th>
+            </tr>
+        </thead>
+        <tbody id="code_list">
+          
+
+
+        </tbody>
+    </table>
+</section>
+
+<form id="bugform" action="~/Adm/Size/BugCodeSize" method="post">
+    <input type="hidden" name="Size_Code" />
+</form>
+
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" style="width: 70%">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <h4 class="modal-title" id="myModalLabel">
+                    检视
+                </h4>
+            </div>
+            <div class="modal-body">
+                <div class="x_panel">
+                    <div class="x_title">
+
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+                        <div class="table-responsive" style="height: 400px; overflow: auto" id="scroll-1">
+                            <form action="/Adm/Size/UpdateCode" method="post" enctype="multipart/form-data" id="updateID">
+                                <input type="hidden" name="Action" />
+                                <table class="table table-striped custom-table table-hover" id="show_ex_table">
+                                    <thead>
+
+                                    </thead>
+                                    <tbody></tbody>
+                                </table>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" onclick="save()">
+                    保存
+                </button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">
+                    取消
+                </button>
+
+            </div>
+        </div>
+    </div>
+    <!-- /.modal-content -->
+</div>
+<!-- /.modal -->
+
+
+<script>
+    //审核
+    function examine(code,state) {
+        var action = $("select[name='size_banxing']").val() + "_" + $("select[name='size_type']").val() + "_" + $("select[name='size_gender']").val();
+        var log = "";
+        if (state == 0) {
+            log = "是否确认此尺码表准确无误？";
+        } else {
+            log = "是否不启用此尺码表？";
+        }
+
+        if (confirm(log)) {
+            $.post("/Adm/Size/UpdateState", { Code: code, state: state, Action: action }, function (result) {
+                if (result.state == 1) {
+                    alert("审核成功");
+                    location = location.href;
+                } else {
+                    alert(result.msg)
+                }
+
+            })
+        }
+
+    }
+
+
+
+
+    function load() {
+        var action = $("select[name='size_banxing']").val() + "_" + $("select[name='size_type']").val() + "_" + $("select[name='size_gender']").val();
+        $.post("/Adm/Size/Examine", { Action: action }, function (result) {
+
+            var data = result.msg;
+            var html = "";
+            $(".inscoderow").remove();
+            for (var i = 0; i < data.length; i++) {
+                html+="<tr class='inscoderow'>";
+                html += "<td>" + data[i]["Code"] + "</td>";
+                html += "<td class=\"hidden-xs\">" + data[i]["CreateTime"]+ "</td>";
+                html+="<td class=\"hidden-xs\">";
+                html +="<button class=\"btn btn-success btn-xs\" onclick=\"click_submite('" + data[i]["Code"] + "')\"><i class=\"fa  fa-bug\"></i></button>&nbsp";
+                html +="<button class=\"btn btn-primary btn-xs\" onclick=\"examine('" + data[i]["Code"] + "',0)\"><i class=\"fa  fa-check\"></i></button>&nbsp";
+                html += "<button class=\"btn btn-danger btn-xs\" onclick=\"examine('" + data[i]["Code"] + "',2)\"><i class=\"fa  fa-times\"></i></button>";
+                html+="</td>";
+                html+="</tr>";
+            }
+            $("#code_list").append(html);
+
+      
+        })
+    }
+
+    function click_submite(code) {
+
+        var action = $("select[name='size_banxing']").val() + "_" + $("select[name='size_type']").val() + "_" + $("select[name='size_gender']").val();
+ 
+        $.post("/Adm/Size/BugCodeSize", { Size_Code: code, Action: action }, function (result) {
+            if (result.state != "1") {
+                alert(result.msg)
+            }
+
+            var data = result.msg;
+ 
+            var th_html = "";
+            var thead = "";
+            switch (action) {
+                case "XF_SY_NAN":
+                    thead = XF_SY_NAN_thead
+                    break;
+                case "XF_SY_NU":
+                    thead = XF_SY_NU_thead
+                    break;
+            }
+            for (var i = 0; i < thead.length; i++) {
+                th_html += '<th class="hidden-xs">' + thead[i].split("/")[0] + ' </th>';
+            }
+            $("#show_ex_table thead th").remove();
+            $("#show_ex_table thead").append(th_html)
+            var html = "";
+            for (var i = 0; i < data.length; i++) {
+                html += "<tr class='even pointer insert_excel_list' >"
+                html += "<input name='ID' type='hidden' value='" + data[i]["ID"] + "'   />";
+                for (var a = 0; a < thead.length; a++) {
+
+                    var txt = data[i][thead[a].split("/")[1]];
+
+                    html += "<td style='padding:2px 0px'><input style='border:0px;width:105px' type='text' name='" + thead[a].split("/")[1] + "' value='" + txt + "'/></td>";
+                }
+
+                html += "</tr>";
+            }
+            $("#show_ex_table tbody tr").remove();
+            $("#show_ex_table tbody").append(html)
+            show_dig();
+        });
+    }
+
+    //保存
+    function save() {
+        var action = $("select[name='size_banxing']").val() + "_" + $("select[name='size_type']").val() + "_" + $("select[name='size_gender']").val();
+        $("input[name='Action']").val(action);
+        $("#updateID").ajaxSubmit({
+            type: 'post',
+            url: '/Adm/Size/UpdateCode',
+            success: function (data) {
+
+
+                if (data.state == "1") {
+                    alert("保存成功。");
+                    hide_dig();
+                } else {
+                    alert("保存出错：" + data.msg);
+                    hide_dig();
+                }
+            },
+            error: function (XmlHttpRequest, textStatus, errorThrown) {
+                console.log(XmlHttpRequest);
+                console.log(textStatus);
+                console.log(errorThrown);
+            }
+        });
+
+    }
+
+</script>

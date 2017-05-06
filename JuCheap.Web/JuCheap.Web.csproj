@@ -127,6 +127,10 @@
       <HintPath>..\packages\Quartz.2.3.3\lib\net40\Quartz.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="SqlSugar, Version=3.5.3.4, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\JuCheap.Core\bin\Debug\SqlSugar.dll</HintPath>
+    </Reference>
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -212,6 +216,7 @@
     <Content Include="Images\v2\user.png" />
     <Content Include="Scripts\ai.0.15.0-build58334.js" />
     <Content Include="Scripts\ai.0.15.0-build58334.min.js" />
+    <Content Include="Scripts\size\import.js" />
     <Content Include="Template\Admin\jucheap\css\Abel.css" />
     <Content Include="Template\Admin\jucheap\css\bootstrap-reset.css" />
     <Content Include="Template\Admin\jucheap\css\bootstrap-touchspin.css" />
@@ -324,6 +329,7 @@
     <Content Include="Template\Admin\jucheap\js\bootstrap.min.js" />
     <Content Include="Template\Admin\jucheap\js\chart-js\chart.js" />
     <Content Include="Template\Admin\jucheap\js\chartJs-init.js" />
+    <Content Include="Template\Admin\jucheap\js\common.js" />
     <Content Include="Template\Admin\jucheap\js\dashboard-vmap-init.js" />
     <Content Include="Template\Admin\jucheap\js\data-table-init.js" />
     <Content Include="Template\Admin\jucheap\js\data-table\css\dataTables.colVis.min.css" />
@@ -449,6 +455,7 @@
     <Content Include="Template\Admin\jucheap\js\jquery-countTo\jquery.countTo.js" />
     <Content Include="Template\Admin\jucheap\js\jquery-easy-pie-chart\jquery.easy-pie-chart.css" />
     <Content Include="Template\Admin\jucheap\js\jquery-easy-pie-chart\jquery.easy-pie-chart.js" />
+    <Content Include="Template\Admin\jucheap\js\jquery-form.js" />
     <Content Include="Template\Admin\jucheap\js\jquery-migrate.js" />
     <Content Include="Template\Admin\jucheap\js\jquery-ui\jquery-ui-1.10.1.custom.min.css" />
     <Content Include="Template\Admin\jucheap\js\jquery-ui\jquery-ui-1.10.1.custom.min.js" />
@@ -701,6 +708,8 @@
     </Content>
     <Content Include="Areas\Adm\Views\Shared\BaiduTongji.cshtml" />
     <Content Include="Areas\Adm\Views\Size\Import.cshtml" />
+    <Content Include="Areas\Adm\Views\Size\Examine.cshtml" />
+    <Content Include="Areas\Adm\Views\Size\Manage.cshtml" />
     <None Include="job_scheduling_data_2_0.xsd">
       <SubType>Designer</SubType>
     </None>

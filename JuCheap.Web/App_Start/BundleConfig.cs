@@ -28,6 +28,7 @@ namespace JuCheap.Web
             //控制面板通用js
             bundles.Add(new JuCheapScriptBundle("~/JS/Admin/jucheap/BaseScripts").Include(
                 "~/Template/Admin/jucheap/js/jquery-1.10.2.min.js",
+				"~/Template/Admin/jucheap/js/jquery-form.js",
                 "~/Template/Admin/jucheap/js/jquery-migrate.js",
                 "~/Template/Admin/jucheap/js/bootstrap.min.js",
                 "~/Template/Admin/jucheap/js/modernizr.min.js",
@@ -39,7 +40,10 @@ namespace JuCheap.Web
                 "~/Template/Admin/jucheap/js/sparkline/sparkline-init.js",
                 "~/Template/Admin/jucheap/js/jquery.validate.min.js",
                 "~/Template/Admin/jucheap/js/json2.js",
-                "~/Template/Admin/jucheap/js/scripts.js"));
+                "~/Template/Admin/jucheap/js/scripts.js",
+                "~/Template/Admin/jucheap/js/common.js"
+
+                ));
 
             bundles.Add(new JuCheapScriptBundle("~/Template/Admin/jucheap/JS/Layer/BaseLayer").Include(
                 "~/Template/Admin/jucheap/js/layer/layer.js"));
@@ -50,7 +54,7 @@ namespace JuCheap.Web
             bundles.Add(new JuCheapScriptBundle("~/JS/Admin/jucheap/JuCheapMenu").Include(
                 "~/Template/Admin/jucheap/js/jucheap.menu.js"));
 
-            
+ 
 
             //DataTable
             bundles.Add(new JuCheapScriptBundle("~/JS/Admin/jucheap/DataTable").Include(

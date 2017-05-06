@@ -55,6 +55,10 @@
       <HintPath>..\packages\Mehdime.Entity.1.0.0\lib\Mehdime.Entity.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="SqlSugar, Version=3.1.0.2, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Documents\Visual Studio 2015\Projects\ReturnCode\Common\bin\Debug\SqlSugar.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
@@ -131,10 +135,13 @@
       <DependentUpon>IService.tt</DependentUpon>
     </Compile>
     <Compile Include="AutoMapperConfiguration.cs" />
+    <Compile Include="Dto\CoatSize.cs" />
     <Compile Include="Config\EmailConfiguration.cs" />
     <Compile Include="Dto\BaseDto.cs" />
+    <Compile Include="Dto\Dictionaries.cs" />
     <Compile Include="Dto\EmailPoolDto.cs" />
     <Compile Include="Dto\EmailReceiverDto.cs" />
+    <Compile Include="Dto\OriginalDataTrousers.cs" />
     <Compile Include="Dto\PageViewDto.cs" />
     <Compile Include="Dto\QueryBase.cs" />
     <Compile Include="Dto\ResultDto.cs" />
@@ -146,14 +153,22 @@
     <Compile Include="Data\DbInitService.cs" />
     <Compile Include="Dto\LoginLogDto.cs" />
     <Compile Include="Dto\MenuDto.cs" />
+    <Compile Include="Dto\Ret_CodeTrousers.cs" />
     <Compile Include="Dto\RoleMenuDto.cs" />
     <Compile Include="Dto\RoleDto.cs" />
+    <Compile Include="Dto\SizeCheck.cs" />
+    <Compile Include="Dto\Sleeve.cs" />
+    <Compile Include="Dto\TrousersSize.cs" />
+    <Compile Include="Dto\User.cs" />
     <Compile Include="Dto\UserRoleDto.cs" />
     <Compile Include="Dto\UserDto.cs" />
+    <Compile Include="Dto\XF_SY_NAN_CodeSize.cs" />
+    <Compile Include="Dto\XF_SY_NU_CodeSize.cs" />
     <Compile Include="Enum\EmailReceiverType.cs" />
     <Compile Include="Enum\EmailStatus.cs" />
     <Compile Include="Enum\MenuType.cs" />
     <Compile Include="Enum\UserStatus.cs" />
+    <Compile Include="ImportExcel\import.cs" />
     <Compile Include="Pay\Alipay\AlipayConfig.cs" />
     <Compile Include="Pay\Alipay\AlipayConfiguration.cs" />
     <Compile Include="Pay\Alipay\AlipayCore.cs" />
@@ -185,6 +200,7 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>IService.cs</LastGenOutput>
     </Content>
+    <Content Include="Dto\Entity.csproj" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
