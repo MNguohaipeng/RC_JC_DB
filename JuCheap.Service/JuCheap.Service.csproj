@@ -138,12 +138,14 @@
     <Compile Include="Dto\CoatSize.cs" />
     <Compile Include="Config\EmailConfiguration.cs" />
     <Compile Include="Dto\BaseDto.cs" />
+    <Compile Include="Dto\Cs_data.cs" />
     <Compile Include="Dto\Dictionaries.cs" />
     <Compile Include="Dto\EmailPoolDto.cs" />
     <Compile Include="Dto\EmailReceiverDto.cs" />
     <Compile Include="Dto\OriginalDataTrousers.cs" />
     <Compile Include="Dto\PageViewDto.cs" />
     <Compile Include="Dto\QueryBase.cs" />
+    <Compile Include="Dto\RecodeHdata.cs" />
     <Compile Include="Dto\ResultDto.cs" />
     <Compile Include="Abstracts\IService.cs">
       <AutoGen>True</AutoGen>
@@ -158,7 +160,7 @@
     <Compile Include="Dto\RoleDto.cs" />
     <Compile Include="Dto\SizeCheck.cs" />
     <Compile Include="Dto\Sleeve.cs" />
-    <Compile Include="Dto\TrousersSize.cs" />
+    <Compile Include="Dto\XF_KZ_CodeSize.cs" />
     <Compile Include="Dto\User.cs" />
     <Compile Include="Dto\UserRoleDto.cs" />
     <Compile Include="Dto\UserDto.cs" />

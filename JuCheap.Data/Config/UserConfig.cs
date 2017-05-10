@@ -31,6 +31,7 @@ namespace JuCheap.Data.Config
             Property(item => item.Password).HasColumnType("varchar").IsRequired().HasMaxLength(36);
             Property(item => item.RealName).HasColumnType("nvarchar").IsRequired().HasMaxLength(20);
             Property(item => item.Status).IsRequired();
+        
         }
     }
 }

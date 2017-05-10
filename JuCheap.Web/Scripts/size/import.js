@@ -34,6 +34,9 @@ function analysis() {
 				return;
 			}
 			var th_html = "";
+			console.log(JSON.stringify(json))
+			th_html = "";
+		 
 			switch (action) {
 				case "XF_SY_NAN":
 
@@ -41,15 +44,28 @@ function analysis() {
 					for (var i = 0; i < XF_SY_NAN_thead.length; i++) {
 						th_html += '<th class="column-title">' + XF_SY_NAN_thead[i].split("/")[0] + ' </th>';
 					}
-					$(".headings").append(th_html);
+				 
 					break;
-				case "XF_SY_NU":
- 
-					for (var i = 0; i < XF_SY_NU_thead.length; i++) {
-						var th=XF_SY_NU_thead[i]+"";
-						th_html += '<th class="column-title">' + th.split("/")[0] + ' </th>';
-					}
+			    case "XF_SY_NU":
 
+			        for (var i = 0; i < XF_SY_NU_thead.length; i++) {
+			            var th = XF_SY_NU_thead[i] + "";
+			            th_html += '<th class="column-title">' + th.split("/")[0] + ' </th>';
+			        }
+			        break;
+                    
+			    case "XF_KZ_NAN":
+       
+			        for (var i = 0; i < XF_KZ_NAN_thead.length; i++) {
+			            var th = XF_KZ_NAN_thead[i] + "";
+			            th_html += '<th class="column-title">' + th.split("/")[0] + ' </th>';
+			        }
+			    case "XF_KZ_NU":
+
+			        for (var i = 0; i < XF_KZ_NAN_thead.length; i++) {
+			            var th = XF_KZ_NAN_thead[i] + "";
+			            th_html += '<th class="column-title">' + th.split("/")[0] + ' </th>';
+			        }
 					break;
 
 
@@ -64,7 +80,7 @@ function analysis() {
 			$(".insert_excel_list").remove();
 
 			var html = "";
- 
+	
 			switch (action) {
 				case "XF_SY_NAN":
 
@@ -91,8 +107,30 @@ function analysis() {
 					}
 					$("#excel_data_list").append(html)
 					break;
- 
-		 
+			    case "XF_KZ_NAN":
+
+			        for (var i = 0; i < json.length; i++) {
+			            html += "<tr class='even pointer insert_excel_list' >"
+
+			            for (var a = 0; a < XF_KZ_NAN_thead.length; a++) {
+			                html += "<td>" + json[i][XF_KZ_NAN_thead[a].split("/")[1]] + "</td>";
+			            }
+			            html += "</tr>";
+			        }
+			        $("#excel_data_list").append(html)
+			        break;
+			    case "XF_KZ_NU":
+			        alert(1);
+			        for (var i = 0; i < json.length; i++) {
+			            html += "<tr class='even pointer insert_excel_list' >"
+
+			            for (var a = 0; a < XF_KZ_NAN_thead.length; a++) {
+			                html += "<td>" + json[i][XF_KZ_NAN_thead[a].split("/")[1]] + "</td>";
+			            }
+			            html += "</tr>";
+			        }
+			        $("#excel_data_list").append(html)
+			        break;
 			}
 
 

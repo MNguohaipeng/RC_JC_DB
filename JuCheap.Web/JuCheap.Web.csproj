@@ -631,6 +631,7 @@
     <Compile Include="Areas\Adm\Controllers\ControlController.cs" />
     <Compile Include="Areas\Adm\Controllers\DemoController.cs" />
     <Compile Include="Areas\Adm\Controllers\EmailController.cs" />
+    <Compile Include="Areas\Adm\Controllers\HandleDataController.cs" />
     <Compile Include="Areas\Adm\Controllers\LoginlogController.cs" />
     <Compile Include="Areas\Adm\Controllers\MenuController.cs" />
     <Compile Include="Areas\Adm\Controllers\PageViewController.cs" />
@@ -710,6 +711,7 @@
     <Content Include="Areas\Adm\Views\Size\Import.cshtml" />
     <Content Include="Areas\Adm\Views\Size\Examine.cshtml" />
     <Content Include="Areas\Adm\Views\Size\Manage.cshtml" />
+    <Content Include="Areas\Adm\Views\HandleData\Handle.cshtml" />
     <None Include="job_scheduling_data_2_0.xsd">
       <SubType>Designer</SubType>
     </None>

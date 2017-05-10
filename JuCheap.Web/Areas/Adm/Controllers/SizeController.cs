@@ -8,6 +8,8 @@ using System.Web;
 using System.Web.Mvc;
 using SqlSugar;
 using JuCheap.Service.Dto;
+
+
 namespace JuCheap.Web.Areas.Adm.Controllers
 {
     public class SizeController : Controller
@@ -79,10 +81,33 @@ namespace JuCheap.Web.Areas.Adm.Controllers
                             return Json(new { state = 1, msg = list }, JsonRequestBehavior.AllowGet);
 
                         case "XF_KZ_NAN":
-                            throw new Exception("正在开发");
+                            List<XF_KZ_CodeSize> XF_KZ_NAN = db.Queryable<XF_KZ_CodeSize>().Where(c => c.Status == 1).GroupBy(it => it.Size_Code).Select<XF_KZ_CodeSize>("Size_Code, MAX(CreateDateTime) as   CreateDateTime").ToList();
+
+                            foreach (XF_KZ_CodeSize item in XF_KZ_NAN)
+                            {
+                                Examine ex = new Examine();
+
+                                ex.CreateTime = item.CreateDateTime.ToString("yyyy-MM-dd");
+                                ex.Code = item.Size_Code;
+                                list.Add(ex);
+                            }
+
+                            return Json(new { state = 1, msg = list }, JsonRequestBehavior.AllowGet);
 
                         case "XF_KZ_NU":
-                            throw new Exception("正在开发");
+                            List<XF_KZ_CodeSize> XF_KZ_NU = db.Queryable<XF_KZ_CodeSize>().Where(c => c.Status == 1).GroupBy(it => it.Size_Code).Select<XF_KZ_CodeSize>("Size_Code, MAX(CreateDateTime) as   CreateDateTime").ToList();
+
+                            foreach (XF_KZ_CodeSize item in XF_KZ_NU)
+                            {
+                                Examine ex = new Examine();
+
+                                ex.CreateTime = item.CreateDateTime.ToString("yyyy-MM-dd");
+                                ex.Code = item.Size_Code;
+                                list.Add(ex);
+                            }
+
+                            return Json(new { state = 1, msg = list }, JsonRequestBehavior.AllowGet);
+
 
                         default:
                             throw new Exception("系统出错：没有对应的Action");
@@ -98,7 +123,7 @@ namespace JuCheap.Web.Areas.Adm.Controllers
 
         [HttpPost]
         //修改尺码表状态
-        public JsonResult UpdateState(string Code,string state, string Action)
+        public JsonResult UpdateState(string Code, string state, string Action)
         {
             using (var db = SugarDao.GetInstance())
                 try
@@ -112,7 +137,7 @@ namespace JuCheap.Web.Areas.Adm.Controllers
 
                         case "XF_SY_NU":
 
-                            db.Update<XF_SY_NU_CodeSize>(new { status = state }, it => it.Size_Code == Code);  
+                            db.Update<XF_SY_NU_CodeSize>(new { status = state }, it => it.Size_Code == Code);
 
                             return Json(new { state = 1, msg = "" }, JsonRequestBehavior.AllowGet);
 
@@ -150,15 +175,19 @@ namespace JuCheap.Web.Areas.Adm.Controllers
                             return Json(new { state = 1, msg = list }, JsonRequestBehavior.AllowGet);
                         case "XF_SY_NU":
                             return Json(new { state = 1, msg = db.Queryable<XF_SY_NU_CodeSize>().Where(T => T.Status == 1 && T.Size_Code == Size_Code).ToList() }, JsonRequestBehavior.AllowGet);
+                        case "XF_KZ_NAN":
+                            return Json(new { state = 1, msg = db.Queryable<XF_KZ_CodeSize>().Where(T => T.Status == 1 && T.Size_Code == Size_Code).ToList() }, JsonRequestBehavior.AllowGet);
+                        case "XF_KZ_NU":
+                            return Json(new { state = 1, msg = db.Queryable<XF_KZ_CodeSize>().Where(T => T.Status == 1 && T.Size_Code == Size_Code).ToList() }, JsonRequestBehavior.AllowGet);
                         default:
                             throw new Exception("系统出错：没有对应的Action");
-          
+
                     }
 
                 }
                 catch (Exception ex)
                 {
-                    return Json(new { state = -1, msg = ex.Message}, JsonRequestBehavior.AllowGet);
+                    return Json(new { state = -1, msg = ex.Message }, JsonRequestBehavior.AllowGet);
                 }
 
 
@@ -223,7 +252,35 @@ namespace JuCheap.Web.Areas.Adm.Controllers
                                 dic2.Clear();
                             }
                             break;
+                        case "XF_KZ_NAN":
+                            var dic3 = new Dictionary<string, string>();
+                            int count3 = fm["Height"].Split(',').Count();
+                            for (int i = 0; i < count3; i++)
+                            {
+                                dic3.Add("Code", fm["Code"].Split(',')[i]);
+                                dic3.Add("DZ_HipLength_CP", fm["DZ_HipLength_CP"].Split(',')[i]);
+                                dic3.Add("SZ_HipLength_CP", fm["SZ_HipLength_CP"].Split(',')[i]);
+                                dic3.Add("Crosspiece", fm["Crosspiece"].Split(',')[i]);
+                                dic3.Add("LegWidth_UnderTheWaves", fm["LegWidth_UnderTheWaves"].Split(',')[i]);
+                                dic3.Add("FrontRise_EvenWaist", fm["FrontRise_EvenWaist"].Split(',')[i]);
+                                dic3.Add("AfterTheWaves_EvenWaist", fm["AfterTheWaves_EvenWaist"].Split(',')[i]);
+                                dic3.Add("NetHip", fm["NetHip"].Split(',')[i]);
+                                dic3.Add("CP_WaistWidth", fm["CP_WaistWidth"].Split(',')[i]);
+                                dic3.Add("Height", fm["Height"].Split(',')[i]);
+                                dic3.Add("LongPants", fm["LongPants"].Split(',')[i]);
+                                dic3.Add("NetWaist", fm["NetWaist"].Split(',')[i]);
+                               
+                                int upid = 0;
+                                if (!int.TryParse(fm["ID"].Split(',')[i], out upid))
+                                {
+                                    throw new Exception("数据ID格式不正确");
+                                }
 
+                                db.Update<XF_SY_NU_CodeSize, int>(dic3, upid);
+                                dic3.Clear();
+                            }
+
+                            break;
                         default:
                             break;
                     }
@@ -278,6 +335,12 @@ namespace JuCheap.Web.Areas.Adm.Controllers
                 case "XF_SY_NU":
                     json = XF_SY(fm, "女");
                     break;
+                case "XF_KZ_NAN":
+                    json = XF_KZ(fm, "男");
+                    break;
+                case "XF_KZ_NU":
+                    json = XF_KZ(fm, "女");
+                    break;
                 default:
                     break;
             }
@@ -286,7 +349,7 @@ namespace JuCheap.Web.Areas.Adm.Controllers
             return json;
         }
 
-    
+
 
         //西服  上衣 
         public JsonResult XF_SY(FormCollection fm, string gender)
@@ -341,6 +404,64 @@ namespace JuCheap.Web.Areas.Adm.Controllers
 
         }
 
+        //西服  裤子
+        public JsonResult XF_KZ(FormCollection fm, string gender)
+        {
+
+            string errMsg = "";
+            DataTable table;
+
+            try
+            {
+                if (gender == "男")
+                {
+                    table = Analysis.Excel_trousrs_NAN(Request.Files);
+                }
+                else
+                {
+                    table = Analysis.Excel_trousrs_NU(Request.Files);
+
+                }
+ 
+
+
+
+                    if (fm["import"] == "false")
+                {
+                    if (gender == "男")
+
+                    {
+                    
+                        return Json(new { state = 1, msg = Ret_Excel_trousrs(table) }, JsonRequestBehavior.AllowGet);
+                    }
+                    else
+                    {
+
+                
+                        return Json(new { state = 1, msg = Ret_Excel_trousrs(table) }, JsonRequestBehavior.AllowGet);
+                    }
+                }
+                else
+                {
+                    if (Service.import.Import_Excel_trousrs(table, fm["Size_Code"], out errMsg))
+                    {
+                        return Json(new { state = 1, msg = "" }, JsonRequestBehavior.AllowGet);
+
+                    }
+                    else
+                    {
+                        return Json(new { state = -1, msg = errMsg }, JsonRequestBehavior.AllowGet);
+                    }
+
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+        }
         #region 解析
         //西服尺码表解析
         public static object Ret_Excel(DataTable table)
@@ -495,6 +616,96 @@ namespace JuCheap.Web.Areas.Adm.Controllers
 
             return cslist;
         }
+
+        //西裤尺码表解析
+        public static object Ret_Excel_trousrs(DataTable table)
+        {
+
+            List<XF_KZ_CodeSize> cslist = new List<XF_KZ_CodeSize>();
+
+            for (int i = 0; i < table.Rows.Count; i++)
+            {
+                decimal ty = 0;
+                XF_KZ_CodeSize ts = new XF_KZ_CodeSize();
+
+                ts.Code = table.Rows[i]["Code"] + "";
+
+                if (decimal.TryParse(table.Rows[i]["DZ_HipLength_CP"] + "", out ty))
+                {
+                    ts.DZ_HipLength_CP = ty;
+                }
+                else
+                {
+                    ts.DZ_HipLength_CP = 0;
+                }
+
+                ts.SZ_HipLength_CP = 0;
+
+                if (decimal.TryParse(table.Rows[i]["SZ_HipLength_CP"] + "", out ty))
+                {
+                    ts.SZ_HipLength_CP = ty;
+                }
+                else
+                {
+                    ts.SZ_HipLength_CP = 0;
+                }
+
+
+                if (decimal.TryParse(table.Rows[i]["Crosspiece"] + "", out ty))
+                {
+                    ts.Crosspiece = ty;
+                }
+                else
+                {
+                    ts.Crosspiece = 0;
+                }
+
+
+
+                if (decimal.TryParse(table.Rows[i]["LegWidth_UnderTheWaves"] + "", out ty))
+                {
+                    ts.LegWidth_UnderTheWaves = ty;
+                }
+                else
+                {
+                    ts.LegWidth_UnderTheWaves = 0;
+                }
+
+                if (decimal.TryParse(table.Rows[i]["FrontRise_EvenWaist"] + "", out ty))
+                {
+                    ts.FrontRise_EvenWaist = ty;
+                }
+                else
+                {
+                    ts.FrontRise_EvenWaist = 0;
+                }
+
+                if (decimal.TryParse(table.Rows[i]["AfterTheWaves_EvenWaist"] + "", out ty))
+                {
+                    ts.AfterTheWaves_EvenWaist = ty;
+                }
+                else
+                {
+                    ts.AfterTheWaves_EvenWaist = 0;
+                }
+
+                ts.NetHip = table.Rows[i]["NetHip"] + "";
+
+                ts.CP_WaistWidth = table.Rows[i]["CP_WaistWidth"] + "";
+                ts.Height = table.Rows[i]["Height"] + "";
+                ts.LongPants = table.Rows[i]["LongPants"] + "";
+                ts.NetWaist = table.Rows[i]["NetWaist"] + "";
+
+
+                cslist.Add(ts);
+            }
+
+            return cslist;
+
+
+        }
+
+
         #endregion
         #endregion
 
@@ -502,13 +713,13 @@ namespace JuCheap.Web.Areas.Adm.Controllers
         // GET: Adm/Size
         public ActionResult Manage()
         {
-      
+
             return View();
         }
         [HttpPost]
-        public JsonResult Manage(string Code,string Action)
+        public JsonResult Manage(string Code, string Action)
         {
-            using (var db=SugarDao.GetInstance())
+            using (var db = SugarDao.GetInstance())
                 try
                 {
 
@@ -516,33 +727,36 @@ namespace JuCheap.Web.Areas.Adm.Controllers
                     {
                         case "XF_SY_NAN"://西服上衣  男
                             return Json(new { state = 1, msg = db.Queryable<XF_SY_NAN_CodeSize>().Where(it => it.Size_Code == Code.ObjToString()).ToList() }, JsonRequestBehavior.AllowGet);
-
-
-                        case "XF_SY_NU":
  
+                        case "XF_SY_NU":
+
                             return Json(new { state = 1, msg = db.Queryable<XF_SY_NU_CodeSize>().Where(it => it.Size_Code == Code.ObjToString()).ToList() }, JsonRequestBehavior.AllowGet);
-                 
+
+                        case "XF_KZ_NAN":
+                        case "XF_KZ_NU":
+
+                            return Json(new { state = 1, msg = db.Queryable<XF_KZ_CodeSize>().Where(it => it.Size_Code == Code.ObjToString()).ToList() }, JsonRequestBehavior.AllowGet);
                         default:
                             throw new Exception("系统出错：没有对应的Action");
-                            
+
                     }
 
-                  
+
                 }
                 catch (Exception ex)
                 {
                     return Json(new { state = 1, msg = ex.Message }, JsonRequestBehavior.AllowGet);
                 }
 
-          
- 
+
+
         }
 
 
         //尺码表编号下拉
         public JsonResult SizeCodeSelect(string Action)
         {
-            using (var db=SugarDao.GetInstance())
+            using (var db = SugarDao.GetInstance())
                 try
                 {
 
@@ -566,7 +780,7 @@ namespace JuCheap.Web.Areas.Adm.Controllers
                             throw new Exception("系统出错：没有对应的Action");
 
                     }
- 
+
 
 
                 }

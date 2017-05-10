@@ -4,7 +4,28 @@
     Layout = "~/Areas/Adm/Views/Shared/_Layout_Body.cshtml";
 }
 
- 
+<style>
+    table-head {
+        padding-right: 17px;
+        background-color: #999;
+        color: #000;
+    }
+
+    table-body {
+        width: 100%;
+        height: 300px;
+        overflow-y: scroll;
+    }
+
+    table-head table, .table-body table {
+        width: 100%;
+    }
+
+    table-body table tr:nth-child(2n+1) {
+        background-color: #f2f2f2;
+    }
+</style>
+
 <script src="~/Template/Admin/jucheap/js/jquery-1.11.1.min.js"></script>
 
 
@@ -22,23 +43,21 @@
             </div>
             <div class="form-group">
                 <label for="name">尺码表适用类型</label>
-                <select class="form-control" name="size_type"  onchange="loadSelect()">
+                <select class="form-control" name="size_type" onchange="loadSelect()">
                     <option value="SY">上衣</option>
                     <option value="KZ">裤子</option>
                 </select>
             </div>
             <div class="form-group">
                 <label for="name">尺码表适用性别</label>
-                <select class="form-control" name="size_gender"  onchange="loadSelect()">
+                <select class="form-control" name="size_gender" onchange="loadSelect()">
                     <option value="NAN">男</option>
                     <option value="NU">女</option>
                 </select>
             </div>
             <div class="form-group">
                 <label for="name">选择尺码表</label>
-                <select class="form-control" name="size_code">
-                     
-                </select>
+                <select class="form-control" name="size_code"></select>
             </div>
 
             <br>
@@ -50,7 +69,7 @@
             <input type="file" name="up_file" style="display:none" />
         </div>
 
- 
+
     </div>
 
 
@@ -72,25 +91,31 @@
                 <div class="x_panel">
                     <div class="x_title">
 
-                        <div class="clearfix"></div>
+                        <div class="clearfix">
+                
+
+
+                        </div>
                     </div>
                     <div class="x_content">
                         <div class="table-responsive" style="height: 400px; overflow: auto" id="scroll-1">
                             <form action="/Adm/Size/UpdateCode" method="post" enctype="multipart/form-data" id="updateID">
                                 <input type="hidden" name="Action" />
+
                                 <table class="table table-striped custom-table table-hover" id="manageList">
                                     <thead>
 
                                     </thead>
                                     <tbody id="code_list"></tbody>
                                 </table>
+
                             </form>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal" onclick="save()">
+                <button type="button" class="btn btn-default"  >
                     保存
                 </button>
                 <button type="button" class="btn btn-default" data-dismiss="modal">
@@ -105,82 +130,208 @@
 <!-- /.modal -->
 
 
+<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" style="width: 70%">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <h4 class="modal-title" id="myModalLabel">
+                    检视
+                </h4>
+            </div>
+            <div class="modal-body">
+                <div class="x_panel">
+                    <div class="x_title">
+
+                        <div class="clearfix">
+
+
+
+                        </div>
+                    </div>
+                    <div class="x_content">
+                        <div class="table-responsive" style="height: 400px; overflow: auto" id="scroll-1">
+ 
+                                <section class="panel">
+                                    <header class="panel-heading">
+                                        添加单条尺码
+                                    </header>
+                                    <div class="panel-body">
+                                        <div class="form">
+                                            <form class="cmxform form-horizontal tasi-form" id="signupForm" method="get" action="/Adm/Size/UpdateCode" novalidate="novalidate">
+                                                <input type="hidden" name="Action" />
+                                                  <div class="form-group ">
+                                                    <label for="firstname" class="control-label col-lg-2">Firstname *</label>
+                                                    <div class="col-lg-10">
+                                                        <input class=" form-control" id="firstname" name="firstname" type="text">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group ">
+                                                    <label for="lastname" class="control-label col-lg-2">Lastname  *</label>
+                                                    <div class="col-lg-10">
+                                                        <input class=" form-control" id="lastname" name="lastname" type="text">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group ">
+                                                    <label for="username" class="control-label col-lg-2">Username *</label>
+                                                    <div class="col-lg-10">
+                                                        <input class="form-control " id="username" name="username" type="text">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group ">
+                                                    <label for="password" class="control-label col-lg-2">Password *</label>
+                                                    <div class="col-lg-10">
+                                                        <input class="form-control " id="password" name="password" type="password">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group ">
+                                                    <label for="confirm_password" class="control-label col-lg-2">Confirm Password *</label>
+                                                    <div class="col-lg-10">
+                                                        <input class="form-control " id="confirm_password" name="confirm_password" type="password">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group ">
+                                                    <label for="email" class="control-label col-lg-2">Email *</label>
+                                                    <div class="col-lg-10">
+                                                        <input class="form-control " id="email" name="email" type="email">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group ">
+                                                    <label for="agree" class="control-label m-t-less-6 col-lg-2 col-sm-3">Agree to Our Policy *</label>
+                                                    <div class="col-lg-10 col-sm-9 chk-fv">
+                                                        <div class="icheckbox_minimal" style="position: relative;"><input type="checkbox" style="width: 140%; position: absolute; top: -20%; left: -20%; display: block; height: 140%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;" class="checkbox form-control iCheck" id="agree" name="agree"><ins class="iCheck-helper" style="position: absolute; top: -20%; left: -20%; display: block; width: 140%; height: 140%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group ">
+                                                    <label for="newsletter" class="control-label m-t-less-6 col-lg-2 col-sm-3">Receive the Newsletter</label>
+                                                    <div class="col-lg-10 col-sm-9 chk-fv">
+                                                        <div class="icheckbox_minimal" style="position: relative;"><input type="checkbox" style="width: 140%; position: absolute; top: -20%; left: -20%; display: block; height: 140%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;" class="checkbox form-control iCheck" id="newsletter" name="newsletter"><ins class="iCheck-helper" style="position: absolute; top: -20%; left: -20%; display: block; width: 140%; height: 140%; margin: 0px; padding: 0px; background: rgb(255, 255, 255); border: 0px; opacity: 0;"></ins></div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <div class="col-lg-offset-2 col-lg-10">
+                                                        <button class="btn btn-success" type="submit">Save</button>
+                                                        <button class="btn btn-default" type="button">Cancel</button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </section>
+ 
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">
+                    保存
+                </button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">
+                    取消
+                </button>
+
+            </div>
+        </div>
+    </div>
+    <!-- /.modal-content -->
+</div>
+<!-- /.modal -->
+
 
 <script>
     $(function () {
         loadSelect();
     })
-        function  load() {
-            var action = $("select[name='size_banxing']").val() + "_" + $("select[name='size_type']").val() + "_" + $("select[name='size_gender']").val();
-            $.post("/Adm/Size/Manage", { Code: $("select[name='size_code']").val(),  Action: action }, function (result) {
-                if (result.state == 1) {
-                    switch (action) {
-                        case "XF_SY_NAN":
-                            thead = XF_SY_NAN_thead
-                            break;
-                        case "XF_SY_NU":
-                            thead = XF_SY_NU_thead
-                            break;
-                    }
-
-                    var data = result.msg;
-                    var th_html = "";
-                    for (var i = 0; i < thead.length; i++) {
-                        th_html += '<th class="hidden-xs">' + thead[i].split("/")[0] + ' </th>';
-                    }
-                    $("#manageList thead th").remove();
-                    $("#manageList thead").append(th_html)
-                    var html = "";
-                    for (var i = 0; i < data.length; i++) {
-                        html += "<tr class='even pointer insert_excel_list' >"
- 
-                        for (var a = 0; a < thead.length; a++) {
-
-                            var txt = data[i][thead[a].split("/")[1]];
-
-                            html += "<td style='padding:2px 0px'> "+ txt + "</td>";
-                        }
-
-                        html += "</tr>";
-                    }
-                    $("#manageList tbody tr").remove();
-                    $("#manageList tbody").append(html)
-                    $("#manageList").append();
-                    show_dig();
-                } else {
-                    alert(result.msg)
+    function load() {
+        var action = $("select[name='size_banxing']").val() + "_" + $("select[name='size_type']").val() + "_" + $("select[name='size_gender']").val();
+        $.post("/Adm/Size/Manage", { Code: $("select[name='size_code']").val(), Action: action }, function (result) {
+            if (result.state == 1) {
+                switch (action) {
+                    case "XF_SY_NAN":
+                        thead = XF_SY_NAN_thead
+                        break;
+                    case "XF_SY_NU":
+                        thead = XF_SY_NU_thead
+                        break;
                 }
 
-            })
+                var data = result.msg;
+                var th_html = "";
+  
+                for (var i = 0; i < thead.length; i++) {
+                    th_html += '<th class="hidden-xs">' + thead[i].split("/")[0] + ' </th>';
+                }
+                $("#manageList thead th").remove();
+                $("#manageList thead").append(th_html)
+                var html = "";
+                for (var i = 0; i < data.length; i++) {
+                    html += "<tr class='even pointer insert_excel_list' >"
+                    html += "<input name='ID' type='hidden' value='" + data[i]["ID"] + "'   />";
+                    for (var a = 0; a < thead.length; a++) {
 
- 
-        }
+                        var txt = data[i][thead[a].split("/")[1]];
 
-        function loadSelect() {
-            var action = $("select[name='size_banxing']").val() + "_" + $("select[name='size_type']").val() + "_" + $("select[name='size_gender']").val();
-            $.post("/Adm/Size/SizeCodeSelect", { Code: $("select[name='size_code']").val(), Action: action }, function (result) {
-                if (result.state == 1) {
- 
-                    var data = result.msg;
- 
-                    var html = "";
-                    alert(JSON.stringify(data))
-                    $("select[name='size_code'] option").remove();
-                    for (var i = 0; i < data.length; i++) {
-                        html += "<option value='" + data[i]["Size_Code"] + "'>" + data[i]["Size_Code"] + "</option>"
+                        html += "<td style='padding:2px 0px'><input style='border:0px;width:105px' type='text' name='" + thead[a].split("/")[1] + "' value='" + txt + "'/></td>";
                     }
-           
-                    $("select[name='size_code']").append(html);
-                } else {
-                    alert(result.msg)
+
+                    html += "</tr>";
+                }
+                $("#manageList tbody tr").remove();
+                $("#manageList tbody").append(html)
+                show_dig();
+ 
+            } else {
+                alert(result.msg)
+            }
+
+        })
+
+
+    }
+
+    function loadSelect() {
+        var action = $("select[name='size_banxing']").val() + "_" + $("select[name='size_type']").val() + "_" + $("select[name='size_gender']").val();
+        $.post("/Adm/Size/SizeCodeSelect", { Code: $("select[name='size_code']").val(), Action: action }, function (result) {
+            if (result.state == 1) {
+
+                var data = result.msg;
+
+                var html = "";
+
+                $("select[name='size_code'] option").remove();
+                for (var i = 0; i < data.length; i++) {
+                    html += "<option value='" + data[i]["Size_Code"] + "'>" + data[i]["Size_Code"] + "</option>"
                 }
 
-            })
+                $("select[name='size_code']").append(html);
+            } else {
+                alert(result.msg)
+            }
+
+        })
 
 
-        }
+    }
 
 
- 
+    function showEdit() {
+
+        $("#editModal").modal('show');
+        $('#myModal').modal({
+            keyboard: true
+        })
+    }
+
+    //隐藏弹出框
+    function hideEdit() {
+
+        $("#editModal").modal('hide');
+
+    }
+
 
 </script>

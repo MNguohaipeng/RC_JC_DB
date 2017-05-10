@@ -64,7 +64,7 @@ namespace JuCheap.Service
 							if (gender == "男")
 							{
 
-								XF_SY_NAN_CodeSize cs = new XF_SY_NAN_CodeSize();
+								 Entity.XF_SY_NAN_CodeSize cs = new Entity.XF_SY_NAN_CodeSize();
 
 								cs.Height = Convert.ToDecimal(table.Rows[i]["Height"]);
 
@@ -83,8 +83,7 @@ namespace JuCheap.Service
 								cs.ShoulderWidth = Convert.ToDecimal(table.Rows[i]["ShoulderWidth"]);
 
 								cs.Size_Code = size_code;
-
-								cs.Height = Convert.ToDecimal(table.Rows[i]["Height"]);
+ 
 
                                 cs.Sleecve_Show = table.Rows[i]["FK_Sleeve_ID"] + "";
 
@@ -94,14 +93,16 @@ namespace JuCheap.Service
 
                                 cs.Status = 1;
 
-								ruid = db.Insert(cs, true);
+                                cs.RowData = table.Rows[i]["Height"] + "-" + table.Rows[i]["FrontLength"] + "-" + table.Rows[i]["NetBust"] + "-" + table.Rows[i]["FinishedBust"] + "-" + table.Rows[i]["InWaist"] + "-" + table.Rows[i]["FinishedHem_NoFork"] + "-" + table.Rows[i]["FinishedHem_SplitEnds"] + "-" + table.Rows[i]["ShoulderWidth"]+"-"+ table.Rows[i]["FK_Sleeve_ID"];
+
+                                ruid = db.Insert(cs, true);
 
 							}
 							else
 							{
 
 
-								XF_SY_NU_CodeSize cs = new XF_SY_NU_CodeSize();
+                                Entity.XF_SY_NU_CodeSize cs = new Entity.XF_SY_NU_CodeSize();
 
 								cs.Height = Convert.ToDecimal(table.Rows[i]["Height"]);
 
@@ -129,7 +130,10 @@ namespace JuCheap.Service
 
                                 cs.Status = 1;
 
+                                cs.RowData = table.Rows[i]["Height"] + "-" + table.Rows[i]["FrontLength"] + "-" + table.Rows[i]["NetBust"] + "-" + table.Rows[i]["FinishedBust"] + "-" + table.Rows[i]["InWaist"] + "-" + table.Rows[i]["FinishedHem_NoFork"] + "-" + table.Rows[i]["SleeveWidth"] + "-" + table.Rows[i]["ShoulderWidth"]+"-"+ table.Rows[i]["FK_Sleeve_ID"];
+
                                 ruid = db.Insert(cs, true);
+
 							}
 
 
@@ -199,7 +203,7 @@ namespace JuCheap.Service
 			using (var db = SugarDao.GetInstance())
 				try
 				{
-					List<TrousersSize> tszie_list = new List<TrousersSize>();
+					List<Entity.XF_KZ_CodeSize> tszie_list = new List<Entity.XF_KZ_CodeSize>();
 
 					for (int i = 0; i < table.Rows.Count; i++)
 					{
@@ -208,7 +212,6 @@ namespace JuCheap.Service
 						row.BeginEdit();
 						for (int a = 0; a < table.Columns.Count; a++)
 						{
-
 
 							if (row[a].ToString().IndexOf("....") > 0)
 							{
@@ -240,7 +243,7 @@ namespace JuCheap.Service
 
 
 
-						TrousersSize tszie = new TrousersSize();
+						Entity.XF_KZ_CodeSize tszie = new Entity.XF_KZ_CodeSize();
 						foreach (DataRow item in table.Rows)
 						{
 
@@ -308,10 +311,10 @@ namespace JuCheap.Service
 							tszie.LongPants = item["LongPants"].ToString();
 							tszie.NetWaist = item["NetWaist"].ToString();
 							tszie.Size_Code = Size_Code;
-
-
-
-						}
+                            tszie.CreateDateTime = DateTime.Now;
+                            tszie.Status = 1;
+                            tszie.RowData = item["Code"] + "-" + item["DZ_HipLength_CP"] + "" + item["SZ_HipLength_CP"] + "-" + item["Crosspiece"] + "-" + item["LegWidth_UnderTheWaves"] + "-" + item["FrontRise_EvenWaist"] + "-" + item["AfterTheWaves_EvenWaist"] + "-" + item["NetHip"] + "-" + item["CP_WaistWidth"] + "-" + item["CP_WaistWidth"] + "-" + item["Height"] + "-" + item["LongPants"] + "-" + item["NetWaist"] + "-" + Size_Code;
+                        }
 						tszie_list.Add(tszie);
 
 						#endregion

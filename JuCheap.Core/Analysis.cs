@@ -36,7 +36,7 @@ namespace JuCheap.Core
 				Common.UpLoadFile(files[0], "File" + DateTime.Now.ToString("sshhffffff") + ".xls", "~/Data", out url, out errmsg);
 
 
-				DataTable table = ExcelHelper.InputFromExcel(HttpContext.Current.Server.MapPath(url), "原计划");
+				DataTable table = ExcelHelper.InputFromExcel(HttpContext.Current.Server.MapPath(url), "Sheet1");
 
 
 
@@ -544,8 +544,8 @@ namespace JuCheap.Core
 
 		}
 
-		//解析西服裤子尺码
-		public static DataTable Excel_trousrs_Code(HttpFileCollectionBase files)
+		//解析西服裤子尺码(男)
+		public static DataTable Excel_trousrs_NAN(HttpFileCollectionBase files)
 		{
 			DataTable execltable = new DataTable();
 			try
@@ -716,5 +716,177 @@ namespace JuCheap.Core
 
 		}
 
-	}
+        //解析西服裤子尺码(女)
+        public static DataTable Excel_trousrs_NU(HttpFileCollectionBase files)
+        {
+            DataTable execltable = new DataTable();
+            try
+            {
+
+
+                string url;
+                string errmsg;
+
+
+                Common.UpLoadFile(files[0], "File" + DateTime.Now.ToString("sshhffffff") + ".xls", "~/Data", out url, out errmsg);
+
+
+                DataTable execl_table = ExcelHelper.InputFromExcel(HttpContext.Current.Server.MapPath(url), "sheet1");
+
+
+                #region 创建最终table
+                execltable = new DataTable();
+                execltable.Columns.Add("Code");
+                execltable.Columns.Add("DZ_HipLength_CP");
+                execltable.Columns.Add("SZ_HipLength_CP");
+                execltable.Columns.Add("Crosspiece");
+                execltable.Columns.Add("LegWidth_UnderTheWaves");
+                execltable.Columns.Add("FrontRise_EvenWaist");
+                execltable.Columns.Add("AfterTheWaves_EvenWaist");
+                execltable.Columns.Add("NetHip");
+                execltable.Columns.Add("CP_WaistWidth");
+                execltable.Columns.Add("Height");
+                execltable.Columns.Add("LongPants");
+                execltable.Columns.Add("NetWaist");
+
+                #endregion
+
+                #region 处理数据
+
+                int[] del_index = new int[execl_table.Rows.Count];
+                for (int i = 0; i < execl_table.Rows.Count; i++)
+                {
+                    if (Common.IsChinses(execl_table.Rows[i][0].ToString().Trim()))
+                    {
+                        string title = execl_table.Rows[i][0].ToString().Trim().Replace(" ", "");
+                        if (title != "代号")
+                        {
+                            del_index[i] = i;
+                            continue;
+                        }
+                    }
+
+ 
+                    if (string.IsNullOrEmpty(execl_table.Rows[i]["F3"].ToString()))
+                    {
+                        del_index[i] = i;
+
+                    }
+                    else
+                    {
+
+                        double jyw;
+                        if (double.TryParse(execl_table.Rows[i][0] + "", out jyw))
+                        {
+                            execl_table.Rows[i][0] += "~" + (jyw + 2);
+                        }
+                        double cpyw;
+                        if (double.TryParse(execl_table.Rows[i]["F2"] + "", out cpyw))
+                        {
+                            execl_table.Rows[i]["F2"] += "~" + (cpyw + 2);
+                        }
+                    }
+
+
+                }
+
+                int del_count = 0;
+                for (int i = 0; i < del_index.Length; i++)
+                {
+                    if (del_index[i] != 0)
+                    {
+                        execl_table.Rows.RemoveAt(del_index[i] - del_count);
+                        del_count++;
+                    }
+                }
+                execl_table.Rows.RemoveAt(0);
+
+
+
+
+
+                #endregion
+
+                #region 填充数据
+                string[] code = new string[4];
+                for (int i = 0; i < execl_table.Rows.Count; i++)
+                {
+                    if (Common.IsEnglish_Length_One(execl_table.Rows[i]["F3"].ToString()))
+                        code[0] = execl_table.Rows[i]["F3"].ToString();
+                    if (Common.IsEnglish_Length_One(execl_table.Rows[i]["F10"].ToString()))
+                        code[1] = execl_table.Rows[i]["F10"].ToString();
+                    if (Common.IsEnglish_Length_One(execl_table.Rows[i]["F17"].ToString()))
+                        code[2] = execl_table.Rows[i]["F17"].ToString();
+                    if (Common.IsEnglish_Length_One(execl_table.Rows[i]["F24"].ToString()))
+                        code[3] = execl_table.Rows[i]["F24"].ToString();
+
+                    if (Common.IsChinses(execl_table.Rows[i][0].ToString()))
+                        continue;
+
+                    DataRow row0 = execltable.NewRow();
+                    row0["Code"] = code[0];
+                    row0["NetWaist"] = execl_table.Rows[i][0];
+                    row0["CP_WaistWidth"] = execl_table.Rows[i][1];
+                    row0["NetHip"] = execl_table.Rows[i][2];
+                    row0["DZ_HipLength_CP"] = execl_table.Rows[i][3];
+                    row0["SZ_HipLength_CP"] = execl_table.Rows[i][4];
+                    row0["Crosspiece"] = execl_table.Rows[i][5];
+                    row0["LegWidth_UnderTheWaves"] = execl_table.Rows[i][6];
+                    row0["FrontRise_EvenWaist"] = execl_table.Rows[i][7];
+                    row0["AfterTheWaves_EvenWaist"] = execl_table.Rows[i][8];
+                    execltable.Rows.Add(row0);
+                    DataRow row1 = execltable.NewRow();
+                    row1["Code"] = code[1];
+                    row1["NetWaist"] = execl_table.Rows[i][0];
+                    row1["CP_WaistWidth"] = execl_table.Rows[i][1];
+                    row1["NetHip"] = execl_table.Rows[i][9];
+                    row1["DZ_HipLength_CP"] = execl_table.Rows[i][10];
+                    row1["SZ_HipLength_CP"] = execl_table.Rows[i][11];
+                    row1["Crosspiece"] = execl_table.Rows[i][12];
+                    row1["LegWidth_UnderTheWaves"] = execl_table.Rows[i][13];
+                    row1["FrontRise_EvenWaist"] = execl_table.Rows[i][14];
+                    row1["AfterTheWaves_EvenWaist"] = execl_table.Rows[i][15];
+                    execltable.Rows.Add(row1);
+                    DataRow row2 = execltable.NewRow();
+                    row2["Code"] = code[2];
+                    row2["NetWaist"] = execl_table.Rows[i][0];
+                    row2["CP_WaistWidth"] = execl_table.Rows[i][1];
+                    row2["NetHip"] = execl_table.Rows[i][16];
+                    row2["DZ_HipLength_CP"] = execl_table.Rows[i][17];
+                    row2["SZ_HipLength_CP"] = execl_table.Rows[i][18];
+                    row2["Crosspiece"] = execl_table.Rows[i][19];
+                    row2["LegWidth_UnderTheWaves"] = execl_table.Rows[i][20];
+                    row2["FrontRise_EvenWaist"] = execl_table.Rows[i][21];
+                    row2["AfterTheWaves_EvenWaist"] = execl_table.Rows[i][22];
+                    execltable.Rows.Add(row2);
+                    DataRow row3 = execltable.NewRow();
+                    row3["Code"] = code[3];
+                    row3["NetWaist"] = execl_table.Rows[i][0];
+                    row3["CP_WaistWidth"] = execl_table.Rows[i][1];
+                    row3["NetHip"] = execl_table.Rows[i][23];
+                    row3["DZ_HipLength_CP"] = execl_table.Rows[i][24];
+                    row3["SZ_HipLength_CP"] = execl_table.Rows[i][25];
+                    row3["Crosspiece"] = execl_table.Rows[i][26];
+                    row3["LegWidth_UnderTheWaves"] = execl_table.Rows[i][27];
+                    row3["FrontRise_EvenWaist"] = execl_table.Rows[i][28];
+                    row3["AfterTheWaves_EvenWaist"] = execl_table.Rows[i][29];
+                    execltable.Rows.Add(row3);
+                }
+
+                #endregion
+
+                return execltable;
+
+            }
+            catch (Exception ex)
+            {
+                return null;
+
+            }
+
+
+
+        }
+
+    }
 }
