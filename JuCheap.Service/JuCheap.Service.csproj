@@ -75,11 +75,18 @@
     <Compile Include="Abstracts\AutoMapperConfiguration.Partial.cs">
       <DependentUpon>IService.tt</DependentUpon>
     </Compile>
+    <Compile Include="Abstracts\Cs_dataService.Partial.cs">
+      <DependentUpon>IService.tt</DependentUpon>
+    </Compile>
     <Compile Include="Abstracts\EmailPoolService.cs" />
     <Compile Include="Abstracts\EmailPoolService.Partial.cs">
       <DependentUpon>IService.tt</DependentUpon>
     </Compile>
     <Compile Include="Abstracts\EmailReceiverService.Partial.cs">
+      <DependentUpon>IService.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Abstracts\ICS_data.cs" />
+    <Compile Include="Abstracts\ICs_dataService.Partial.cs">
       <DependentUpon>IService.tt</DependentUpon>
     </Compile>
     <Compile Include="Abstracts\IEmailPoolService.cs" />
@@ -111,6 +118,9 @@
     <Compile Include="Abstracts\IUserService.Partial.cs">
       <DependentUpon>IService.tt</DependentUpon>
     </Compile>
+    <Compile Include="Abstracts\IXF_SY_NAN_CodeSizeService.Partial.cs">
+      <DependentUpon>IService.tt</DependentUpon>
+    </Compile>
     <Compile Include="Abstracts\LoginLogService.Partial.cs">
       <DependentUpon>IService.tt</DependentUpon>
     </Compile>
@@ -134,11 +144,15 @@
     <Compile Include="Abstracts\UserService.Partial.cs">
       <DependentUpon>IService.tt</DependentUpon>
     </Compile>
+    <Compile Include="Abstracts\XF_SY_NAN_CodeSizeService.Partial.cs">
+      <DependentUpon>IService.tt</DependentUpon>
+    </Compile>
     <Compile Include="AutoMapperConfiguration.cs" />
+    <Compile Include="Dto\XF_SY_NAN_CodeSizeDto.cs" />
     <Compile Include="Dto\CoatSize.cs" />
     <Compile Include="Config\EmailConfiguration.cs" />
     <Compile Include="Dto\BaseDto.cs" />
-    <Compile Include="Dto\Cs_data.cs" />
+    <Compile Include="Dto\Cs_dataDto.cs" />
     <Compile Include="Dto\Dictionaries.cs" />
     <Compile Include="Dto\EmailPoolDto.cs" />
     <Compile Include="Dto\EmailReceiverDto.cs" />

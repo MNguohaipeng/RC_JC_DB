@@ -31,10 +31,10 @@ namespace JuCheap.Service
         public static void ConfigExt()
         {
             Mapper.CreateMap<UserDto, UserEntity>()
-                .ForMember(u => u.Status, e => e.MapFrom(s => (byte) s.Status));
+                .ForMember(u => u.Status, e => e.MapFrom(s => (byte)s.Status));
 
             Mapper.CreateMap<UserEntity, UserDto>()
-                .ForMember(u => u.Status, e => e.MapFrom(s => (UserStatus) s.Status));
+                .ForMember(u => u.Status, e => e.MapFrom(s => (UserStatus)s.Status));
 
             Mapper.CreateMap<MenuDto, MenuEntity>()
                 .ForMember(u => u.Type, e => e.MapFrom(s => (byte)s.Type));
@@ -43,10 +43,10 @@ namespace JuCheap.Service
                 .ForMember(u => u.Type, e => e.MapFrom(s => (MenuType)s.Type));
 
             Mapper.CreateMap<EmailPoolDto, EmailPoolEntity>()
-                .ForMember(u => u.Status, e => e.MapFrom(s => (byte) s.Status));
+                .ForMember(u => u.Status, e => e.MapFrom(s => (byte)s.Status));
 
             Mapper.CreateMap<EmailPoolEntity, EmailPoolDto>()
-                .ForMember(u => u.Status, e => e.MapFrom(s => (EmailStatus) s.Status))
+                .ForMember(u => u.Status, e => e.MapFrom(s => (EmailStatus)s.Status))
                 .ForMember(u => u.Receivers, e => e.MapFrom(s => s.Receivers.ToList()));
 
             Mapper.CreateMap<EmailReceiverDto, EmailReceiverEntity>()
@@ -54,6 +54,8 @@ namespace JuCheap.Service
 
             Mapper.CreateMap<EmailReceiverEntity, EmailReceiverDto>()
                 .ForMember(u => u.Type, e => e.MapFrom(s => (EmailReceiverType)s.Type));
+
+
         }
     }
 }

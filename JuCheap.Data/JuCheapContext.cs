@@ -60,6 +60,7 @@ namespace JuCheap.Data
             modelBuilder.Configurations.Add(new PageViewConfig());
             modelBuilder.Configurations.Add(new EmailPoolConfig());
             modelBuilder.Configurations.Add(new EmailReceiverConfig());
+            modelBuilder.Configurations.Add(new Cs_dataConfig());
         }
         ///// <summary>
         ///// 重写SaveChanges方法，增加ID自动生成

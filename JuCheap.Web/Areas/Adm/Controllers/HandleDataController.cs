@@ -1,56 +1,65 @@
-﻿using JuCheap.Core;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
+using System.Linq.Expressions;
 using System.Web.Mvc;
-using SqlSugar;
-using System.Data.SqlClient;
+using JuCheap.Core.Extentions;
+using JuCheap.Service.Abstracts;
+using JuCheap.Service.Dto;
+using JuCheap.Service.Enum;
 
 namespace JuCheap.Web.Areas.Adm.Controllers
 {
-    public class HandleDataController : Controller
+    public class HandleDataController:AdmBaseController
     {
+        public ICs_dataService Cs_dataService { get; set; }
+
+        public IXF_SY_NAN_CodeSizeService IXF_SY_NAN_CodeSizeService { get; set; }
+
         // GET: Adm/HandleData
-        public ActionResult Handle()
+        public ActionResult Handle(int moudleId, int menuId, int btnId)
         {
-            List<Service.RecodeHdata> list = new List<Service.RecodeHdata>();
-            using (var db = SugarDao.GetInstance())
-                try
-                {
-                    var table = db.GetList<Service.Cs_data>("select * from cs_data");
-
-                    foreach (var item in table)
-                    {
-                        Service.RecodeHdata rh = new Service.RecodeHdata();
-
-                        SqlDataReader read = db.GetReader("select *, (select Length from Sleeve where FK_CoatSize_ID=list.id and Code='S') as Sleecve_Show from (select * from XF_SY_NU_CodeSize where Height = '" + item.ReCodeSize.Split('/')[0] + "' and FrontLength = '" + item.ReCodeSize.Split('/')[1] + "' and Size_Code = 'CS-2015-5-4') as list");
-
-
-                        if (read.Read())
-                        {
-                            rh.Yichang = Convert.ToDecimal(read["FrontLength"]);
-                            list.Add(rh);
-                        }
-
-                    }
-                }
-                catch (Exception)
-                {
-
-                    throw;
-                }
-
-
-            return View(list);
+            return View();
         }
 
         [HttpPost]
         public ActionResult Handle(string Size_Code)
         {
 
+            var data = Cs_dataService.Query(q => 1 == 1, s=>s.Id, false);
+            foreach (var item in data)
+            {
+                decimal a01 = Convert.ToDecimal(item.ReCodeSize.Split('/')[0]);
+                string a02 = item.ReCodeSize.Split('/')[1];
+               XF_SY_NAN_CodeSizeDto dto= IXF_SY_NAN_CodeSizeService.GetOne(T => T.Height == a01 );
+            }
+
             return View();
         }
+
+
+        #region Ajax
+
+        public JsonResult GetList(int moudleId, int menuId, int btnId)
+        {
+            var queryBase = new QueryBase
+            {
+                Start = Request["start"].ToInt(),
+                Length = Request["length"].ToInt(),
+                Draw = Request["draw"].ToInt(),
+                SearchKey = Request["keywords"]
+            };
+            string xxxx = Request["orderBy"];
+
+            Expression<Func<Cs_dataDto, bool>> exp = item => !item.IsDeleted;
+            if (!queryBase.SearchKey.IsBlank())
+                exp = exp.And(item => item.Name.Contains(queryBase.SearchKey));
+
+            var dto = Cs_dataService.GetWithPages(queryBase, exp, Request["orderBy"], Request["orderDir"]);
+            return Json(dto, JsonRequestBehavior.AllowGet);
+        }
+
+        #endregion
 
     }
 }

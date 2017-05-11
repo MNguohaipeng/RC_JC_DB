@@ -203,7 +203,7 @@ namespace JuCheap.Service
 			using (var db = SugarDao.GetInstance())
 				try
 				{
-					List<Entity.XF_KZ_CodeSize> tszie_list = new List<Entity.XF_KZ_CodeSize>();
+					List<Entity.XF_KZ_CodeSizeEntity> tszie_list = new List<Entity.XF_KZ_CodeSizeEntity>();
 
 					for (int i = 0; i < table.Rows.Count; i++)
 					{
@@ -243,7 +243,7 @@ namespace JuCheap.Service
 
 
 
-						Entity.XF_KZ_CodeSize tszie = new Entity.XF_KZ_CodeSize();
+						Entity.XF_KZ_CodeSizeEntity tszie = new Entity.XF_KZ_CodeSizeEntity();
 						foreach (DataRow item in table.Rows)
 						{
 

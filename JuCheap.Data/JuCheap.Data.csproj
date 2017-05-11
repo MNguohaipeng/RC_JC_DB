@@ -63,7 +63,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Config\XF_SY_NAN_CodeSizeConfig.cs" />
     <Compile Include="Config\Configuration.cs" />
+    <Compile Include="Config\Cs_dataConfig.cs" />
     <Compile Include="Config\EmailPoolConfig.cs" />
     <Compile Include="Config\EmailReceiverConfig.cs" />
     <Compile Include="Config\MenuConfig.cs" />

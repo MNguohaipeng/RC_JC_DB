@@ -1,5 +1,6 @@
 
 
+
 /*******************************************************************************
 * Copyright (C)  JuCheap.Com
 * 
@@ -28,24 +29,43 @@ namespace JuCheap.Service
         /// </summary>
         public static void Config()
         {
+
+			Mapper.CreateMap<Cs_dataEntity, Cs_dataDto>();
+			Mapper.CreateMap<Cs_dataDto, Cs_dataEntity>();
+
 			Mapper.CreateMap<EmailPoolEntity, EmailPoolDto>();
 			Mapper.CreateMap<EmailPoolDto, EmailPoolEntity>();
+
 			Mapper.CreateMap<EmailReceiverEntity, EmailReceiverDto>();
 			Mapper.CreateMap<EmailReceiverDto, EmailReceiverEntity>();
+
 			Mapper.CreateMap<LoginLogEntity, LoginLogDto>();
 			Mapper.CreateMap<LoginLogDto, LoginLogEntity>();
+
 			Mapper.CreateMap<MenuEntity, MenuDto>();
 			Mapper.CreateMap<MenuDto, MenuEntity>();
+
 			Mapper.CreateMap<PageViewEntity, PageViewDto>();
 			Mapper.CreateMap<PageViewDto, PageViewEntity>();
+
 			Mapper.CreateMap<RoleEntity, RoleDto>();
 			Mapper.CreateMap<RoleDto, RoleEntity>();
+
 			Mapper.CreateMap<RoleMenuEntity, RoleMenuDto>();
 			Mapper.CreateMap<RoleMenuDto, RoleMenuEntity>();
+
 			Mapper.CreateMap<UserEntity, UserDto>();
 			Mapper.CreateMap<UserDto, UserEntity>();
+
 			Mapper.CreateMap<UserRoleEntity, UserRoleDto>();
 			Mapper.CreateMap<UserRoleDto, UserRoleEntity>();
+
+ 
+			Mapper.CreateMap<XF_SY_NAN_CodeSizeEntity, XF_SY_NAN_CodeSizeDto>();
+			Mapper.CreateMap<XF_SY_NAN_CodeSizeDto, XF_SY_NAN_CodeSizeEntity>();
+
+ 
+
         }
     }
 }

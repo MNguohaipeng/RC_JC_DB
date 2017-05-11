@@ -20,86 +20,86 @@ using JuCheap.Service.Dto;
 namespace JuCheap.Service.Abstracts
 { 
 	/// <summary>
-    /// LoginLog业务契约
+    /// XF_SY_NAN_CodeSize业务契约
     /// </summary>
-    public partial interface ILoginLogService
+    public partial interface IXF_SY_NAN_CodeSizeService
     {
 		/// <summary>
-		/// 添加loginlog
+		/// 添加xf_sy_nan_codesize
 		/// </summary>
-		/// <param name="loginlog">loginlog实体</param>
+		/// <param name="xf_sy_nan_codesize">xf_sy_nan_codesize实体</param>
 		/// <returns></returns>
-		bool Add(LoginLogDto loginlog);
+		bool Add(XF_SY_NAN_CodeSizeDto xf_sy_nan_codesize);
 
 		/// <summary>
-        /// 批量添加loginlog
+        /// 批量添加xf_sy_nan_codesize
         /// </summary>
-        /// <param name="models">loginlog集合</param>
+        /// <param name="models">xf_sy_nan_codesize集合</param>
         /// <returns></returns>
-        bool Add(List<LoginLogDto> models);
+        bool Add(List<XF_SY_NAN_CodeSizeDto> models);
 
 		/// <summary>
-		/// 编辑loginlog
+		/// 编辑xf_sy_nan_codesize
 		/// </summary>
-		/// <param name="loginlog">实体</param>
+		/// <param name="xf_sy_nan_codesize">实体</param>
 		/// <returns></returns>
-		bool Update(LoginLogDto loginlog);
+		bool Update(XF_SY_NAN_CodeSizeDto xf_sy_nan_codesize);
 
 		/// <summary>
-		/// 批量更新loginlog
+		/// 批量更新xf_sy_nan_codesize
 		/// </summary>
-		/// <param name="loginlogs">loginlog实体集合</param>
+		/// <param name="xf_sy_nan_codesizes">xf_sy_nan_codesize实体集合</param>
 		/// <returns></returns>
-		bool Update(IEnumerable<LoginLogDto> loginlogs);
+		bool Update(IEnumerable<XF_SY_NAN_CodeSizeDto> xf_sy_nan_codesizes);
 
 		/// <summary>
-		/// 删除loginlog
+		/// 删除xf_sy_nan_codesize
 		/// </summary>
 		/// <param name="id">Id</param>
 		/// <returns></returns>
 		bool Delete(int id);
 
 		/// <summary>
-        /// 批量删除loginlog
+        /// 批量删除xf_sy_nan_codesize
         /// </summary>
         /// <param name="exp">条件表达式</param>
         /// <returns></returns>
-        bool Delete(Expression<Func<LoginLogDto, bool>> exp);
+        bool Delete(Expression<Func<XF_SY_NAN_CodeSizeDto, bool>> exp);
 
 		/// <summary>
-        ///  获取单条符合条件的 loginlog 数据
+        ///  获取单条符合条件的 xf_sy_nan_codesize 数据
         /// </summary>
         /// <param name="exp">条件表达式</param>
         /// <returns></returns>
-        LoginLogDto GetOne(Expression<Func<LoginLogDto, bool>> exp);
+        XF_SY_NAN_CodeSizeDto GetOne(Expression<Func<XF_SY_NAN_CodeSizeDto, bool>> exp);
 
 		/// <summary>
-        /// 查询符合调价的 loginlog
+        /// 查询符合调价的 xf_sy_nan_codesize
         /// </summary>
 		/// <param name="exp">过滤条件</param>
 		/// <param name="orderExp">排序条件</param>
 		/// <param name="isDesc">是否是降序排列</param>
         /// <returns></returns>
-        List<LoginLogDto> Query<OrderKeyType>(Expression<Func<LoginLogDto, bool>> exp, Expression<Func<LoginLogDto, OrderKeyType>> orderExp, bool isDesc = true);
+        List<XF_SY_NAN_CodeSizeDto> Query<OrderKeyType>(Expression<Func<XF_SY_NAN_CodeSizeDto, bool>> exp, Expression<Func<XF_SY_NAN_CodeSizeDto, OrderKeyType>> orderExp, bool isDesc = true);
 
 		/// <summary>
-        /// 分页获取loginlog
+        /// 分页获取xf_sy_nan_codesize
         /// </summary>
         /// <param name="queryBase">QueryBase</param>
 		/// <param name="exp">过滤条件</param>
 		/// <param name="orderExp">排序条件</param>
 		/// <param name="isDesc">是否是降序排列</param>
         /// <returns></returns>
-        ResultDto<LoginLogDto> GetWithPages<OrderKeyType>(QueryBase queryBase, Expression<Func<LoginLogDto, bool>> exp, Expression<Func<LoginLogDto, OrderKeyType>> orderExp, bool isDesc = true);
+        ResultDto<XF_SY_NAN_CodeSizeDto> GetWithPages<OrderKeyType>(QueryBase queryBase, Expression<Func<XF_SY_NAN_CodeSizeDto, bool>> exp, Expression<Func<XF_SY_NAN_CodeSizeDto, OrderKeyType>> orderExp, bool isDesc = true);
 
         /// <summary>
-        /// 分页获取loginlog
+        /// 分页获取xf_sy_nan_codesize
         /// </summary>
         /// <param name="queryBase">QueryBase</param>
 		/// <param name="exp">过滤条件</param>
 		/// <param name="orderBy">排序条件</param>
 		/// <param name="orderDir">是否是降序排列</param>
         /// <returns></returns>
-        ResultDto<LoginLogDto> GetWithPages(QueryBase queryBase, Expression<Func<LoginLogDto, bool>> exp, string orderBy, string orderDir = "desc");
+        ResultDto<XF_SY_NAN_CodeSizeDto> GetWithPages(QueryBase queryBase, Expression<Func<XF_SY_NAN_CodeSizeDto, bool>> exp, string orderBy, string orderDir = "desc");
     } 
 }
