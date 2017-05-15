@@ -63,7 +63,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Config\XF_SY_NAN_CodeSizeConfig.cs" />
+    <Compile Include="Config\HanderDataForXF_KZConfig.cs" />
+    <Compile Include="Config\HanderDataForXF_SYConfig.cs" />
+    <Compile Include="Config\SleeveConfig.cs" />
+    <Compile Include="Config\XF_KZ_CodeConfig.cs" />
+    <Compile Include="Config\XF_SY_NAN_ChiMaConfig.cs" />
     <Compile Include="Config\Configuration.cs" />
     <Compile Include="Config\Cs_dataConfig.cs" />
     <Compile Include="Config\EmailPoolConfig.cs" />
@@ -75,6 +79,7 @@
     <Compile Include="Config\UserRoleConfig.cs" />
     <Compile Include="Config\RoleConfig.cs" />
     <Compile Include="Config\UserConfig.cs" />
+    <Compile Include="Config\XF_SY_NU_CodeSizeConfig.cs" />
     <Compile Include="InitData.cs" />
     <Compile Include="JuCheapContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

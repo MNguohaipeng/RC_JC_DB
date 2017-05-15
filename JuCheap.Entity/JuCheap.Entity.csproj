@@ -51,7 +51,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Base\BaseEntity.cs" />
-    <Compile Include="XF_SY_NAN_CodeSizeEntity.cs" />
+    <Compile Include="HanderDataForXF_KZEntity.cs" />
+    <Compile Include="HanderDataForXF_SYEntity.cs" />
+    <Compile Include="SleeveEntity.cs" />
+    <Compile Include="XF_KZ_CodeSizeEntity.cs" />
+    <Compile Include="XF_SY_NAN_ChiMaEntity.cs" />
     <Compile Include="Cs_dataEntity.cs" />
     <Compile Include="EmailPoolEntity.cs" />
     <Compile Include="EmailReceiverEntity.cs" />
@@ -60,12 +64,10 @@
     <Compile Include="RoleEntity.cs" />
     <Compile Include="LoginLogEntity.cs" />
     <Compile Include="PageViewEntity.cs" />
-    <Compile Include="XF_KZ_CodeSizeEntity.cs" />
     <Compile Include="UserRoleEntity.cs" />
     <Compile Include="UserEntity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="XF_SY_NAN_CodeSize.cs" />
-    <Compile Include="XF_SY_NU_CodeSize.cs" />
+    <Compile Include="XF_SY_NU_CodeSizeEntity.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

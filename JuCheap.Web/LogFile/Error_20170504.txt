@@ -1,0 +1,1497 @@
+记录时间：2017-05-04 09:09:04,550 线程ID:[46] 日志级别：ERROR 出错类：logerror property:[(null)] - 错误描述：
+发生时间:2017/5/4 9:09:04
+用户IP:::1
+发生异常页: http://localhost:37297/Adm/Size/Import
+控制器: Size
+Action: Import
+
+System.Exception: Excel格式出错，请检查文件
+   在 JuCheap.Core.Verification.Verification_XF_SY_NAN(DataTable table) 位置 C:\Users\admin\Desktop\工作文档\资源\jucheap-JuCheap.2.0-master\JuCheap.2.0\JuCheap.Core\Verification.cs:行号 35
+   在 JuCheap.Core.Analysis.Excel_analysis_NAN(HttpFileCollectionBase files, String gender) 位置 C:\Users\admin\Desktop\工作文档\资源\jucheap-JuCheap.2.0-master\JuCheap.2.0\JuCheap.Core\Analysis.cs:行号 347
+   在 JuCheap.Web.Areas.Adm.Controllers.SizeController.XF_SY(FormCollection fm, String gender) 位置 C:\Users\admin\Desktop\工作文档\资源\jucheap-JuCheap.2.0-master\JuCheap.2.0\JuCheap.Web\Areas\Adm\Controllers\SizeController.cs:行号 140
+   在 JuCheap.Web.Areas.Adm.Controllers.SizeController.Import(FormCollection fm) 位置 C:\Users\admin\Desktop\工作文档\资源\jucheap-JuCheap.2.0-master\JuCheap.2.0\JuCheap.Web\Areas\Adm\Controllers\SizeController.cs:行号 57
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+记录时间：2017-05-04 10:18:12,622 线程ID:[24] 日志级别：ERROR 出错类：logerror property:[(null)] - 错误描述：
+发生时间:2017/5/4 10:18:12
+用户IP:::1
+发生异常页: http://localhost:37297/Adm/Size/Import
+控制器: Size
+Action: Import
+
+System.Exception: Excel格式出错，请检查文件
+   在 JuCheap.Core.Verification.Verification_XF_SY_NU(DataTable table) 位置 C:\Users\admin\Desktop\工作文档\资源\jucheap-JuCheap.2.0-master\JuCheap.2.0\JuCheap.Core\Verification.cs:行号 68
+   在 JuCheap.Core.Analysis.Excel_analysis_NU(HttpFileCollectionBase files, String gender) 位置 C:\Users\admin\Desktop\工作文档\资源\jucheap-JuCheap.2.0-master\JuCheap.2.0\JuCheap.Core\Analysis.cs:行号 541
+   在 JuCheap.Web.Areas.Adm.Controllers.SizeController.XF_SY(FormCollection fm, String gender) 位置 C:\Users\admin\Desktop\工作文档\资源\jucheap-JuCheap.2.0-master\JuCheap.2.0\JuCheap.Web\Areas\Adm\Controllers\SizeController.cs:行号 140
+   在 JuCheap.Web.Areas.Adm.Controllers.SizeController.Import(FormCollection fm) 位置 C:\Users\admin\Desktop\工作文档\资源\jucheap-JuCheap.2.0-master\JuCheap.2.0\JuCheap.Web\Areas\Adm\Controllers\SizeController.cs:行号 60
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+记录时间：2017-05-04 10:18:21,733 线程ID:[9] 日志级别：ERROR 出错类：logerror property:[(null)] - 错误描述：
+发生时间:2017/5/4 10:18:21
+用户IP:::1
+发生异常页: http://localhost:37297/Adm/Size/Import
+控制器: Size
+Action: Import
+
+System.Exception: Excel格式出错，请检查文件
+   在 JuCheap.Core.Verification.Verification_XF_SY_NU(DataTable table) 位置 C:\Users\admin\Desktop\工作文档\资源\jucheap-JuCheap.2.0-master\JuCheap.2.0\JuCheap.Core\Verification.cs:行号 68
+   在 JuCheap.Core.Analysis.Excel_analysis_NU(HttpFileCollectionBase files, String gender) 位置 C:\Users\admin\Desktop\工作文档\资源\jucheap-JuCheap.2.0-master\JuCheap.2.0\JuCheap.Core\Analysis.cs:行号 541
+   在 JuCheap.Web.Areas.Adm.Controllers.SizeController.XF_SY(FormCollection fm, String gender) 位置 C:\Users\admin\Desktop\工作文档\资源\jucheap-JuCheap.2.0-master\JuCheap.2.0\JuCheap.Web\Areas\Adm\Controllers\SizeController.cs:行号 140
+   在 JuCheap.Web.Areas.Adm.Controllers.SizeController.Import(FormCollection fm) 位置 C:\Users\admin\Desktop\工作文档\资源\jucheap-JuCheap.2.0-master\JuCheap.2.0\JuCheap.Web\Areas\Adm\Controllers\SizeController.cs:行号 60
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+记录时间：2017-05-04 10:18:27,118 线程ID:[3] 日志级别：ERROR 出错类：logerror property:[(null)] - 错误描述：
+发生时间:2017/5/4 10:18:27
+用户IP:::1
+发生异常页: http://localhost:37297/Adm/Size/Import
+控制器: Size
+Action: Import
+
+System.Exception: Excel格式出错，请检查文件
+   在 JuCheap.Core.Verification.Verification_XF_SY_NU(DataTable table) 位置 C:\Users\admin\Desktop\工作文档\资源\jucheap-JuCheap.2.0-master\JuCheap.2.0\JuCheap.Core\Verification.cs:行号 68
+   在 JuCheap.Core.Analysis.Excel_analysis_NU(HttpFileCollectionBase files, String gender) 位置 C:\Users\admin\Desktop\工作文档\资源\jucheap-JuCheap.2.0-master\JuCheap.2.0\JuCheap.Core\Analysis.cs:行号 541
+   在 JuCheap.Web.Areas.Adm.Controllers.SizeController.XF_SY(FormCollection fm, String gender) 位置 C:\Users\admin\Desktop\工作文档\资源\jucheap-JuCheap.2.0-master\JuCheap.2.0\JuCheap.Web\Areas\Adm\Controllers\SizeController.cs:行号 140
+   在 JuCheap.Web.Areas.Adm.Controllers.SizeController.Import(FormCollection fm) 位置 C:\Users\admin\Desktop\工作文档\资源\jucheap-JuCheap.2.0-master\JuCheap.2.0\JuCheap.Web\Areas\Adm\Controllers\SizeController.cs:行号 60
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+记录时间：2017-05-04 10:32:11,934 线程ID:[9] 日志级别：ERROR 出错类：logerror property:[(null)] - 错误描述：
+发生时间:2017/5/4 10:32:11
+用户IP:::1
+发生异常页: http://localhost:37297/Adm/Size/Import
+控制器: Size
+Action: Import
+
+System.Exception: Excel格式出错，请检查文件
+   在 JuCheap.Core.Verification.Verification_XF_SY_NU(DataTable table) 位置 C:\Users\admin\Desktop\工作文档\资源\jucheap-JuCheap.2.0-master\JuCheap.2.0\JuCheap.Core\Verification.cs:行号 68
+   在 JuCheap.Core.Analysis.Excel_analysis_NU(HttpFileCollectionBase files, String gender) 位置 C:\Users\admin\Desktop\工作文档\资源\jucheap-JuCheap.2.0-master\JuCheap.2.0\JuCheap.Core\Analysis.cs:行号 541
+   在 JuCheap.Web.Areas.Adm.Controllers.SizeController.XF_SY(FormCollection fm, String gender) 位置 C:\Users\admin\Desktop\工作文档\资源\jucheap-JuCheap.2.0-master\JuCheap.2.0\JuCheap.Web\Areas\Adm\Controllers\SizeController.cs:行号 140
+   在 JuCheap.Web.Areas.Adm.Controllers.SizeController.Import(FormCollection fm) 位置 C:\Users\admin\Desktop\工作文档\资源\jucheap-JuCheap.2.0-master\JuCheap.2.0\JuCheap.Web\Areas\Adm\Controllers\SizeController.cs:行号 60
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+记录时间：2017-05-04 10:37:18,922 线程ID:[24] 日志级别：ERROR 出错类：logerror property:[(null)] - 错误描述：
+发生时间:2017/5/4 10:37:18
+用户IP:::1
+发生异常页: http://localhost:37297/Adm/Size/Import
+控制器: Size
+Action: Import
+
+System.Exception: Excel格式出错，请检查文件
+   在 JuCheap.Core.Verification.Verification_XF_SY_NU(DataTable table) 位置 C:\Users\admin\Desktop\工作文档\资源\jucheap-JuCheap.2.0-master\JuCheap.2.0\JuCheap.Core\Verification.cs:行号 68
+   在 JuCheap.Core.Analysis.Excel_analysis_NU(HttpFileCollectionBase files, String gender) 位置 C:\Users\admin\Desktop\工作文档\资源\jucheap-JuCheap.2.0-master\JuCheap.2.0\JuCheap.Core\Analysis.cs:行号 541
+   在 JuCheap.Web.Areas.Adm.Controllers.SizeController.XF_SY(FormCollection fm, String gender) 位置 C:\Users\admin\Desktop\工作文档\资源\jucheap-JuCheap.2.0-master\JuCheap.2.0\JuCheap.Web\Areas\Adm\Controllers\SizeController.cs:行号 140
+   在 JuCheap.Web.Areas.Adm.Controllers.SizeController.Import(FormCollection fm) 位置 C:\Users\admin\Desktop\工作文档\资源\jucheap-JuCheap.2.0-master\JuCheap.2.0\JuCheap.Web\Areas\Adm\Controllers\SizeController.cs:行号 60
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+记录时间：2017-05-04 10:37:23,781 线程ID:[24] 日志级别：ERROR 出错类：logerror property:[(null)] - 错误描述：
+发生时间:2017/5/4 10:37:23
+用户IP:::1
+发生异常页: http://localhost:37297/Adm/Size/Import
+控制器: Size
+Action: Import
+
+System.Exception: Excel格式出错，请检查文件
+   在 JuCheap.Core.Verification.Verification_XF_SY_NU(DataTable table) 位置 C:\Users\admin\Desktop\工作文档\资源\jucheap-JuCheap.2.0-master\JuCheap.2.0\JuCheap.Core\Verification.cs:行号 68
+   在 JuCheap.Core.Analysis.Excel_analysis_NU(HttpFileCollectionBase files, String gender) 位置 C:\Users\admin\Desktop\工作文档\资源\jucheap-JuCheap.2.0-master\JuCheap.2.0\JuCheap.Core\Analysis.cs:行号 541
+   在 JuCheap.Web.Areas.Adm.Controllers.SizeController.XF_SY(FormCollection fm, String gender) 位置 C:\Users\admin\Desktop\工作文档\资源\jucheap-JuCheap.2.0-master\JuCheap.2.0\JuCheap.Web\Areas\Adm\Controllers\SizeController.cs:行号 140
+   在 JuCheap.Web.Areas.Adm.Controllers.SizeController.Import(FormCollection fm) 位置 C:\Users\admin\Desktop\工作文档\资源\jucheap-JuCheap.2.0-master\JuCheap.2.0\JuCheap.Web\Areas\Adm\Controllers\SizeController.cs:行号 60
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+记录时间：2017-05-04 10:37:27,674 线程ID:[25] 日志级别：ERROR 出错类：logerror property:[(null)] - 错误描述：
+发生时间:2017/5/4 10:37:27
+用户IP:::1
+发生异常页: http://localhost:37297/Adm/Size/Import
+控制器: Size
+Action: Import
+
+System.Exception: Excel格式出错，请检查文件
+   在 JuCheap.Core.Verification.Verification_XF_SY_NU(DataTable table) 位置 C:\Users\admin\Desktop\工作文档\资源\jucheap-JuCheap.2.0-master\JuCheap.2.0\JuCheap.Core\Verification.cs:行号 68
+   在 JuCheap.Core.Analysis.Excel_analysis_NU(HttpFileCollectionBase files, String gender) 位置 C:\Users\admin\Desktop\工作文档\资源\jucheap-JuCheap.2.0-master\JuCheap.2.0\JuCheap.Core\Analysis.cs:行号 541
+   在 JuCheap.Web.Areas.Adm.Controllers.SizeController.XF_SY(FormCollection fm, String gender) 位置 C:\Users\admin\Desktop\工作文档\资源\jucheap-JuCheap.2.0-master\JuCheap.2.0\JuCheap.Web\Areas\Adm\Controllers\SizeController.cs:行号 140
+   在 JuCheap.Web.Areas.Adm.Controllers.SizeController.Import(FormCollection fm) 位置 C:\Users\admin\Desktop\工作文档\资源\jucheap-JuCheap.2.0-master\JuCheap.2.0\JuCheap.Web\Areas\Adm\Controllers\SizeController.cs:行号 60
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+记录时间：2017-05-04 10:37:36,030 线程ID:[24] 日志级别：ERROR 出错类：logerror property:[(null)] - 错误描述：
+发生时间:2017/5/4 10:37:36
+用户IP:::1
+发生异常页: http://localhost:37297/Adm/Size/Import
+控制器: Size
+Action: Import
+
+System.Exception: Excel格式出错，请检查文件
+   在 JuCheap.Core.Verification.Verification_XF_SY_NU(DataTable table) 位置 C:\Users\admin\Desktop\工作文档\资源\jucheap-JuCheap.2.0-master\JuCheap.2.0\JuCheap.Core\Verification.cs:行号 68
+   在 JuCheap.Core.Analysis.Excel_analysis_NU(HttpFileCollectionBase files, String gender) 位置 C:\Users\admin\Desktop\工作文档\资源\jucheap-JuCheap.2.0-master\JuCheap.2.0\JuCheap.Core\Analysis.cs:行号 541
+   在 JuCheap.Web.Areas.Adm.Controllers.SizeController.XF_SY(FormCollection fm, String gender) 位置 C:\Users\admin\Desktop\工作文档\资源\jucheap-JuCheap.2.0-master\JuCheap.2.0\JuCheap.Web\Areas\Adm\Controllers\SizeController.cs:行号 140
+   在 JuCheap.Web.Areas.Adm.Controllers.SizeController.Import(FormCollection fm) 位置 C:\Users\admin\Desktop\工作文档\资源\jucheap-JuCheap.2.0-master\JuCheap.2.0\JuCheap.Web\Areas\Adm\Controllers\SizeController.cs:行号 60
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+记录时间：2017-05-04 10:38:50,080 线程ID:[25] 日志级别：ERROR 出错类：logerror property:[(null)] - 错误描述：
+发生时间:2017/5/4 10:38:50
+用户IP:::1
+发生异常页: http://localhost:37297/Adm/Size/Import
+控制器: Size
+Action: Import
+
+System.Exception: Excel格式出错，请检查文件
+   在 JuCheap.Core.Verification.Verification_XF_SY_NU(DataTable table) 位置 C:\Users\admin\Desktop\工作文档\资源\jucheap-JuCheap.2.0-master\JuCheap.2.0\JuCheap.Core\Verification.cs:行号 68
+   在 JuCheap.Core.Analysis.Excel_analysis_NU(HttpFileCollectionBase files, String gender) 位置 C:\Users\admin\Desktop\工作文档\资源\jucheap-JuCheap.2.0-master\JuCheap.2.0\JuCheap.Core\Analysis.cs:行号 541
+   在 JuCheap.Web.Areas.Adm.Controllers.SizeController.XF_SY(FormCollection fm, String gender) 位置 C:\Users\admin\Desktop\工作文档\资源\jucheap-JuCheap.2.0-master\JuCheap.2.0\JuCheap.Web\Areas\Adm\Controllers\SizeController.cs:行号 140
+   在 JuCheap.Web.Areas.Adm.Controllers.SizeController.Import(FormCollection fm) 位置 C:\Users\admin\Desktop\工作文档\资源\jucheap-JuCheap.2.0-master\JuCheap.2.0\JuCheap.Web\Areas\Adm\Controllers\SizeController.cs:行号 60
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+记录时间：2017-05-04 10:43:25,808 线程ID:[19] 日志级别：ERROR 出错类：logerror property:[(null)] - 错误描述：
+发生时间:2017/5/4 10:43:25
+用户IP:::1
+发生异常页: http://localhost:37297/Adm/Size/Import
+控制器: Size
+Action: Import
+
+System.Exception: Excel格式出错，请检查文件
+   在 JuCheap.Core.Verification.Verification_XF_SY_NU(DataTable table)
+   在 JuCheap.Core.Analysis.Excel_analysis_NU(HttpFileCollectionBase files, String gender)
+   在 JuCheap.Web.Areas.Adm.Controllers.SizeController.XF_SY(FormCollection fm, String gender) 位置 C:\Users\admin\Desktop\工作文档\资源\jucheap-JuCheap.2.0-master\JuCheap.2.0\JuCheap.Web\Areas\Adm\Controllers\SizeController.cs:行号 140
+   在 JuCheap.Web.Areas.Adm.Controllers.SizeController.Import(FormCollection fm) 位置 C:\Users\admin\Desktop\工作文档\资源\jucheap-JuCheap.2.0-master\JuCheap.2.0\JuCheap.Web\Areas\Adm\Controllers\SizeController.cs:行号 60
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+记录时间：2017-05-04 10:44:04,943 线程ID:[19] 日志级别：ERROR 出错类：logerror property:[(null)] - 错误描述：
+发生时间:2017/5/4 10:44:04
+用户IP:::1
+发生异常页: http://localhost:37297/Adm/Size/Import
+控制器: Size
+Action: Import
+
+System.Exception: Excel格式出错，请检查文件
+   在 JuCheap.Core.Verification.Verification_XF_SY_NU(DataTable table)
+   在 JuCheap.Core.Analysis.Excel_analysis_NU(HttpFileCollectionBase files, String gender)
+   在 JuCheap.Web.Areas.Adm.Controllers.SizeController.XF_SY(FormCollection fm, String gender) 位置 C:\Users\admin\Desktop\工作文档\资源\jucheap-JuCheap.2.0-master\JuCheap.2.0\JuCheap.Web\Areas\Adm\Controllers\SizeController.cs:行号 140
+   在 JuCheap.Web.Areas.Adm.Controllers.SizeController.Import(FormCollection fm) 位置 C:\Users\admin\Desktop\工作文档\资源\jucheap-JuCheap.2.0-master\JuCheap.2.0\JuCheap.Web\Areas\Adm\Controllers\SizeController.cs:行号 60
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+记录时间：2017-05-04 11:02:52,066 线程ID:[41] 日志级别：ERROR 出错类：logerror property:[(null)] - 错误描述：
+发生时间:2017/5/4 11:02:52
+用户IP:::1
+发生异常页: http://localhost:37297/Adm/Size/Examine/40/43/0
+控制器: Size
+Action: Examine
+
+System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 ASP._Page_Areas_Adm_Views_Size_Examine_cshtml.Execute() 位置 c:\Users\admin\Desktop\工作文档\资源\jucheap-JuCheap.2.0-master\JuCheap.2.0\JuCheap.Web\Areas\Adm\Views\Size\Examine.cshtml:行号 21
+   在 System.Web.WebPages.WebPageBase.ExecutePageHierarchy()
+   在 System.Web.Mvc.WebViewPage.ExecutePageHierarchy()
+   在 System.Web.WebPages.WebPageBase.ExecutePageHierarchy(WebPageContext pageContext, TextWriter writer, WebPageRenderingBase startPage)
+   在 System.Web.Mvc.RazorView.RenderView(ViewContext viewContext, TextWriter writer, Object instance)
+   在 System.Web.Mvc.BuildManagerCompiledView.Render(ViewContext viewContext, TextWriter writer)
+   在 System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+记录时间：2017-05-04 13:52:36,808 线程ID:[7] 日志级别：ERROR 出错类：logerror property:[(null)] - 错误描述：
+发生时间:2017/5/4 13:52:36
+用户IP:::1
+发生异常页: http://localhost:37297/Adm/Size/BugCodeSize
+控制器: Size
+Action: BugCodeSize
+
+SqlSugar.SqlSugarException: 不支持当前函数：get_Item
+拉姆达解析出错，不是有效的函数，现在支持的函数有:
+                db.Queryable<T>().Where(it => it.field == parValue.ObjToString()); 
+                db.Queryable<T>().Where(it => it.field == parValue.ObjToDate());
+                db.Queryable<T>().Where(it => it.field == parValue.ObjToInt())
+                db.Queryable<T>().Where(it => it.field == parValue.ObjToDecimal())
+                db.Queryable<T>().Where(it => it.field == parValue.ObjToMoney())
+                db.Queryable<T>().Where(it => it.field == parValue.Trim())
+                db.Queryable<T>().Where(it => it.field == parValue.ToString())
+                db.Queryable<T>().Where(it => it.field == Convert.ToXXX(parValue))
+                db.Queryable<T>().Where(it => it.field.Contains(parValue))
+                db.Queryable<T>().Where(it => it.field.StartsWith(parValue))
+                db.Queryable<T>().Where(it => it.field.EndsWith(parValue))
+                db.Queryable<T>().Where(it => !string.IsNullOrEmpty(it.parValue))
+                db.Queryable<T>().Where(it => arrayOrList.Contains(it.parValue))         
+            
+   在 SqlSugar.ResolveExpress.MethodTo(String methodName, MethodCallExpression mce, MemberType& type)
+   在 SqlSugar.ResolveExpress.MethodCallExpression(Expression exp, MemberType& type, Boolean isTure)
+   在 SqlSugar.ResolveExpress.CreateSqlElements(Expression exp, MemberType& type, Boolean isTure, Nullable`1 isComparisonOperator)
+   在 SqlSugar.ResolveExpress.BinaryExpression(Expression exp)
+   在 SqlSugar.ResolveExpress.CreateSqlElements(Expression exp, MemberType& type, Boolean isTure, Nullable`1 isComparisonOperator)
+   在 SqlSugar.ResolveExpress.BinaryExpression(Expression exp)
+   在 SqlSugar.ResolveExpress.CreateSqlElements(Expression exp, MemberType& type, Boolean isTure, Nullable`1 isComparisonOperator)
+   在 SqlSugar.ResolveExpress.LambdaExpression(Expression exp)
+   在 SqlSugar.ResolveExpress.CreateSqlElements(Expression exp, MemberType& type, Boolean isTure, Nullable`1 isComparisonOperator)
+   在 SqlSugar.ResolveExpress.Init(ResolveExpress re, Expression exp)
+   在 SqlSugar.ResolveExpress.ResolveExpression(ResolveExpress re, Expression exp, SqlSugarClient db)
+   在 SqlSugar.QueryableExtensions.Where[T](Queryable`1 queryable, Expression`1 expression)
+   在 JuCheap.Web.Areas.Adm.Controllers.SizeController.BugCodeSize(FormCollection fm) 位置 C:\Users\admin\Desktop\工作文档\资源\jucheap-JuCheap.2.0-master\JuCheap.2.0\JuCheap.Web\Areas\Adm\Controllers\SizeController.cs:行号 64
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+记录时间：2017-05-04 13:52:45,975 线程ID:[5] 日志级别：ERROR 出错类：logerror property:[(null)] - 错误描述：
+发生时间:2017/5/4 13:52:45
+用户IP:::1
+发生异常页: http://localhost:37297/Adm/Size/BugCodeSize
+控制器: Size
+Action: BugCodeSize
+
+SqlSugar.SqlSugarException: 不支持当前函数：get_Item
+拉姆达解析出错，不是有效的函数，现在支持的函数有:
+                db.Queryable<T>().Where(it => it.field == parValue.ObjToString()); 
+                db.Queryable<T>().Where(it => it.field == parValue.ObjToDate());
+                db.Queryable<T>().Where(it => it.field == parValue.ObjToInt())
+                db.Queryable<T>().Where(it => it.field == parValue.ObjToDecimal())
+                db.Queryable<T>().Where(it => it.field == parValue.ObjToMoney())
+                db.Queryable<T>().Where(it => it.field == parValue.Trim())
+                db.Queryable<T>().Where(it => it.field == parValue.ToString())
+                db.Queryable<T>().Where(it => it.field == Convert.ToXXX(parValue))
+                db.Queryable<T>().Where(it => it.field.Contains(parValue))
+                db.Queryable<T>().Where(it => it.field.StartsWith(parValue))
+                db.Queryable<T>().Where(it => it.field.EndsWith(parValue))
+                db.Queryable<T>().Where(it => !string.IsNullOrEmpty(it.parValue))
+                db.Queryable<T>().Where(it => arrayOrList.Contains(it.parValue))         
+            
+   在 SqlSugar.ResolveExpress.MethodTo(String methodName, MethodCallExpression mce, MemberType& type)
+   在 SqlSugar.ResolveExpress.MethodCallExpression(Expression exp, MemberType& type, Boolean isTure)
+   在 SqlSugar.ResolveExpress.CreateSqlElements(Expression exp, MemberType& type, Boolean isTure, Nullable`1 isComparisonOperator)
+   在 SqlSugar.ResolveExpress.BinaryExpression(Expression exp)
+   在 SqlSugar.ResolveExpress.CreateSqlElements(Expression exp, MemberType& type, Boolean isTure, Nullable`1 isComparisonOperator)
+   在 SqlSugar.ResolveExpress.BinaryExpression(Expression exp)
+   在 SqlSugar.ResolveExpress.CreateSqlElements(Expression exp, MemberType& type, Boolean isTure, Nullable`1 isComparisonOperator)
+   在 SqlSugar.ResolveExpress.LambdaExpression(Expression exp)
+   在 SqlSugar.ResolveExpress.CreateSqlElements(Expression exp, MemberType& type, Boolean isTure, Nullable`1 isComparisonOperator)
+   在 SqlSugar.ResolveExpress.Init(ResolveExpress re, Expression exp)
+   在 SqlSugar.ResolveExpress.ResolveExpression(ResolveExpress re, Expression exp, SqlSugarClient db)
+   在 SqlSugar.QueryableExtensions.Where[T](Queryable`1 queryable, Expression`1 expression)
+   在 JuCheap.Web.Areas.Adm.Controllers.SizeController.BugCodeSize(FormCollection fm) 位置 C:\Users\admin\Desktop\工作文档\资源\jucheap-JuCheap.2.0-master\JuCheap.2.0\JuCheap.Web\Areas\Adm\Controllers\SizeController.cs:行号 64
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+记录时间：2017-05-04 13:54:35,125 线程ID:[5] 日志级别：ERROR 出错类：logerror property:[(null)] - 错误描述：
+发生时间:2017/5/4 13:54:35
+用户IP:::1
+发生异常页: http://localhost:37297/Adm/Size/BugCodeSize
+控制器: Size
+Action: BugCodeSize
+
+SqlSugar.SqlSugarException: 不支持当前函数：get_Item
+拉姆达解析出错，不是有效的函数，现在支持的函数有:
+                db.Queryable<T>().Where(it => it.field == parValue.ObjToString()); 
+                db.Queryable<T>().Where(it => it.field == parValue.ObjToDate());
+                db.Queryable<T>().Where(it => it.field == parValue.ObjToInt())
+                db.Queryable<T>().Where(it => it.field == parValue.ObjToDecimal())
+                db.Queryable<T>().Where(it => it.field == parValue.ObjToMoney())
+                db.Queryable<T>().Where(it => it.field == parValue.Trim())
+                db.Queryable<T>().Where(it => it.field == parValue.ToString())
+                db.Queryable<T>().Where(it => it.field == Convert.ToXXX(parValue))
+                db.Queryable<T>().Where(it => it.field.Contains(parValue))
+                db.Queryable<T>().Where(it => it.field.StartsWith(parValue))
+                db.Queryable<T>().Where(it => it.field.EndsWith(parValue))
+                db.Queryable<T>().Where(it => !string.IsNullOrEmpty(it.parValue))
+                db.Queryable<T>().Where(it => arrayOrList.Contains(it.parValue))         
+            
+   在 SqlSugar.ResolveExpress.MethodTo(String methodName, MethodCallExpression mce, MemberType& type)
+   在 SqlSugar.ResolveExpress.MethodCallExpression(Expression exp, MemberType& type, Boolean isTure)
+   在 SqlSugar.ResolveExpress.CreateSqlElements(Expression exp, MemberType& type, Boolean isTure, Nullable`1 isComparisonOperator)
+   在 SqlSugar.ResolveExpress.BinaryExpression(Expression exp)
+   在 SqlSugar.ResolveExpress.CreateSqlElements(Expression exp, MemberType& type, Boolean isTure, Nullable`1 isComparisonOperator)
+   在 SqlSugar.ResolveExpress.BinaryExpression(Expression exp)
+   在 SqlSugar.ResolveExpress.CreateSqlElements(Expression exp, MemberType& type, Boolean isTure, Nullable`1 isComparisonOperator)
+   在 SqlSugar.ResolveExpress.LambdaExpression(Expression exp)
+   在 SqlSugar.ResolveExpress.CreateSqlElements(Expression exp, MemberType& type, Boolean isTure, Nullable`1 isComparisonOperator)
+   在 SqlSugar.ResolveExpress.Init(ResolveExpress re, Expression exp)
+   在 SqlSugar.ResolveExpress.ResolveExpression(ResolveExpress re, Expression exp, SqlSugarClient db)
+   在 SqlSugar.QueryableExtensions.Where[T](Queryable`1 queryable, Expression`1 expression)
+   在 JuCheap.Web.Areas.Adm.Controllers.SizeController.BugCodeSize(FormCollection fm) 位置 C:\Users\admin\Desktop\工作文档\资源\jucheap-JuCheap.2.0-master\JuCheap.2.0\JuCheap.Web\Areas\Adm\Controllers\SizeController.cs:行号 64
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+记录时间：2017-05-04 13:54:36,091 线程ID:[6] 日志级别：ERROR 出错类：logerror property:[(null)] - 错误描述：
+发生时间:2017/5/4 13:54:36
+用户IP:::1
+发生异常页: http://localhost:37297/Adm/Size/BugCodeSize
+控制器: Size
+Action: BugCodeSize
+
+SqlSugar.SqlSugarException: 不支持当前函数：get_Item
+拉姆达解析出错，不是有效的函数，现在支持的函数有:
+                db.Queryable<T>().Where(it => it.field == parValue.ObjToString()); 
+                db.Queryable<T>().Where(it => it.field == parValue.ObjToDate());
+                db.Queryable<T>().Where(it => it.field == parValue.ObjToInt())
+                db.Queryable<T>().Where(it => it.field == parValue.ObjToDecimal())
+                db.Queryable<T>().Where(it => it.field == parValue.ObjToMoney())
+                db.Queryable<T>().Where(it => it.field == parValue.Trim())
+                db.Queryable<T>().Where(it => it.field == parValue.ToString())
+                db.Queryable<T>().Where(it => it.field == Convert.ToXXX(parValue))
+                db.Queryable<T>().Where(it => it.field.Contains(parValue))
+                db.Queryable<T>().Where(it => it.field.StartsWith(parValue))
+                db.Queryable<T>().Where(it => it.field.EndsWith(parValue))
+                db.Queryable<T>().Where(it => !string.IsNullOrEmpty(it.parValue))
+                db.Queryable<T>().Where(it => arrayOrList.Contains(it.parValue))         
+            
+   在 SqlSugar.ResolveExpress.MethodTo(String methodName, MethodCallExpression mce, MemberType& type)
+   在 SqlSugar.ResolveExpress.MethodCallExpression(Expression exp, MemberType& type, Boolean isTure)
+   在 SqlSugar.ResolveExpress.CreateSqlElements(Expression exp, MemberType& type, Boolean isTure, Nullable`1 isComparisonOperator)
+   在 SqlSugar.ResolveExpress.BinaryExpression(Expression exp)
+   在 SqlSugar.ResolveExpress.CreateSqlElements(Expression exp, MemberType& type, Boolean isTure, Nullable`1 isComparisonOperator)
+   在 SqlSugar.ResolveExpress.BinaryExpression(Expression exp)
+   在 SqlSugar.ResolveExpress.CreateSqlElements(Expression exp, MemberType& type, Boolean isTure, Nullable`1 isComparisonOperator)
+   在 SqlSugar.ResolveExpress.LambdaExpression(Expression exp)
+   在 SqlSugar.ResolveExpress.CreateSqlElements(Expression exp, MemberType& type, Boolean isTure, Nullable`1 isComparisonOperator)
+   在 SqlSugar.ResolveExpress.Init(ResolveExpress re, Expression exp)
+   在 SqlSugar.ResolveExpress.ResolveExpression(ResolveExpress re, Expression exp, SqlSugarClient db)
+   在 SqlSugar.QueryableExtensions.Where[T](Queryable`1 queryable, Expression`1 expression)
+   在 JuCheap.Web.Areas.Adm.Controllers.SizeController.BugCodeSize(FormCollection fm) 位置 C:\Users\admin\Desktop\工作文档\资源\jucheap-JuCheap.2.0-master\JuCheap.2.0\JuCheap.Web\Areas\Adm\Controllers\SizeController.cs:行号 64
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+记录时间：2017-05-04 14:05:50,290 线程ID:[19] 日志级别：ERROR 出错类：logerror property:[(null)] - 错误描述：
+发生时间:2017/5/4 14:05:50
+用户IP:::1
+发生异常页: http://localhost:37297/Adm/Size/BugCodeSize
+控制器: Size
+Action: BugCodeSize
+
+SqlSugar.SqlSugarException: 不支持当前函数：get_Item
+拉姆达解析出错，不是有效的函数，现在支持的函数有:
+                db.Queryable<T>().Where(it => it.field == parValue.ObjToString()); 
+                db.Queryable<T>().Where(it => it.field == parValue.ObjToDate());
+                db.Queryable<T>().Where(it => it.field == parValue.ObjToInt())
+                db.Queryable<T>().Where(it => it.field == parValue.ObjToDecimal())
+                db.Queryable<T>().Where(it => it.field == parValue.ObjToMoney())
+                db.Queryable<T>().Where(it => it.field == parValue.Trim())
+                db.Queryable<T>().Where(it => it.field == parValue.ToString())
+                db.Queryable<T>().Where(it => it.field == Convert.ToXXX(parValue))
+                db.Queryable<T>().Where(it => it.field.Contains(parValue))
+                db.Queryable<T>().Where(it => it.field.StartsWith(parValue))
+                db.Queryable<T>().Where(it => it.field.EndsWith(parValue))
+                db.Queryable<T>().Where(it => !string.IsNullOrEmpty(it.parValue))
+                db.Queryable<T>().Where(it => arrayOrList.Contains(it.parValue))         
+            
+   在 SqlSugar.ResolveExpress.MethodTo(String methodName, MethodCallExpression mce, MemberType& type)
+   在 SqlSugar.ResolveExpress.MethodCallExpression(Expression exp, MemberType& type, Boolean isTure)
+   在 SqlSugar.ResolveExpress.CreateSqlElements(Expression exp, MemberType& type, Boolean isTure, Nullable`1 isComparisonOperator)
+   在 SqlSugar.ResolveExpress.BinaryExpression(Expression exp)
+   在 SqlSugar.ResolveExpress.CreateSqlElements(Expression exp, MemberType& type, Boolean isTure, Nullable`1 isComparisonOperator)
+   在 SqlSugar.ResolveExpress.BinaryExpression(Expression exp)
+   在 SqlSugar.ResolveExpress.CreateSqlElements(Expression exp, MemberType& type, Boolean isTure, Nullable`1 isComparisonOperator)
+   在 SqlSugar.ResolveExpress.LambdaExpression(Expression exp)
+   在 SqlSugar.ResolveExpress.CreateSqlElements(Expression exp, MemberType& type, Boolean isTure, Nullable`1 isComparisonOperator)
+   在 SqlSugar.ResolveExpress.Init(ResolveExpress re, Expression exp)
+   在 SqlSugar.ResolveExpress.ResolveExpression(ResolveExpress re, Expression exp, SqlSugarClient db)
+   在 SqlSugar.QueryableExtensions.Where[T](Queryable`1 queryable, Expression`1 expression)
+   在 JuCheap.Web.Areas.Adm.Controllers.SizeController.BugCodeSize(FormCollection fm) 位置 C:\Users\admin\Desktop\工作文档\资源\jucheap-JuCheap.2.0-master\JuCheap.2.0\JuCheap.Web\Areas\Adm\Controllers\SizeController.cs:行号 64
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+记录时间：2017-05-04 14:05:50,290 线程ID:[18] 日志级别：ERROR 出错类：logerror property:[(null)] - 错误描述：
+发生时间:2017/5/4 14:05:50
+用户IP:::1
+发生异常页: http://localhost:37297/Adm/Size/BugCodeSize
+控制器: Size
+Action: BugCodeSize
+
+SqlSugar.SqlSugarException: 不支持当前函数：get_Item
+拉姆达解析出错，不是有效的函数，现在支持的函数有:
+                db.Queryable<T>().Where(it => it.field == parValue.ObjToString()); 
+                db.Queryable<T>().Where(it => it.field == parValue.ObjToDate());
+                db.Queryable<T>().Where(it => it.field == parValue.ObjToInt())
+                db.Queryable<T>().Where(it => it.field == parValue.ObjToDecimal())
+                db.Queryable<T>().Where(it => it.field == parValue.ObjToMoney())
+                db.Queryable<T>().Where(it => it.field == parValue.Trim())
+                db.Queryable<T>().Where(it => it.field == parValue.ToString())
+                db.Queryable<T>().Where(it => it.field == Convert.ToXXX(parValue))
+                db.Queryable<T>().Where(it => it.field.Contains(parValue))
+                db.Queryable<T>().Where(it => it.field.StartsWith(parValue))
+                db.Queryable<T>().Where(it => it.field.EndsWith(parValue))
+                db.Queryable<T>().Where(it => !string.IsNullOrEmpty(it.parValue))
+                db.Queryable<T>().Where(it => arrayOrList.Contains(it.parValue))         
+            
+   在 SqlSugar.ResolveExpress.MethodTo(String methodName, MethodCallExpression mce, MemberType& type)
+   在 SqlSugar.ResolveExpress.MethodCallExpression(Expression exp, MemberType& type, Boolean isTure)
+   在 SqlSugar.ResolveExpress.CreateSqlElements(Expression exp, MemberType& type, Boolean isTure, Nullable`1 isComparisonOperator)
+   在 SqlSugar.ResolveExpress.BinaryExpression(Expression exp)
+   在 SqlSugar.ResolveExpress.CreateSqlElements(Expression exp, MemberType& type, Boolean isTure, Nullable`1 isComparisonOperator)
+   在 SqlSugar.ResolveExpress.BinaryExpression(Expression exp)
+   在 SqlSugar.ResolveExpress.CreateSqlElements(Expression exp, MemberType& type, Boolean isTure, Nullable`1 isComparisonOperator)
+   在 SqlSugar.ResolveExpress.LambdaExpression(Expression exp)
+   在 SqlSugar.ResolveExpress.CreateSqlElements(Expression exp, MemberType& type, Boolean isTure, Nullable`1 isComparisonOperator)
+   在 SqlSugar.ResolveExpress.Init(ResolveExpress re, Expression exp)
+   在 SqlSugar.ResolveExpress.ResolveExpression(ResolveExpress re, Expression exp, SqlSugarClient db)
+   在 SqlSugar.QueryableExtensions.Where[T](Queryable`1 queryable, Expression`1 expression)
+   在 JuCheap.Web.Areas.Adm.Controllers.SizeController.BugCodeSize(FormCollection fm) 位置 C:\Users\admin\Desktop\工作文档\资源\jucheap-JuCheap.2.0-master\JuCheap.2.0\JuCheap.Web\Areas\Adm\Controllers\SizeController.cs:行号 64
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+记录时间：2017-05-04 14:06:29,989 线程ID:[18] 日志级别：ERROR 出错类：logerror property:[(null)] - 错误描述：
+发生时间:2017/5/4 14:06:29
+用户IP:::1
+发生异常页: http://localhost:37297/Adm/Size/BugCodeSize
+控制器: Size
+Action: BugCodeSize
+
+SqlSugar.SqlSugarException: 不支持当前函数：get_Item
+拉姆达解析出错，不是有效的函数，现在支持的函数有:
+                db.Queryable<T>().Where(it => it.field == parValue.ObjToString()); 
+                db.Queryable<T>().Where(it => it.field == parValue.ObjToDate());
+                db.Queryable<T>().Where(it => it.field == parValue.ObjToInt())
+                db.Queryable<T>().Where(it => it.field == parValue.ObjToDecimal())
+                db.Queryable<T>().Where(it => it.field == parValue.ObjToMoney())
+                db.Queryable<T>().Where(it => it.field == parValue.Trim())
+                db.Queryable<T>().Where(it => it.field == parValue.ToString())
+                db.Queryable<T>().Where(it => it.field == Convert.ToXXX(parValue))
+                db.Queryable<T>().Where(it => it.field.Contains(parValue))
+                db.Queryable<T>().Where(it => it.field.StartsWith(parValue))
+                db.Queryable<T>().Where(it => it.field.EndsWith(parValue))
+                db.Queryable<T>().Where(it => !string.IsNullOrEmpty(it.parValue))
+                db.Queryable<T>().Where(it => arrayOrList.Contains(it.parValue))         
+            
+   在 SqlSugar.ResolveExpress.MethodTo(String methodName, MethodCallExpression mce, MemberType& type)
+   在 SqlSugar.ResolveExpress.MethodCallExpression(Expression exp, MemberType& type, Boolean isTure)
+   在 SqlSugar.ResolveExpress.CreateSqlElements(Expression exp, MemberType& type, Boolean isTure, Nullable`1 isComparisonOperator)
+   在 SqlSugar.ResolveExpress.BinaryExpression(Expression exp)
+   在 SqlSugar.ResolveExpress.CreateSqlElements(Expression exp, MemberType& type, Boolean isTure, Nullable`1 isComparisonOperator)
+   在 SqlSugar.ResolveExpress.BinaryExpression(Expression exp)
+   在 SqlSugar.ResolveExpress.CreateSqlElements(Expression exp, MemberType& type, Boolean isTure, Nullable`1 isComparisonOperator)
+   在 SqlSugar.ResolveExpress.LambdaExpression(Expression exp)
+   在 SqlSugar.ResolveExpress.CreateSqlElements(Expression exp, MemberType& type, Boolean isTure, Nullable`1 isComparisonOperator)
+   在 SqlSugar.ResolveExpress.Init(ResolveExpress re, Expression exp)
+   在 SqlSugar.ResolveExpress.ResolveExpression(ResolveExpress re, Expression exp, SqlSugarClient db)
+   在 SqlSugar.QueryableExtensions.Where[T](Queryable`1 queryable, Expression`1 expression)
+   在 JuCheap.Web.Areas.Adm.Controllers.SizeController.BugCodeSize(FormCollection fm) 位置 C:\Users\admin\Desktop\工作文档\资源\jucheap-JuCheap.2.0-master\JuCheap.2.0\JuCheap.Web\Areas\Adm\Controllers\SizeController.cs:行号 64
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+记录时间：2017-05-04 14:06:32,645 线程ID:[19] 日志级别：ERROR 出错类：logerror property:[(null)] - 错误描述：
+发生时间:2017/5/4 14:06:32
+用户IP:::1
+发生异常页: http://localhost:37297/Adm/Size/BugCodeSize
+控制器: Size
+Action: BugCodeSize
+
+SqlSugar.SqlSugarException: 不支持当前函数：get_Item
+拉姆达解析出错，不是有效的函数，现在支持的函数有:
+                db.Queryable<T>().Where(it => it.field == parValue.ObjToString()); 
+                db.Queryable<T>().Where(it => it.field == parValue.ObjToDate());
+                db.Queryable<T>().Where(it => it.field == parValue.ObjToInt())
+                db.Queryable<T>().Where(it => it.field == parValue.ObjToDecimal())
+                db.Queryable<T>().Where(it => it.field == parValue.ObjToMoney())
+                db.Queryable<T>().Where(it => it.field == parValue.Trim())
+                db.Queryable<T>().Where(it => it.field == parValue.ToString())
+                db.Queryable<T>().Where(it => it.field == Convert.ToXXX(parValue))
+                db.Queryable<T>().Where(it => it.field.Contains(parValue))
+                db.Queryable<T>().Where(it => it.field.StartsWith(parValue))
+                db.Queryable<T>().Where(it => it.field.EndsWith(parValue))
+                db.Queryable<T>().Where(it => !string.IsNullOrEmpty(it.parValue))
+                db.Queryable<T>().Where(it => arrayOrList.Contains(it.parValue))         
+            
+   在 SqlSugar.ResolveExpress.MethodTo(String methodName, MethodCallExpression mce, MemberType& type)
+   在 SqlSugar.ResolveExpress.MethodCallExpression(Expression exp, MemberType& type, Boolean isTure)
+   在 SqlSugar.ResolveExpress.CreateSqlElements(Expression exp, MemberType& type, Boolean isTure, Nullable`1 isComparisonOperator)
+   在 SqlSugar.ResolveExpress.BinaryExpression(Expression exp)
+   在 SqlSugar.ResolveExpress.CreateSqlElements(Expression exp, MemberType& type, Boolean isTure, Nullable`1 isComparisonOperator)
+   在 SqlSugar.ResolveExpress.BinaryExpression(Expression exp)
+   在 SqlSugar.ResolveExpress.CreateSqlElements(Expression exp, MemberType& type, Boolean isTure, Nullable`1 isComparisonOperator)
+   在 SqlSugar.ResolveExpress.LambdaExpression(Expression exp)
+   在 SqlSugar.ResolveExpress.CreateSqlElements(Expression exp, MemberType& type, Boolean isTure, Nullable`1 isComparisonOperator)
+   在 SqlSugar.ResolveExpress.Init(ResolveExpress re, Expression exp)
+   在 SqlSugar.ResolveExpress.ResolveExpression(ResolveExpress re, Expression exp, SqlSugarClient db)
+   在 SqlSugar.QueryableExtensions.Where[T](Queryable`1 queryable, Expression`1 expression)
+   在 JuCheap.Web.Areas.Adm.Controllers.SizeController.BugCodeSize(FormCollection fm) 位置 C:\Users\admin\Desktop\工作文档\资源\jucheap-JuCheap.2.0-master\JuCheap.2.0\JuCheap.Web\Areas\Adm\Controllers\SizeController.cs:行号 64
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+记录时间：2017-05-04 14:19:23,896 线程ID:[6] 日志级别：ERROR 出错类：logerror property:[(null)] - 错误描述：
+发生时间:2017/5/4 14:19:23
+用户IP:::1
+发生异常页: http://localhost:37297/Adm/Size/Import
+控制器: Size
+Action: Import
+
+System.Exception: Excel格式出错，请检查文件
+   在 JuCheap.Core.Verification.Verification_XF_SY_NU(DataTable table) 位置 C:\Users\admin\Desktop\工作文档\资源\jucheap-JuCheap.2.0-master\JuCheap.2.0\JuCheap.Core\Verification.cs:行号 68
+   在 JuCheap.Core.Analysis.Excel_analysis_NU(HttpFileCollectionBase files, String gender) 位置 C:\Users\admin\Desktop\工作文档\资源\jucheap-JuCheap.2.0-master\JuCheap.2.0\JuCheap.Core\Analysis.cs:行号 541
+   在 JuCheap.Web.Areas.Adm.Controllers.SizeController.XF_SY(FormCollection fm, String gender) 位置 C:\Users\admin\Desktop\工作文档\资源\jucheap-JuCheap.2.0-master\JuCheap.2.0\JuCheap.Web\Areas\Adm\Controllers\SizeController.cs:行号 164
+   在 JuCheap.Web.Areas.Adm.Controllers.SizeController.Import(FormCollection fm) 位置 C:\Users\admin\Desktop\工作文档\资源\jucheap-JuCheap.2.0-master\JuCheap.2.0\JuCheap.Web\Areas\Adm\Controllers\SizeController.cs:行号 84
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+记录时间：2017-05-04 15:10:25,016 线程ID:[18] 日志级别：ERROR 出错类：logerror property:[(null)] - 错误描述：
+发生时间:2017/5/4 15:10:24
+用户IP:::1
+发生异常页: http://localhost:37297/Adm/Size/Examine/40/43/0
+控制器: Size
+Action: Examine
+
+System.Data.SqlClient.SqlException (0x80131904): 选择列表中的列 'XF_SY_NAN_CodeSize.CreateDateTime' 无效，因为该列没有包含在聚合函数或 GROUP BY 子句中。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader()
+   在 SqlSugar.SqlHelper.GetReader(String sql, SqlParameter[] pars)
+   在 SqlSugar.SqlHelper.GetList[T](String sql, SqlParameter[] pars)
+   在 JuCheap.Web.Areas.Adm.Controllers.SizeController.Examine() 位置 C:\Users\admin\Desktop\工作文档\资源\jucheap-JuCheap.2.0-master\JuCheap.2.0\JuCheap.Web\Areas\Adm\Controllers\SizeController.cs:行号 43
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+ClientConnectionId:eeb77147-a90d-48a2-a45a-7acc9986a118
+Error Number:8120,State:1,Class:16
+记录时间：2017-05-04 15:10:27,823 线程ID:[20] 日志级别：ERROR 出错类：logerror property:[(null)] - 错误描述：
+发生时间:2017/5/4 15:10:27
+用户IP:::1
+发生异常页: http://localhost:37297/Adm/Size/Examine/40/43/0
+控制器: Size
+Action: Examine
+
+System.Data.SqlClient.SqlException (0x80131904): 选择列表中的列 'XF_SY_NAN_CodeSize.CreateDateTime' 无效，因为该列没有包含在聚合函数或 GROUP BY 子句中。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader()
+   在 SqlSugar.SqlHelper.GetReader(String sql, SqlParameter[] pars)
+   在 SqlSugar.SqlHelper.GetList[T](String sql, SqlParameter[] pars)
+   在 JuCheap.Web.Areas.Adm.Controllers.SizeController.Examine() 位置 C:\Users\admin\Desktop\工作文档\资源\jucheap-JuCheap.2.0-master\JuCheap.2.0\JuCheap.Web\Areas\Adm\Controllers\SizeController.cs:行号 43
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+ClientConnectionId:eeb77147-a90d-48a2-a45a-7acc9986a118
+Error Number:8120,State:1,Class:16
+记录时间：2017-05-04 15:10:28,463 线程ID:[19] 日志级别：ERROR 出错类：logerror property:[(null)] - 错误描述：
+发生时间:2017/5/4 15:10:28
+用户IP:::1
+发生异常页: http://localhost:37297/Adm/Size/Examine/40/43/0
+控制器: Size
+Action: Examine
+
+System.Data.SqlClient.SqlException (0x80131904): 选择列表中的列 'XF_SY_NAN_CodeSize.CreateDateTime' 无效，因为该列没有包含在聚合函数或 GROUP BY 子句中。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader()
+   在 SqlSugar.SqlHelper.GetReader(String sql, SqlParameter[] pars)
+   在 SqlSugar.SqlHelper.GetList[T](String sql, SqlParameter[] pars)
+   在 JuCheap.Web.Areas.Adm.Controllers.SizeController.Examine() 位置 C:\Users\admin\Desktop\工作文档\资源\jucheap-JuCheap.2.0-master\JuCheap.2.0\JuCheap.Web\Areas\Adm\Controllers\SizeController.cs:行号 43
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+ClientConnectionId:eeb77147-a90d-48a2-a45a-7acc9986a118
+Error Number:8120,State:1,Class:16
+记录时间：2017-05-04 15:10:28,937 线程ID:[21] 日志级别：ERROR 出错类：logerror property:[(null)] - 错误描述：
+发生时间:2017/5/4 15:10:28
+用户IP:::1
+发生异常页: http://localhost:37297/Adm/Size/Examine/40/43/0
+控制器: Size
+Action: Examine
+
+System.Data.SqlClient.SqlException (0x80131904): 选择列表中的列 'XF_SY_NAN_CodeSize.CreateDateTime' 无效，因为该列没有包含在聚合函数或 GROUP BY 子句中。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader()
+   在 SqlSugar.SqlHelper.GetReader(String sql, SqlParameter[] pars)
+   在 SqlSugar.SqlHelper.GetList[T](String sql, SqlParameter[] pars)
+   在 JuCheap.Web.Areas.Adm.Controllers.SizeController.Examine() 位置 C:\Users\admin\Desktop\工作文档\资源\jucheap-JuCheap.2.0-master\JuCheap.2.0\JuCheap.Web\Areas\Adm\Controllers\SizeController.cs:行号 43
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+ClientConnectionId:eeb77147-a90d-48a2-a45a-7acc9986a118
+Error Number:8120,State:1,Class:16
+记录时间：2017-05-04 15:10:29,288 线程ID:[18] 日志级别：ERROR 出错类：logerror property:[(null)] - 错误描述：
+发生时间:2017/5/4 15:10:29
+用户IP:::1
+发生异常页: http://localhost:37297/Adm/Size/Examine/40/43/0
+控制器: Size
+Action: Examine
+
+System.Data.SqlClient.SqlException (0x80131904): 选择列表中的列 'XF_SY_NAN_CodeSize.CreateDateTime' 无效，因为该列没有包含在聚合函数或 GROUP BY 子句中。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader()
+   在 SqlSugar.SqlHelper.GetReader(String sql, SqlParameter[] pars)
+   在 SqlSugar.SqlHelper.GetList[T](String sql, SqlParameter[] pars)
+   在 JuCheap.Web.Areas.Adm.Controllers.SizeController.Examine() 位置 C:\Users\admin\Desktop\工作文档\资源\jucheap-JuCheap.2.0-master\JuCheap.2.0\JuCheap.Web\Areas\Adm\Controllers\SizeController.cs:行号 43
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+ClientConnectionId:eeb77147-a90d-48a2-a45a-7acc9986a118
+Error Number:8120,State:1,Class:16
+记录时间：2017-05-04 15:10:29,651 线程ID:[18] 日志级别：ERROR 出错类：logerror property:[(null)] - 错误描述：
+发生时间:2017/5/4 15:10:29
+用户IP:::1
+发生异常页: http://localhost:37297/Adm/Size/Examine/40/43/0
+控制器: Size
+Action: Examine
+
+System.Data.SqlClient.SqlException (0x80131904): 选择列表中的列 'XF_SY_NAN_CodeSize.CreateDateTime' 无效，因为该列没有包含在聚合函数或 GROUP BY 子句中。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader()
+   在 SqlSugar.SqlHelper.GetReader(String sql, SqlParameter[] pars)
+   在 SqlSugar.SqlHelper.GetList[T](String sql, SqlParameter[] pars)
+   在 JuCheap.Web.Areas.Adm.Controllers.SizeController.Examine() 位置 C:\Users\admin\Desktop\工作文档\资源\jucheap-JuCheap.2.0-master\JuCheap.2.0\JuCheap.Web\Areas\Adm\Controllers\SizeController.cs:行号 43
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+ClientConnectionId:eeb77147-a90d-48a2-a45a-7acc9986a118
+Error Number:8120,State:1,Class:16
+记录时间：2017-05-04 15:10:35,115 线程ID:[18] 日志级别：ERROR 出错类：logerror property:[(null)] - 错误描述：
+发生时间:2017/5/4 15:10:35
+用户IP:::1
+发生异常页: http://localhost:37297/Adm/Size/Examine/40/43/0
+控制器: Size
+Action: Examine
+
+System.Data.SqlClient.SqlException (0x80131904): 选择列表中的列 'XF_SY_NAN_CodeSize.CreateDateTime' 无效，因为该列没有包含在聚合函数或 GROUP BY 子句中。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader()
+   在 SqlSugar.SqlHelper.GetReader(String sql, SqlParameter[] pars)
+   在 SqlSugar.SqlHelper.GetList[T](String sql, SqlParameter[] pars)
+   在 JuCheap.Web.Areas.Adm.Controllers.SizeController.Examine() 位置 C:\Users\admin\Desktop\工作文档\资源\jucheap-JuCheap.2.0-master\JuCheap.2.0\JuCheap.Web\Areas\Adm\Controllers\SizeController.cs:行号 43
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+ClientConnectionId:eeb77147-a90d-48a2-a45a-7acc9986a118
+Error Number:8120,State:1,Class:16
+记录时间：2017-05-04 15:11:04,209 线程ID:[20] 日志级别：ERROR 出错类：logerror property:[(null)] - 错误描述：
+发生时间:2017/5/4 15:11:04
+用户IP:::1
+发生异常页: http://localhost:37297/Adm/Size/Examine/40/43/0
+控制器: Size
+Action: Examine
+
+System.Data.SqlClient.SqlException (0x80131904): 选择列表中的列 'XF_SY_NAN_CodeSize.CreateDateTime' 无效，因为该列没有包含在聚合函数或 GROUP BY 子句中。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader()
+   在 SqlSugar.SqlHelper.GetReader(String sql, SqlParameter[] pars)
+   在 SqlSugar.SqlHelper.GetList[T](String sql, SqlParameter[] pars)
+   在 JuCheap.Web.Areas.Adm.Controllers.SizeController.Examine() 位置 C:\Users\admin\Desktop\工作文档\资源\jucheap-JuCheap.2.0-master\JuCheap.2.0\JuCheap.Web\Areas\Adm\Controllers\SizeController.cs:行号 43
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+ClientConnectionId:d8ae9ad6-0b8a-4013-bb5b-7f3729a60974
+Error Number:8120,State:1,Class:16
+记录时间：2017-05-04 15:11:06,231 线程ID:[20] 日志级别：ERROR 出错类：logerror property:[(null)] - 错误描述：
+发生时间:2017/5/4 15:11:06
+用户IP:::1
+发生异常页: http://localhost:37297/Adm/Size/Examine/40/43/0
+控制器: Size
+Action: Examine
+
+System.Data.SqlClient.SqlException (0x80131904): 选择列表中的列 'XF_SY_NAN_CodeSize.CreateDateTime' 无效，因为该列没有包含在聚合函数或 GROUP BY 子句中。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader()
+   在 SqlSugar.SqlHelper.GetReader(String sql, SqlParameter[] pars)
+   在 SqlSugar.SqlHelper.GetList[T](String sql, SqlParameter[] pars)
+   在 JuCheap.Web.Areas.Adm.Controllers.SizeController.Examine() 位置 C:\Users\admin\Desktop\工作文档\资源\jucheap-JuCheap.2.0-master\JuCheap.2.0\JuCheap.Web\Areas\Adm\Controllers\SizeController.cs:行号 43
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+ClientConnectionId:d8ae9ad6-0b8a-4013-bb5b-7f3729a60974
+Error Number:8120,State:1,Class:16
+记录时间：2017-05-04 15:11:06,836 线程ID:[21] 日志级别：ERROR 出错类：logerror property:[(null)] - 错误描述：
+发生时间:2017/5/4 15:11:06
+用户IP:::1
+发生异常页: http://localhost:37297/Adm/Size/Examine/40/43/0
+控制器: Size
+Action: Examine
+
+System.Data.SqlClient.SqlException (0x80131904): 选择列表中的列 'XF_SY_NAN_CodeSize.CreateDateTime' 无效，因为该列没有包含在聚合函数或 GROUP BY 子句中。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader()
+   在 SqlSugar.SqlHelper.GetReader(String sql, SqlParameter[] pars)
+   在 SqlSugar.SqlHelper.GetList[T](String sql, SqlParameter[] pars)
+   在 JuCheap.Web.Areas.Adm.Controllers.SizeController.Examine() 位置 C:\Users\admin\Desktop\工作文档\资源\jucheap-JuCheap.2.0-master\JuCheap.2.0\JuCheap.Web\Areas\Adm\Controllers\SizeController.cs:行号 43
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+ClientConnectionId:d8ae9ad6-0b8a-4013-bb5b-7f3729a60974
+Error Number:8120,State:1,Class:16
+记录时间：2017-05-04 15:11:07,154 线程ID:[22] 日志级别：ERROR 出错类：logerror property:[(null)] - 错误描述：
+发生时间:2017/5/4 15:11:07
+用户IP:::1
+发生异常页: http://localhost:37297/Adm/Size/Examine/40/43/0
+控制器: Size
+Action: Examine
+
+System.Data.SqlClient.SqlException (0x80131904): 选择列表中的列 'XF_SY_NAN_CodeSize.CreateDateTime' 无效，因为该列没有包含在聚合函数或 GROUP BY 子句中。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader()
+   在 SqlSugar.SqlHelper.GetReader(String sql, SqlParameter[] pars)
+   在 SqlSugar.SqlHelper.GetList[T](String sql, SqlParameter[] pars)
+   在 JuCheap.Web.Areas.Adm.Controllers.SizeController.Examine() 位置 C:\Users\admin\Desktop\工作文档\资源\jucheap-JuCheap.2.0-master\JuCheap.2.0\JuCheap.Web\Areas\Adm\Controllers\SizeController.cs:行号 43
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+ClientConnectionId:d8ae9ad6-0b8a-4013-bb5b-7f3729a60974
+Error Number:8120,State:1,Class:16
+记录时间：2017-05-04 15:11:07,607 线程ID:[22] 日志级别：ERROR 出错类：logerror property:[(null)] - 错误描述：
+发生时间:2017/5/4 15:11:07
+用户IP:::1
+发生异常页: http://localhost:37297/Adm/Size/Examine/40/43/0
+控制器: Size
+Action: Examine
+
+System.Data.SqlClient.SqlException (0x80131904): 选择列表中的列 'XF_SY_NAN_CodeSize.CreateDateTime' 无效，因为该列没有包含在聚合函数或 GROUP BY 子句中。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader()
+   在 SqlSugar.SqlHelper.GetReader(String sql, SqlParameter[] pars)
+   在 SqlSugar.SqlHelper.GetList[T](String sql, SqlParameter[] pars)
+   在 JuCheap.Web.Areas.Adm.Controllers.SizeController.Examine() 位置 C:\Users\admin\Desktop\工作文档\资源\jucheap-JuCheap.2.0-master\JuCheap.2.0\JuCheap.Web\Areas\Adm\Controllers\SizeController.cs:行号 43
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+ClientConnectionId:d8ae9ad6-0b8a-4013-bb5b-7f3729a60974
+Error Number:8120,State:1,Class:16
+记录时间：2017-05-04 15:12:17,774 线程ID:[7] 日志级别：ERROR 出错类：logerror property:[(null)] - 错误描述：
+发生时间:2017/5/4 15:12:17
+用户IP:::1
+发生异常页: http://localhost:37297/Adm/Size/Examine/40/43/0
+控制器: Size
+Action: Examine
+
+System.Data.SqlClient.SqlException (0x80131904): 选择列表中的列 'XF_SY_NAN_CodeSize.CreateDateTime' 无效，因为该列没有包含在聚合函数或 GROUP BY 子句中。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader()
+   在 SqlSugar.SqlHelper.GetReader(String sql, SqlParameter[] pars)
+   在 SqlSugar.SqlHelper.GetList[T](String sql, SqlParameter[] pars)
+   在 JuCheap.Web.Areas.Adm.Controllers.SizeController.Examine() 位置 C:\Users\admin\Desktop\工作文档\资源\jucheap-JuCheap.2.0-master\JuCheap.2.0\JuCheap.Web\Areas\Adm\Controllers\SizeController.cs:行号 43
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+ClientConnectionId:f91f1cc3-9331-419d-89e5-f064bb0a33ac
+Error Number:8120,State:1,Class:16
+记录时间：2017-05-04 15:13:00,663 线程ID:[19] 日志级别：ERROR 出错类：logerror property:[(null)] - 错误描述：
+发生时间:2017/5/4 15:13:00
+用户IP:::1
+发生异常页: http://localhost:37297/Adm/Size/Examine/40/43/0
+控制器: Size
+Action: Examine
+
+System.Data.SqlClient.SqlException (0x80131904): 选择列表中的列 'XF_SY_NAN_CodeSize.CreateDateTime' 无效，因为该列没有包含在聚合函数或 GROUP BY 子句中。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader()
+   在 SqlSugar.SqlHelper.GetReader(String sql, SqlParameter[] pars)
+   在 SqlSugar.SqlHelper.GetList[T](String sql, SqlParameter[] pars)
+   在 JuCheap.Web.Areas.Adm.Controllers.SizeController.Examine() 位置 C:\Users\admin\Desktop\工作文档\资源\jucheap-JuCheap.2.0-master\JuCheap.2.0\JuCheap.Web\Areas\Adm\Controllers\SizeController.cs:行号 43
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+ClientConnectionId:c27eefc3-bf3f-4736-b420-7dc7d4c82e53
+Error Number:8120,State:1,Class:16
+记录时间：2017-05-04 15:36:07,026 线程ID:[5] 日志级别：ERROR 出错类：logerror property:[(null)] - 错误描述：
+发生时间:2017/5/4 15:36:06
+用户IP:::1
+发生异常页: http://localhost:37297/Adm/Size/Examine/40/43/0
+控制器: Size
+Action: Examine
+
+System.NullReferenceException: 未将对象引用设置到对象的实例。
+   在 JuCheap.Web.Areas.Adm.Controllers.SizeController.Examine()
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+记录时间：2017-05-04 15:36:28,809 线程ID:[5] 日志级别：ERROR 出错类：logerror property:[(null)] - 错误描述：
+发生时间:2017/5/4 15:36:28
+用户IP:::1
+发生异常页: http://localhost:37297/Adm/Size/Examine/40/43/0
+控制器: Size
+Action: Examine
+
+System.Collections.Generic.KeyNotFoundException: 给定关键字不在字典中。
+   在 System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   在 SqlSugar.DynamicJsonObject.TryGetMember(GetMemberBinder binder, Object& result)
+   在 CallSite.Target(Closure , CallSite , Object )
+   在 System.Dynamic.UpdateDelegates.UpdateAndExecute1[T0,TRet](CallSite site, T0 arg0)
+   在 JuCheap.Web.Areas.Adm.Controllers.SizeController.Examine()
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+记录时间：2017-05-04 15:37:02,168 线程ID:[5] 日志级别：ERROR 出错类：logerror property:[(null)] - 错误描述：
+发生时间:2017/5/4 15:37:02
+用户IP:::1
+发生异常页: http://localhost:37297/Adm/Size/Examine/40/43/0
+控制器: Size
+Action: Examine
+
+System.Collections.Generic.KeyNotFoundException: 给定关键字不在字典中。
+   在 System.Collections.Generic.Dictionary`2.get_Item(TKey key)
+   在 SqlSugar.DynamicJsonObject.TryGetMember(GetMemberBinder binder, Object& result)
+   在 CallSite.Target(Closure , CallSite , Object )
+   在 System.Dynamic.UpdateDelegates.UpdateAndExecute1[T0,TRet](CallSite site, T0 arg0)
+   在 JuCheap.Web.Areas.Adm.Controllers.SizeController.Examine()
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)

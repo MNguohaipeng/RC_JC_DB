@@ -61,6 +61,11 @@ namespace JuCheap.Data
             modelBuilder.Configurations.Add(new EmailPoolConfig());
             modelBuilder.Configurations.Add(new EmailReceiverConfig());
             modelBuilder.Configurations.Add(new Cs_dataConfig());
+            modelBuilder.Configurations.Add(new XF_SY_NAN_ChiMaConfig());
+            modelBuilder.Configurations.Add(new SleeveConfig());
+            modelBuilder.Configurations.Add(new XF_KZ_CodeSizeConfig());
+            modelBuilder.Configurations.Add(new HanderDataForXF_KZConfig());
+            modelBuilder.Configurations.Add(new HanderDataForXF_SYConfig());
         }
         ///// <summary>
         ///// 重写SaveChanges方法，增加ID自动生成

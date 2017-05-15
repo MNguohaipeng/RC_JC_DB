@@ -8,8 +8,8 @@ using System.Web;
 using System.Web.Mvc;
 using SqlSugar;
 using JuCheap.Service.Dto;
-
-
+using static JuCheap.Core.SqlSugerHelper;
+using SqlSugarRepository;
 namespace JuCheap.Web.Areas.Adm.Controllers
 {
     public class SizeController : Controller
@@ -23,7 +23,7 @@ namespace JuCheap.Web.Areas.Adm.Controllers
         [HttpGet]
         public ActionResult Examine()
         {
-            using (var db = SugarDao.GetInstance())
+            using (var db = new MySqlServer())
                 try
                 {
 
@@ -37,14 +37,12 @@ namespace JuCheap.Web.Areas.Adm.Controllers
 
             return View();
         }
-
-
-
+        
         #region 审核
         [HttpPost]
         public JsonResult Examine(string Action)
         {
-            using (var db = SugarDao.GetInstance())
+            using (var db=new MySqlServer())
                 try
                 {
                     List<Examine> List = new List<Examine>();
@@ -53,9 +51,9 @@ namespace JuCheap.Web.Areas.Adm.Controllers
                     switch (Action)
                     {
                         case "XF_SY_NAN":
-                            List<XF_SY_NAN_CodeSize> qudate = db.Queryable<XF_SY_NAN_CodeSize>().Where(c => c.Status == 1).GroupBy(it => it.Size_Code).Select<XF_SY_NAN_CodeSize>("Size_Code, MAX(CreateDateTime) as   CreateDateTime").ToList();
+                            List<XF_SY_NAN_ChiMaDto> qudate = db.Database.Queryable<XF_SY_NAN_ChiMaDto>().Where(c => c.Status == 1).GroupBy(it => it.Size_Code).Select<XF_SY_NAN_ChiMaDto>("Size_Code, MAX(CreateDateTime) as   CreateDateTime").ToList();
 
-                            foreach (XF_SY_NAN_CodeSize item in qudate)
+                            foreach (XF_SY_NAN_ChiMaDto item in qudate)
                             {
                                 Examine ex = new Examine();
 
@@ -67,9 +65,9 @@ namespace JuCheap.Web.Areas.Adm.Controllers
                             return Json(new { state = 1, msg = list }, JsonRequestBehavior.AllowGet);
 
                         case "XF_SY_NU":
-                            List<XF_SY_NU_CodeSize> XF_SY_NU = db.Queryable<XF_SY_NU_CodeSize>().Where(c => c.Status == 1).GroupBy(it => it.Size_Code).Select<XF_SY_NU_CodeSize>("Size_Code, MAX(CreateDateTime) as   CreateDateTime").ToList();
+                            List<XF_SY_NU_CodeSizeDto> XF_SY_NU = db.Database.Queryable<XF_SY_NU_CodeSizeDto>().Where(c => c.Status == 1).GroupBy(it => it.Size_Code).Select<XF_SY_NU_CodeSizeDto>("Size_Code, MAX(CreateDateTime) as   CreateDateTime").ToList();
 
-                            foreach (XF_SY_NU_CodeSize item in XF_SY_NU)
+                            foreach (XF_SY_NU_CodeSizeDto item in XF_SY_NU)
                             {
                                 Examine ex = new Examine();
 
@@ -81,9 +79,9 @@ namespace JuCheap.Web.Areas.Adm.Controllers
                             return Json(new { state = 1, msg = list }, JsonRequestBehavior.AllowGet);
 
                         case "XF_KZ_NAN":
-                            List<XF_KZ_CodeSize> XF_KZ_NAN = db.Queryable<XF_KZ_CodeSize>().Where(c => c.Status == 1).GroupBy(it => it.Size_Code).Select<XF_KZ_CodeSize>("Size_Code, MAX(CreateDateTime) as   CreateDateTime").ToList();
+                            List<XF_KZ_CodeSizeDto> XF_KZ_NAN = db.Database.Queryable<XF_KZ_CodeSizeDto>().Where(c => c.Status == 1).GroupBy(it => it.Size_Code).Select<XF_KZ_CodeSizeDto>("Size_Code, MAX(CreateDateTime) as   CreateDateTime").ToList();
 
-                            foreach (XF_KZ_CodeSize item in XF_KZ_NAN)
+                            foreach (XF_KZ_CodeSizeDto item in XF_KZ_NAN)
                             {
                                 Examine ex = new Examine();
 
@@ -95,9 +93,9 @@ namespace JuCheap.Web.Areas.Adm.Controllers
                             return Json(new { state = 1, msg = list }, JsonRequestBehavior.AllowGet);
 
                         case "XF_KZ_NU":
-                            List<XF_KZ_CodeSize> XF_KZ_NU = db.Queryable<XF_KZ_CodeSize>().Where(c => c.Status == 1).GroupBy(it => it.Size_Code).Select<XF_KZ_CodeSize>("Size_Code, MAX(CreateDateTime) as   CreateDateTime").ToList();
+                            List<XF_KZ_CodeSizeDto> XF_KZ_NU = db.Database.Queryable<XF_KZ_CodeSizeDto>().Where(c => c.Status == 1).GroupBy(it => it.Size_Code).Select<XF_KZ_CodeSizeDto>("Size_Code, MAX(CreateDateTime) as   CreateDateTime").ToList();
 
-                            foreach (XF_KZ_CodeSize item in XF_KZ_NU)
+                            foreach (XF_KZ_CodeSizeDto item in XF_KZ_NU)
                             {
                                 Examine ex = new Examine();
 
@@ -125,19 +123,19 @@ namespace JuCheap.Web.Areas.Adm.Controllers
         //修改尺码表状态
         public JsonResult UpdateState(string Code, string state, string Action)
         {
-            using (var db = SugarDao.GetInstance())
+            using (var db = new MySqlServer())
                 try
                 {
                     switch (Action)
                     {
                         case "XF_SY_NAN":
-                            db.Update<XF_SY_NAN_CodeSize>(new { status = state }, it => it.Size_Code == Code);
+                            db.Database.Update<XF_SY_NAN_ChiMaDto>(new { status = state }, it => it.Size_Code == Code);
 
                             return Json(new { state = 1, msg = "" }, JsonRequestBehavior.AllowGet);
 
                         case "XF_SY_NU":
 
-                            db.Update<XF_SY_NU_CodeSize>(new { status = state }, it => it.Size_Code == Code);
+                            db.Database.Update<XF_SY_NAN_ChiMaDto>(new { status = state }, it => it.Size_Code == Code);
 
                             return Json(new { state = 1, msg = "" }, JsonRequestBehavior.AllowGet);
 
@@ -165,20 +163,20 @@ namespace JuCheap.Web.Areas.Adm.Controllers
         //加载尺码表详细信息
         public JsonResult BugCodeSize(string Size_Code, string Action)
         {
-            using (var db = SugarDao.GetInstance())
+            using (var db = new MySqlServer())
                 try
                 {
                     switch (Action)
                     {
                         case "XF_SY_NAN":
-                            List<XF_SY_NAN_CodeSize> list = db.Queryable<XF_SY_NAN_CodeSize>().Where(T => T.Status == 1 && T.Size_Code == Size_Code).ToList();
+                            List<XF_SY_NAN_ChiMaDto> list = db.Database.Queryable<XF_SY_NAN_ChiMaDto>().Where(T => T.Status == 1 && T.Size_Code == Size_Code).ToList();
                             return Json(new { state = 1, msg = list }, JsonRequestBehavior.AllowGet);
                         case "XF_SY_NU":
-                            return Json(new { state = 1, msg = db.Queryable<XF_SY_NU_CodeSize>().Where(T => T.Status == 1 && T.Size_Code == Size_Code).ToList() }, JsonRequestBehavior.AllowGet);
+                            return Json(new { state = 1, msg = db.Database.Queryable<XF_SY_NU_CodeSizeDto>().Where(T => T.Status == 1 && T.Size_Code == Size_Code).ToList() }, JsonRequestBehavior.AllowGet);
                         case "XF_KZ_NAN":
-                            return Json(new { state = 1, msg = db.Queryable<XF_KZ_CodeSize>().Where(T => T.Status == 1 && T.Size_Code == Size_Code).ToList() }, JsonRequestBehavior.AllowGet);
+                            return Json(new { state = 1, msg = db.Database.Queryable<XF_SY_NU_CodeSizeDto>().Where(T => T.Status == 1 && T.Size_Code == Size_Code).ToList() }, JsonRequestBehavior.AllowGet);
                         case "XF_KZ_NU":
-                            return Json(new { state = 1, msg = db.Queryable<XF_KZ_CodeSize>().Where(T => T.Status == 1 && T.Size_Code == Size_Code).ToList() }, JsonRequestBehavior.AllowGet);
+                            return Json(new { state = 1, msg = db.Database.Queryable<XF_SY_NU_CodeSizeDto>().Where(T => T.Status == 1 && T.Size_Code == Size_Code).ToList() }, JsonRequestBehavior.AllowGet);
                         default:
                             throw new Exception("系统出错：没有对应的Action");
 
@@ -197,7 +195,7 @@ namespace JuCheap.Web.Areas.Adm.Controllers
         [HttpPost]
         public JsonResult UpdateCode(FormCollection fm)
         {
-            using (var db = SugarDao.GetInstance())
+            using (var db = new MySqlServer())
                 try
                 {
 
@@ -224,7 +222,7 @@ namespace JuCheap.Web.Areas.Adm.Controllers
                                     throw new Exception("数据ID格式不正确");
                                 }
 
-                                db.Update<XF_SY_NAN_CodeSize, int>(dic, upid);
+                                db.Database.Update<XF_SY_NAN_ChiMaDto, int>(dic, upid);
                                 dic.Clear();
                             }
                             break;
@@ -248,7 +246,7 @@ namespace JuCheap.Web.Areas.Adm.Controllers
                                     throw new Exception("数据ID格式不正确");
                                 }
 
-                                db.Update<XF_SY_NU_CodeSize, int>(dic2, upid);
+                                db.Database.Update<XF_SY_NU_CodeSizeDto, int>(dic2, upid);
                                 dic2.Clear();
                             }
                             break;
@@ -276,7 +274,7 @@ namespace JuCheap.Web.Areas.Adm.Controllers
                                     throw new Exception("数据ID格式不正确");
                                 }
 
-                                db.Update<XF_SY_NU_CodeSize, int>(dic3, upid);
+                                db.Database.Update<XF_SY_NU_CodeSizeDto, int>(dic3, upid);
                                 dic3.Clear();
                             }
 
@@ -469,12 +467,12 @@ namespace JuCheap.Web.Areas.Adm.Controllers
 
 
 
-            List<Service.Dto.XF_SY_NAN_CodeSize> cslist = new List<Service.Dto.XF_SY_NAN_CodeSize>();
+            List<Service.Dto.XF_SY_NAN_ChiMaDto> cslist = new List<Service.Dto.XF_SY_NAN_ChiMaDto>();
 
             for (int i = 0; i < table.Rows.Count; i++)
             {
                 decimal ty = 0;
-                Service.Dto.XF_SY_NAN_CodeSize cs = new Service.Dto.XF_SY_NAN_CodeSize();
+                Service.Dto.XF_SY_NAN_ChiMaDto cs = new Service.Dto.XF_SY_NAN_ChiMaDto();
                 if (decimal.TryParse(table.Rows[i]["Height"] + "", out ty))
                 {
                     cs.Height = ty;
@@ -549,12 +547,12 @@ namespace JuCheap.Web.Areas.Adm.Controllers
 
 
 
-            List<Service.Dto.XF_SY_NU_CodeSize> cslist = new List<Service.Dto.XF_SY_NU_CodeSize>();
+            List<Service.Dto.XF_SY_NU_CodeSizeDto> cslist = new List<Service.Dto.XF_SY_NU_CodeSizeDto>();
 
             for (int i = 0; i < table.Rows.Count; i++)
             {
                 decimal ty = 0;
-                Service.Dto.XF_SY_NU_CodeSize cs = new Service.Dto.XF_SY_NU_CodeSize();
+                Service.Dto.XF_SY_NU_CodeSizeDto cs = new Service.Dto.XF_SY_NU_CodeSizeDto();
                 if (decimal.TryParse(table.Rows[i]["Height"] + "", out ty))
                 {
                     cs.Height = ty;
@@ -621,12 +619,12 @@ namespace JuCheap.Web.Areas.Adm.Controllers
         public static object Ret_Excel_trousrs(DataTable table)
         {
 
-            List<XF_KZ_CodeSize> cslist = new List<XF_KZ_CodeSize>();
+            List<XF_KZ_CodeSizeDto> cslist = new List<XF_KZ_CodeSizeDto>();
 
             for (int i = 0; i < table.Rows.Count; i++)
             {
                 decimal ty = 0;
-                XF_KZ_CodeSize ts = new XF_KZ_CodeSize();
+                XF_KZ_CodeSizeDto ts = new XF_KZ_CodeSizeDto();
 
                 ts.Code = table.Rows[i]["Code"] + "";
 
@@ -719,23 +717,23 @@ namespace JuCheap.Web.Areas.Adm.Controllers
         [HttpPost]
         public JsonResult Manage(string Code, string Action)
         {
-            using (var db = SugarDao.GetInstance())
+            using (var db = new MySqlServer())
                 try
                 {
 
                     switch (Action)
                     {
                         case "XF_SY_NAN"://西服上衣  男
-                            return Json(new { state = 1, msg = db.Queryable<XF_SY_NAN_CodeSize>().Where(it => it.Size_Code == Code.ObjToString()).ToList() }, JsonRequestBehavior.AllowGet);
+                            return Json(new { state = 1, msg = db.Database.Queryable<XF_SY_NAN_ChiMaDto>().Where(it => it.Size_Code == Code).ToList() }, JsonRequestBehavior.AllowGet);
  
                         case "XF_SY_NU":
 
-                            return Json(new { state = 1, msg = db.Queryable<XF_SY_NU_CodeSize>().Where(it => it.Size_Code == Code.ObjToString()).ToList() }, JsonRequestBehavior.AllowGet);
+                            return Json(new { state = 1, msg = db.Database.Queryable<XF_SY_NU_CodeSizeDto>().Where(it => it.Size_Code == Code).ToList() }, JsonRequestBehavior.AllowGet);
 
                         case "XF_KZ_NAN":
                         case "XF_KZ_NU":
 
-                            return Json(new { state = 1, msg = db.Queryable<XF_KZ_CodeSize>().Where(it => it.Size_Code == Code.ObjToString()).ToList() }, JsonRequestBehavior.AllowGet);
+                            return Json(new { state = 1, msg = db.Database.Queryable<XF_KZ_CodeSizeDto>().Where(it => it.Size_Code == Code).ToList() }, JsonRequestBehavior.AllowGet);
                         default:
                             throw new Exception("系统出错：没有对应的Action");
 
@@ -756,7 +754,7 @@ namespace JuCheap.Web.Areas.Adm.Controllers
         //尺码表编号下拉
         public JsonResult SizeCodeSelect(string Action)
         {
-            using (var db = SugarDao.GetInstance())
+            using (var db = new MySqlServer())
                 try
                 {
 
@@ -764,14 +762,14 @@ namespace JuCheap.Web.Areas.Adm.Controllers
                     {
                         case "XF_SY_NAN"://西服上衣  男
 
-                            List<XF_SY_NAN_CodeSize> XF_SY_NAN = db.Queryable<XF_SY_NAN_CodeSize>().Where(c => c.Status == 0).GroupBy(it => it.Size_Code).Select<XF_SY_NAN_CodeSize>("Size_Code").ToList();
+                            List<XF_SY_NAN_ChiMaDto> XF_SY_NAN = db.Database.Queryable<XF_SY_NAN_ChiMaDto>().Where(c => c.Status == 0).GroupBy(it => it.Size_Code).Select<XF_SY_NAN_ChiMaDto>("Size_Code").ToList();
 
 
                             return Json(new { state = 1, msg = XF_SY_NAN }, JsonRequestBehavior.AllowGet);
 
                         case "XF_SY_NU":
 
-                            List<XF_SY_NU_CodeSize> XF_SY_NU = db.Queryable<XF_SY_NU_CodeSize>().Where(c => c.Status == 1).GroupBy(it => it.Size_Code).Select<XF_SY_NU_CodeSize>("Size_Code").ToList();
+                            List<XF_SY_NU_CodeSizeDto> XF_SY_NU = db.Database.Queryable<XF_SY_NU_CodeSizeDto>().Where(c => c.Status == 1).GroupBy(it => it.Size_Code).Select<XF_SY_NU_CodeSizeDto>("Size_Code").ToList();
 
 
                             return Json(new { state = 1, msg = XF_SY_NU }, JsonRequestBehavior.AllowGet);

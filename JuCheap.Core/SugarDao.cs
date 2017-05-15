@@ -17,17 +17,18 @@ namespace JuCheap.Core
         public static string ConnectionString
         {
             get
-            {
-                string reval = @"server=DESKTOP-OV0I35V\SQLEXPRESS;uid=sa;pwd=123456;database=DJ_JuCheap"; //这里可以动态根据cookies或session实现多库切换
+            {//;
+                string reval = @"Data Source=172.16.172.140/orcl;  User ID=system;Password=123456"; //这里可以动态根据cookies或session实现多库切换
                 return reval;
             }
         }
-        public static SqlSugarClient GetInstance()
+      public static object GetInstance()
         {
-            var db = new SqlSugarClient(ConnectionString);
-            db.IsEnableLogEvent = true;//启用日志事件
-            db.LogEventStarting = (sql, par) => { Console.WriteLine(sql + " " + par+"\r\n"); };
-            return db;
-        }
+ 
+        //    var db = new SqlSugarClient(ConnectionString);
+        //    db.IsEnableLogEvent = true;//启用日志事件
+        //    db.LogEventStarting = (sql, par) => { Console.WriteLine(sql + " " + par+"\r\n"); };
+           return null;
+          }
     }
 }

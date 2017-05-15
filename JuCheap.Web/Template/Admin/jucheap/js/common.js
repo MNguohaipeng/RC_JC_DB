@@ -53,3 +53,84 @@ function hide_dig() {
     $("#myModal").modal('hide');
 
 }
+
+
+//加载弹出框
+//表头    数据   按钮html      是否是输入框
+function loadPopup(thead, data, buttonHtml, isInput) {
+
+    var PopupHtml = "";
+    PopupHtml+='<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">'
+    PopupHtml +='<div class="modal-dialog" style="width: 70%">'
+    PopupHtml +='<div class="modal-content">'
+    PopupHtml +='<div class="modal-header">'
+    PopupHtml +='<button type="button" class="close" data-dismiss="modal" aria-hidden="true">'
+    PopupHtml +='&times;'
+    PopupHtml +='</button>'
+    PopupHtml +='<h4 class="modal-title" id="myModalLabel">'
+    PopupHtml +=' 检视'
+    PopupHtml +='</h4>'
+    PopupHtml +='</div>'
+    PopupHtml +='<div class="modal-body">'
+    PopupHtml +='<div class="x_panel">'
+    PopupHtml +='<div class="x_title">'
+    PopupHtml +='<div class="clearfix"></div>'
+    PopupHtml +='</div>'
+    PopupHtml +='<div class="x_content">'
+    PopupHtml +='<div class="table-responsive" style="height: 400px; overflow: auto" id="scroll-1">'
+    PopupHtml +='<form action="/Adm/Size/UpdateCode" method="post" enctype="multipart/form-data" id="updateID">'
+    PopupHtml +='<input type="hidden" name="Action" />'
+    PopupHtml +='<table class="table table-striped custom-table table-hover" id="Popup_Table">'
+    PopupHtml +='<thead>'
+    PopupHtml +='</thead>'
+    PopupHtml +='<tbody></tbody>'
+    PopupHtml +='</table>'
+    PopupHtml +='</form>'
+    PopupHtml +='</div>'
+    PopupHtml +='</div>'
+    PopupHtml +='</div>'
+    PopupHtml +='</div>'
+    PopupHtml += '<div class="modal-footer">'
+    PopupHtml += buttonHtml;
+    PopupHtml +='</div>'
+    PopupHtml +='</div>'
+    PopupHtml +='</div>'
+    PopupHtml +='</div>'
+
+
+    $("body").append(PopupHtml);
+
+
+
+    var th_html = "";
+ 
+    for (var i = 0; i < thead.length; i++) {
+        th_html += '<th class="hidden-xs">' + thead[i].split("/")[0] + ' </th>';
+    }
+    $("#Popup_Table thead th").remove();
+    $("#Popup_Table thead").append(th_html);
+    var html = "";
+ 
+    for (var i = 0; i < data.length; i++) {
+        html += "<tr class='even pointer insert_excel_list' >"
+
+        if (isInput) {
+            html += "<input name='ID' type='hidden' value='" + data[i]["ID"] + "'   />";
+        }  
+        for (var a = 0; a < thead.length; a++) {
+
+            var txt = data[i][thead[a].split("/")[1]];
+         
+            if (isInput) {
+                html += "<td style='padding:2px 0px'><input style='border:0px;width:105px' type='text' name='" + thead[a].split("/")[1] + "' value='" + txt + "'/></td>";
+            } else {
+                html += "<td style='padding:2px 0px'>" + txt+"</td>";
+            }
+        }
+
+        html += "</tr>";
+    }
+    $("#Popup_Table tbody tr").remove();
+    $("#Popup_Table tbody").append(html)
+
+}

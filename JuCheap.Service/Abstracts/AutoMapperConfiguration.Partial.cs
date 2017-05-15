@@ -54,17 +54,23 @@ namespace JuCheap.Service
 			Mapper.CreateMap<RoleMenuEntity, RoleMenuDto>();
 			Mapper.CreateMap<RoleMenuDto, RoleMenuEntity>();
 
+			Mapper.CreateMap<SleeveEntity, SleeveDto>();
+			Mapper.CreateMap<SleeveDto, SleeveEntity>();
+
 			Mapper.CreateMap<UserEntity, UserDto>();
 			Mapper.CreateMap<UserDto, UserEntity>();
 
 			Mapper.CreateMap<UserRoleEntity, UserRoleDto>();
 			Mapper.CreateMap<UserRoleDto, UserRoleEntity>();
 
- 
-			Mapper.CreateMap<XF_SY_NAN_CodeSizeEntity, XF_SY_NAN_CodeSizeDto>();
-			Mapper.CreateMap<XF_SY_NAN_CodeSizeDto, XF_SY_NAN_CodeSizeEntity>();
+			Mapper.CreateMap<XF_KZ_CodeSizeEntity, XF_KZ_CodeSizeDto>();
+			Mapper.CreateMap<XF_KZ_CodeSizeDto, XF_KZ_CodeSizeEntity>();
 
- 
+			Mapper.CreateMap<XF_SY_NAN_ChiMaEntity, XF_SY_NAN_ChiMaDto>();
+			Mapper.CreateMap<XF_SY_NAN_ChiMaDto, XF_SY_NAN_ChiMaEntity>();
+
+			Mapper.CreateMap<XF_SY_NU_CodeSizeEntity, XF_SY_NU_CodeSizeDto>();
+			Mapper.CreateMap<XF_SY_NU_CodeSizeDto, XF_SY_NU_CodeSizeEntity>();
 
         }
     }

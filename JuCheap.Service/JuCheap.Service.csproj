@@ -55,14 +55,22 @@
       <HintPath>..\packages\Mehdime.Entity.1.0.0\lib\Mehdime.Entity.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Oracle.DataAccess, Version=4.112.2.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\Oracle.DataAccess.dll</HintPath>
+    </Reference>
     <Reference Include="SqlSugar, Version=3.1.0.2, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\..\Documents\Visual Studio 2015\Projects\ReturnCode\Common\bin\Debug\SqlSugar.dll</HintPath>
+    </Reference>
+    <Reference Include="SqlSugarRepository">
+      <HintPath>..\JuCheap.Core\bin\SqlSugarRepository.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.OracleClient" />
     <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -111,6 +119,9 @@
     <Compile Include="Abstracts\IRoleService.Partial.cs">
       <DependentUpon>IService.tt</DependentUpon>
     </Compile>
+    <Compile Include="Abstracts\ISleeveService.Partial.cs">
+      <DependentUpon>IService.tt</DependentUpon>
+    </Compile>
     <Compile Include="Abstracts\IUserRoleService.Partial.cs">
       <DependentUpon>IService.tt</DependentUpon>
     </Compile>
@@ -118,7 +129,13 @@
     <Compile Include="Abstracts\IUserService.Partial.cs">
       <DependentUpon>IService.tt</DependentUpon>
     </Compile>
-    <Compile Include="Abstracts\IXF_SY_NAN_CodeSizeService.Partial.cs">
+    <Compile Include="Abstracts\IXF_KZ_CodeSizeService.Partial.cs">
+      <DependentUpon>IService.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Abstracts\IXF_SY_NAN_ChiMaService.Partial.cs">
+      <DependentUpon>IService.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Abstracts\IXF_SY_NU_CodeSizeService.Partial.cs">
       <DependentUpon>IService.tt</DependentUpon>
     </Compile>
     <Compile Include="Abstracts\LoginLogService.Partial.cs">
@@ -137,6 +154,9 @@
       <DependentUpon>IService.tt</DependentUpon>
     </Compile>
     <Compile Include="Abstracts\ServiceBase.cs" />
+    <Compile Include="Abstracts\SleeveService.Partial.cs">
+      <DependentUpon>IService.tt</DependentUpon>
+    </Compile>
     <Compile Include="Abstracts\UserRoleService.Partial.cs">
       <DependentUpon>IService.tt</DependentUpon>
     </Compile>
@@ -144,11 +164,21 @@
     <Compile Include="Abstracts\UserService.Partial.cs">
       <DependentUpon>IService.tt</DependentUpon>
     </Compile>
-    <Compile Include="Abstracts\XF_SY_NAN_CodeSizeService.Partial.cs">
+    <Compile Include="Abstracts\XF_KZ_CodeSizeService.Partial.cs">
+      <DependentUpon>IService.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Abstracts\XF_SY_NAN_ChiMaService.Partial.cs">
+      <DependentUpon>IService.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Abstracts\XF_SY_NU_CodeSizeService.Partial.cs">
       <DependentUpon>IService.tt</DependentUpon>
     </Compile>
     <Compile Include="AutoMapperConfiguration.cs" />
-    <Compile Include="Dto\XF_SY_NAN_CodeSizeDto.cs" />
+    <Compile Include="Dto\HanderDataForXF_KZDto.cs" />
+    <Compile Include="Dto\HanderDataForXF_SYDto.cs" />
+    <Compile Include="Dto\SleeveDto.cs" />
+    <Compile Include="Dto\XF_KZ_CodeSizeDto.cs" />
+    <Compile Include="Dto\XF_SY_NAN_ChiMaDto.cs" />
     <Compile Include="Dto\CoatSize.cs" />
     <Compile Include="Config\EmailConfiguration.cs" />
     <Compile Include="Dto\BaseDto.cs" />
@@ -174,12 +204,10 @@
     <Compile Include="Dto\RoleDto.cs" />
     <Compile Include="Dto\SizeCheck.cs" />
     <Compile Include="Dto\Sleeve.cs" />
-    <Compile Include="Dto\XF_KZ_CodeSize.cs" />
     <Compile Include="Dto\User.cs" />
     <Compile Include="Dto\UserRoleDto.cs" />
     <Compile Include="Dto\UserDto.cs" />
-    <Compile Include="Dto\XF_SY_NAN_CodeSize.cs" />
-    <Compile Include="Dto\XF_SY_NU_CodeSize.cs" />
+    <Compile Include="Dto\XF_SY_NU_CodeSizeDto.cs" />
     <Compile Include="Enum\EmailReceiverType.cs" />
     <Compile Include="Enum\EmailStatus.cs" />
     <Compile Include="Enum\MenuType.cs" />
@@ -221,6 +249,7 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

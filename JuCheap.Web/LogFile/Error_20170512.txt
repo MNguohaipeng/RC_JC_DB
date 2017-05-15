@@ -1,0 +1,279 @@
+记录时间：2017-05-12 15:07:53,845 线程ID:[8] 日志级别：ERROR 出错类：logerror property:[(null)] - 错误描述：
+发生时间:2017/5/12 15:07:40
+用户IP:::1
+发生异常页: http://localhost:37297/Adm/HandleData/Handle/0/44/0
+控制器: HandleData
+Action: Handle
+
+System.ArgumentException: 键“data source”值的长度超出了“128”的限制。
+   在 System.Data.SqlClient.SqlConnectionString.ValidateValueLength(String value, Int32 limit, String key)
+   在 System.Data.SqlClient.SqlConnectionString..ctor(String connectionString)
+   在 System.Data.SqlClient.SqlConnectionFactory.CreateConnectionOptions(String connectionString, DbConnectionOptions previous)
+   在 System.Data.ProviderBase.DbConnectionFactory.GetConnectionPoolGroup(DbConnectionPoolKey key, DbConnectionPoolGroupOptions poolOptions, DbConnectionOptions& userConnectionOptions)
+   在 System.Data.SqlClient.SqlConnection.ConnectionString_Set(DbConnectionPoolKey key)
+   在 System.Data.SqlClient.SqlConnection.set_ConnectionString(String value)
+   在 System.Data.SqlClient.SqlConnection..ctor(String connectionString, SqlCredential credential)
+   在 System.Data.SqlClient.SqlConnection..ctor(String connectionString)
+   在 SqlSugar.SqlHelper..ctor(String connectionString)
+   在 SqlSugar.SqlSugarClient..ctor(String connectionString)
+   在 JuCheap.Core.SugarDao.GetInstance() 位置 C:\Users\admin\Desktop\工作文档\资源\jucheap-JuCheap.2.0-master\JuCheap.2.0\JuCheap.Core\SugarDao.cs:行号 27
+   在 JuCheap.Web.Areas.Adm.Controllers.HandleDataController.Handle(String Size_Code, String Action) 位置 C:\Users\admin\Desktop\工作文档\资源\jucheap-JuCheap.2.0-master\JuCheap.2.0\JuCheap.Web\Areas\Adm\Controllers\HandleDataController.cs:行号 32
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+记录时间：2017-05-12 16:21:24,927 线程ID:[7] 日志级别：ERROR 出错类：logerror property:[(null)] - 错误描述：
+发生时间:2017/5/12 16:21:24
+用户IP:::1
+发生异常页: http://localhost:37297/Adm/HandleData/Handle/0/44/0
+控制器: HandleData
+Action: Handle
+
+System.IO.FileNotFoundException: 未能加载文件或程序集“Oracle.ManagedDataAccess, Version=4.121.1.0, Culture=neutral, PublicKeyToken=89b483f429c47342”或它的某一个依赖项。系统找不到指定的文件。
+文件名:“Oracle.ManagedDataAccess, Version=4.121.1.0, Culture=neutral, PublicKeyToken=89b483f429c47342”
+   在 OracleSugar.SqlHelper..ctor(String connectionString)
+   在 OracleSugar.SqlSugarClient..ctor(String connectionString)
+   在 SqlSugarRepository.PlSqlSugarClient..ctor(String connectionString)
+   在 SqlSugarRepository.DbRepository.GetConnectionClient(DbType type, String connectionString)
+   在 SqlSugarRepository.DbRepository.get_Database()
+   在 JuCheap.Web.Areas.Adm.Controllers.HandleDataController.Handle(String Size_Code, String Action) 位置 C:\Users\admin\Desktop\工作文档\资源\jucheap-JuCheap.2.0-master\JuCheap.2.0\JuCheap.Web\Areas\Adm\Controllers\HandleDataController.cs:行号 83
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+
+=== 预绑定状态信息 ===
+日志: DisplayName = Oracle.ManagedDataAccess, Version=4.121.1.0, Culture=neutral, PublicKeyToken=89b483f429c47342
+ (Fully-specified)
+日志: Appbase = file:///C:/Users/admin/Desktop/工作文档/资源/jucheap-JuCheap.2.0-master/JuCheap.2.0/JuCheap.Web/
+日志: 初始 PrivatePath = C:\Users\admin\Desktop\工作文档\资源\jucheap-JuCheap.2.0-master\JuCheap.2.0\JuCheap.Web\bin
+调用程序集: SqlSugarRepository, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null。
+===
+日志: 此绑定从 default 加载上下文开始。
+日志: 正在使用应用程序配置文件: C:\Users\admin\Desktop\工作文档\资源\jucheap-JuCheap.2.0-master\JuCheap.2.0\JuCheap.Web\web.config
+日志: 使用主机配置文件: C:\Users\admin\Documents\IISExpress\config\aspnet.config
+日志: 使用 C:\Windows\Microsoft.NET\Framework\v4.0.30319\config\machine.config 的计算机配置文件。
+日志: 策略后引用: Oracle.ManagedDataAccess, Version=4.121.1.0, Culture=neutral, PublicKeyToken=89b483f429c47342
+日志: 相同的绑定已出现过，因 hr = 0x80070002 而失败。
+
+记录时间：2017-05-12 16:46:42,099 线程ID:[22] 日志级别：ERROR 出错类：logerror property:[(null)] - 错误描述：
+发生时间:2017/5/12 16:46:41
+用户IP:::1
+发生异常页: http://localhost:37297/Adm/HandleData/Handle/0/44/0
+控制器: HandleData
+Action: Handle
+
+System.IO.FileNotFoundException: 未能加载文件或程序集“Oracle.ManagedDataAccess, Version=4.121.1.0, Culture=neutral, PublicKeyToken=89b483f429c47342”或它的某一个依赖项。系统找不到指定的文件。
+文件名:“Oracle.ManagedDataAccess, Version=4.121.1.0, Culture=neutral, PublicKeyToken=89b483f429c47342”
+   在 OracleSugar.SqlHelper..ctor(String connectionString)
+   在 OracleSugar.SqlSugarClient..ctor(String connectionString)
+   在 SqlSugarRepository.PlSqlSugarClient..ctor(String connectionString)
+   在 SqlSugarRepository.DbRepository.GetConnectionClient(DbType type, String connectionString)
+   在 SqlSugarRepository.DbRepository.get_Database()
+   在 JuCheap.Web.Areas.Adm.Controllers.HandleDataController.Handle(String Size_Code, String Action) 位置 C:\Users\admin\Desktop\工作文档\资源\jucheap-JuCheap.2.0-master\JuCheap.2.0\JuCheap.Web\Areas\Adm\Controllers\HandleDataController.cs:行号 83
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+
+=== 预绑定状态信息 ===
+日志: DisplayName = Oracle.ManagedDataAccess, Version=4.121.1.0, Culture=neutral, PublicKeyToken=89b483f429c47342
+ (Fully-specified)
+日志: Appbase = file:///C:/Users/admin/Desktop/工作文档/资源/jucheap-JuCheap.2.0-master/JuCheap.2.0/JuCheap.Web/
+日志: 初始 PrivatePath = C:\Users\admin\Desktop\工作文档\资源\jucheap-JuCheap.2.0-master\JuCheap.2.0\JuCheap.Web\bin
+调用程序集: SqlSugarRepository, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null。
+===
+日志: 此绑定从 default 加载上下文开始。
+日志: 正在使用应用程序配置文件: C:\Users\admin\Desktop\工作文档\资源\jucheap-JuCheap.2.0-master\JuCheap.2.0\JuCheap.Web\web.config
+日志: 使用主机配置文件: C:\Users\admin\Documents\IISExpress\config\aspnet.config
+日志: 使用 C:\Windows\Microsoft.NET\Framework\v4.0.30319\config\machine.config 的计算机配置文件。
+日志: 策略后引用: Oracle.ManagedDataAccess, Version=4.121.1.0, Culture=neutral, PublicKeyToken=89b483f429c47342
+日志: 尝试下载新的 URL file:///C:/Windows/Microsoft.NET/Framework/v4.0.30319/Temporary ASP.NET Files/vs/970777f5/504a2968/Oracle.ManagedDataAccess.DLL。
+日志: 尝试下载新的 URL file:///C:/Windows/Microsoft.NET/Framework/v4.0.30319/Temporary ASP.NET Files/vs/970777f5/504a2968/Oracle.ManagedDataAccess/Oracle.ManagedDataAccess.DLL。
+日志: 尝试下载新的 URL file:///C:/Users/admin/Desktop/工作文档/资源/jucheap-JuCheap.2.0-master/JuCheap.2.0/JuCheap.Web/bin/Oracle.ManagedDataAccess.DLL。
+日志: 尝试下载新的 URL file:///C:/Users/admin/Desktop/工作文档/资源/jucheap-JuCheap.2.0-master/JuCheap.2.0/JuCheap.Web/bin/Oracle.ManagedDataAccess/Oracle.ManagedDataAccess.DLL。
+日志: 尝试下载新的 URL file:///C:/Windows/Microsoft.NET/Framework/v4.0.30319/Temporary ASP.NET Files/vs/970777f5/504a2968/Oracle.ManagedDataAccess.EXE。
+日志: 尝试下载新的 URL file:///C:/Windows/Microsoft.NET/Framework/v4.0.30319/Temporary ASP.NET Files/vs/970777f5/504a2968/Oracle.ManagedDataAccess/Oracle.ManagedDataAccess.EXE。
+日志: 尝试下载新的 URL file:///C:/Users/admin/Desktop/工作文档/资源/jucheap-JuCheap.2.0-master/JuCheap.2.0/JuCheap.Web/bin/Oracle.ManagedDataAccess.EXE。
+日志: 尝试下载新的 URL file:///C:/Users/admin/Desktop/工作文档/资源/jucheap-JuCheap.2.0-master/JuCheap.2.0/JuCheap.Web/bin/Oracle.ManagedDataAccess/Oracle.ManagedDataAccess.EXE。
+
+记录时间：2017-05-12 16:46:42,104 线程ID:[6] 日志级别：ERROR 出错类：logerror property:[(null)] - 错误描述：
+发生时间:2017/5/12 16:46:41
+用户IP:::1
+发生异常页: http://localhost:37297/Adm/HandleData/Handle/0/44/0
+控制器: HandleData
+Action: Handle
+
+System.IO.FileNotFoundException: 未能加载文件或程序集“Oracle.ManagedDataAccess, Version=4.121.1.0, Culture=neutral, PublicKeyToken=89b483f429c47342”或它的某一个依赖项。系统找不到指定的文件。
+文件名:“Oracle.ManagedDataAccess, Version=4.121.1.0, Culture=neutral, PublicKeyToken=89b483f429c47342”
+   在 OracleSugar.SqlHelper..ctor(String connectionString)
+   在 OracleSugar.SqlSugarClient..ctor(String connectionString)
+   在 SqlSugarRepository.PlSqlSugarClient..ctor(String connectionString)
+   在 SqlSugarRepository.DbRepository.GetConnectionClient(DbType type, String connectionString)
+   在 SqlSugarRepository.DbRepository.get_Database()
+   在 JuCheap.Web.Areas.Adm.Controllers.HandleDataController.Handle(String Size_Code, String Action) 位置 C:\Users\admin\Desktop\工作文档\资源\jucheap-JuCheap.2.0-master\JuCheap.2.0\JuCheap.Web\Areas\Adm\Controllers\HandleDataController.cs:行号 83
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+
+=== 预绑定状态信息 ===
+日志: DisplayName = Oracle.ManagedDataAccess, Version=4.121.1.0, Culture=neutral, PublicKeyToken=89b483f429c47342
+ (Fully-specified)
+日志: Appbase = file:///C:/Users/admin/Desktop/工作文档/资源/jucheap-JuCheap.2.0-master/JuCheap.2.0/JuCheap.Web/
+日志: 初始 PrivatePath = C:\Users\admin\Desktop\工作文档\资源\jucheap-JuCheap.2.0-master\JuCheap.2.0\JuCheap.Web\bin
+调用程序集: SqlSugarRepository, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null。
+===
+日志: 此绑定从 default 加载上下文开始。
+日志: 正在使用应用程序配置文件: C:\Users\admin\Desktop\工作文档\资源\jucheap-JuCheap.2.0-master\JuCheap.2.0\JuCheap.Web\web.config
+日志: 使用主机配置文件: C:\Users\admin\Documents\IISExpress\config\aspnet.config
+日志: 使用 C:\Windows\Microsoft.NET\Framework\v4.0.30319\config\machine.config 的计算机配置文件。
+日志: 策略后引用: Oracle.ManagedDataAccess, Version=4.121.1.0, Culture=neutral, PublicKeyToken=89b483f429c47342
+日志: 相同的绑定已出现过，因 hr = 0x80070002 而失败。
+
+记录时间：2017-05-12 16:46:42,104 线程ID:[7] 日志级别：ERROR 出错类：logerror property:[(null)] - 错误描述：
+发生时间:2017/5/12 16:46:41
+用户IP:::1
+发生异常页: http://localhost:37297/Adm/HandleData/Handle/0/44/0
+控制器: HandleData
+Action: Handle
+
+System.IO.FileNotFoundException: 未能加载文件或程序集“Oracle.ManagedDataAccess, Version=4.121.1.0, Culture=neutral, PublicKeyToken=89b483f429c47342”或它的某一个依赖项。系统找不到指定的文件。
+文件名:“Oracle.ManagedDataAccess, Version=4.121.1.0, Culture=neutral, PublicKeyToken=89b483f429c47342”
+   在 OracleSugar.SqlHelper..ctor(String connectionString)
+   在 OracleSugar.SqlSugarClient..ctor(String connectionString)
+   在 SqlSugarRepository.PlSqlSugarClient..ctor(String connectionString)
+   在 SqlSugarRepository.DbRepository.GetConnectionClient(DbType type, String connectionString)
+   在 SqlSugarRepository.DbRepository.get_Database()
+   在 JuCheap.Web.Areas.Adm.Controllers.HandleDataController.Handle(String Size_Code, String Action) 位置 C:\Users\admin\Desktop\工作文档\资源\jucheap-JuCheap.2.0-master\JuCheap.2.0\JuCheap.Web\Areas\Adm\Controllers\HandleDataController.cs:行号 83
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+
+=== 预绑定状态信息 ===
+日志: DisplayName = Oracle.ManagedDataAccess, Version=4.121.1.0, Culture=neutral, PublicKeyToken=89b483f429c47342
+ (Fully-specified)
+日志: Appbase = file:///C:/Users/admin/Desktop/工作文档/资源/jucheap-JuCheap.2.0-master/JuCheap.2.0/JuCheap.Web/
+日志: 初始 PrivatePath = C:\Users\admin\Desktop\工作文档\资源\jucheap-JuCheap.2.0-master\JuCheap.2.0\JuCheap.Web\bin
+调用程序集: SqlSugarRepository, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null。
+===
+日志: 此绑定从 default 加载上下文开始。
+日志: 正在使用应用程序配置文件: C:\Users\admin\Desktop\工作文档\资源\jucheap-JuCheap.2.0-master\JuCheap.2.0\JuCheap.Web\web.config
+日志: 使用主机配置文件: C:\Users\admin\Documents\IISExpress\config\aspnet.config
+日志: 使用 C:\Windows\Microsoft.NET\Framework\v4.0.30319\config\machine.config 的计算机配置文件。
+日志: 策略后引用: Oracle.ManagedDataAccess, Version=4.121.1.0, Culture=neutral, PublicKeyToken=89b483f429c47342
+日志: 相同的绑定已出现过，因 hr = 0x80070002 而失败。
+
+记录时间：2017-05-12 16:53:03,207 线程ID:[5] 日志级别：ERROR 出错类：logerror property:[(null)] - 错误描述：
+发生时间:2017/5/12 16:53:03
+用户IP:::1
+发生异常页: http://localhost:37297/Adm/HandleData/Handle/0/44/0
+控制器: HandleData
+Action: Handle
+
+System.IO.FileNotFoundException: 未能加载文件或程序集“Oracle.ManagedDataAccess, Version=4.121.1.0, Culture=neutral, PublicKeyToken=89b483f429c47342”或它的某一个依赖项。系统找不到指定的文件。
+文件名:“Oracle.ManagedDataAccess, Version=4.121.1.0, Culture=neutral, PublicKeyToken=89b483f429c47342”
+   在 OracleSugar.SqlHelper..ctor(String connectionString)
+   在 OracleSugar.SqlSugarClient..ctor(String connectionString)
+   在 SqlSugarRepository.PlSqlSugarClient..ctor(String connectionString)
+   在 SqlSugarRepository.DbRepository.GetConnectionClient(DbType type, String connectionString)
+   在 SqlSugarRepository.DbRepository.get_Database()
+   在 JuCheap.Web.Areas.Adm.Controllers.HandleDataController.Handle(String Size_Code, String Action) 位置 C:\Users\admin\Desktop\工作文档\资源\jucheap-JuCheap.2.0-master\JuCheap.2.0\JuCheap.Web\Areas\Adm\Controllers\HandleDataController.cs:行号 83
+   在 lambda_method(Closure , ControllerBase , Object[] )
+   在 System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)
+   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+
+=== 预绑定状态信息 ===
+日志: DisplayName = Oracle.ManagedDataAccess, Version=4.121.1.0, Culture=neutral, PublicKeyToken=89b483f429c47342
+ (Fully-specified)
+日志: Appbase = file:///C:/Users/admin/Desktop/工作文档/资源/jucheap-JuCheap.2.0-master/JuCheap.2.0/JuCheap.Web/
+日志: 初始 PrivatePath = C:\Users\admin\Desktop\工作文档\资源\jucheap-JuCheap.2.0-master\JuCheap.2.0\JuCheap.Web\bin
+调用程序集: SqlSugarRepository, Version=1.6.0.0, Culture=neutral, PublicKeyToken=null。
+===
+日志: 此绑定从 default 加载上下文开始。
+日志: 正在使用应用程序配置文件: C:\Users\admin\Desktop\工作文档\资源\jucheap-JuCheap.2.0-master\JuCheap.2.0\JuCheap.Web\web.config
+日志: 使用主机配置文件: C:\Users\admin\Documents\IISExpress\config\aspnet.config
+日志: 使用 C:\Windows\Microsoft.NET\Framework\v4.0.30319\config\machine.config 的计算机配置文件。
+日志: 策略后引用: Oracle.ManagedDataAccess, Version=4.121.1.0, Culture=neutral, PublicKeyToken=89b483f429c47342
+日志: 相同的绑定已出现过，因 hr = 0x80070002 而失败。
+
