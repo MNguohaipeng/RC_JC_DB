@@ -1,0 +1,49 @@
+记录时间：2017-05-15 14:23:55,915 线程ID:[7] 日志级别：ERROR 出错类：logerror property:[(null)] - 错误描述：访问记录
+System.InvalidOperationException: A configuration for type 'JuCheap.Entity.HanderDataForXF_SYEntity' has already been added. To reference the existing configuration use the Entity<T>() or ComplexType<T>() methods.
+   在 System.Data.Entity.ModelConfiguration.Configuration.ModelConfiguration.Add(EntityTypeConfiguration entityTypeConfiguration)
+   在 System.Data.Entity.ModelConfiguration.Configuration.ConfigurationRegistrar.Add[TEntityType](EntityTypeConfiguration`1 entityTypeConfiguration)
+   在 JuCheap.Data.JuCheapContext.OnModelCreating(DbModelBuilder modelBuilder) 位置 C:\Users\admin\Desktop\工作文档\资源\jucheap-JuCheap.2.0-master\JuCheap.2.0\JuCheap.Data\JuCheapContext.cs:行号 68
+   在 System.Data.Entity.Internal.LazyInternalContext.CreateModelBuilder()
+   在 System.Data.Entity.Internal.LazyInternalContext.CreateModel(LazyInternalContext internalContext)
+   在 System.Data.Entity.Internal.RetryLazy`2.GetValue(TInput input)
+   在 System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   在 System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   在 System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   在 System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   在 System.Data.Entity.Internal.Linq.InternalSet`1.ActOnSet(Action action, EntityState newState, Object entity, String methodName)
+   在 System.Data.Entity.Internal.Linq.InternalSet`1.Add(Object entity)
+   在 System.Data.Entity.DbSet`1.Add(TEntity entity)
+   在 JuCheap.Service.Abstracts.PageViewService.Add(PageViewDto dto) 位置 C:\Users\admin\Desktop\工作文档\资源\jucheap-JuCheap.2.0-master\JuCheap.2.0\JuCheap.Service\Abstracts\PageViewService.Partial.cs:行号 61
+   在 JuCheap.Web.Areas.Adm.Controllers.AdmBaseController.ViewRecord(RequestContext _context) 位置 C:\Users\admin\Desktop\工作文档\资源\jucheap-JuCheap.2.0-master\JuCheap.2.0\JuCheap.Web\Areas\Adm\Controllers\AdmBaseController.cs:行号 75
+记录时间：2017-05-15 14:24:07,004 线程ID:[6] 日志级别：ERROR 出错类：logerror property:[(null)] - 错误描述：访问记录
+System.InvalidOperationException: A configuration for type 'JuCheap.Entity.HanderDataForXF_SYEntity' has already been added. To reference the existing configuration use the Entity<T>() or ComplexType<T>() methods.
+   在 System.Data.Entity.ModelConfiguration.Configuration.ModelConfiguration.Add(EntityTypeConfiguration entityTypeConfiguration)
+   在 System.Data.Entity.ModelConfiguration.Configuration.ConfigurationRegistrar.Add[TEntityType](EntityTypeConfiguration`1 entityTypeConfiguration)
+   在 JuCheap.Data.JuCheapContext.OnModelCreating(DbModelBuilder modelBuilder) 位置 C:\Users\admin\Desktop\工作文档\资源\jucheap-JuCheap.2.0-master\JuCheap.2.0\JuCheap.Data\JuCheapContext.cs:行号 68
+   在 System.Data.Entity.Internal.LazyInternalContext.CreateModelBuilder()
+   在 System.Data.Entity.Internal.LazyInternalContext.CreateModel(LazyInternalContext internalContext)
+   在 System.Data.Entity.Internal.RetryLazy`2.GetValue(TInput input)
+   在 System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   在 System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   在 System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   在 System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   在 System.Data.Entity.Internal.Linq.InternalSet`1.ActOnSet(Action action, EntityState newState, Object entity, String methodName)
+   在 System.Data.Entity.Internal.Linq.InternalSet`1.Add(Object entity)
+   在 System.Data.Entity.DbSet`1.Add(TEntity entity)
+   在 JuCheap.Service.Abstracts.PageViewService.Add(PageViewDto dto) 位置 C:\Users\admin\Desktop\工作文档\资源\jucheap-JuCheap.2.0-master\JuCheap.2.0\JuCheap.Service\Abstracts\PageViewService.Partial.cs:行号 61
+   在 JuCheap.Web.Areas.Adm.Controllers.AdmBaseController.ViewRecord(RequestContext _context) 位置 C:\Users\admin\Desktop\工作文档\资源\jucheap-JuCheap.2.0-master\JuCheap.2.0\JuCheap.Web\Areas\Adm\Controllers\AdmBaseController.cs:行号 75
+记录时间：2017-05-15 14:24:08,297 线程ID:[6] 日志级别：ERROR 出错类：logerror property:[(null)] - 错误描述：A configuration for type 'JuCheap.Entity.HanderDataForXF_SYEntity' has already been added. To reference the existing configuration use the Entity<T>() or ComplexType<T>() methods.
+System.InvalidOperationException: A configuration for type 'JuCheap.Entity.HanderDataForXF_SYEntity' has already been added. To reference the existing configuration use the Entity<T>() or ComplexType<T>() methods.
+   在 System.Data.Entity.ModelConfiguration.Configuration.ModelConfiguration.Add(EntityTypeConfiguration entityTypeConfiguration)
+   在 System.Data.Entity.ModelConfiguration.Configuration.ConfigurationRegistrar.Add[TEntityType](EntityTypeConfiguration`1 entityTypeConfiguration)
+   在 JuCheap.Data.JuCheapContext.OnModelCreating(DbModelBuilder modelBuilder) 位置 C:\Users\admin\Desktop\工作文档\资源\jucheap-JuCheap.2.0-master\JuCheap.2.0\JuCheap.Data\JuCheapContext.cs:行号 68
+   在 System.Data.Entity.Internal.LazyInternalContext.CreateModelBuilder()
+   在 System.Data.Entity.Internal.LazyInternalContext.CreateModel(LazyInternalContext internalContext)
+   在 System.Data.Entity.Internal.RetryLazy`2.GetValue(TInput input)
+   在 System.Data.Entity.Internal.LazyInternalContext.InitializeContext()
+   在 System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   在 System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   在 System.Data.Entity.Internal.Linq.InternalSet`1.AsNoTracking()
+   在 System.Data.Entity.Infrastructure.DbQuery`1.AsNoTracking()
+   在 JuCheap.Service.Abstracts.UserService.GetOne(Expression`1 exp) 位置 C:\Users\admin\Desktop\工作文档\资源\jucheap-JuCheap.2.0-master\JuCheap.2.0\JuCheap.Service\Abstracts\UserService.Partial.cs:行号 167
+   在 JuCheap.Service.Abstracts.UserService.Login(UserDto dto) 位置 C:\Users\admin\Desktop\工作文档\资源\jucheap-JuCheap.2.0-master\JuCheap.2.0\JuCheap.Service\Abstracts\UserService.cs:行号 54

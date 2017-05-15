@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace JuCheap.Data.Config
 {
-   public class HanderDataForXF_KZConfig : EntityTypeConfiguration<HanderDataForXF_SYEntity>
+   public class HanderDataForXF_KZConfig : EntityTypeConfiguration<HanderDataForXF_KZEntity>
     {
         public HanderDataForXF_KZConfig()
         {

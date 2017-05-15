@@ -55,10 +55,6 @@
       <HintPath>..\packages\Mehdime.Entity.1.0.0\lib\Mehdime.Entity.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Oracle.DataAccess, Version=4.112.2.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=AMD64">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Debug\Oracle.DataAccess.dll</HintPath>
-    </Reference>
     <Reference Include="SqlSugar, Version=3.1.0.2, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\..\Documents\Visual Studio 2015\Projects\ReturnCode\Common\bin\Debug\SqlSugar.dll</HintPath>
@@ -93,6 +89,12 @@
     <Compile Include="Abstracts\EmailReceiverService.Partial.cs">
       <DependentUpon>IService.tt</DependentUpon>
     </Compile>
+    <Compile Include="Abstracts\HanderDataForXF_KZService.Partial.cs">
+      <DependentUpon>IService.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Abstracts\HanderDataForXF_SYService.Partial.cs">
+      <DependentUpon>IService.tt</DependentUpon>
+    </Compile>
     <Compile Include="Abstracts\ICS_data.cs" />
     <Compile Include="Abstracts\ICs_dataService.Partial.cs">
       <DependentUpon>IService.tt</DependentUpon>
@@ -102,6 +104,12 @@
       <DependentUpon>IService.tt</DependentUpon>
     </Compile>
     <Compile Include="Abstracts\IEmailReceiverService.Partial.cs">
+      <DependentUpon>IService.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Abstracts\IHanderDataForXF_KZService.Partial.cs">
+      <DependentUpon>IService.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Abstracts\IHanderDataForXF_SYService.Partial.cs">
       <DependentUpon>IService.tt</DependentUpon>
     </Compile>
     <Compile Include="Abstracts\ILoginLogService.Partial.cs">

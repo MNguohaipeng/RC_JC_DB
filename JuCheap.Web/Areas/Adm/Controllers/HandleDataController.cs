@@ -107,7 +107,7 @@ namespace JuCheap.Web.Areas.Adm.Controllers
                     {
 
                         case "XF_SY_NAN":
-                            list = new List<XF_SY_NAN_ChiMaDto>();
+                            List < HanderDataForXF_SYDto > SYlist= new List<HanderDataForXF_SYDto>();
                             foreach (var item in data)
                             {
                                 decimal a01 = Convert.ToDecimal(item.ReCodeSize.Split('/')[0]);
@@ -119,7 +119,17 @@ namespace JuCheap.Web.Areas.Adm.Controllers
 
                                 if (dto != null)
                                 {
-                                    list.Add(dto);
+                                    HanderDataForXF_SYDto sy = new HanderDataForXF_SYDto();
+                                    sy.Height = dto.Height;
+                                    sy.RtnQCode = item.ReCodeSize;
+                                    sy.OrderCode = item.Orderid;
+                                    sy.Name = item.Name;
+                                    sy.RtnHCode = a02;
+                                    sy.Number = item.Number;
+                                    sy.Yichang = Convert.ToDecimal(dto.FrontLength);
+                                    sy.Bust = dto.FinishedBust;
+                                    sy.Sleeve = sledto.Length;
+                                    SYlist.Add(sy);
                                 }
                             }
 
@@ -137,11 +147,11 @@ namespace JuCheap.Web.Areas.Adm.Controllers
                                 decimal a01 = Convert.ToDecimal(item.ReCodeSize.Split('/')[0]);
 
                                 string a02 = item.ReCodeSize.Split('/')[1];
-                                string CP_WaistWidth = a02.Substring(a02.Length - 1, 1);
+                                string temp = a02.Substring(a02.Length - 1, 1);
                                 string Code = a02.Substring(0, a02.Length - 1);
+                                string Size_Code = fm["Size_Code"];
 
-
-                                XF_KZ_CodeSizeDto dto = XF_KZ_CodeSizeService.GetOne(T => T.CP_WaistWidth.Contains(CP_WaistWidth) && T.Code == a02 && T.Size_Code == fm["Size_Code"]);
+                                XF_KZ_CodeSizeDto dto = XF_KZ_CodeSizeService.GetOne(T => T.CP_WaistWidth.Contains(temp) && T.Code == a02 && T.Size_Code == Size_Code);
 
 
                                 if (dto != null)

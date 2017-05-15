@@ -1,5 +1,4 @@
-﻿
-using JuCheap.Core;
+﻿ 
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -10,10 +9,19 @@ using SqlSugar;
 using JuCheap.Service.Dto;
 using static JuCheap.Core.SqlSugerHelper;
 using SqlSugarRepository;
+using JuCheap.Service.Abstracts;
+using System.Text.RegularExpressions;
+using JuCheap.Core;
+
 namespace JuCheap.Web.Areas.Adm.Controllers
 {
-    public class SizeController : Controller
+    public class SizeController : AdmBaseController
     {
+
+        public  IXF_KZ_CodeSizeService XF_KZ_Service { get; set; }
+        public ICs_dataService Cs_dataService { get; set; }
+
+
         // GET: Adm/Size
         public ActionResult Import()
         {
@@ -37,12 +45,12 @@ namespace JuCheap.Web.Areas.Adm.Controllers
 
             return View();
         }
-        
+
         #region 审核
         [HttpPost]
         public JsonResult Examine(string Action)
         {
-            using (var db=new MySqlServer())
+            using (var db = new MySqlServer())
                 try
                 {
                     List<Examine> List = new List<Examine>();
@@ -267,7 +275,7 @@ namespace JuCheap.Web.Areas.Adm.Controllers
                                 dic3.Add("Height", fm["Height"].Split(',')[i]);
                                 dic3.Add("LongPants", fm["LongPants"].Split(',')[i]);
                                 dic3.Add("NetWaist", fm["NetWaist"].Split(',')[i]);
-                               
+
                                 int upid = 0;
                                 if (!int.TryParse(fm["ID"].Split(',')[i], out upid))
                                 {
@@ -420,28 +428,28 @@ namespace JuCheap.Web.Areas.Adm.Controllers
                     table = Analysis.Excel_trousrs_NU(Request.Files);
 
                 }
- 
 
 
 
-                    if (fm["import"] == "false")
+
+                if (fm["import"] == "false")
                 {
                     if (gender == "男")
 
                     {
-                    
+
                         return Json(new { state = 1, msg = Ret_Excel_trousrs(table) }, JsonRequestBehavior.AllowGet);
                     }
                     else
                     {
 
-                
+
                         return Json(new { state = 1, msg = Ret_Excel_trousrs(table) }, JsonRequestBehavior.AllowGet);
                     }
                 }
                 else
                 {
-                    if (Service.import.Import_Excel_trousrs(table, fm["Size_Code"], out errMsg))
+                    if (Import_XF_KZ(table, fm["Size_Code"], out errMsg))
                     {
                         return Json(new { state = 1, msg = "" }, JsonRequestBehavior.AllowGet);
 
@@ -705,6 +713,148 @@ namespace JuCheap.Web.Areas.Adm.Controllers
 
 
         #endregion
+
+
+        //上传西服裤子尺码表
+ 
+        public  bool Import_XF_KZ(DataTable table, string Size_Code, out string errmsg)
+        {
+
+      
+                try
+                {
+                    List<XF_KZ_CodeSizeDto> tszie_list = new List<XF_KZ_CodeSizeDto>();
+
+                    for (int i = 0; i < table.Rows.Count; i++)
+                    {
+                        #region 处理不符合要求得数据
+                        DataRow row = table.Rows[i];
+                        row.BeginEdit();
+                        for (int a = 0; a < table.Columns.Count; a++)
+                        {
+
+                            if (row[a].ToString().IndexOf("....") > 0)
+                            {
+                                row[a] = row[a].ToString().Replace("....", ".");
+                            }
+                            if (row[a].ToString().IndexOf("...") > 0)
+                            {
+                                row[a] = row[a].ToString().Replace("...", ".");
+                            }
+                            if (row[a].ToString().IndexOf("..") > 0)
+                            {
+                                row[a] = row[a].ToString().Replace("..", ".");
+                            }
+
+                            if (row[a].ToString().IndexOf("null") > 0)
+                            {
+                                row[a] = row[a].ToString().Replace("null", "0");
+                            }
+                            if (string.IsNullOrEmpty(row[a].ToString()))
+                            {
+                                row[a] = 0;
+                            }
+                        }
+                        row.EndEdit();
+                        #endregion
+
+                        #region 保存尺码
+
+                        XF_KZ_CodeSizeDto tszie = new XF_KZ_CodeSizeDto();
+                        foreach (DataRow item in table.Rows)
+                        {
+
+                            tszie.Code = item["Code"].ToString();
+                            decimal ty = 0;
+                            if (decimal.TryParse(item["DZ_HipLength_CP"].ToString(), out ty))
+                            {
+                                tszie.DZ_HipLength_CP = ty;
+                            }
+                            else
+                            {
+                                tszie.DZ_HipLength_CP = 0;
+                            }
+
+                            if (decimal.TryParse(item["SZ_HipLength_CP"].ToString(), out ty))
+                            {
+                                tszie.SZ_HipLength_CP = ty;
+                            }
+                            else
+                            {
+                                tszie.SZ_HipLength_CP = 0;
+                            }
+
+                            if (decimal.TryParse(item["Crosspiece"].ToString(), out ty))
+                            {
+                                tszie.Crosspiece = ty;
+                            }
+                            else
+                            {
+                                tszie.Crosspiece = 0;
+                            }
+
+                            if (decimal.TryParse(item["LegWidth_UnderTheWaves"].ToString(), out ty))
+                            {
+                                tszie.LegWidth_UnderTheWaves = ty;
+                            }
+                            else
+                            {
+                                tszie.LegWidth_UnderTheWaves = 0;
+                            }
+
+                            if (decimal.TryParse(item["FrontRise_EvenWaist"].ToString(), out ty))
+                            {
+                                tszie.FrontRise_EvenWaist = ty;
+                            }
+                            else
+                            {
+                                tszie.FrontRise_EvenWaist = 0;
+                            }
+
+                            if (decimal.TryParse(item["AfterTheWaves_EvenWaist"].ToString(), out ty))
+                            {
+                                tszie.AfterTheWaves_EvenWaist = ty;
+                            }
+                            else
+                            {
+                                tszie.AfterTheWaves_EvenWaist = 0;
+                            }
+
+                            tszie.NetHip = item["NetHip"].ToString();
+                            tszie.CP_WaistWidth = item["CP_WaistWidth"].ToString();
+                            tszie.Height = item["Height"].ToString();
+                            tszie.LongPants = item["LongPants"].ToString();
+                            tszie.NetWaist = item["NetWaist"].ToString();
+                            tszie.Size_Code = Size_Code;
+                            tszie.CreateDateTime = DateTime.Now;
+                            tszie.Status = 1;
+                            tszie.RowData = item["Code"] + "-" + item["DZ_HipLength_CP"] + "" + item["SZ_HipLength_CP"] + "-" + item["Crosspiece"] + "-" + item["LegWidth_UnderTheWaves"] + "-" + item["FrontRise_EvenWaist"] + "-" + item["AfterTheWaves_EvenWaist"] + "-" + item["NetHip"] + "-" + item["CP_WaistWidth"] + "-" + item["CP_WaistWidth"] + "-" + item["Height"] + "-" + item["LongPants"] + "-" + item["NetWaist"] + "-" + Size_Code;
+                        }
+                        tszie_list.Add(tszie);
+
+                        #endregion
+
+
+                    }
+ 
+                    XF_KZ_Service.Add(tszie_list[0]);
+
+               
+                //    db.Database.CommitTran();
+                    errmsg = "";
+                    return true;
+
+                }
+                catch (Exception ex)
+                {
+
+                   // db.Database.RollbackTran();//回滚事务
+                    errmsg = ex.Message;
+                    return false;
+
+                }
+        }
+
         #endregion
 
         #region 管理
@@ -725,7 +875,7 @@ namespace JuCheap.Web.Areas.Adm.Controllers
                     {
                         case "XF_SY_NAN"://西服上衣  男
                             return Json(new { state = 1, msg = db.Database.Queryable<XF_SY_NAN_ChiMaDto>().Where(it => it.Size_Code == Code).ToList() }, JsonRequestBehavior.AllowGet);
- 
+
                         case "XF_SY_NU":
 
                             return Json(new { state = 1, msg = db.Database.Queryable<XF_SY_NU_CodeSizeDto>().Where(it => it.Size_Code == Code).ToList() }, JsonRequestBehavior.AllowGet);

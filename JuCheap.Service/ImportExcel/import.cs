@@ -10,10 +10,14 @@ using System.Text;
 using System.Threading.Tasks;
 using static JuCheap.Core.SqlSugerHelper;
 using SqlSugarRepository;
+using JuCheap.Service.Abstracts;
+
 namespace JuCheap.Service
 {
     public static class import
     {
+
+      private static IXF_KZ_CodeSizeService XF_KZ_Service { set; get; }
 
         //上传西服上衣尺码表
         public static bool Import_Excel_jacket(DataTable table, string size_code, string gender, out string errmsg)
@@ -203,7 +207,7 @@ namespace JuCheap.Service
             using (var db = new MySqlServer())
                 try
                 {
-                    List<Entity.XF_KZ_CodeSizeEntity> tszie_list = new List<Entity.XF_KZ_CodeSizeEntity>();
+                    List<XF_KZ_CodeSizeDto> tszie_list = new List<XF_KZ_CodeSizeDto>();
 
                     for (int i = 0; i < table.Rows.Count; i++)
                     {
@@ -243,7 +247,7 @@ namespace JuCheap.Service
 
 
 
-                        Entity.XF_KZ_CodeSizeEntity tszie = new Entity.XF_KZ_CodeSizeEntity();
+                        XF_KZ_CodeSizeDto tszie = new XF_KZ_CodeSizeDto();
                         foreach (DataRow item in table.Rows)
                         {
 
@@ -321,6 +325,9 @@ namespace JuCheap.Service
 
 
                     }
+
+                    XF_KZ_Service.Add(tszie_list);
+
                     db.Database.InsertRange(tszie_list);
                     db.Database.CommitTran();
                     errmsg = "";

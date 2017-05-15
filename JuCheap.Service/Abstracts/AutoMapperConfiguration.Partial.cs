@@ -39,6 +39,12 @@ namespace JuCheap.Service
 			Mapper.CreateMap<EmailReceiverEntity, EmailReceiverDto>();
 			Mapper.CreateMap<EmailReceiverDto, EmailReceiverEntity>();
 
+			Mapper.CreateMap<HanderDataForXF_KZEntity, HanderDataForXF_KZDto>();
+			Mapper.CreateMap<HanderDataForXF_KZDto, HanderDataForXF_KZEntity>();
+
+			Mapper.CreateMap<HanderDataForXF_SYEntity, HanderDataForXF_SYDto>();
+			Mapper.CreateMap<HanderDataForXF_SYDto, HanderDataForXF_SYEntity>();
+
 			Mapper.CreateMap<LoginLogEntity, LoginLogDto>();
 			Mapper.CreateMap<LoginLogDto, LoginLogEntity>();
 
