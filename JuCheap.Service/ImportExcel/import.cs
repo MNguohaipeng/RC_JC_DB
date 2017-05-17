@@ -311,7 +311,7 @@ namespace JuCheap.Service
 
                             tszie.NetHip = item["NetHip"].ToString();
                             tszie.CP_WaistWidth = item["CP_WaistWidth"].ToString();
-                            tszie.Height = item["Height"].ToString();
+                            tszie.Height = Convert.ToDecimal(item["Height"]);
                             tszie.LongPants = item["LongPants"].ToString();
                             tszie.NetWaist = item["NetWaist"].ToString();
                             tszie.Size_Code = Size_Code;

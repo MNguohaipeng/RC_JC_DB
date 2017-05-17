@@ -1,13 +1,11 @@
-using JuCheap.Service.Dto;
-using System;
-using System.Collections.Generic;
-using System.Text;
+ 
+using JuCheap.Entity.Base;
 
-namespace JuCheap.Service.Dto //修改名字空间
+namespace JuCheap.Entity //修改名字空间
 {
-	public class Cs_dataDto:BaseDto
-	{
-        public int ID { get; set; }
+	public class DCL_DataEntity : BaseEntity
+    {
+        public int Index { get; set; }
 
         public string Orderid { get; set; }
 

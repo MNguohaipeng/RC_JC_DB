@@ -51,12 +51,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Base\BaseEntity.cs" />
+    <Compile Include="DictionariesEntity.cs" />
     <Compile Include="HanderDataForXF_KZEntity.cs" />
     <Compile Include="HanderDataForXF_SYEntity.cs" />
     <Compile Include="SleeveEntity.cs" />
     <Compile Include="XF_KZ_CodeSizeEntity.cs" />
     <Compile Include="XF_SY_NAN_ChiMaEntity.cs" />
-    <Compile Include="Cs_dataEntity.cs" />
+    <Compile Include="DCL_DataEntity.cs" />
     <Compile Include="EmailPoolEntity.cs" />
     <Compile Include="EmailReceiverEntity.cs" />
     <Compile Include="MenuEntity.cs" />

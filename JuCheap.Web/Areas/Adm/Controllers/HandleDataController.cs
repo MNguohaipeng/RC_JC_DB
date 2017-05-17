@@ -17,7 +17,7 @@ namespace JuCheap.Web.Areas.Adm.Controllers
 {
     public class HandleDataController : AdmBaseController
     {
-        public ICs_dataService Cs_dataService { get; set; }
+        public IDCL_DataService DCL_DataService { get; set; }
 
         public ISleeveService SleeveService { get; set; }
 
@@ -32,25 +32,78 @@ namespace JuCheap.Web.Areas.Adm.Controllers
         }
 
         [HttpPost]
+        public JsonResult ImportHandleData(FormCollection fm)
+        {
+            using (MyRepository db = new MyRepository())
+                try
+                {
+                    DataTable GDData = db.Database.GetDataTable(string.Format("select * from pytbulkgh where GDH='{0}'", fm["GDH"]));
+ 
+                    List<DCL_DataDto> DCLList = new List<DCL_DataDto>();
+                    for (int i = 0; i < GDData.Rows.Count; i++)
+                    {
+                        #region 将数据处理存放  准备导入到待处理库
+                        DCL_DataDto dl = new DCL_DataDto();
+                        dl.Orderid = GDData.Rows[i]["ORDERCODE"].ToString();
+                        dl.Option = Convert.ToInt32(GDData.Rows[i]["ORDERXC"]);
+                        dl.Name = GDData.Rows[i]["Name"].ToString();
+                        dl.ReCodeSize = GDData.Rows[i]["SIZECODE"].ToString();
+                        dl.Number = Convert.ToInt32(GDData.Rows[i]["SL"]);
+                        dl.Note = "";
+                        DCLList.Add(dl);
+                        #endregion
+ 
+                    }
+
+                    #region 导入到待处理库
+
+                    DCL_DataService.Add(DCLList);
+
+                    #endregion
+                    return Json(new { state = 1, msg = "" }, JsonRequestBehavior.AllowGet);
+                }
+                catch (Exception ex)
+                {
+                    return Json(new { state = 0, msg = ex.Message }, JsonRequestBehavior.AllowGet);
+                }
+
+        }
+
+        [HttpPost]
         public JsonResult Handle(FormCollection fm)
         {
 
             using (MyRepository db = new MyRepository())
                 try
                 {
-                    var data = Cs_dataService.Query(q => 1 == 1, s => s.Id, false);
+              
 
                     List<XF_SY_NAN_ChiMaDto> list = null;
 
                     //where GDH='{0}'
 
+                    #region 获取待处理数据
+
                     DataTable GDData = db.Database.GetDataTable(string.Format("select * from pytbulkgh where GDH='T511-16041407'", fm["GDH"]));
 
-                    string Action = "";
+                    #endregion
 
+                    string Action = "";
+                    List<DCL_DataDto> DCLList = new List<DCL_DataDto>();
                     for (int i = 0; i < GDData.Rows.Count; i++)
                     {
+                        #region 将数据处理存放  准备导入到待处理库
+                        DCL_DataDto dl = new DCL_DataDto();
+                        dl.Orderid = GDData.Rows[i]["ORDERCODE"].ToString();
+                        dl.Option= Convert.ToInt32(GDData.Rows[i]["ORDERXC"]);
+                        dl.Name= GDData.Rows[i]["Name"].ToString();
+                        dl.ReCodeSize= GDData.Rows[i]["SIZECODE"].ToString();
+                        dl.Number= Convert.ToInt32(GDData.Rows[i]["SL"]);
+                        dl.Note = "";
+                        DCLList.Add(dl);
+                        #endregion
 
+                        #region 判断数据类型
                         bool[] sizezz = isSYorKZ(GDData.Rows[i]["SIZECODE"].ToString());
 
                         int trueCount = 0;
@@ -96,23 +149,27 @@ namespace JuCheap.Web.Areas.Adm.Controllers
 
                         if (trueCount > 1)
                         {
-
                             throw new Exception("数据出错，出现多个匹配代码。");
-
                         }
-
+                        #endregion
                     }
+
+                    #region 导入到待处理库
+
+                    DCL_DataService.Add(DCLList);
+
+                    #endregion
 
                     switch (Action)
                     {
 
                         case "XF_SY_NAN":
-                            List < HanderDataForXF_SYDto > SYlist= new List<HanderDataForXF_SYDto>();
-                            foreach (var item in data)
+                            List<HanderDataForXF_SYDto> SYlist = new List<HanderDataForXF_SYDto>();
+                            for (int i = 0; i < GDData.Rows.Count; i++)
                             {
-                                decimal a01 = Convert.ToDecimal(item.ReCodeSize.Split('/')[0]);
+                                decimal a01 = Convert.ToDecimal(GDData.Rows[i]["SIZECODE"].ToString().Split('/')[0]);
 
-                                string a02 = item.ReCodeSize.Split('/')[1];
+                                string a02 = GDData.Rows[i]["SIZECODE"].ToString().Split('/')[1];
 
                                 XF_SY_NAN_ChiMaDto dto = XF_SY_NAN_ChiMaService.GetOne(T => T.Height == a01 && T.NetBust == a02 && T.Size_Code == fm["Size_Code"]);
                                 SleeveDto sledto = SleeveService.GetOne(T => T.FK_CoatSize_ID == dto.Id && T.Code == dto.NetBust.Substring(dto.NetBust.Length - 1, 1));
@@ -121,11 +178,11 @@ namespace JuCheap.Web.Areas.Adm.Controllers
                                 {
                                     HanderDataForXF_SYDto sy = new HanderDataForXF_SYDto();
                                     sy.Height = dto.Height;
-                                    sy.RtnQCode = item.ReCodeSize;
-                                    sy.OrderCode = item.Orderid;
-                                    sy.Name = item.Name;
+                                    sy.RtnQCode = GDData.Rows[i]["SIZECODE"].ToString();
+                                    sy.OrderCode = GDData.Rows[i]["Orderid"].ToString();
+                                    sy.Name = GDData.Rows[i]["Name"].ToString();
                                     sy.RtnHCode = a02;
-                                    sy.Number = item.Number;
+                                    sy.Number = Convert.ToInt32(GDData.Rows[i]["Number"]);
                                     sy.Yichang = Convert.ToDecimal(dto.FrontLength);
                                     sy.Bust = dto.FinishedBust;
                                     sy.Sleeve = sledto.Length;
@@ -133,51 +190,123 @@ namespace JuCheap.Web.Areas.Adm.Controllers
                                 }
                             }
 
-                            break;
+        
+                            if (list.Count > 0)
+                            {
+                                return Json(new { state = 1, msg = SYlist }, JsonRequestBehavior.AllowGet);
+                            }
+                            else
+                            {
+                                throw new Exception("解析失败，请检查尺码表编号是否对应");
+                            }
+          
                         case "XF_SY_NU":
                             break;
                         case "XF_KZ_NAN":
                             break;
                         case "XF_KZ_NU":
 
+                            List<HanderDataForXF_KZDto> XF_KZ_NU_List = new List<HanderDataForXF_KZDto>();
 
-                            List<XF_KZ_CodeSizeDto> XF_KZ_NU_List = new List<XF_KZ_CodeSizeDto>();
-                            foreach (var item in data)
+                            DataTable table = new DataTable();
+
+                            #region 创建table列
+                   
+ 
+                            table.Columns.Add("姓名");
+                            table.Columns.Add("归码后尺码");
+                            table.Columns.Add("身高");
+                            table.Columns.Add("数量");
+                            table.Columns.Add("单褶臀围");
+                            table.Columns.Add("双褶臀围");
+                            table.Columns.Add("腰");
+                            table.Columns.Add("备注");
+
+                            DataRow rowsTitle = table.NewRow();
+
+                            rowsTitle["姓名"] = "裤子";
+
+                            table.Rows.Add(rowsTitle);
+                            #endregion
+
+                            for (int i = 0; i < GDData.Rows.Count; i++)
                             {
-                                decimal a01 = Convert.ToDecimal(item.ReCodeSize.Split('/')[0]);
+                                decimal a01 = Convert.ToDecimal(GDData.Rows[i]["SIZECODE"].ToString().Split('/')[0]);
 
-                                string a02 = item.ReCodeSize.Split('/')[1];
+                                string a02 = GDData.Rows[i]["SIZECODE"].ToString().Split('/')[1];
+
                                 string temp = a02.Substring(a02.Length - 1, 1);
+
                                 string Code = a02.Substring(0, a02.Length - 1);
+
                                 string Size_Code = fm["Size_Code"];
 
-                                XF_KZ_CodeSizeDto dto = XF_KZ_CodeSizeService.GetOne(T => T.CP_WaistWidth.Contains(temp) && T.Code == a02 && T.Size_Code == Size_Code);
-
-
+                                XF_KZ_CodeSizeDto dto = XF_KZ_CodeSizeService.GetOne(T => T.CP_WaistWidth.Contains(Code) && T.Code == temp && T.Size_Code == Size_Code);
+      
                                 if (dto != null)
                                 {
-                                    XF_KZ_NU_List.Add(dto);
+                                    HanderDataForXF_KZDto sy = new HanderDataForXF_KZDto();
+
+                                    sy.Height = dto.Height;
+
+                                    sy.RtnQCode= GDData.Rows[i]["SIZECODE"].ToString();
+
+                                    sy.SZ_Hipline= dto.SZ_HipLength_CP;
+
+                                    sy.DZ_Hipline= dto.DZ_HipLength_CP;
+
+                                    sy.Name= GDData.Rows[i]["Name"].ToString();
+
+                                    sy.Number= Convert.ToInt32(GDData.Rows[i]["SL"]);
+
+                                    XF_KZ_NU_List.Add(sy);
+
+                                    DataRow row = table.NewRow();
+                       
+                                    row["身高"] = dto.Height;
+
+                                    row["归码后尺码"] = GDData.Rows[i]["SIZECODE"].ToString();
+  
+                                    row["姓名"] = GDData.Rows[i]["Name"].ToString();
+
+                                    row["数量"] = Convert.ToInt32(GDData.Rows[i]["SL"]);
+
+                                    row["双褶臀围"] = dto.SZ_HipLength_CP;
+
+                                    row["单褶臀围"] = dto.DZ_HipLength_CP;
+
+                                    table.Rows.Add(row);
+
                                 }
+
+                                if (XF_KZ_NU_List.Count>0)
+                                {
+                       
+                                 //   ExcelHelper.BuildExcel(table);
+
+                                    return Json(new { state = 1, msg = XF_KZ_NU_List }, JsonRequestBehavior.AllowGet);
+
+                                }
+                                else
+                                {
+                                    throw new Exception("解析失败，请检查尺码表编号是否对应");
+                                }
+
                             }
+                          
                             break;
                         default:
-                            break;
-                    }
+                            throw new Exception("没有对应的处理程序。");
 
-                    if (list.Count > 0)
-                    {
-                        return Json(new { state = 1, msg = list }, JsonRequestBehavior.AllowGet);
+
                     }
-                    else
-                    {
-                        throw new Exception("解析失败，请检查尺码表编号是否对应");
-                    }
+                    throw new Exception("系统错误 函数未中断。");
+
                 }
                 catch (Exception ex)
                 {
                     return Json(new { state = 0, msg = ex.Message }, JsonRequestBehavior.AllowGet);
                 }
-
 
         }
 
@@ -279,11 +408,11 @@ namespace JuCheap.Web.Areas.Adm.Controllers
             };
             string xxxx = Request["orderBy"];
 
-            Expression<Func<Cs_dataDto, bool>> exp = item => !item.IsDeleted;
+            Expression<Func<DCL_DataDto, bool>> exp = item => !item.IsDeleted;
             if (!queryBase.SearchKey.IsBlank())
                 exp = exp.And(item => item.Name.Contains(queryBase.SearchKey));
 
-            var dto = Cs_dataService.GetWithPages(queryBase, exp, Request["orderBy"], Request["orderDir"]);
+            var dto = DCL_DataService.GetWithPages(queryBase, exp, Request["orderBy"], Request["orderDir"]);
             return Json(dto, JsonRequestBehavior.AllowGet);
         }
 

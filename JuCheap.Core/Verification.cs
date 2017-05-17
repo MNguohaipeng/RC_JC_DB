@@ -11,8 +11,10 @@ namespace JuCheap.Core
 {
 	public static  class Verification
 	{
-		//验证西服上衣格式(男)
-		public static bool Verification_XF_SY_NAN(DataTable table) {
+       
+
+        //验证西服上衣格式(男)
+        public static bool Verification_XF_SY_NAN(DataTable table) {
 			using (var db=new MySqlServer())
 				try
 				{

@@ -13,7 +13,7 @@ namespace JuCheap.Data.Config
 
         public XF_SY_NU_CodeSizeConfig()
         {
-            ToTable("XF_SY_NAN_ChiMa");
+            ToTable("XF_SY_NU_CodeSize");
             HasKey(item => item.Id);
             Property(item => item.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
 

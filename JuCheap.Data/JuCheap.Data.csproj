@@ -67,13 +67,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Config\DictionariesConfig.cs" />
     <Compile Include="Config\HanderDataForXF_KZConfig.cs" />
     <Compile Include="Config\HanderDataForXF_SYConfig.cs" />
     <Compile Include="Config\SleeveConfig.cs" />
     <Compile Include="Config\XF_KZ_CodeConfig.cs" />
     <Compile Include="Config\XF_SY_NAN_ChiMaConfig.cs" />
     <Compile Include="Config\Configuration.cs" />
-    <Compile Include="Config\Cs_dataConfig.cs" />
+    <Compile Include="Config\DCL_DataConfig.cs" />
     <Compile Include="Config\EmailPoolConfig.cs" />
     <Compile Include="Config\EmailReceiverConfig.cs" />
     <Compile Include="Config\MenuConfig.cs" />

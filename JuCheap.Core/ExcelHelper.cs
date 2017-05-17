@@ -6,6 +6,23 @@ using System.Data.OleDb;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using NPOI.XSSF.UserModel;
+
+using iTextSharp;
+using iTextSharp.text;
+using System.Collections.Generic;
+using System.Text;
+using NPOI;
+using NPOI.HPSF;
+using NPOI.HSSF;
+using NPOI.HSSF.UserModel;
+using NPOI.HSSF.Util;
+using NPOI.POIFS;
+using NPOI.Util;
+using NPOI.SS.UserModel;
+using iTextSharp.text.exceptions;
+using System.Reflection;
+using NPOI.SS.Util;
 
 namespace JuCheap.Core
 {
@@ -554,5 +571,112 @@ namespace JuCheap.Core
             }
             return ColsList;
         }
+
+
+
+        public static void BuildExcel(DataTable table)
+        {
+
+
+            HSSFWorkbook hssfworkbook;
+
+            ISheet sheet1;
+
+            hssfworkbook = new HSSFWorkbook();
+
+            // 新建一个Excel页签
+            sheet1 = hssfworkbook.CreateSheet("Sheet1");
+
+            // 获取单元格 并设置样式
+            ICellStyle styleCell = hssfworkbook.CreateCellStyle();
+
+            //居中
+            styleCell.Alignment = NPOI.SS.UserModel.HorizontalAlignment.Center;
+
+            //垂直居中
+            styleCell.VerticalAlignment = VerticalAlignment.Top;
+
+            ICellStyle cellStyle = hssfworkbook.CreateCellStyle();
+
+            //设置字体
+            IFont fontColorRed = hssfworkbook.CreateFont();
+
+            fontColorRed.Color = HSSFColor.OliveGreen.Black.Index;
+
+            fontColorRed.FontHeightInPoints = 30;
+
+            fontColorRed.Boldweight = 30;
+
+            styleCell.SetFont(fontColorRed);
+
+            IRow rowTitle = sheet1.CreateRow(0);
+
+            ICell cellTitle = rowTitle.CreateCell(0);
+
+            cellTitle.SetCellValue(table.Rows[0]["姓名"] + "");
+
+            sheet1.GetRow(0).GetCell(0).CellStyle = styleCell;
+
+ 
+            IRow lie = sheet1.CreateRow(2);
+
+            for (var i = 0; i < table.Columns.Count; i++)
+            {
+
+                ICell cell = lie.CreateCell(i);
+
+                cell.SetCellValue(table.Columns[i].ToString());
+
+            }
+
+            // 创建新增行
+            for (var i = 1; i < table.Rows.Count; i++)
+            {
+
+                IRow row1 = sheet1.CreateRow(i + 3);
+
+                for (var j = 0; j < table.Columns.Count; j++)
+                {
+                    //新建单元格
+                    ICell cell = row1.CreateCell(j);
+
+                    // 单元格赋值
+                    cell.SetCellValue(table.Rows[i][table.Columns[j]].ToString());
+                }
+            }
+
+            // 设置行宽度
+            sheet1.SetColumnWidth(2, 10 * 256);
+
+
+            //合并单元格
+            CellRangeAddress m_region = new CellRangeAddress(0, 0, 0, table.Columns.Count);
+
+            sheet1.AddMergedRegion(m_region);
+
+
+            // 输出Excel
+            string filename = "初排报表.xls";
+            var context = HttpContext.Current;
+            context.Response.ContentType = "application/vnd.ms-excel";
+            context.Response.AddHeader("Content-Disposition", string.Format("attachment;filename={0}", context.Server.UrlEncode(filename)));
+            context.Response.Clear();
+
+
+            MemoryStream file = new MemoryStream();
+            hssfworkbook.Write(file);
+            context.Response.BinaryWrite(file.GetBuffer());
+            context.Response.End();
+
+
+
+        }
+
+
+
+
+
+
+
     }
 }

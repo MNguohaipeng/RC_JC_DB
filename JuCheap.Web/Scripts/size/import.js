@@ -54,12 +54,13 @@ function analysis() {
 			        }
 			        break;
                     
-			    case "XF_KZ_NAN":
-       
-			        for (var i = 0; i < XF_KZ_NAN_thead.length; i++) {
-			            var th = XF_KZ_NAN_thead[i] + "";
-			            th_html += '<th class="column-title">' + th.split("/")[0] + ' </th>';
-			        }
+                case "XF_KZ_NAN":
+
+                    for (var i = 0; i < XF_KZ_NAN_thead.length; i++) {
+                        var th = XF_KZ_NAN_thead[i] + "";
+                        th_html += '<th class="column-title">' + th.split("/")[0] + ' </th>';
+                    }
+                    break;
 			    case "XF_KZ_NU":
 
 			        for (var i = 0; i < XF_KZ_NAN_thead.length; i++) {
@@ -107,8 +108,8 @@ function analysis() {
 					}
 					$("#excel_data_list").append(html)
 					break;
-			    case "XF_KZ_NAN":
-
+                case "XF_KZ_NAN":
+                    $(".insert_excel_list").remove();
 			        for (var i = 0; i < json.length; i++) {
 			            html += "<tr class='even pointer insert_excel_list' >"
 
@@ -120,7 +121,7 @@ function analysis() {
 			        $("#excel_data_list").append(html)
 			        break;
 			    case "XF_KZ_NU":
-			        alert(1);
+		
 			        for (var i = 0; i < json.length; i++) {
 			            html += "<tr class='even pointer insert_excel_list' >"
 

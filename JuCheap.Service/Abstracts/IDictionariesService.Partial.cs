@@ -4,7 +4,7 @@
 * Copyright (C)  JuCheap.Com
 * 
 * Author: dj.wong
-* Create Date: 05/15/2017 17:02:40
+* Create Date: 05/17/2017 14:38:35
 * Description: Automated building by service@JuCheap.com 
 * 
 * Revision History:
@@ -20,86 +20,86 @@ using JuCheap.Service.Dto;
 namespace JuCheap.Service.Abstracts
 { 
 	/// <summary>
-    /// Cs_data业务契约
+    /// Dictionaries业务契约
     /// </summary>
-    public partial interface ICs_dataService
+    public partial interface IDictionariesService
     {
 		/// <summary>
-		/// 添加cs_data
+		/// 添加dictionaries
 		/// </summary>
-		/// <param name="cs_data">cs_data实体</param>
+		/// <param name="dictionaries">dictionaries实体</param>
 		/// <returns></returns>
-		bool Add(Cs_dataDto cs_data);
+		bool Add(DictionariesDto dictionaries);
 
 		/// <summary>
-        /// 批量添加cs_data
+        /// 批量添加dictionaries
         /// </summary>
-        /// <param name="models">cs_data集合</param>
+        /// <param name="models">dictionaries集合</param>
         /// <returns></returns>
-        bool Add(List<Cs_dataDto> models);
+        bool Add(List<DictionariesDto> models);
 
 		/// <summary>
-		/// 编辑cs_data
+		/// 编辑dictionaries
 		/// </summary>
-		/// <param name="cs_data">实体</param>
+		/// <param name="dictionaries">实体</param>
 		/// <returns></returns>
-		bool Update(Cs_dataDto cs_data);
+		bool Update(DictionariesDto dictionaries);
 
 		/// <summary>
-		/// 批量更新cs_data
+		/// 批量更新dictionaries
 		/// </summary>
-		/// <param name="cs_datas">cs_data实体集合</param>
+		/// <param name="dictionariess">dictionaries实体集合</param>
 		/// <returns></returns>
-		bool Update(IEnumerable<Cs_dataDto> cs_datas);
+		bool Update(IEnumerable<DictionariesDto> dictionariess);
 
 		/// <summary>
-		/// 删除cs_data
+		/// 删除dictionaries
 		/// </summary>
 		/// <param name="id">Id</param>
 		/// <returns></returns>
 		bool Delete(int id);
 
 		/// <summary>
-        /// 批量删除cs_data
+        /// 批量删除dictionaries
         /// </summary>
         /// <param name="exp">条件表达式</param>
         /// <returns></returns>
-        bool Delete(Expression<Func<Cs_dataDto, bool>> exp);
+        bool Delete(Expression<Func<DictionariesDto, bool>> exp);
 
 		/// <summary>
-        ///  获取单条符合条件的 cs_data 数据
+        ///  获取单条符合条件的 dictionaries 数据
         /// </summary>
         /// <param name="exp">条件表达式</param>
         /// <returns></returns>
-        Cs_dataDto GetOne(Expression<Func<Cs_dataDto, bool>> exp);
+        DictionariesDto GetOne(Expression<Func<DictionariesDto, bool>> exp);
 
 		/// <summary>
-        /// 查询符合调价的 cs_data
+        /// 查询符合调价的 dictionaries
         /// </summary>
 		/// <param name="exp">过滤条件</param>
 		/// <param name="orderExp">排序条件</param>
 		/// <param name="isDesc">是否是降序排列</param>
         /// <returns></returns>
-        List<Cs_dataDto> Query<OrderKeyType>(Expression<Func<Cs_dataDto, bool>> exp, Expression<Func<Cs_dataDto, OrderKeyType>> orderExp, bool isDesc = true);
+        List<DictionariesDto> Query<OrderKeyType>(Expression<Func<DictionariesDto, bool>> exp, Expression<Func<DictionariesDto, OrderKeyType>> orderExp, bool isDesc = true);
 
 		/// <summary>
-        /// 分页获取cs_data
+        /// 分页获取dictionaries
         /// </summary>
         /// <param name="queryBase">QueryBase</param>
 		/// <param name="exp">过滤条件</param>
 		/// <param name="orderExp">排序条件</param>
 		/// <param name="isDesc">是否是降序排列</param>
         /// <returns></returns>
-        ResultDto<Cs_dataDto> GetWithPages<OrderKeyType>(QueryBase queryBase, Expression<Func<Cs_dataDto, bool>> exp, Expression<Func<Cs_dataDto, OrderKeyType>> orderExp, bool isDesc = true);
+        ResultDto<DictionariesDto> GetWithPages<OrderKeyType>(QueryBase queryBase, Expression<Func<DictionariesDto, bool>> exp, Expression<Func<DictionariesDto, OrderKeyType>> orderExp, bool isDesc = true);
 
         /// <summary>
-        /// 分页获取cs_data
+        /// 分页获取dictionaries
         /// </summary>
         /// <param name="queryBase">QueryBase</param>
 		/// <param name="exp">过滤条件</param>
 		/// <param name="orderBy">排序条件</param>
 		/// <param name="orderDir">是否是降序排列</param>
         /// <returns></returns>
-        ResultDto<Cs_dataDto> GetWithPages(QueryBase queryBase, Expression<Func<Cs_dataDto, bool>> exp, string orderBy, string orderDir = "desc");
+        ResultDto<DictionariesDto> GetWithPages(QueryBase queryBase, Expression<Func<DictionariesDto, bool>> exp, string orderBy, string orderDir = "desc");
     } 
 }

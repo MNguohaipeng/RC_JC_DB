@@ -30,8 +30,11 @@ namespace JuCheap.Service
         public static void Config()
         {
 
-			Mapper.CreateMap<Cs_dataEntity, Cs_dataDto>();
-			Mapper.CreateMap<Cs_dataDto, Cs_dataEntity>();
+			Mapper.CreateMap<DCL_DataEntity, DCL_DataDto>();
+			Mapper.CreateMap<DCL_DataDto, DCL_DataEntity>();
+
+			Mapper.CreateMap<DictionariesEntity, DictionariesDto>();
+			Mapper.CreateMap<DictionariesDto, DictionariesEntity>();
 
 			Mapper.CreateMap<EmailPoolEntity, EmailPoolDto>();
 			Mapper.CreateMap<EmailPoolDto, EmailPoolEntity>();

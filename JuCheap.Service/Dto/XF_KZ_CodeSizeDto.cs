@@ -26,7 +26,7 @@ namespace JuCheap.Service.Dto
 
         public string CP_WaistWidth { get; set; }
 
-        public string Height { get; set; }
+        public decimal Height { get; set; }
 
         public string LongPants { get; set; }
 

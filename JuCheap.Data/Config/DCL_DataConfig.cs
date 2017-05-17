@@ -3,11 +3,11 @@ using System.Data.Entity.ModelConfiguration;
 using JuCheap.Entity;
 namespace JuCheap.Data.Config
 {
-   public class Cs_dataConfig: EntityTypeConfiguration<Cs_dataEntity>
+   public class DCL_DataConfig: EntityTypeConfiguration<DCL_DataEntity>
     {
-        public Cs_dataConfig()
+        public DCL_DataConfig()
         {
-            ToTable("Cs_data");
+            ToTable("DCL_Data");
             HasKey(item => item.Id);
             Property(item => item.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
             Property(item => item.Orderid).HasColumnType("nvarchar").IsRequired().HasMaxLength(36);

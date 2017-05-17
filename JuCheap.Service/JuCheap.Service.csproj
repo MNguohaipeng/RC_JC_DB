@@ -79,7 +79,10 @@
     <Compile Include="Abstracts\AutoMapperConfiguration.Partial.cs">
       <DependentUpon>IService.tt</DependentUpon>
     </Compile>
-    <Compile Include="Abstracts\Cs_dataService.Partial.cs">
+    <Compile Include="Abstracts\DCL_DataService.Partial.cs">
+      <DependentUpon>IService.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Abstracts\DictionariesService.Partial.cs">
       <DependentUpon>IService.tt</DependentUpon>
     </Compile>
     <Compile Include="Abstracts\EmailPoolService.cs" />
@@ -95,8 +98,10 @@
     <Compile Include="Abstracts\HanderDataForXF_SYService.Partial.cs">
       <DependentUpon>IService.tt</DependentUpon>
     </Compile>
-    <Compile Include="Abstracts\ICS_data.cs" />
-    <Compile Include="Abstracts\ICs_dataService.Partial.cs">
+    <Compile Include="Abstracts\IDCL_DataService.Partial.cs">
+      <DependentUpon>IService.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Abstracts\IDictionariesService.Partial.cs">
       <DependentUpon>IService.tt</DependentUpon>
     </Compile>
     <Compile Include="Abstracts\IEmailPoolService.cs" />
@@ -182,6 +187,7 @@
       <DependentUpon>IService.tt</DependentUpon>
     </Compile>
     <Compile Include="AutoMapperConfiguration.cs" />
+    <Compile Include="Dto\DictionariesDto.cs" />
     <Compile Include="Dto\HanderDataForXF_KZDto.cs" />
     <Compile Include="Dto\HanderDataForXF_SYDto.cs" />
     <Compile Include="Dto\SleeveDto.cs" />
@@ -190,7 +196,7 @@
     <Compile Include="Dto\CoatSize.cs" />
     <Compile Include="Config\EmailConfiguration.cs" />
     <Compile Include="Dto\BaseDto.cs" />
-    <Compile Include="Dto\Cs_dataDto.cs" />
+    <Compile Include="Dto\DCL_DataDto.cs" />
     <Compile Include="Dto\Dictionaries.cs" />
     <Compile Include="Dto\EmailPoolDto.cs" />
     <Compile Include="Dto\EmailReceiverDto.cs" />
@@ -244,6 +250,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="MultipleOutputHelper.ttinclude" />
     <None Include="packages.config" />
   </ItemGroup>

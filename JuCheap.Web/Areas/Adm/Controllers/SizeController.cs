@@ -1,4 +1,4 @@
-﻿ 
+﻿
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -18,10 +18,13 @@ namespace JuCheap.Web.Areas.Adm.Controllers
     public class SizeController : AdmBaseController
     {
 
-        public  IXF_KZ_CodeSizeService XF_KZ_Service { get; set; }
-        public ICs_dataService Cs_dataService { get; set; }
+        public IXF_KZ_CodeSizeService XF_KZ_Service { get; set; }
 
+        public IDCL_DataService Cs_dataService { get; set; }
 
+        public IXF_SY_NAN_ChiMaService XF_SY_NAN_ChiMa { get; set; }
+
+        public IXF_SY_NU_CodeSizeService XF_SY_NU_ChiMa { get; set; }
         // GET: Adm/Size
         public ActionResult Import()
         {
@@ -59,9 +62,13 @@ namespace JuCheap.Web.Areas.Adm.Controllers
                     switch (Action)
                     {
                         case "XF_SY_NAN":
-                            List<XF_SY_NAN_ChiMaDto> qudate = db.Database.Queryable<XF_SY_NAN_ChiMaDto>().Where(c => c.Status == 1).GroupBy(it => it.Size_Code).Select<XF_SY_NAN_ChiMaDto>("Size_Code, MAX(CreateDateTime) as   CreateDateTime").ToList();
 
-                            foreach (XF_SY_NAN_ChiMaDto item in qudate)
+                            var qudate = XF_SY_NAN_ChiMa.Query(c => c.Status == 1, o => o.Id, false);
+
+
+                            //List<XF_SY_NAN_ChiMaDto> qudate = db.Database.Queryable<XF_SY_NAN_ChiMaDto>().Where(c => c.Status == 1).GroupBy(it => it.Size_Code).Select<XF_SY_NAN_ChiMaDto>("Size_Code, MAX(CreateDateTime) as   CreateDateTime").ToList();
+
+                            foreach (var item in qudate.GroupBy(it => it.Size_Code).Select(s => new { CreateDateTime = s.Max(l => l.CreateDateTime), Size_Code = s.Key }))
                             {
                                 Examine ex = new Examine();
 
@@ -326,7 +333,7 @@ namespace JuCheap.Web.Areas.Adm.Controllers
             return json;
         }
 
-        #region 导入
+
         //导入
         [HttpPost]
         public JsonResult Import(FormCollection fm)
@@ -390,10 +397,9 @@ namespace JuCheap.Web.Areas.Adm.Controllers
                 }
                 else
                 {
-                    if (Service.import.Import_Excel_jacket(table, fm["Size_Code"], gender, out errMsg))
+                    if (Import_XF_SY(table, fm["Size_Code"], gender, out errMsg))
                     {
                         return Json(new { state = 1, msg = "" }, JsonRequestBehavior.AllowGet);
-
                     }
                     else
                     {
@@ -404,7 +410,6 @@ namespace JuCheap.Web.Areas.Adm.Controllers
             }
             catch (Exception)
             {
-
                 throw;
             }
 
@@ -428,8 +433,6 @@ namespace JuCheap.Web.Areas.Adm.Controllers
                     table = Analysis.Excel_trousrs_NU(Request.Files);
 
                 }
-
-
 
 
                 if (fm["import"] == "false")
@@ -473,14 +476,15 @@ namespace JuCheap.Web.Areas.Adm.Controllers
         public static object Ret_Excel(DataTable table)
         {
 
-
-
             List<Service.Dto.XF_SY_NAN_ChiMaDto> cslist = new List<Service.Dto.XF_SY_NAN_ChiMaDto>();
 
             for (int i = 0; i < table.Rows.Count; i++)
             {
+
                 decimal ty = 0;
+
                 Service.Dto.XF_SY_NAN_ChiMaDto cs = new Service.Dto.XF_SY_NAN_ChiMaDto();
+
                 if (decimal.TryParse(table.Rows[i]["Height"] + "", out ty))
                 {
                     cs.Height = ty;
@@ -489,7 +493,9 @@ namespace JuCheap.Web.Areas.Adm.Controllers
                 {
                     cs.Height = 0;
                 }
+
                 cs.FrontLength = table.Rows[i]["FrontLength"] + "";
+
                 cs.NetBust = table.Rows[i]["NetBust"] + "";
 
                 if (decimal.TryParse(table.Rows[i]["FinishedBust"] + "", out ty))
@@ -695,19 +701,22 @@ namespace JuCheap.Web.Areas.Adm.Controllers
                     ts.AfterTheWaves_EvenWaist = 0;
                 }
 
+                decimal Height = 0;
+                if (!decimal.TryParse(table.Rows[i]["Height"] + "", out Height))
+                {
+                    Height = 0;
+                }
+
                 ts.NetHip = table.Rows[i]["NetHip"] + "";
 
                 ts.CP_WaistWidth = table.Rows[i]["CP_WaistWidth"] + "";
-                ts.Height = table.Rows[i]["Height"] + "";
+                ts.Height = Height;
                 ts.LongPants = table.Rows[i]["LongPants"] + "";
                 ts.NetWaist = table.Rows[i]["NetWaist"] + "";
-
-
                 cslist.Add(ts);
             }
 
             return cslist;
-
 
         }
 
@@ -716,145 +725,284 @@ namespace JuCheap.Web.Areas.Adm.Controllers
 
 
         //上传西服裤子尺码表
- 
-        public  bool Import_XF_KZ(DataTable table, string Size_Code, out string errmsg)
+        public bool Import_XF_KZ(DataTable table, string Size_Code, out string errmsg)
         {
 
-      
-                try
-                {
-                    List<XF_KZ_CodeSizeDto> tszie_list = new List<XF_KZ_CodeSizeDto>();
 
-                    for (int i = 0; i < table.Rows.Count; i++)
+            try
+            {
+                List<XF_KZ_CodeSizeDto> tszie_list = new List<XF_KZ_CodeSizeDto>();
+
+                for (int i = 0; i < table.Rows.Count; i++)
+                {
+                    #region 处理不符合要求得数据
+                    DataRow row = table.Rows[i];
+                    row.BeginEdit();
+                    for (int a = 0; a < table.Columns.Count; a++)
                     {
-                        #region 处理不符合要求得数据
-                        DataRow row = table.Rows[i];
-                        row.BeginEdit();
-                        for (int a = 0; a < table.Columns.Count; a++)
+
+                        if (row[a].ToString().IndexOf("....") > 0)
                         {
-
-                            if (row[a].ToString().IndexOf("....") > 0)
-                            {
-                                row[a] = row[a].ToString().Replace("....", ".");
-                            }
-                            if (row[a].ToString().IndexOf("...") > 0)
-                            {
-                                row[a] = row[a].ToString().Replace("...", ".");
-                            }
-                            if (row[a].ToString().IndexOf("..") > 0)
-                            {
-                                row[a] = row[a].ToString().Replace("..", ".");
-                            }
-
-                            if (row[a].ToString().IndexOf("null") > 0)
-                            {
-                                row[a] = row[a].ToString().Replace("null", "0");
-                            }
-                            if (string.IsNullOrEmpty(row[a].ToString()))
-                            {
-                                row[a] = 0;
-                            }
+                            row[a] = row[a].ToString().Replace("....", ".");
                         }
-                        row.EndEdit();
-                        #endregion
-
-                        #region 保存尺码
-
-                        XF_KZ_CodeSizeDto tszie = new XF_KZ_CodeSizeDto();
-                        foreach (DataRow item in table.Rows)
+                        if (row[a].ToString().IndexOf("...") > 0)
                         {
-
-                            tszie.Code = item["Code"].ToString();
-                            decimal ty = 0;
-                            if (decimal.TryParse(item["DZ_HipLength_CP"].ToString(), out ty))
-                            {
-                                tszie.DZ_HipLength_CP = ty;
-                            }
-                            else
-                            {
-                                tszie.DZ_HipLength_CP = 0;
-                            }
-
-                            if (decimal.TryParse(item["SZ_HipLength_CP"].ToString(), out ty))
-                            {
-                                tszie.SZ_HipLength_CP = ty;
-                            }
-                            else
-                            {
-                                tszie.SZ_HipLength_CP = 0;
-                            }
-
-                            if (decimal.TryParse(item["Crosspiece"].ToString(), out ty))
-                            {
-                                tszie.Crosspiece = ty;
-                            }
-                            else
-                            {
-                                tszie.Crosspiece = 0;
-                            }
-
-                            if (decimal.TryParse(item["LegWidth_UnderTheWaves"].ToString(), out ty))
-                            {
-                                tszie.LegWidth_UnderTheWaves = ty;
-                            }
-                            else
-                            {
-                                tszie.LegWidth_UnderTheWaves = 0;
-                            }
-
-                            if (decimal.TryParse(item["FrontRise_EvenWaist"].ToString(), out ty))
-                            {
-                                tszie.FrontRise_EvenWaist = ty;
-                            }
-                            else
-                            {
-                                tszie.FrontRise_EvenWaist = 0;
-                            }
-
-                            if (decimal.TryParse(item["AfterTheWaves_EvenWaist"].ToString(), out ty))
-                            {
-                                tszie.AfterTheWaves_EvenWaist = ty;
-                            }
-                            else
-                            {
-                                tszie.AfterTheWaves_EvenWaist = 0;
-                            }
-
-                            tszie.NetHip = item["NetHip"].ToString();
-                            tszie.CP_WaistWidth = item["CP_WaistWidth"].ToString();
-                            tszie.Height = item["Height"].ToString();
-                            tszie.LongPants = item["LongPants"].ToString();
-                            tszie.NetWaist = item["NetWaist"].ToString();
-                            tszie.Size_Code = Size_Code;
-                            tszie.CreateDateTime = DateTime.Now;
-                            tszie.Status = 1;
-                            tszie.RowData = item["Code"] + "-" + item["DZ_HipLength_CP"] + "" + item["SZ_HipLength_CP"] + "-" + item["Crosspiece"] + "-" + item["LegWidth_UnderTheWaves"] + "-" + item["FrontRise_EvenWaist"] + "-" + item["AfterTheWaves_EvenWaist"] + "-" + item["NetHip"] + "-" + item["CP_WaistWidth"] + "-" + item["CP_WaistWidth"] + "-" + item["Height"] + "-" + item["LongPants"] + "-" + item["NetWaist"] + "-" + Size_Code;
+                            row[a] = row[a].ToString().Replace("...", ".");
                         }
-                        tszie_list.Add(tszie);
+                        if (row[a].ToString().IndexOf("..") > 0)
+                        {
+                            row[a] = row[a].ToString().Replace("..", ".");
+                        }
 
-                        #endregion
-
-
+                        if (row[a].ToString().IndexOf("null") > 0)
+                        {
+                            row[a] = row[a].ToString().Replace("null", "0");
+                        }
+                        if (string.IsNullOrEmpty(row[a].ToString()))
+                        {
+                            row[a] = 0;
+                        }
                     }
- 
-                    XF_KZ_Service.Add(tszie_list[0]);
+                    row.EndEdit();
+                    #endregion
 
-               
-                //    db.Database.CommitTran();
-                    errmsg = "";
-                    return true;
+                    #region 保存尺码
+
+
+
+
+
+                    #endregion
+
 
                 }
-                catch (Exception ex)
+
+                foreach (DataRow item in table.Rows)
                 {
+                    XF_KZ_CodeSizeDto tszie = new XF_KZ_CodeSizeDto();
+                    tszie.Code = item["Code"].ToString();
+                    decimal ty = 0;
+                    if (decimal.TryParse(item["DZ_HipLength_CP"].ToString(), out ty))
+                    {
+                        tszie.DZ_HipLength_CP = ty;
+                    }
+                    else
+                    {
+                        tszie.DZ_HipLength_CP = 0;
+                    }
 
-                   // db.Database.RollbackTran();//回滚事务
-                    errmsg = ex.Message;
-                    return false;
+                    if (decimal.TryParse(item["SZ_HipLength_CP"].ToString(), out ty))
+                    {
+                        tszie.SZ_HipLength_CP = ty;
+                    }
+                    else
+                    {
+                        tszie.SZ_HipLength_CP = 0;
+                    }
 
+                    if (decimal.TryParse(item["Crosspiece"].ToString(), out ty))
+                    {
+                        tszie.Crosspiece = ty;
+                    }
+                    else
+                    {
+                        tszie.Crosspiece = 0;
+                    }
+
+                    if (decimal.TryParse(item["LegWidth_UnderTheWaves"].ToString(), out ty))
+                    {
+                        tszie.LegWidth_UnderTheWaves = ty;
+                    }
+                    else
+                    {
+                        tszie.LegWidth_UnderTheWaves = 0;
+                    }
+
+                    if (decimal.TryParse(item["FrontRise_EvenWaist"].ToString(), out ty))
+                    {
+                        tszie.FrontRise_EvenWaist = ty;
+                    }
+                    else
+                    {
+                        tszie.FrontRise_EvenWaist = 0;
+                    }
+
+                    if (decimal.TryParse(item["AfterTheWaves_EvenWaist"].ToString(), out ty))
+                    {
+                        tszie.AfterTheWaves_EvenWaist = ty;
+                    }
+                    else
+                    {
+                        tszie.AfterTheWaves_EvenWaist = 0;
+                    }
+
+                    tszie.NetHip = item["NetHip"].ToString();
+                    tszie.CP_WaistWidth = item["CP_WaistWidth"].ToString();
+                    tszie.Height = Convert.ToDecimal(item["Height"]);
+                    tszie.LongPants = item["LongPants"].ToString();
+                    tszie.NetWaist = item["NetWaist"].ToString();
+                    tszie.Size_Code = Size_Code;
+                    tszie.CreateDateTime = DateTime.Now;
+                    tszie.Status = 1;
+                    tszie.RowData = item["Code"] + "-" + item["DZ_HipLength_CP"] + "" + item["SZ_HipLength_CP"] + "-" + item["Crosspiece"] + "-" + item["LegWidth_UnderTheWaves"] + "-" + item["FrontRise_EvenWaist"] + "-" + item["AfterTheWaves_EvenWaist"] + "-" + item["NetHip"] + "-" + item["CP_WaistWidth"] + "-" + item["CP_WaistWidth"] + "-" + item["Height"] + "-" + item["LongPants"] + "-" + item["NetWaist"] + "-" + Size_Code;
+                    tszie_list.Add(tszie);
                 }
+
+                XF_KZ_Service.Add(tszie_list);
+
+
+                //    db.Database.CommitTran();
+                errmsg = "";
+                return true;
+
+            }
+            catch (Exception ex)
+            {
+
+                // db.Database.RollbackTran();//回滚事务
+                errmsg = ex.Message;
+                return false;
+
+            }
         }
 
+        //上传西服上衣尺码表
+        public bool Import_XF_SY(DataTable table, string size_code, string gender, out string errmsg)
+        {
+
+            try
+            {
+
+
+                List<XF_SY_NAN_ChiMaDto> list = new List<XF_SY_NAN_ChiMaDto>();
+
+
+                for (int i = 0; i < table.Rows.Count; i++)
+                {
+                    #region 处理不符合要求得数据
+
+                    DataRow row = table.Rows[i];
+
+                    row.BeginEdit();
+
+                    for (int a = 0; a < table.Columns.Count; a++)
+                    {
+
+                        if (row[a].ToString().IndexOf("....") > 0)
+                        {
+                            row[a] = row[a].ToString().Replace("....", ".");
+                        }
+                        if (row[a].ToString().IndexOf("...") > 0)
+                        {
+                            row[a] = row[a].ToString().Replace("...", ".");
+                        }
+                        if (row[a].ToString().IndexOf("..") > 0)
+                        {
+                            row[a] = row[a].ToString().Replace("..", ".");
+                        }
+
+                    }
+
+                    row.EndEdit();
+                }
+
+                if (gender == "男")
+                {
+                    for (int i = 0; i < table.Rows.Count; i++)
+                    {
+                        XF_SY_NAN_ChiMaDto cs = new XF_SY_NAN_ChiMaDto();
+
+                        cs.Height = Convert.ToDecimal(table.Rows[i]["Height"]);
+
+                        cs.FrontLength = table.Rows[i]["FrontLength"] + "";
+
+                        cs.NetBust = table.Rows[i]["NetBust"] + "";
+
+                        cs.FinishedBust = Convert.ToDecimal(table.Rows[i]["FinishedBust"]);
+
+                        cs.InWaist = Convert.ToDecimal(table.Rows[i]["InWaist"]);
+
+                        cs.FinishedHem_NoFork = Convert.ToDecimal(table.Rows[i]["FinishedHem_NoFork"]);
+
+                        cs.FinishedHem_SplitEnds = Convert.ToDecimal(table.Rows[i]["FinishedHem_SplitEnds"]);
+
+                        cs.ShoulderWidth = Convert.ToDecimal(table.Rows[i]["ShoulderWidth"]);
+
+                        cs.Size_Code = size_code;
+
+                        cs.Sleecve_Show = table.Rows[i]["FK_Sleeve_ID"] + "";
+
+                        cs.CreateDateTime = DateTime.Now;
+
+                        cs.IsDeleted = false;
+
+                        cs.Status = 1;
+
+                        cs.RowData = table.Rows[i]["Height"] + "-" + table.Rows[i]["FrontLength"] + "-" + table.Rows[i]["NetBust"] + "-" + table.Rows[i]["FinishedBust"] + "-" + table.Rows[i]["InWaist"] + "-" + table.Rows[i]["FinishedHem_NoFork"] + "-" + table.Rows[i]["FinishedHem_SplitEnds"] + "-" + table.Rows[i]["ShoulderWidth"] + "-" + table.Rows[i]["FK_Sleeve_ID"];
+
+                        list.Add(cs);
+                    }
+
+                    XF_SY_NAN_ChiMa.Add(list);
+                }
+                else
+                {
+
+                    List<XF_SY_NU_CodeSizeDto> list_NU = new List<XF_SY_NU_CodeSizeDto>();
+                    for (int i = 0; i < table.Rows.Count; i++)
+                    {
+                        XF_SY_NU_CodeSizeDto cs = new XF_SY_NU_CodeSizeDto();
+
+                        cs.Height = Convert.ToDecimal(table.Rows[i]["Height"]);
+
+                        cs.FrontLength = table.Rows[i]["FrontLength"] + "";
+
+                        cs.NetBust = table.Rows[i]["NetBust"] + "";
+
+                        cs.FinishedBust = Convert.ToDecimal(table.Rows[i]["FinishedBust"]);
+
+                        cs.InWaist = Convert.ToDecimal(table.Rows[i]["InWaist"]);
+
+                        cs.FinishedHem_NoFork = Convert.ToDecimal(table.Rows[i]["FinishedHem_NoFork"]);
+
+                        cs.SleeveWidth = Convert.ToDecimal(table.Rows[i]["SleeveWidth"]);
+
+                        cs.ShoulderWidth = Convert.ToDecimal(table.Rows[i]["ShoulderWidth"]);
+
+                        cs.Size_Code = size_code;
+
+                        cs.Sleecve_Show = table.Rows[i]["FK_Sleeve_ID"] + "";
+
+                        cs.CreateDateTime = DateTime.Now;
+
+                        cs.IsDeleted = false;
+
+                        cs.Status = 1;
+
+                        cs.RowData = table.Rows[i]["Height"] + "-" + table.Rows[i]["FrontLength"] + "-" + table.Rows[i]["NetBust"] + "-" + table.Rows[i]["FinishedBust"] + "-" + table.Rows[i]["InWaist"] + "-" + table.Rows[i]["FinishedHem_NoFork"] + "-" + table.Rows[i]["SleeveWidth"] + "-" + table.Rows[i]["ShoulderWidth"] + "-" + table.Rows[i]["FK_Sleeve_ID"];
+
+                        list_NU.Add(cs);
+                    }
+
+                    XF_SY_NU_ChiMa.Add(list_NU);
+                }
+
+
+
+
+
+                errmsg = "";
+                return true;
+
+            }
+            catch (Exception ex)
+            {
+
+                errmsg = ex.Message;
+                return false;
+
+            }
+        }
         #endregion
 
         #region 管理
@@ -940,7 +1088,12 @@ namespace JuCheap.Web.Areas.Adm.Controllers
 
         #endregion
 
+
+
+
     }
+
+
 
     public class Examine
     {

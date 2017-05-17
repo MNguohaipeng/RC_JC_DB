@@ -68,8 +68,7 @@
                 if (result.state == 1) {
 
                     var data = result.msg;
-     
-                   
+  
                     var html = "";
 
                     $("select[name='size_code'] option").remove();
@@ -86,150 +85,7 @@
 
 
         }
-
-
-        function getXlsFromTbl(inTblId, inWindow) {
-            try {
-                var allStr = "";
-                var curStr = "";
-                //alert("getXlsFromTbl");   
-                if (inTblId != null && inTblId != "" && inTblId != "null") {
-                    curStr = getTblData(inTblId, inWindow);
-                }
-                if (curStr != null) {
-                    allStr += curStr;
-                }
-                else {
-                    alert("你要导出的表不存在！");
-                    return;
-                }
-                var fileName = getExcelFileName();
-                doFileExport(fileName, allStr);
-            }
-            catch (e) {
-                alert("导出发生异常:" + e.name + "->" + e.description + "!");
-            }
-        }
-        function getTblData(inTbl, inWindow) {
-            var rows = 0;
-            //alert("getTblData is " + inWindow);   
-            var tblDocument = document;
-            if (!!inWindow && inWindow != "") {
-                if (!document.all(inWindow)) {
-                    return null;
-                }
-                else {
-                    tblDocument = eval(inWindow).document;
-                }
-            }
-            var curTbl = tblDocument.getElementById(inTbl);
-            var outStr = "";
-            if (curTbl != null) {
-                for (var j = 0; j < curTbl.rows.length; j++) {
-                    //alert("j is " + j);   
-                    for (var i = 0; i < curTbl.rows[j].cells.length; i++) {
-                        //alert("i is " + i);   
-                        if (i == 0 && rows > 0) {
-                            outStr += " \t";
-                            rows -= 1;
-                        }
-                        outStr += curTbl.rows[j].cells[i].innerText + "\t";
-                        if (curTbl.rows[j].cells[i].colSpan > 1) {
-                            for (var k = 0; k < curTbl.rows[j].cells[i].colSpan - 1; k++) {
-                                outStr += " \t";
-                            }
-                        }
-                        if (i == 0) {
-                            if (rows == 0 && curTbl.rows[j].cells[i].rowSpan > 1) {
-                                rows = curTbl.rows[j].cells[i].rowSpan - 1;
-                            }
-                        }
-                    }
-                    outStr += "\r\n";
-                }
-            }
-            else {
-                outStr = null;
-                alert(inTbl + "不存在!");
-            }
-            return outStr;
-        }
-        function getExcelFileName() {
-            var d = new Date();
-            var curYear = d.getYear();
-            var curMonth = "" + (d.getMonth() + 1);
-            var curDate = "" + d.getDate();
-            var curHour = "" + d.getHours();
-            var curMinute = "" + d.getMinutes();
-            var curSecond = "" + d.getSeconds();
-            if (curMonth.length == 1) {
-                curMonth = "0" + curMonth;
-            }
-            if (curDate.length == 1) {
-                curDate = "0" + curDate;
-            }
-            if (curHour.length == 1) {
-                curHour = "0" + curHour;
-            }
-            if (curMinute.length == 1) {
-                curMinute = "0" + curMinute;
-            }
-            if (curSecond.length == 1) {
-                curSecond = "0" + curSecond;
-            }
-            var fileName = "leo_zhang" + "_" + curYear + curMonth + curDate + "_"
-                + curHour + curMinute + curSecond + ".csv";
-            //alert(fileName);   
-            return fileName;
-        }   
-
-        function doFileExport(inName, inStr) {
-            var xlsWin = null;
-            if (!!document.all("glbHideFrm")) {
-                xlsWin = glbHideFrm;
-            }
-            else {
-                var width = 6;
-                var height = 4;
-                var openPara = "left=" + (window.screen.width / 2 - width / 2)
-                    + ",top=" + (window.screen.height / 2 - height / 2)
-                    + ",scrollbars=no,width=" + width + ",height=" + height;
-                xlsWin = window.open("", "_blank", openPara);
-            }
-            xlsWin.document.write(inStr);
-            xlsWin.document.close();
-            xlsWin.document.execCommand('Saveas', true, inName);
-            xlsWin.close();
-        }   
-
-
-
-        function toExcel(tableId) {
-            var curTbl = document.getElementById(tableId);
-            var lenRow = curTbl.rows.length;
  
-            //取得表格行数  
-            for (i = 0; i < lenRow; i++) {
-                var lenCol = curTbl.rows(i).cells.length;
-                //取得每行的列数  
-                for (j = 0; j < lenCol; j++) {
-                    oSheet.Cells(i + 1, j + 1).value = curTbl.rows(i).cells(j).innerText;
-
-                }
-            }
-
-            var str = "";
-            var uri = 'data:json/csv;charset=utf-8,' + oSheet;
-
-            var downloadLink = document.createElement("a");
-            downloadLink.href = uri;
-            downloadLink.download = "export.csv";
-
-            document.body.appendChild(downloadLink);
-            downloadLink.click();
-            document.body.removeChild(downloadLink);
-        }
-
     </script>
  
 }
@@ -240,7 +96,7 @@
     </header>
     <div class="panel-body">
         <div class="col-md-12">
-            <form action="@Url.Action("Handle", @ViewContext.RouteData.Values)" method="post">
+            <form action="@Url.Action("ImportHandleData", @ViewContext.RouteData.Values)" method="post">
                 <div class="form-group">
                     <label for="name">工单编号</label>
                     <input type="text" class="form-control" name="GDH" />
@@ -252,47 +108,7 @@
           
                 <button type="submit" class="btn btn-success m-b-10"  >处理数据</button>
             </form>
-
-
-
-            <div class="form-group">
-                <label for="name">尺码表适用版型</label>
-                <select class="form-control" name="size_banxing" onchange="loadSelect()">
-                    <option value="XF">西服</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="name">尺码表适用类型</label>
-                <select class="form-control" name="size_type" onchange="loadSelect()">
-                    <option value="SY">上衣</option>
-                    <option value="KZ">裤子</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="name">尺码表适用性别</label>
-                <select class="form-control" name="size_gender" onchange="loadSelect()">
-                    <option value="NAN">男</option>
-                    <option value="NU">女</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label for="name">选择尺码表</label>
-                <select class="form-control" name="size_code"></select>
-            </div>
-
-            <br>
-            <br>
-            <div class="input-group">
-                <button type="button" class="btn btn-success m-b-10" onclick="Handle()">处理数据</button>
-                <button type="button" class="btn btn-success m-b-10" onclick="getXlsFromTbl('table_server', null)">导出Excel</button>
-
-                <button type="button" class="btn btn-success m-b-10" onclick="toExcel('table_server')">导出Excel</button>
-            </div>
-            <input type="file" name="up_file" style="display:none">
-        </div>
-
-
-    </div>
+ 
     </section>
 
 
