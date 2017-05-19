@@ -22,5 +22,9 @@ namespace JuCheap.Service.Dto //ĞŞ¸ÄÃû×Ö¿Õ¼ä
         public int Number { get; set; }
 
         public string Note { get; set; }
+
+        public string GDH { get; set; }
+
+        public string Gender { get; set; }
     }
 }

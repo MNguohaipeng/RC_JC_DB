@@ -38,21 +38,35 @@ namespace JuCheap.Web.Areas.Adm.Controllers
                 try
                 {
                     DataTable GDData = db.Database.GetDataTable(string.Format("select * from pytbulkgh where GDH='{0}'", fm["GDH"]));
- 
+
                     List<DCL_DataDto> DCLList = new List<DCL_DataDto>();
+
                     for (int i = 0; i < GDData.Rows.Count; i++)
                     {
                         #region 将数据处理存放  准备导入到待处理库
+
                         DCL_DataDto dl = new DCL_DataDto();
+
                         dl.Orderid = GDData.Rows[i]["ORDERCODE"].ToString();
+
                         dl.Option = Convert.ToInt32(GDData.Rows[i]["ORDERXC"]);
+
                         dl.Name = GDData.Rows[i]["Name"].ToString();
+
                         dl.ReCodeSize = GDData.Rows[i]["SIZECODE"].ToString();
+
                         dl.Number = Convert.ToInt32(GDData.Rows[i]["SL"]);
+
                         dl.Note = "";
+
+                        dl.GDH = fm["GDH"];
+
+                        dl.Gender = GDData.Rows[i]["XB"].ToString();
+
                         DCLList.Add(dl);
+
                         #endregion
- 
+
                     }
 
                     #region 导入到待处理库
@@ -60,11 +74,15 @@ namespace JuCheap.Web.Areas.Adm.Controllers
                     DCL_DataService.Add(DCLList);
 
                     #endregion
+
                     return Json(new { state = 1, msg = "" }, JsonRequestBehavior.AllowGet);
+
                 }
                 catch (Exception ex)
                 {
+
                     return Json(new { state = 0, msg = ex.Message }, JsonRequestBehavior.AllowGet);
+
                 }
 
         }
@@ -76,230 +94,157 @@ namespace JuCheap.Web.Areas.Adm.Controllers
             using (MyRepository db = new MyRepository())
                 try
                 {
-              
 
                     List<XF_SY_NAN_ChiMaDto> list = null;
 
-                    //where GDH='{0}'
-
                     #region 获取待处理数据
 
-                    DataTable GDData = db.Database.GetDataTable(string.Format("select * from pytbulkgh where GDH='T511-16041407'", fm["GDH"]));
+                    string GDH = fm["GDH"];
+
+                    var GDData = DCL_DataService.Query(T => T.GDH == GDH, O => O.Id, false);
 
                     #endregion
 
-                    string Action = "";
-                    List<DCL_DataDto> DCLList = new List<DCL_DataDto>();
-                    for (int i = 0; i < GDData.Rows.Count; i++)
-                    {
-                        #region 将数据处理存放  准备导入到待处理库
-                        DCL_DataDto dl = new DCL_DataDto();
-                        dl.Orderid = GDData.Rows[i]["ORDERCODE"].ToString();
-                        dl.Option= Convert.ToInt32(GDData.Rows[i]["ORDERXC"]);
-                        dl.Name= GDData.Rows[i]["Name"].ToString();
-                        dl.ReCodeSize= GDData.Rows[i]["SIZECODE"].ToString();
-                        dl.Number= Convert.ToInt32(GDData.Rows[i]["SL"]);
-                        dl.Note = "";
-                        DCLList.Add(dl);
-                        #endregion
+                    string Action ="";
 
-                        #region 判断数据类型
-                        bool[] sizezz = isSYorKZ(GDData.Rows[i]["SIZECODE"].ToString());
+                    List<DCL_DataDto> DCLList = new List<DCL_DataDto>();
+
+                    List<handleBool> boollist = new List<handleBool>();
+
+                    DataTable table = new DataTable();
+
+                    table.Columns.Add("姓名");
+                    table.Columns.Add("归码后尺码");
+                    table.Columns.Add("身高");
+                    table.Columns.Add("数量");
+                    table.Columns.Add("单褶臀围");
+                    table.Columns.Add("双褶臀围");
+                    table.Columns.Add("腰");
+                    table.Columns.Add("备注");
+                    DataRow rowsTitle = table.NewRow();
+
+                    rowsTitle["姓名"] = "出排尺码";
+
+                    table.Rows.Add(rowsTitle);
+
+                    foreach (DCL_DataDto item in GDData)
+                    {
+
+                        boollist.Add(isSYorKZ(item.ReCodeSize.ToString()));
 
                         int trueCount = 0;
 
-                        for (int a = 0; a < sizezz.Length; a++)
+                        foreach (handleBool boolitem in boollist)
                         {
-                            switch (a)
+                            if (boolitem.sizezz1)
                             {
-                                case 0://特殊上衣
-                                    if (sizezz[a])
-                                    {
-                                        Action = "T_XF_SY_" + gender(GDData.Rows[i]["XB"].ToString());
-                                        trueCount++;
-                                    }
-                                    break;
-                                case 1://特殊裤子
-                                    if (sizezz[a])
-                                    {
-                                        Action = "T_XF_KZ_" + gender(GDData.Rows[i]["XB"].ToString());
-                                        trueCount++;
-                                    }
-                                    break;
-                                case 2://普通上衣
-                                    if (sizezz[a])
-                                    {
-                                        Action = "XF_SY_" + gender(GDData.Rows[i]["XB"].ToString());
-                                        trueCount++;
-                                    }
-                                    break;
-                                case 3://普通裤子
-                                    if (sizezz[a])
-                                    {
-                                        Action = "XF_KZ_" + gender(GDData.Rows[i]["XB"].ToString());
-                                        trueCount++;
-                                    }
-                                    break;
+                                Action = "T_XF_SY_" + gender(item.Gender.ToString());
+                                trueCount++;
+                            }
 
-                                default:
-                                    throw new Exception("没有对应的处理程序，请检查数据，程序代码：" + Action);
+                            if (boolitem.sizezz2)
+                            {
+                                Action = "T_XF_KZ_" + gender(item.Gender.ToString());
+                                trueCount++;
+                            }
+
+                            if (boolitem.sizezz3)
+                            {
+                                Action = "XF_SY_" + gender(item.Gender.ToString());
+                                trueCount++;
+                            }
+
+                            if (boolitem.sizezz4)
+                            {
+                                Action = "XF_KZ_" + gender(item.Gender.ToString());
+                                trueCount++;
+                            }
+
+                            if (trueCount > 1)
+                            {
+
+                                throw new Exception("数据出错，出现多个匹配代码。");
+                            }
+                            else {
+                                trueCount = 0;
                             }
 
                         }
-
-                        if (trueCount > 1)
+                        switch (Action)
                         {
-                            throw new Exception("数据出错，出现多个匹配代码。");
-                        }
-                        #endregion
-                    }
 
-                    #region 导入到待处理库
+                            case "XF_SY_NAN":
+                                List<HanderDataForXF_SYDto> SYlist = new List<HanderDataForXF_SYDto>();
 
-                    DCL_DataService.Add(DCLList);
-
-                    #endregion
-
-                    switch (Action)
-                    {
-
-                        case "XF_SY_NAN":
-                            List<HanderDataForXF_SYDto> SYlist = new List<HanderDataForXF_SYDto>();
-                            for (int i = 0; i < GDData.Rows.Count; i++)
-                            {
-                                decimal a01 = Convert.ToDecimal(GDData.Rows[i]["SIZECODE"].ToString().Split('/')[0]);
-
-                                string a02 = GDData.Rows[i]["SIZECODE"].ToString().Split('/')[1];
-
-                                XF_SY_NAN_ChiMaDto dto = XF_SY_NAN_ChiMaService.GetOne(T => T.Height == a01 && T.NetBust == a02 && T.Size_Code == fm["Size_Code"]);
-                                SleeveDto sledto = SleeveService.GetOne(T => T.FK_CoatSize_ID == dto.Id && T.Code == dto.NetBust.Substring(dto.NetBust.Length - 1, 1));
-
-                                if (dto != null)
+                                foreach (DCL_DataDto itemsynan in GDData)
                                 {
-                                    HanderDataForXF_SYDto sy = new HanderDataForXF_SYDto();
-                                    sy.Height = dto.Height;
-                                    sy.RtnQCode = GDData.Rows[i]["SIZECODE"].ToString();
-                                    sy.OrderCode = GDData.Rows[i]["Orderid"].ToString();
-                                    sy.Name = GDData.Rows[i]["Name"].ToString();
-                                    sy.RtnHCode = a02;
-                                    sy.Number = Convert.ToInt32(GDData.Rows[i]["Number"]);
-                                    sy.Yichang = Convert.ToDecimal(dto.FrontLength);
-                                    sy.Bust = dto.FinishedBust;
-                                    sy.Sleeve = sledto.Length;
-                                    SYlist.Add(sy);
-                                }
-                            }
+                                    decimal recodenan = Convert.ToDecimal(item.ReCodeSize.ToString().Split('/')[0]);
 
-        
-                            if (list.Count > 0)
-                            {
-                                return Json(new { state = 1, msg = SYlist }, JsonRequestBehavior.AllowGet);
-                            }
-                            else
-                            {
-                                throw new Exception("解析失败，请检查尺码表编号是否对应");
-                            }
-          
-                        case "XF_SY_NU":
-                            break;
-                        case "XF_KZ_NAN":
-                            break;
-                        case "XF_KZ_NU":
+                                    string NetBustNan = item.ReCodeSize.ToString().Split('/')[1];
 
-                            List<HanderDataForXF_KZDto> XF_KZ_NU_List = new List<HanderDataForXF_KZDto>();
+                                    XF_SY_NAN_ChiMaDto dtonan = XF_SY_NAN_ChiMaService.GetOne(T => T.Height == recodenan && T.NetBust == NetBustNan && T.Size_Code == fm["Size_Code"]);
 
-                            DataTable table = new DataTable();
+                                    SleeveDto sledto = SleeveService.GetOne(T => T.FK_CoatSize_ID == dtonan.Id && T.Code == dtonan.NetBust.Substring(dtonan.NetBust.Length - 1, 1));
 
-                            #region 创建table列
-                   
- 
-                            table.Columns.Add("姓名");
-                            table.Columns.Add("归码后尺码");
-                            table.Columns.Add("身高");
-                            table.Columns.Add("数量");
-                            table.Columns.Add("单褶臀围");
-                            table.Columns.Add("双褶臀围");
-                            table.Columns.Add("腰");
-                            table.Columns.Add("备注");
-
-                            DataRow rowsTitle = table.NewRow();
-
-                            rowsTitle["姓名"] = "裤子";
-
-                            table.Rows.Add(rowsTitle);
-                            #endregion
-
-                            for (int i = 0; i < GDData.Rows.Count; i++)
-                            {
-                                decimal a01 = Convert.ToDecimal(GDData.Rows[i]["SIZECODE"].ToString().Split('/')[0]);
-
-                                string a02 = GDData.Rows[i]["SIZECODE"].ToString().Split('/')[1];
-
-                                string temp = a02.Substring(a02.Length - 1, 1);
-
-                                string Code = a02.Substring(0, a02.Length - 1);
-
-                                string Size_Code = fm["Size_Code"];
-
-                                XF_KZ_CodeSizeDto dto = XF_KZ_CodeSizeService.GetOne(T => T.CP_WaistWidth.Contains(Code) && T.Code == temp && T.Size_Code == Size_Code);
-      
-                                if (dto != null)
-                                {
-                                    HanderDataForXF_KZDto sy = new HanderDataForXF_KZDto();
-
-                                    sy.Height = dto.Height;
-
-                                    sy.RtnQCode= GDData.Rows[i]["SIZECODE"].ToString();
-
-                                    sy.SZ_Hipline= dto.SZ_HipLength_CP;
-
-                                    sy.DZ_Hipline= dto.DZ_HipLength_CP;
-
-                                    sy.Name= GDData.Rows[i]["Name"].ToString();
-
-                                    sy.Number= Convert.ToInt32(GDData.Rows[i]["SL"]);
-
-                                    XF_KZ_NU_List.Add(sy);
-
-                                    DataRow row = table.NewRow();
-                       
-                                    row["身高"] = dto.Height;
-
-                                    row["归码后尺码"] = GDData.Rows[i]["SIZECODE"].ToString();
-  
-                                    row["姓名"] = GDData.Rows[i]["Name"].ToString();
-
-                                    row["数量"] = Convert.ToInt32(GDData.Rows[i]["SL"]);
-
-                                    row["双褶臀围"] = dto.SZ_HipLength_CP;
-
-                                    row["单褶臀围"] = dto.DZ_HipLength_CP;
-
-                                    table.Rows.Add(row);
-
+                                    if (dtonan != null)
+                                    {
+                                        HanderDataForXF_SYDto sy = new HanderDataForXF_SYDto();
+                                        sy.Height = dtonan.Height;
+                                        sy.RtnQCode = item.ReCodeSize.ToString();
+                                        sy.OrderCode = item.Orderid.ToString();
+                                        sy.Name = item.Name.ToString();
+                                        sy.RtnHCode = NetBustNan;
+                                        sy.Number = item.Number;
+                                        sy.Yichang = Convert.ToDecimal(dtonan.FrontLength);
+                                        sy.Bust = dtonan.FinishedBust;
+                                        sy.Sleeve = sledto.Length;
+                                        SYlist.Add(sy);
+                                    }
                                 }
 
-                                if (XF_KZ_NU_List.Count>0)
+
+                                if (list.Count > 0)
                                 {
-                       
-                                 //   ExcelHelper.BuildExcel(table);
-
-                                    return Json(new { state = 1, msg = XF_KZ_NU_List }, JsonRequestBehavior.AllowGet);
-
+                                    return Json(new { state = 1, msg = SYlist }, JsonRequestBehavior.AllowGet);
                                 }
                                 else
                                 {
                                     throw new Exception("解析失败，请检查尺码表编号是否对应");
                                 }
 
-                            }
-                          
-                            break;
-                        default:
-                            throw new Exception("没有对应的处理程序。");
+                            case "XF_SY_NU":
+                                break;
+                            case "XF_KZ_NAN":
+                                break;
+                            case "XF_KZ_NU":
+                                Web.GenerateExcel gx = new GenerateExcel();
+                                DataRow row = gx.GenerateExcelForXF_SY_NAN(item, table, GDH);
+                                if (row != null)
+                                {
+                                    table.Rows.Add(row);
+                                }
 
+                                break;
+                            default:
+                                throw new Exception("没有对应的处理程序。");
+
+                        }
 
                     }
+
+                    if (table.Rows.Count > 0)
+                    {
+
+                        ExcelHelper.BuildExcel(table);
+
+                        return Json(new { state = 1, msg = "" }, JsonRequestBehavior.AllowGet);
+
+                    }
+                    else
+                    {
+                        throw new Exception("解析失败，请检查尺码表编号是否对应");
+                    }
+
                     throw new Exception("系统错误 函数未中断。");
 
                 }
@@ -309,7 +254,6 @@ namespace JuCheap.Web.Areas.Adm.Controllers
                 }
 
         }
-
 
         //尺码表编号下拉
         public JsonResult SizeCodeSelect(string Action)
@@ -348,7 +292,7 @@ namespace JuCheap.Web.Areas.Adm.Controllers
         }
 
         //验证数据格式  上衣  裤子  特殊上衣  特殊裤子
-        public bool[] isSYorKZ(string size)
+        public handleBool isSYorKZ(string size)
         {
 
             string TSY = "[0-9]{2,3}/[0-9A-z]{2,4}/[0-9]{2,3}[\u4e00-\u9fa5]{2,3}";//特殊上衣
@@ -361,19 +305,21 @@ namespace JuCheap.Web.Areas.Adm.Controllers
 
             bool[] zzArrey = new bool[4];
 
+            handleBool hbool = new handleBool();
+
             Regex RegexTSY = new Regex(TSY);
-            zzArrey[0] = RegexTSY.IsMatch(size);
+            hbool.sizezz1 = RegexTSY.IsMatch(size);
 
             Regex RegexTKZ = new Regex(TKZ);
-            zzArrey[1] = RegexTKZ.IsMatch(size);
+            hbool.sizezz2 = RegexTKZ.IsMatch(size);
 
             Regex RegexPTSY = new Regex(PTSY);
-            zzArrey[2] = RegexPTSY.IsMatch(size);
+            hbool.sizezz3 = RegexPTSY.IsMatch(size);
 
             Regex RegexPTKZ = new Regex(PTKZ);
-            zzArrey[3] = RegexPTKZ.IsMatch(size);
+            hbool.sizezz4 = RegexPTKZ.IsMatch(size);
 
-            return zzArrey;
+            return hbool;
         }
 
         //男  女  转换
@@ -404,11 +350,13 @@ namespace JuCheap.Web.Areas.Adm.Controllers
                 Start = Request["start"].ToInt(),
                 Length = Request["length"].ToInt(),
                 Draw = Request["draw"].ToInt(),
-                SearchKey = Request["keywords"]
-            };
-            string xxxx = Request["orderBy"];
+                SearchKey = Request["keywords"],
 
-            Expression<Func<DCL_DataDto, bool>> exp = item => !item.IsDeleted;
+            };
+            string Dcl_sizecode = Request["dcl_sizecode"];
+
+
+            Expression<Func<DCL_DataDto, bool>> exp = item => !item.IsDeleted && item.GDH == Dcl_sizecode;
             if (!queryBase.SearchKey.IsBlank())
                 exp = exp.And(item => item.Name.Contains(queryBase.SearchKey));
 
@@ -417,6 +365,15 @@ namespace JuCheap.Web.Areas.Adm.Controllers
         }
 
         #endregion
+
+        public class handleBool {
+            public bool sizezz1 { get; set; }
+            public bool sizezz2 { get; set; }
+            public bool sizezz3 { get; set; }
+            public bool sizezz4 { get; set; }
+
+        }
+
 
     }
 }

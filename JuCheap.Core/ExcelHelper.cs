@@ -657,25 +657,27 @@ namespace JuCheap.Core
 
             // 输出Excel
             string filename = "初排报表.xls";
+
             var context = HttpContext.Current;
+
             context.Response.ContentType = "application/vnd.ms-excel";
+
             context.Response.AddHeader("Content-Disposition", string.Format("attachment;filename={0}", context.Server.UrlEncode(filename)));
+
             context.Response.Clear();
 
-
             MemoryStream file = new MemoryStream();
+
             hssfworkbook.Write(file);
+
             context.Response.BinaryWrite(file.GetBuffer());
+
             context.Response.End();
-
-
 
         }
 
 
-
-
-
+       
 
 
     }

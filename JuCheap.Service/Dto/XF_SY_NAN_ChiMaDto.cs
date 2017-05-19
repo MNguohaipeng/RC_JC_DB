@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace JuCheap.Service.Dto
 {
-   public class XF_SY_NAN_ChiMaDto:BaseDto
+    public class XF_SY_NAN_ChiMaDto : BaseDto
     {
- 
+
         public decimal Height { get; set; }
 
         public string FrontLength { get; set; }

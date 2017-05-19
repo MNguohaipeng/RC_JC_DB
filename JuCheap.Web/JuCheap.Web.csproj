@@ -651,6 +651,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Code\ECMAScriptPacker.cs" />
+    <Content Include="App_Code\GenerateExcel.cs" />
     <Compile Include="App_Code\IocInitializeConstructor.cs" />
     <Compile Include="App_Code\IocInitializeProperties.cs" />
     <Compile Include="App_Code\JuCheapScriptBundle.cs" />
@@ -674,6 +675,7 @@
     <Compile Include="Filter\CommonExceptionFilter.cs" />
     <Compile Include="App_Code\JavascriptObfuscator.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="GenerateExcel.cs" />
     <Compile Include="Jobs\EmailJob.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Global.asax.cs">
