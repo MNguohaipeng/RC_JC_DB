@@ -36,7 +36,28 @@ XF_KZ_NAN_thead[9] = "身高/Height";
 XF_KZ_NAN_thead[10] = "裤长/LongPants";
 XF_KZ_NAN_thead[11] = "净腰围/NetWaist";
 
+var HanderDataForXF_SY_thead = new Array(); //处理后西服上衣 
+HanderDataForXF_SY_thead[0] = '订单编号/OrderCode';
+HanderDataForXF_SY_thead[1] = '项次/option';
+HanderDataForXF_SY_thead[2] = '姓名/Name';
+HanderDataForXF_SY_thead[3] = "处理前数据/RtnQCode";
+HanderDataForXF_SY_thead[4] = "处理后数据/RtnHCode";
+HanderDataForXF_SY_thead[5] = "身高/Height";
+HanderDataForXF_SY_thead[6] = "数量/Number";
+HanderDataForXF_SY_thead[7] = "衣长/Yichang";
+HanderDataForXF_SY_thead[8] = "胸围/Bust";
+HanderDataForXF_SY_thead[9] = "袖长/Sleeve";
 
+var HanderDataForXF_KZ_thead = new Array(); //西服裤子  男
+HanderDataForXF_KZ_thead[0] = '序号/Index';
+HanderDataForXF_KZ_thead[1] = '姓名/Name';
+HanderDataForXF_KZ_thead[2] = "身高/Height";
+HanderDataForXF_KZ_thead[3] = "处理前数据/RtnQCode";
+HanderDataForXF_KZ_thead[4] = '腰围/waistWidth';
+HanderDataForXF_KZ_thead[5] = "单褶臀围/DZ_Hipline";
+HanderDataForXF_KZ_thead[6] = "双褶臀围/SZ_Hipline";
+HanderDataForXF_KZ_thead[7] = "数量/Number";
+ 
 
 //显示弹出框
 function show_dig() {
@@ -57,8 +78,8 @@ function hide_dig() {
 
 //加载弹出框
 //表头    数据   按钮html      是否是输入框
-function loadPopup(thead, data, buttonHtml, isInput) {
-
+function loadPopup(thead, data, buttonHtml, isInput, zdyTop) {
+    $("#myModal").remove();
     var PopupHtml = "";
     PopupHtml+='<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">'
     PopupHtml +='<div class="modal-dialog" style="width: 70%">'
@@ -70,7 +91,8 @@ function loadPopup(thead, data, buttonHtml, isInput) {
     PopupHtml +='<h4 class="modal-title" id="myModalLabel">'
     PopupHtml +=' 检视'
     PopupHtml +='</h4>'
-    PopupHtml +='</div>'
+    PopupHtml += '</div>'
+    PopupHtml += zdyTop;
     PopupHtml +='<div class="modal-body">'
     PopupHtml +='<div class="x_panel">'
     PopupHtml +='<div class="x_title">'
@@ -81,9 +103,10 @@ function loadPopup(thead, data, buttonHtml, isInput) {
     PopupHtml +='<form action="/Adm/Size/UpdateCode" method="post" enctype="multipart/form-data" id="updateID">'
     PopupHtml +='<input type="hidden" name="Action" />'
     PopupHtml +='<table class="table table-striped custom-table table-hover" id="Popup_Table">'
-    PopupHtml +='<thead>'
+    PopupHtml += '<thead>'
     PopupHtml +='</thead>'
-    PopupHtml +='<tbody></tbody>'
+    PopupHtml += '<tbody>';
+    PopupHtml += '</tbody > '
     PopupHtml +='</table>'
     PopupHtml +='</form>'
     PopupHtml +='</div>'
@@ -99,8 +122,6 @@ function loadPopup(thead, data, buttonHtml, isInput) {
 
 
     $("body").append(PopupHtml);
-
-
 
     var th_html = "";
  

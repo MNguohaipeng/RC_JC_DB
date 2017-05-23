@@ -574,7 +574,7 @@ namespace JuCheap.Core
 
 
 
-        public static void BuildExcel(DataTable table)
+        public static void BuildExcel(DataTable table,string title)
         {
 
 
@@ -613,7 +613,7 @@ namespace JuCheap.Core
 
             ICell cellTitle = rowTitle.CreateCell(0);
 
-            cellTitle.SetCellValue(table.Rows[0]["姓名"] + "");
+            cellTitle.SetCellValue(title);
 
             sheet1.GetRow(0).GetCell(0).CellStyle = styleCell;
 
@@ -656,7 +656,7 @@ namespace JuCheap.Core
 
 
             // 输出Excel
-            string filename = "初排报表.xls";
+            string filename = title + ".xls";
 
             var context = HttpContext.Current;
 

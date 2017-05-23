@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -25,6 +26,10 @@ namespace JuCheap.Service.Dto
         public int Number { get; set; }
 
         public string Note { get; set; }
+ 
+        public int Index { get; set; }//排序号
+
+        public string GDH { get; set; }
 
     }
 }

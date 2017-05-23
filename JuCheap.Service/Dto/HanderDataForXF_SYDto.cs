@@ -29,7 +29,10 @@ namespace JuCheap.Service.Dto
 
         public decimal Sleeve { get; set; }//袖长
 
+        public int Index { get; set; }
+
         public string Note { get; set; }//备注
 
+        public string GDH { get; set; }
     }
 }

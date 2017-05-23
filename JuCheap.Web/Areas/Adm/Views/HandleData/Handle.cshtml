@@ -17,6 +17,11 @@
             $("#go_search").trigger("click");
         }
 
+        $("input[name='GDH']").change(function () {
+
+            $("input[name='GDH_ZH']").val($(this).val());
+        })
+
         $(function () {
 
             $(".showtable").hide();
@@ -28,14 +33,7 @@
                 { data: "Name", name: "name", orderable: false },
                 { data: "ReCodeSize", name: "reCodeSize", orderable: false },
                 { data: "Number", name: "Number", orderable: true },
-                {
-                    data: function (e) {
-                        var dt = new Date(e);
-
-                        return dt.toLocaleDateString();
-                    }, name: "CreateDateTime",
-                    orderable: true
-                },
+               
                 { data: "Note", name: "note", orderable: false }
             ];
             var config = {
@@ -54,17 +52,61 @@
 
 
         function Handle() {
-            var action = $("select[name='size_banxing']").val() + "_" + $("select[name='size_type']").val() + "_" + $("select[name='size_gender']").val();
-            $.post("@Url.Action("Handle", @ViewContext.RouteData.Values)", { 'Size_Code': $("select[name='size_code']").val(), 'Action': action }, function (msg) {
-                if (msg.state == 1) {
-                    loadPopup(XF_SY_NAN_thead, msg.msg, '<button type="button" class="btn btn-default" data-dismiss="modal" onclick="save()">导出</button ><button type="button" class="btn btn-default" data-dismiss="modal">取消</button>', false);
-                    show_dig();
-                } else {
-                    alert(msg.msg)
+
+            $.ajax({
+                url: "@Url.Action("Handle", @ViewContext.RouteData.Values)",
+                data: { 'Size_Code': $("input[name='Size_Code']").val(), 'GDH': $("input[name='GDH']").val() },
+                type: "POST",
+                success: function (msg) {
+                    if (msg.state == 1) {
+                        var thead;
+                        var html = "";
+                        var th_html = "";
+                        var data = msg.msg;
+                        console.log(JSON.stringify(data));
+                        switch (msg.action) {
+                            case "HanderDataForXF_SY":
+                                thead = HanderDataForXF_SY_thead;
+                                break;
+                            case "HanderDataForXF_KZ":
+                                thead = HanderDataForXF_KZ_thead;
+                                break;
+                        }
+                        for (var i = 0; i < thead.length; i++) {
+                            th_html += '<th class="hidden-xs">' + thead[i].split("/")[0] + ' </th>';
+                        }
+                        $("#chupaibiao th").remove();
+                        $("#chupaibiao thead").append(th_html);
+
+                        for (var i = 0; i < data.length; i++) {
+                            html += "<tr class='even pointer insert_excel_list' >"
+
+
+                            for (var a = 0; a < thead.length; a++) {
+
+                                var txt = data[i][thead[a].split("/")[1]];
+                                html += "<td style='padding:2px 0px'>" + txt + "</td>";
+                            }
+
+                            html += "</tr>";
+                        }
+
+                        $("#chupaibiao tbody").append(html);
+                    } else {
+                        alert(msg.msg)
+                    }
+                },
+                error: function (a, b, c) {
+                    console.log(JSON.stringify(a));
+
                 }
-            })
+            });
+
         }
 
+
+
+        //加载下拉框
         function loadSelect() {
             var action = $("select[name='size_banxing']").val() + "_" + $("select[name='size_type']").val() + "_" + $("select[name='size_gender']").val();
             $.post("/Adm/HandleData/SizeCodeSelect", { Code: $("select[name='size_code']").val(), Action: action }, function (result) {
@@ -86,10 +128,32 @@
 
             })
 
-
         }
 
-        function Import() {
+        function ExportCaiDan() {
+            $("input[name='GDH_ZH']").val($("input[name='GDH']").val());
+            $("#exportform").ajaxSubmit({
+                type: 'post',
+                url: '@Url.Action("ExportCaiDan", @ViewContext.RouteData.Values)',
+                success: function (data) {
+
+                    if (data.state == "0") {
+                        alert(data.msg);
+                        return;
+                    } else {
+                   
+                    }
+
+                },
+                error: function (XmlHttpRequest, textStatus, errorThrown) {
+                    console.log(XmlHttpRequest);
+                    console.log(textStatus);
+                    console.log(errorThrown);
+                }
+            });
+        }
+
+            function Import() {
             $("input[name='dcl_sizecode']").val($("input[name='GDH']").val());
             $("#Importform").ajaxSubmit({
                 type: 'post',
@@ -103,7 +167,6 @@
                         $(".showtable").show();
                         $(".box-refresh").click()
 
-
                     }
 
                 },
@@ -115,10 +178,58 @@
             });
         }
 
-        function Handle() {
-            $("#Importform").attr("action", '@Url.Action("Handle", @ViewContext.RouteData.Values)');
-            $("#Importform").submit();
- 
+
+        function UpdateIndex() {
+            $.post("/Adm/HandleData/UpdateIndex", { startIndex: $("input[name='startIndex']").val(), stopIndex: $("input[name = 'stopIndex']").val(), GDH: $("input[name = 'GDH']").val()}, function (result) {
+                if (result.state == 1) {
+
+                    var html = "";
+                    var data = result.msg;
+                    $(".insert_excel_list").remove();
+                    switch (result.action) {
+                        case "HanderDataForXF_SY":
+                            for (var i = 0; i < data.length; i++) {
+                                html += "<tr class='even pointer insert_excel_list' >"
+
+                                for (var a = 0; a < HanderDataForXF_SY_thead.length; a++) {
+
+                                    var txt = data[i][HanderDataForXF_SY_thead[a].split("/")[1]];
+
+                                    html += "<td style='padding:2px 0px'>" + txt + "</td>";
+                                }
+
+                                html += "</tr>";
+                            }
+                            $("#Popup_Table tbody tr").remove();
+                            $("#Popup_Table tbody").append(html);
+                            break;
+                        case "HanderDataForXF_KZ":
+
+                            for (var i = 0; i < data.length; i++) {
+                                html += "<tr class='even pointer insert_excel_list' >"
+
+
+                                for (var a = 0; a < HanderDataForXF_KZ_thead.length; a++) {
+
+                                    var txt = data[i][HanderDataForXF_KZ_thead[a].split("/")[1]];
+
+                                    html += "<td style='padding:2px 0px'>" + txt + "</td>";
+                                }
+
+                                html += "</tr>";
+                            }
+                            $("#Popup_Table tbody tr").remove();
+                            $("#Popup_Table tbody").append(html)
+
+
+                            break;
+                    }
+                } else {
+                    alert(result.msg)
+                }
+
+            })
+
         }
     </script>
 
@@ -134,15 +245,19 @@
                 <div class="form-group">
                     <label for="name">工单编号</label>
                     <input type="text" class="form-control" name="GDH" />
+                    <label for="name">尺码编号</label>
+                    <input type="text" class="form-control" name="Size_Code" />
                 </div>
 
-                <button type="button" onclick="Import()" class="btn btn-success m-b-10">预览</button>
-
-                <button type="button" onclick="Handle()" class="btn btn-success m-b-10">处理数据</button>
             </form>
 
-</section>
+            <button type="button" onclick="Import()" class="btn btn-success m-b-10">预览待处理数据</button>
+            <button type="button" onclick="Handle()" class="btn btn-success m-b-10">预览初排单</button>
 
+        </div>
+    </div>
+
+</section>
 
 
 
@@ -163,25 +278,12 @@
 </div>
 
 
-<section class="panel showtable">
+<section class="panel ">
+
     <header class="panel-heading" style="margin-bottom: 10px;">
-        &nbsp;
-        <span class="tools pull-left">
-
-
-
-            @if (ViewBag.MyButtons != null)
-                    {
-                        List<MenuDto> btns = ViewBag.MyButtons;
-                        StringBuilder sb = new StringBuilder();
-                        foreach (var btn in btns)
-                        {
-                            sb.AppendFormat("");
-                        }
-
-                    @(new MvcHtmlString(sb.ToString()))
-                    }
-        </span>
+        <div>
+            待处理数据表
+        </div>
         <span class="tools pull-right">
             <a class="fa fa-repeat box-refresh" href="javascript:;"></a>
             <a class="t-close fa fa-times" href="javascript:;"></a>
@@ -208,9 +310,7 @@
                 <th>
                     数量
                 </th>
-                <th>
-                    创建日期
-                </th>
+               
                 <th>
                     备注
                 </th>
@@ -220,4 +320,35 @@
 </section>
 
 
+<section class="panel ">
+    <header class="panel-heading" style="margin-bottom: 10px;">
+        <div>
+            <div>
+                尺码初排表
+            </div>
+        </div>
+        <div>
+            <form action="@Url.Action("ExportCaiDan", @ViewContext.RouteData.Values)" enctype="multipart/form-data" method="post" id="exportform">
+                <input type="hidden" name="GDH_ZH"  />
+                裁单初始位置：<input type="text" class="form-control" style="width:200px" name="caidanindex" /><button type="submit" class="btn btn-success">导出裁单</button>
+            </form>
+        </div>
+        <span class="tools pull-right">
+            <a class="fa fa-repeat box-refresh" href="javascript:;"></a>
+            <a class="t-close fa fa-times" href="javascript:;"></a>
+        </span>
+    </header>
+    <div class="panel-body">
+        <div class="col-md-12">
+            <table id="chupaibiao" class="table responsive-data-table data-table table-hover">
+                <thead>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+</section>
 
+<br />
+<br />
+<br />

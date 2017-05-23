@@ -30,7 +30,10 @@ namespace JuCheap.Entity
 
         public decimal Sleeve { get; set; }//袖长
 
+        public int  Index { get; set; }
+
         public string Note { get; set; }
 
+        public string GDH { get; set; }
     }
 }
