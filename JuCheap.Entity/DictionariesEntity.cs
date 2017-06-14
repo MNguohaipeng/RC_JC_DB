@@ -13,5 +13,6 @@ namespace JuCheap.Entity
 
         public string D_Value { get; set; }
 
+        public string D_Name { get; set; }
     }
 }

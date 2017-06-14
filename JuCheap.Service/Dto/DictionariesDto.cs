@@ -11,5 +11,7 @@ namespace JuCheap.Service.Dto
         public string D_Key { get; set; }
 
         public string D_Value { get; set; }
+
+        public string D_Name { get; set; }
     }
 }

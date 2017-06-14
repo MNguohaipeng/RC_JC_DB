@@ -9,32 +9,29 @@ namespace JuCheap.Entity
 {
     public class XF_SY_NAN_ChiMaEntity:BaseEntity
     {
-        public decimal Height { get; set; }
+        public decimal Height { get; set; }//身高
 
-        public string FrontLength { get; set; }
+        public string FrontLength { get; set; }//前身长
+ 
+        public string NetBust { get; set; }//净胸围
 
-        public string NetBust { get; set; }
+        public decimal FinishedBust { get; set; }//成品胸围
+ 
+        public decimal InWaist { get; set; }//中腰
 
-        public decimal FinishedBust { get; set; }
+        public decimal FinishedHem_NoFork { get; set; }//成品下摆（不开叉）
+ 
+        public decimal FinishedHem_SplitEnds { get; set; }//成品下摆（开衩）
 
-        public decimal InWaist { get; set; }
+        public decimal ShoulderWidth { get; set; }//肩宽
 
+        public string Size_Code { get; set; }//尺码表编号
 
-        public decimal FinishedHem_NoFork { get; set; }
+        public string Sleecve_Show { get; set; }//袖长
 
-        public decimal FinishedHem_SplitEnds { get; set; }
-
-        public decimal ShoulderWidth { get; set; }
-
-        public string Size_Code { get; set; }
-
-        public string Sleecve_Show { get; set; }
-
-        public int Status { get; set; }
-
+        public int Status { get; set; }//状态
 
         public string RowData { get; set; }
-
 
     }
 }

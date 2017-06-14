@@ -630,7 +630,7 @@ namespace JuCheap.Core
             }
 
             // 创建新增行
-            for (var i = 1; i < table.Rows.Count; i++)
+            for (var i = 0; i < table.Rows.Count; i++)
             {
 
                 IRow row1 = sheet1.CreateRow(i + 3);

@@ -69,12 +69,9 @@
             <input type="file" name="up_file" style="display:none" />
         </div>
 
-
     </div>
 
-
 </section>
-
 
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog" style="width: 70%">
@@ -93,8 +90,6 @@
 
                         <div class="clearfix">
                 
-
-
                         </div>
                     </div>
                     <div class="x_content">
@@ -146,8 +141,6 @@
                     <div class="x_title">
 
                         <div class="clearfix">
-
-
 
                         </div>
                     </div>
@@ -249,6 +242,8 @@
     function load() {
         var action = $("select[name='size_banxing']").val() + "_" + $("select[name='size_type']").val() + "_" + $("select[name='size_gender']").val();
         $.post("/Adm/Size/Manage", { Code: $("select[name='size_code']").val(), Action: action }, function (result) {
+ 
+            var thead = "";
             if (result.state == 1) {
                 switch (action) {
                     case "XF_SY_NAN":
@@ -256,6 +251,12 @@
                         break;
                     case "XF_SY_NU":
                         thead = XF_SY_NU_thead
+                        break;
+                    case "XF_KZ_NAN":
+                        thead = XF_KZ_NAN_thead
+                        break;
+                    case "XF_KZ_NU":
+                        thead = XF_KZ_NAN_thead
                         break;
                 }
 

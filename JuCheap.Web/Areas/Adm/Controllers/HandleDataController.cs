@@ -12,6 +12,7 @@ using System.Data;
 using static JuCheap.Core.SqlSugerHelper;
 using SqlSugarRepository;
 using System.Text.RegularExpressions;
+using Newtonsoft.Json;
 
 namespace JuCheap.Web.Areas.Adm.Controllers
 {
@@ -47,23 +48,22 @@ namespace JuCheap.Web.Areas.Adm.Controllers
         #endregion
 
         [HttpPost]
-        public JsonResult ImportHandleData(FormCollection fm)
+        public JsonResult ImportHandleData(string GDH)
         {
             using (MyRepository db = new MyRepository())
                 try
                 {
-                    DataTable GDData = db.Database.GetDataTable(string.Format("select * from pytbulkgh where GDH='{0}'", fm["GDH"]));
+                    DataTable GDData = db.Database.GetDataTable(string.Format("select * from pytbulkgh where GDH='{0}'", GDH));
 
                     List<DCL_DataDto> DCLList = new List<DCL_DataDto>();
 
-                    string GDH = fm["GDH"];
 
                     #region 删除相同工单号的数据
-                    //var deleteDate = DCL_DataService.Query(T => T.GDH == GDH, O => O.Index, false);
-                    //foreach (var item in deleteDate)
-                    //{
-                    //    DCL_DataService.Delete(item.Id);
-                    //}
+                   var deleteDate = DCL_DataService.Query(T => T.GDH == GDH, O => O.Index, false);
+                   foreach (var item in deleteDate)
+                   {
+                       DCL_DataService.Delete(item.Id);
+                   }
                     #endregion
 
                     for (int i = 0; i < GDData.Rows.Count; i++)
@@ -86,7 +86,7 @@ namespace JuCheap.Web.Areas.Adm.Controllers
 
                         dl.SizeCode = GDData.Rows[i]["GGBH"].ToString();
 
-                        dl.GDH = fm["GDH"];
+                        dl.GDH = GDH;
 
                         dl.Gender = GDData.Rows[i]["XB"].ToString();
 
@@ -117,6 +117,7 @@ namespace JuCheap.Web.Areas.Adm.Controllers
         [HttpPost]
         public JsonResult Handle(string GDH, string SizeCode)
         {
+            SizeCode = GDH;
 
             using (MyRepository db = new MyRepository())
                 try
@@ -136,7 +137,7 @@ namespace JuCheap.Web.Areas.Adm.Controllers
 
                     DeleteForHanderData(GDH, Action);
 
-                    if (isSYorKZ(GDData) == "")
+                    if (isSYorKZTo(GDData) == "")
                         throw new Exception("此工单号数据不统一或是没有对应的处理程序。");
 
                     int index = 1;
@@ -163,17 +164,17 @@ namespace JuCheap.Web.Areas.Adm.Controllers
                             {
 
                                 case "XF_SY_NAN":
-                                    break;
-                                case "XF_SY_NU":
-                                    //Match
+                                    #region XF_SY_NAN
 
-                                    List<HanderDataForXF_SYDto> SYlist = new List<HanderDataForXF_SYDto>();
+                                    List<HanderDataForXF_SYDto> SYnanlist = new List<HanderDataForXF_SYDto>();
 
                                     string NetBustNan = item.ReCodeSize.ToString().Split('/')[1];
 
                                     SizeCode = GDH;//TO DO
 
-                                    Height = Convert.ToDecimal(item.ReCodeSize.ToString().Split('/')[0]);
+                                    string sthi = item.ReCodeSize.ToString().Split('/')[0];
+
+                                    Height = Convert.ToDecimal(sthi.Substring(1, sthi.Length - 1));
 
                                     A02 = item.ReCodeSize.ToString().Split('/')[1];
 
@@ -186,6 +187,8 @@ namespace JuCheap.Web.Areas.Adm.Controllers
                                     XF_SY_NAN_ChiMaDto dtonan = XF_SY_NAN_ChiMaService.GetOne(T => T.Height == Height && T.NetBust == A02 && T.Size_Code == SizeCode);
 
                                     SleeveDto sledto = SleeveService.GetOne(T => T.FK_CoatSize_ID == dtonan.Id && T.Code == dtonan.NetBust.Substring(dtonan.NetBust.Length - 1, 1));
+
+                                    Match XF_SY_NAN_Match = Regex.Match(A03);
 
                                     if (dtonan != null)
                                     {
@@ -204,10 +207,128 @@ namespace JuCheap.Web.Areas.Adm.Controllers
 
                                         sy.Number = item.Number;
 
+                                        sy.GDH = item.GDH;
+
                                         sy.Yichang = Convert.ToDecimal(dtonan.FrontLength);
 
                                         #region 处理袖长
                                         string[] Sleecve = dtonan.Sleecve_Show.Split(' ');
+                                        for (int i = 0; i < Sleecve.Length; i++)
+                                        {
+                                            if (Sleecve[i].IndexOf(';') > 0)
+                                            {
+                                                if (Sleecve[i].Split(';')[0] == A03.Substring(0, 1))
+                                                {
+                                                    sy.Sleeve = Convert.ToDecimal(Sleecve[i].Split(';')[1]);
+                                                }
+                                            }
+                                            else if (Sleecve[i].IndexOf(':') > 0)
+                                            {
+                                                if (Sleecve[i].Split(';')[0] == A03.Substring(0, 1))
+                                                {
+                                                    sy.Sleeve = Convert.ToDecimal(Sleecve[i].Split(';')[1]);
+                                                }
+                                            }
+                                        }
+                                        #endregion
+
+                                        sy.Bust = dtonan.FinishedBust;
+
+                                        sy.Index = index;
+
+                                        Regex tregsy = new Regex("[+_-]");
+                                        Match macsy = tregsy.Match(A03);
+
+                                        Regex Reg_T_Name = new Regex("[\u4e00-\u9fa5]{2,4}");
+                                        Match Mat_T_Name = Reg_T_Name.Match(A03);
+
+                                        Regex Reg_T_Number = new Regex(@"\d");
+                                        Match Mat_T_Number = Reg_T_Number.Match(A03);
+
+
+                                        switch (Mat_T_Name.Value)
+                                        {
+                                            case "袖长"://袖长
+                                                decimal Sleeve = sy.Sleeve;
+                                                if (macsy.Value == "+")
+                                                {
+
+                                                    sy.Sleeve = Sleeve + Convert.ToInt32(Mat_T_Number.Value);
+                                                }
+                                                else
+                                                {
+                                                    sy.Sleeve = Sleeve - Convert.ToInt32(Mat_T_Number.Value);
+                                                }
+                                                break;
+                                            case "下摆"://下摆
+
+                                                break;
+                                            case "三围"://三围
+                                                if (macsy.Value == "+")
+                                                {
+                                                    sy.Yichang += Convert.ToInt32(Mat_T_Number.Value);
+                                                    sy.Bust += Convert.ToInt32(Mat_T_Number.Value);
+                                                }
+                                                else
+                                                {
+                                                    sy.Yichang -= Convert.ToInt32(Mat_T_Number.Value);
+                                                    sy.Bust -= Convert.ToInt32(Mat_T_Number.Value);
+                                                }
+                                                break;
+                                            case "肩宽"://肩宽
+
+                                                break;
+                                        }
+
+                                        HanderDataForXF_SYService.Add(sy);
+
+                                    }
+
+                                    #endregion
+                                    break;
+                                case "XF_SY_NU":
+                                    #region　XF_SY_NU
+                                    List<HanderDataForXF_SYDto> SYlist = new List<HanderDataForXF_SYDto>();
+
+                                    string NetBustNu = item.ReCodeSize.ToString().Split('/')[1];
+
+                                    SizeCode = GDH;//TO DO
+
+                                    Height = Convert.ToDecimal(item.ReCodeSize.ToString().Split('/')[0]);
+
+                                    A02 = item.ReCodeSize.ToString().Split('/')[1];
+
+                                    A02R = A02.Substring(A02.Length - 1, 1);
+
+                                    A02S = A02.Substring(0, A02.Length - 1);
+
+                                    A03 = item.ReCodeSize.ToString().Split('/')[2];
+
+                                    XF_SY_NAN_ChiMaDto dtonu = XF_SY_NAN_ChiMaService.GetOne(T => T.Height == Height && T.NetBust == A02 && T.Size_Code == SizeCode);
+
+                                    Match XF_SY_NU_Match = Regex.Match(A03);
+
+                                    if (dtonu != null)
+                                    {
+
+                                        HanderDataForXF_SYDto sy = new HanderDataForXF_SYDto();
+
+                                        sy.Height = dtonu.Height;
+
+                                        sy.RtnQCode = item.ReCodeSize.ToString();
+
+                                        sy.OrderCode = item.Orderid.ToString();
+
+                                        sy.Name = item.Name.ToString();
+
+                                        sy.RtnHCode = A02;
+
+                                        sy.Number = item.Number;
+
+                                        sy.Yichang = Convert.ToDecimal(dtonu.FrontLength);
+
+                                        #region 处理袖长
+                                        string[] Sleecve = dtonu.Sleecve_Show.Split(' ');
                                         for (int i = 0; i < Sleecve.Length; i++)
                                         {
                                             if (Sleecve[i].IndexOf(';') > 0)
@@ -227,17 +348,37 @@ namespace JuCheap.Web.Areas.Adm.Controllers
                                         }
                                         #endregion
 
-                                        sy.Bust = dtonan.FinishedBust;
+                                        sy.Bust = dtonu.FinishedBust;
 
                                         sy.Index = index;
+
+                                        Regex tregsy = new Regex(@"\+\d+");
+                                        Match macsy = tregsy.Match(A03);
+                                        switch (DictionariesService.GetOne(T => T.D_Key == "T_XF_SY_" + XF_SY_NU_Match.Success).D_Value)
+                                        {
+                                            case "Sleecve_Show"://袖长
+                                                string sssxxx = macsy.Success.ToString().Substring(1, 2);
+                                                if (macsy.Success.ToString().Substring(1, 2) == "+")
+                                                {
+
+                                                }
+                                                break;
+                                            case "FinishedHem_NoFork"://下摆
+                                                break;
+                                            case "NetBust,InWaist"://三围
+                                                break;
+                                            case "ShoulderWidth"://肩宽
+                                                break;
+                                        }
 
                                         HanderDataForXF_SYService.Add(sy);
 
                                     }
-       
+                                    #endregion
                                     break;
                                 case "XF_KZ_NAN":
                                 case "XF_KZ_NU":
+                                    #region XF_KZ
                                     Height = Convert.ToDecimal(item.ReCodeSize.ToString().Split('/')[0]);
 
                                     A02 = item.ReCodeSize.ToString().Split('/')[1];
@@ -276,6 +417,7 @@ namespace JuCheap.Web.Areas.Adm.Controllers
                                         HanderDataForXF_KZService.Add(sy);
 
                                     }
+                                    #endregion
                                     break;
                             }
                         }
@@ -286,7 +428,7 @@ namespace JuCheap.Web.Areas.Adm.Controllers
                             {
 
                                 case "XF_SY_NAN":
-
+                                    #region XF_SY_NAN
                                     List<HanderDataForXF_SYDto> SYlist = new List<HanderDataForXF_SYDto>();
 
                                     string NetBustNan = item.ReCodeSize.ToString().Split('/')[1];
@@ -311,6 +453,8 @@ namespace JuCheap.Web.Areas.Adm.Controllers
                                     {
 
                                         HanderDataForXF_SYDto sy = new HanderDataForXF_SYDto();
+
+                                        sy.GDH = item.GDH;
 
                                         sy.Height = dtonan.Height;
 
@@ -354,9 +498,11 @@ namespace JuCheap.Web.Areas.Adm.Controllers
                                         HanderDataForXF_SYService.Add(sy);
 
                                     }
+                                    #endregion
+
                                     break;
                                 case "XF_SY_NU":
-
+                                    #region XF_SY_NU
                                     List<HanderDataForXF_SYDto> SYNUlist = new List<HanderDataForXF_SYDto>();
 
                                     decimal recodenu = Convert.ToDecimal(item.ReCodeSize.ToString().Split('/')[0]);
@@ -395,10 +541,12 @@ namespace JuCheap.Web.Areas.Adm.Controllers
                                         HanderDataForXF_SYService.Add(sy);
 
                                     }
+                                    #endregion
+
                                     break;
                                 case "XF_KZ_NAN":
                                 case "XF_KZ_NU":
-
+                                    #region XF_KZ
                                     decimal height_kz_nu = Convert.ToDecimal(item.ReCodeSize.ToString().Split('/')[0]);
 
                                     string a02 = item.ReCodeSize.ToString().Split('/')[1];
@@ -436,30 +584,21 @@ namespace JuCheap.Web.Areas.Adm.Controllers
 
                                         HanderDataForXF_KZService.Add(sy);
 
-
                                     }
+                                    #endregion
+
                                     break;
                                 default:
                                     throw new Exception("没有对应的处理程序。");
 
                             }
-                            index++;
+
                         }
+                        index++;
                     }
                     #endregion
-                    switch (Action)
-                    {
 
-                        case "XF_SY_NAN":
-                        case "XF_SY_NU":
-                            return Json(new { state = 1, msg = HanderDataForXF_SYService.Query(T => T.GDH == GDH, o => o.Index, false), action = "HanderDataForXF_SY" }, JsonRequestBehavior.AllowGet);
-
-                        case "XF_KZ_NAN":
-                        case "XF_KZ_NU":
-                            return Json(new { state = 1, msg = HanderDataForXF_KZService.Query(T => T.GDH == GDH, o => o.Index, false), action = "HanderDataForXF_KZ" }, JsonRequestBehavior.AllowGet);
-                    }
-
-                    throw new Exception("系统出错:没有中断方法。");
+                    return Json(new { state = 1, msg = "处理成功。" }, JsonRequestBehavior.AllowGet);
 
                 }
                 catch (Exception ex)
@@ -469,33 +608,45 @@ namespace JuCheap.Web.Areas.Adm.Controllers
 
         }
 
-        [HttpPost]
-        public JsonResult GetListForHanderData(string GDH)
+        //获取初排数据
+        public JsonResult GetListForHanderData(string GDH, string Order, string type)
         {
-            try
-            {
-
-                if (HanderDataForXF_SYService.GetOne(T => T.GDH == GDH) != null)
+            using (var db = new MySqlServer())
+                try
                 {
+                    Order = Order.TrimEnd(',');
 
-                    return Json(new { state = 1, msg = HanderDataForXF_SYService.Query(T => T.GDH == GDH, O => O.Index, false) }, JsonRequestBehavior.AllowGet);
+                    if (HanderDataForXF_SYService.GetOne(T => T.GDH == GDH) != null)
+                    {
+                        string xxxxdsadsax = string.Format("select ROW_NUMBER()over(order by {0}) rownum,* from (select * from  HanderDataForXF_SY ) as list order by {0}", Order);
+
+                        //list.Height,list.Sleeve,list.Bust
+                        var SYList = db.Database.GetDataTable(string.Format("select ROW_NUMBER()over(order by {0}) rownum,* from (select * from  HanderDataForXF_SY ) as list order by {0}", Order));
+                        if (type != "NotOrder")
+                        {
+                            for (int i = 0; i < SYList.Rows.Count; i++)
+                            {
+                                var xxxxx = db.Database.GetInt(string.Format("update HanderDataForXF_SY set [index]={0} where id={1}", SYList.Rows[i]["rownum"].ToString(), SYList.Rows[i]["Id"].ToString()));
+                            }
+                        }
+                        return Json(new { state = 1, action = "HanderDataForXF_SY", msg = HanderDataForXF_SYService.Query(T => T.GDH == GDH, O => O.Index, false) }, JsonRequestBehavior.AllowGet);
+
+                    }
+                    else if (HanderDataForXF_KZService.GetOne(T => T.GDH == GDH) != null)
+                    {
+
+                        return Json(new { state = 1, action = "HanderDataForXF_KZ", msg = HanderDataForXF_KZService.Query(T => T.GDH == GDH, O => O.Index, false) }, JsonRequestBehavior.AllowGet);
+                    }
+                    else
+                    {
+                        throw new Exception("系统出错：数据库中找不到对应数据。");
+                    }
 
                 }
-                else if (HanderDataForXF_KZService.GetOne(T => T.GDH == GDH) != null)
+                catch (Exception ex)
                 {
-
-                    return Json(new { state = 1, msg = HanderDataForXF_KZService.Query(T => T.GDH == GDH, O => O.Index, false) }, JsonRequestBehavior.AllowGet);
+                    return Json(new { state = 0, msg = ex.Message }, JsonRequestBehavior.AllowGet);
                 }
-                else
-                {
-                    throw new Exception("系统出错：数据库中找不到对应数据。");
-                }
-
-            }
-            catch (Exception ex)
-            {
-                return Json(new { state = 0, msg = ex.Message }, JsonRequestBehavior.AllowGet);
-            }
 
 
         }
@@ -573,103 +724,6 @@ namespace JuCheap.Web.Areas.Adm.Controllers
         }
 
         //验证数据格式  上衣  裤子  特殊上衣  特殊裤子
-        public string isSYorKZ(List<DCL_DataDto> data)
-        {
-            try
-            {
-                string[] Zz = new string[4];
-
-                Zz[0] = @"[\u4e00-\u9fa5]\d{2,3}/\w{2,4}/[A-Z_a-z][\u4e00-\u9fa5]{2,4}\+\d+";//特殊上衣
-
-                Zz[1] = "[0-9]{2,3}/[0-9A-z]{2,4}[\u4e00-\u9fa5]{2,3}";//特殊裤子
-
-                Zz[2] = @"^[0-9]{2,3}/\w{2,4}/[A-Z_a-z]$";//普通上衣
-
-                Zz[3] = "^[0-9]{2,3}/[0-9A-z]{2,4}$";//普通裤子
-
-                string action = "";
-
-                handleBool hbool = new handleBool();
-
-                foreach (var item in data)
-                {
-                    for (int i = 0; i < Zz.Length; i++)
-                    {
-
-                        Regex Regex = new Regex(Zz[i]);
-
-                        string gender = "";
-                        string SizeCode = item.SizeCode;
-                        if (!string.IsNullOrEmpty(SizeCode))
-                        {
-                            if (XF_SY_NAN_ChiMaService.GetOne(T => T.Size_Code == SizeCode) != null)
-                            {
-                                gender = "NAN";
-                            }
-                            else if (XF_SY_NU_ChiMaService.GetOne(T => T.Size_Code == SizeCode) != null)
-                            {
-                                gender = "NU";
-                            }
-                            else if (XF_KZ_CodeSizeService.GetOne(T => T.Size_Code == SizeCode) != null)
-                            {
-                                gender = "NAN";
-                            }
-                            else
-                            {
-                                throw new Exception("没有对应的尺码数据。");
-                            }
-                        }
-                        else
-                        {
-                            throw new Exception("尺码表编号不能为空。");
-                        }
-
-                        if (Regex.IsMatch(item.ReCodeSize))
-                        {
-
-                            string lisaction = "";
-
-                            switch (i)
-                            {
-                                case 0://特殊上衣
-                                    action = "T_XF_SY_" + gender;
-                                    lisaction = "T_XF_SY_" + gender;
-                                    break;
-                                case 1://特殊裤子
-                                    action = "T_XF_KZ_" + gender; ;
-                                    lisaction = "T_XF_KZ_" + gender;
-                                    break;
-                                case 2://普通上衣
-                                    action = "XF_SY_" + gender;
-                                    lisaction = "XF_SY_" + gender;
-                                    break;
-                                case 3://普通裤子
-                                    action = "XF_KZ_" + gender;
-                                    lisaction = "XF_KZ_" + gender;
-                                    break;
-                                default:
-                                    action = "";
-                                    break;
-                            }
-
-                            if (action != lisaction && action != "")
-                            {
-                                return "";
-                            }
-
-                        }
-                    }
-                }
-                return action;
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-
-        }
-
-        //验证数据格式  上衣  裤子  特殊上衣  特殊裤子
         public string isSYorKZTo(List<DCL_DataDto> data)
         {
             try
@@ -726,7 +780,7 @@ namespace JuCheap.Web.Areas.Adm.Controllers
 
                             switch (i)
                             {
-             
+
                                 case 1://普通上衣
                                     action = "XF_SY_" + gender;
                                     lisaction = "XF_SY_" + gender;
@@ -757,7 +811,6 @@ namespace JuCheap.Web.Areas.Adm.Controllers
 
         }
 
-
         //男  女  转换
         public string gender(string gd)
         {
@@ -780,66 +833,55 @@ namespace JuCheap.Web.Areas.Adm.Controllers
         #region Ajax
 
         //加载列表
-        public JsonResult GetList(int moudleId, int menuId, int btnId)
+        public JsonResult GetList(string GDH)
         {
-            var queryBase = new QueryBase
-            {
-                Start = Request["start"].ToInt(),
-                Length = Request["length"].ToInt(),
-                Draw = Request["draw"].ToInt(),
-                SearchKey = Request["keywords"],
 
-            };
-            string Dcl_sizecode = Request["dcl_sizecode"];
+            using (var db = new MySqlServer())
+                try
+                {
+                    return Json(new { state = 1, msg = db.Database.GetList<DCL_DataDto>(string.Format("select * from DCL_Data where GDH='{0}'",GDH)) }, JsonRequestBehavior.AllowGet);
+                }
+                catch (Exception ex)
+                {
+                    return Json(new { state = 1, msg = ex.Message }, JsonRequestBehavior.AllowGet);
+                }
 
 
-            Expression<Func<DCL_DataDto, bool>> exp = item => !item.IsDeleted && item.GDH == Dcl_sizecode;
-            if (!queryBase.SearchKey.IsBlank())
-                exp = exp.And(item => item.Name.Contains(queryBase.SearchKey));
-
-            var dto = DCL_DataService.GetWithPages(queryBase, exp, Request["orderBy"], Request["orderDir"]);
-            return Json(dto, JsonRequestBehavior.AllowGet);
         }
-
 
         #endregion
         //调整顺序
         public JsonResult UpdateIndex(int startIndex, int stopIndex, string GDH)
         {
-            try
-            {
-
-                if (HanderDataForXF_SYService.GetOne(T => T.GDH == GDH) != null)
+            using (var db = new MySqlServer())
+                try
                 {
-                    HanderDataForXF_SYDto sydto = HanderDataForXF_SYService.GetOne(T => T.Index == startIndex && T.GDH == GDH);
-                    sydto.Index = stopIndex;
-                    HanderDataForXF_SYService.Update(sydto);
-                    HanderDataForXF_SYDto sydto2 = HanderDataForXF_SYService.GetOne(T => T.Index == stopIndex && T.GDH == GDH);
-                    sydto.Index = startIndex;
-                    HanderDataForXF_SYService.Update(sydto2);
-                    return Json(new { state = 1, msg = HanderDataForXF_SYService.Query(T => T.GDH == GDH, O => O.Index, false), action = "HanderDataForXF_SY" }, JsonRequestBehavior.AllowGet);
-                }
-                else if (HanderDataForXF_KZService.GetOne(T => T.GDH == GDH) != null)
-                {
-                    HanderDataForXF_KZDto kzdto = HanderDataForXF_KZService.GetOne(T => T.Index == startIndex && T.GDH == GDH);
-                    kzdto.Index = stopIndex;
-                    HanderDataForXF_KZService.Update(kzdto);
-                    HanderDataForXF_KZDto kzdto2 = HanderDataForXF_KZService.GetOne(T => T.Index == stopIndex && T.GDH == GDH);
-                    kzdto2.Index = startIndex;
-                    HanderDataForXF_KZService.Update(kzdto2);
 
-                    return Json(new { state = 1, msg = HanderDataForXF_KZService.Query(T => T.GDH == GDH, O => O.Index, false), action = "HanderDataForXF_KZ" }, JsonRequestBehavior.AllowGet);
-                }
-                else
-                {
-                    throw new Exception("系统出错：数据库中找不到对应数据。");
-                }
+                    if (HanderDataForXF_SYService.GetOne(T => T.GDH == GDH) != null)
+                    {
+                        db.Database.GetInt(string.Format("update HanderDataForXF_SY set [index]=-1 where [index]={0} and GDH='{1}' ", stopIndex, GDH));
+                        db.Database.GetInt(string.Format("update HanderDataForXF_SY set [index]={0} where [index]={1} and GDH='{2}' ", stopIndex, startIndex, GDH));
+                        db.Database.GetInt(string.Format("update HanderDataForXF_SY set [index]={0} where [index]={1} and GDH='{2}' ", startIndex, -1, GDH));
+                        return Json(new { state = 1, msg = "排序成功。" }, JsonRequestBehavior.AllowGet);
+                    }
+                    else if (HanderDataForXF_KZService.GetOne(T => T.GDH == GDH) != null)
+                    {
+                        db.Database.GetInt(string.Format("update HanderDataForXF_KZ set index=-1 where index={1} and GDH={2} ;@@identity", stopIndex, GDH));
+                        db.Database.GetInt(string.Format("update HanderDataForXF_KZ set index={0} where index={1} and GDH={2} ;@@identity", stopIndex, startIndex, GDH));
+                        db.Database.GetInt(string.Format("update HanderDataForXF_KZ set index={0} where index={1} and GDH={2} ;@@identity", startIndex, -1, GDH));
+                        return Json(new { state = 1, msg = "排序成功。" }, JsonRequestBehavior.AllowGet);
 
-            }
-            catch (Exception ex)
-            {
-                return Json(new { state = 0, msg = ex.Message }, JsonRequestBehavior.AllowGet);
-            }
+                    }
+                    else
+                    {
+                        throw new Exception("系统出错：数据库中找不到对应数据。");
+                    }
+
+                }
+                catch (Exception ex)
+                {
+                    return Json(new { state = 0, msg = ex.Message }, JsonRequestBehavior.AllowGet);
+                }
         }
 
 
@@ -868,9 +910,10 @@ namespace JuCheap.Web.Areas.Adm.Controllers
                     {
                         DataRow row = table.NewRow();
                         row["姓名"] = item.Name;
-                        row["归码后尺码"] = item.RtnHCode;
+                        row["归码后尺码"] = item.RtnQCode;
                         row["备注"] = item.Note;
                         row["数量"] = item.Number;
+                        liushui++;
                         row["流水号"] = liushui;
                         liushui += item.Number;
                         row["至流水号"] = liushui;
@@ -923,6 +966,34 @@ namespace JuCheap.Web.Areas.Adm.Controllers
                 }, JsonRequestBehavior.AllowGet);
             }
         }
+
+        //导出裁单
+        public JsonResult LoadOrder(string Action,string GDH)
+        {
+            using (var db = new MySqlServer())
+                try
+                {
+                    if (HanderDataForXF_SYService.GetOne(T => T.GDH == GDH) != null)
+                    {
+                        var orderlist = db.Database.GetList<DictionariesDto>("select * from Dictionaries where D_Key='HanderDataForXF_SYOrder'");
+                        return Json(new { state = 1, msg = orderlist }, JsonRequestBehavior.DenyGet);
+                    }
+                    else {
+                        var orderlist = db.Database.GetList<DictionariesDto>("select * from Dictionaries where D_Key='HanderDataForXF_KZOrder'");
+                        return Json(new { state = 1, msg = orderlist }, JsonRequestBehavior.DenyGet);
+                    }
+              
+                }
+                catch (Exception ex)
+                {
+                    return Json(new
+                    {
+                        state = 0,
+                        msg = ex.Message
+                    }, JsonRequestBehavior.AllowGet);
+                }
+        }
+
         public class handleBool
         {
             public bool sizezz1 { get; set; }

@@ -1,0 +1,292 @@
+记录时间：2017-05-24 10:32:38,704 线程ID:[7] 日志级别：ERROR 出错类：logerror property:[(null)] - 错误描述：
+发生时间:2017/5/24 10:32:38
+用户IP:::1
+发生异常页: http://localhost:37297/Adm/HandleData/ExportCaiDan/0/44/0
+控制器: HandleData
+Action: ExportCaiDan
+
+System.Web.HttpException (0x80004005): 服务器无法在发送 HTTP 标头之后设置内容类型。
+   在 System.Web.HttpResponse.set_ContentType(String value)
+   在 System.Web.HttpResponseWrapper.set_ContentType(String value)
+   在 System.Web.Mvc.JsonResult.ExecuteResult(ControllerContext context)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+记录时间：2017-05-24 10:35:50,962 线程ID:[5] 日志级别：ERROR 出错类：logerror property:[(null)] - 错误描述：
+发生时间:2017/5/24 10:35:50
+用户IP:::1
+发生异常页: http://localhost:37297/Adm/HandleData/ExportCaiDan/0/44/0
+控制器: HandleData
+Action: ExportCaiDan
+
+System.Web.HttpException (0x80004005): 服务器无法在发送 HTTP 标头之后设置内容类型。
+   在 System.Web.HttpResponse.set_ContentType(String value)
+   在 System.Web.HttpResponseWrapper.set_ContentType(String value)
+   在 System.Web.Mvc.JsonResult.ExecuteResult(ControllerContext context)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+记录时间：2017-05-24 10:38:24,532 线程ID:[8] 日志级别：ERROR 出错类：logerror property:[(null)] - 错误描述：
+发生时间:2017/5/24 10:38:24
+用户IP:::1
+发生异常页: http://localhost:37297/Adm/HandleData/ExportCaiDan/0/44/0
+控制器: HandleData
+Action: ExportCaiDan
+
+System.Web.HttpException (0x80004005): 服务器无法在发送 HTTP 标头之后设置内容类型。
+   在 System.Web.HttpResponse.set_ContentType(String value)
+   在 System.Web.HttpResponseWrapper.set_ContentType(String value)
+   在 System.Web.Mvc.JsonResult.ExecuteResult(ControllerContext context)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+记录时间：2017-05-24 10:42:59,022 线程ID:[19] 日志级别：ERROR 出错类：logerror property:[(null)] - 错误描述：
+发生时间:2017/5/24 10:42:58
+用户IP:::1
+发生异常页: http://localhost:37297/Adm/HandleData/ExportCaiDan/0/44/0
+控制器: HandleData
+Action: ExportCaiDan
+
+System.Web.HttpException (0x80004005): 服务器无法在发送 HTTP 标头之后设置内容类型。
+   在 System.Web.HttpResponse.set_ContentType(String value)
+   在 System.Web.HttpResponseWrapper.set_ContentType(String value)
+   在 System.Web.Mvc.JsonResult.ExecuteResult(ControllerContext context)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+记录时间：2017-05-24 10:51:03,877 线程ID:[7] 日志级别：ERROR 出错类：logerror property:[(null)] - 错误描述：
+发生时间:2017/5/24 10:51:03
+用户IP:::1
+发生异常页: http://localhost:37297/Adm/HandleData/ExportCaiDan/0/44/0
+控制器: HandleData
+Action: ExportCaiDan
+
+System.Web.HttpException (0x80004005): 服务器无法在发送 HTTP 标头之后设置内容类型。
+   在 System.Web.HttpResponse.set_ContentType(String value)
+   在 System.Web.HttpResponseWrapper.set_ContentType(String value)
+   在 System.Web.Mvc.JsonResult.ExecuteResult(ControllerContext context)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+记录时间：2017-05-24 14:53:56,877 线程ID:[35] 日志级别：ERROR 出错类：logerror property:[(null)] - 错误描述：
+发生时间:2017/5/24 14:53:56
+用户IP:::1
+发生异常页: http://localhost:37297/Adm/HandleData/ExportCaiDan/0/44/0
+控制器: HandleData
+Action: ExportCaiDan
+
+System.Web.HttpException (0x80004005): 服务器无法在发送 HTTP 标头之后设置内容类型。
+   在 System.Web.HttpResponse.set_ContentType(String value)
+   在 System.Web.HttpResponseWrapper.set_ContentType(String value)
+   在 System.Web.Mvc.JsonResult.ExecuteResult(ControllerContext context)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+记录时间：2017-05-24 16:40:24,036 线程ID:[5] 日志级别：ERROR 出错类：logerror property:[(null)] - 错误描述：访问记录
+System.Data.SqlClient.SqlException (0x80131904): 各表中的列名必须唯一。在表 'dbo.Dictionaries' 中多次指定了列名 'D_Name'。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean async, Int32 timeout, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   在 System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   在 System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.<NonQuery>b__0(DbCommand t, DbCommandInterceptionContext`1 c)
+   在 System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TTarget,TInterceptionContext,TResult](TTarget target, Func`3 operation, TInterceptionContext interceptionContext, Action`3 executing, Action`3 executed)
+   在 System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.NonQuery(DbCommand command, DbCommandInterceptionContext interceptionContext)
+   在 System.Data.Entity.Internal.InterceptableDbCommand.ExecuteNonQuery()
+   在 System.Data.Entity.Migrations.DbMigrator.ExecuteSql(MigrationStatement migrationStatement, DbConnection connection, DbTransaction transaction, DbInterceptionContext interceptionContext)
+   在 System.Data.Entity.Migrations.DbMigrator.ExecuteStatementsInternal(IEnumerable`1 migrationStatements, DbConnection connection, DbTransaction transaction, DbInterceptionContext interceptionContext)
+   在 System.Data.Entity.Migrations.DbMigrator.ExecuteStatementsWithinTransaction(IEnumerable`1 migrationStatements, DbTransaction transaction, DbInterceptionContext interceptionContext)
+   在 System.Data.Entity.Migrations.DbMigrator.ExecuteStatementsWithinNewTransaction(IEnumerable`1 migrationStatements, DbConnection connection, DbInterceptionContext interceptionContext)
+   在 System.Data.Entity.Migrations.DbMigrator.ExecuteStatementsInternal(IEnumerable`1 migrationStatements, DbConnection connection, DbInterceptionContext interceptionContext)
+   在 System.Data.Entity.Migrations.DbMigrator.ExecuteStatementsInternal(IEnumerable`1 migrationStatements, DbConnection connection)
+   在 System.Data.Entity.Migrations.DbMigrator.<>c__DisplayClass30.<ExecuteStatements>b__2e()
+   在 System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.<>c__DisplayClass1.<Execute>b__0()
+   在 System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   在 System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute(Action operation)
+   在 System.Data.Entity.Migrations.DbMigrator.ExecuteStatements(IEnumerable`1 migrationStatements, DbTransaction existingTransaction)
+   在 System.Data.Entity.Migrations.DbMigrator.ExecuteStatements(IEnumerable`1 migrationStatements)
+   在 System.Data.Entity.Migrations.DbMigrator.ExecuteOperations(String migrationId, VersionedModel targetModel, IEnumerable`1 operations, IEnumerable`1 systemOperations, Boolean downgrading, Boolean auto)
+   在 System.Data.Entity.Migrations.DbMigrator.AutoMigrate(String migrationId, VersionedModel sourceModel, VersionedModel targetModel, Boolean downgrading)
+   在 System.Data.Entity.Migrations.DbMigrator.Upgrade(IEnumerable`1 pendingMigrations, String targetMigrationId, String lastMigrationId)
+   在 System.Data.Entity.Migrations.DbMigrator.UpdateInternal(String targetMigration)
+   在 System.Data.Entity.Migrations.DbMigrator.<>c__DisplayClassc.<Update>b__b()
+   在 System.Data.Entity.Migrations.DbMigrator.EnsureDatabaseExists(Action mustSucceedToKeepDatabase)
+   在 System.Data.Entity.Migrations.DbMigrator.Update(String targetMigration)
+   在 System.Data.Entity.MigrateDatabaseToLatestVersion`2.InitializeDatabase(TContext context)
+   在 System.Data.Entity.Internal.InternalContext.<>c__DisplayClassf`1.<CreateInitializationAction>b__e()
+   在 System.Data.Entity.Internal.InternalContext.PerformInitializationAction(Action action)
+   在 System.Data.Entity.Internal.InternalContext.PerformDatabaseInitialization()
+   在 System.Data.Entity.Internal.LazyInternalContext.<InitializeDatabase>b__4(InternalContext c)
+   在 System.Data.Entity.Internal.RetryAction`1.PerformAction(TInput input)
+   在 System.Data.Entity.Internal.LazyInternalContext.InitializeDatabaseAction(Action`1 action)
+   在 System.Data.Entity.Internal.LazyInternalContext.InitializeDatabase()
+   在 System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   在 System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   在 System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   在 System.Data.Entity.Internal.Linq.InternalSet`1.ActOnSet(Action action, EntityState newState, Object entity, String methodName)
+   在 System.Data.Entity.Internal.Linq.InternalSet`1.Add(Object entity)
+   在 System.Data.Entity.DbSet`1.Add(TEntity entity)
+   在 JuCheap.Service.Abstracts.PageViewService.Add(PageViewDto dto) 位置 C:\Users\admin\Desktop\工作文档\资源\jucheap-JuCheap.2.0-master\JuCheap.2.0\JuCheap.Service\Abstracts\PageViewService.Partial.cs:行号 61
+   在 JuCheap.Web.Areas.Adm.Controllers.AdmBaseController.ViewRecord(RequestContext _context) 位置 C:\Users\admin\Desktop\工作文档\资源\jucheap-JuCheap.2.0-master\JuCheap.2.0\JuCheap.Web\Areas\Adm\Controllers\AdmBaseController.cs:行号 75
+ClientConnectionId:30af6273-f9c9-4a87-82dd-f30cc51874b1
+Error Number:2705,State:4,Class:16
+记录时间：2017-05-24 16:40:30,566 线程ID:[6] 日志级别：ERROR 出错类：logerror property:[(null)] - 错误描述：访问记录
+System.Data.SqlClient.SqlException (0x80131904): 各表中的列名必须唯一。在表 'dbo.Dictionaries' 中多次指定了列名 'D_Name'。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean async, Int32 timeout, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   在 System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   在 System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.<NonQuery>b__0(DbCommand t, DbCommandInterceptionContext`1 c)
+   在 System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TTarget,TInterceptionContext,TResult](TTarget target, Func`3 operation, TInterceptionContext interceptionContext, Action`3 executing, Action`3 executed)
+   在 System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.NonQuery(DbCommand command, DbCommandInterceptionContext interceptionContext)
+   在 System.Data.Entity.Internal.InterceptableDbCommand.ExecuteNonQuery()
+   在 System.Data.Entity.Migrations.DbMigrator.ExecuteSql(MigrationStatement migrationStatement, DbConnection connection, DbTransaction transaction, DbInterceptionContext interceptionContext)
+   在 System.Data.Entity.Migrations.DbMigrator.ExecuteStatementsInternal(IEnumerable`1 migrationStatements, DbConnection connection, DbTransaction transaction, DbInterceptionContext interceptionContext)
+   在 System.Data.Entity.Migrations.DbMigrator.ExecuteStatementsWithinTransaction(IEnumerable`1 migrationStatements, DbTransaction transaction, DbInterceptionContext interceptionContext)
+   在 System.Data.Entity.Migrations.DbMigrator.ExecuteStatementsWithinNewTransaction(IEnumerable`1 migrationStatements, DbConnection connection, DbInterceptionContext interceptionContext)
+   在 System.Data.Entity.Migrations.DbMigrator.ExecuteStatementsInternal(IEnumerable`1 migrationStatements, DbConnection connection, DbInterceptionContext interceptionContext)
+   在 System.Data.Entity.Migrations.DbMigrator.ExecuteStatementsInternal(IEnumerable`1 migrationStatements, DbConnection connection)
+   在 System.Data.Entity.Migrations.DbMigrator.<>c__DisplayClass30.<ExecuteStatements>b__2e()
+   在 System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.<>c__DisplayClass1.<Execute>b__0()
+   在 System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   在 System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute(Action operation)
+   在 System.Data.Entity.Migrations.DbMigrator.ExecuteStatements(IEnumerable`1 migrationStatements, DbTransaction existingTransaction)
+   在 System.Data.Entity.Migrations.DbMigrator.ExecuteStatements(IEnumerable`1 migrationStatements)
+   在 System.Data.Entity.Migrations.DbMigrator.ExecuteOperations(String migrationId, VersionedModel targetModel, IEnumerable`1 operations, IEnumerable`1 systemOperations, Boolean downgrading, Boolean auto)
+   在 System.Data.Entity.Migrations.DbMigrator.AutoMigrate(String migrationId, VersionedModel sourceModel, VersionedModel targetModel, Boolean downgrading)
+   在 System.Data.Entity.Migrations.DbMigrator.Upgrade(IEnumerable`1 pendingMigrations, String targetMigrationId, String lastMigrationId)
+   在 System.Data.Entity.Migrations.DbMigrator.UpdateInternal(String targetMigration)
+   在 System.Data.Entity.Migrations.DbMigrator.<>c__DisplayClassc.<Update>b__b()
+   在 System.Data.Entity.Migrations.DbMigrator.EnsureDatabaseExists(Action mustSucceedToKeepDatabase)
+   在 System.Data.Entity.Migrations.DbMigrator.Update(String targetMigration)
+   在 System.Data.Entity.MigrateDatabaseToLatestVersion`2.InitializeDatabase(TContext context)
+   在 System.Data.Entity.Internal.InternalContext.<>c__DisplayClassf`1.<CreateInitializationAction>b__e()
+   在 System.Data.Entity.Internal.InternalContext.PerformInitializationAction(Action action)
+   在 System.Data.Entity.Internal.InternalContext.PerformDatabaseInitialization()
+   在 System.Data.Entity.Internal.LazyInternalContext.<InitializeDatabase>b__4(InternalContext c)
+   在 System.Data.Entity.Internal.RetryAction`1.PerformAction(TInput input)
+   在 System.Data.Entity.Internal.LazyInternalContext.InitializeDatabaseAction(Action`1 action)
+   在 System.Data.Entity.Internal.LazyInternalContext.InitializeDatabase()
+   在 System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   在 System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   在 System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   在 System.Data.Entity.Internal.Linq.InternalSet`1.ActOnSet(Action action, EntityState newState, Object entity, String methodName)
+   在 System.Data.Entity.Internal.Linq.InternalSet`1.Add(Object entity)
+   在 System.Data.Entity.DbSet`1.Add(TEntity entity)
+   在 JuCheap.Service.Abstracts.PageViewService.Add(PageViewDto dto) 位置 C:\Users\admin\Desktop\工作文档\资源\jucheap-JuCheap.2.0-master\JuCheap.2.0\JuCheap.Service\Abstracts\PageViewService.Partial.cs:行号 61
+   在 JuCheap.Web.Areas.Adm.Controllers.AdmBaseController.ViewRecord(RequestContext _context) 位置 C:\Users\admin\Desktop\工作文档\资源\jucheap-JuCheap.2.0-master\JuCheap.2.0\JuCheap.Web\Areas\Adm\Controllers\AdmBaseController.cs:行号 75
+ClientConnectionId:30af6273-f9c9-4a87-82dd-f30cc51874b1
+Error Number:2705,State:4,Class:16
+记录时间：2017-05-24 16:40:30,853 线程ID:[6] 日志级别：ERROR 出错类：logerror property:[(null)] - 错误描述：各表中的列名必须唯一。在表 'dbo.Dictionaries' 中多次指定了列名 'D_Name'。
+System.Data.SqlClient.SqlException (0x80131904): 各表中的列名必须唯一。在表 'dbo.Dictionaries' 中多次指定了列名 'D_Name'。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean async, Int32 timeout, Boolean asyncWrite)
+   在 System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   在 System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   在 System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.<NonQuery>b__0(DbCommand t, DbCommandInterceptionContext`1 c)
+   在 System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TTarget,TInterceptionContext,TResult](TTarget target, Func`3 operation, TInterceptionContext interceptionContext, Action`3 executing, Action`3 executed)
+   在 System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.NonQuery(DbCommand command, DbCommandInterceptionContext interceptionContext)
+   在 System.Data.Entity.Internal.InterceptableDbCommand.ExecuteNonQuery()
+   在 System.Data.Entity.Migrations.DbMigrator.ExecuteSql(MigrationStatement migrationStatement, DbConnection connection, DbTransaction transaction, DbInterceptionContext interceptionContext)
+   在 System.Data.Entity.Migrations.DbMigrator.ExecuteStatementsInternal(IEnumerable`1 migrationStatements, DbConnection connection, DbTransaction transaction, DbInterceptionContext interceptionContext)
+   在 System.Data.Entity.Migrations.DbMigrator.ExecuteStatementsWithinTransaction(IEnumerable`1 migrationStatements, DbTransaction transaction, DbInterceptionContext interceptionContext)
+   在 System.Data.Entity.Migrations.DbMigrator.ExecuteStatementsWithinNewTransaction(IEnumerable`1 migrationStatements, DbConnection connection, DbInterceptionContext interceptionContext)
+   在 System.Data.Entity.Migrations.DbMigrator.ExecuteStatementsInternal(IEnumerable`1 migrationStatements, DbConnection connection, DbInterceptionContext interceptionContext)
+   在 System.Data.Entity.Migrations.DbMigrator.ExecuteStatementsInternal(IEnumerable`1 migrationStatements, DbConnection connection)
+   在 System.Data.Entity.Migrations.DbMigrator.<>c__DisplayClass30.<ExecuteStatements>b__2e()
+   在 System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.<>c__DisplayClass1.<Execute>b__0()
+   在 System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   在 System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute(Action operation)
+   在 System.Data.Entity.Migrations.DbMigrator.ExecuteStatements(IEnumerable`1 migrationStatements, DbTransaction existingTransaction)
+   在 System.Data.Entity.Migrations.DbMigrator.ExecuteStatements(IEnumerable`1 migrationStatements)
+   在 System.Data.Entity.Migrations.DbMigrator.ExecuteOperations(String migrationId, VersionedModel targetModel, IEnumerable`1 operations, IEnumerable`1 systemOperations, Boolean downgrading, Boolean auto)
+   在 System.Data.Entity.Migrations.DbMigrator.AutoMigrate(String migrationId, VersionedModel sourceModel, VersionedModel targetModel, Boolean downgrading)
+   在 System.Data.Entity.Migrations.DbMigrator.Upgrade(IEnumerable`1 pendingMigrations, String targetMigrationId, String lastMigrationId)
+   在 System.Data.Entity.Migrations.DbMigrator.UpdateInternal(String targetMigration)
+   在 System.Data.Entity.Migrations.DbMigrator.<>c__DisplayClassc.<Update>b__b()
+   在 System.Data.Entity.Migrations.DbMigrator.EnsureDatabaseExists(Action mustSucceedToKeepDatabase)
+   在 System.Data.Entity.Migrations.DbMigrator.Update(String targetMigration)
+   在 System.Data.Entity.MigrateDatabaseToLatestVersion`2.InitializeDatabase(TContext context)
+   在 System.Data.Entity.Internal.InternalContext.<>c__DisplayClassf`1.<CreateInitializationAction>b__e()
+   在 System.Data.Entity.Internal.InternalContext.PerformInitializationAction(Action action)
+   在 System.Data.Entity.Internal.InternalContext.PerformDatabaseInitialization()
+   在 System.Data.Entity.Internal.LazyInternalContext.<InitializeDatabase>b__4(InternalContext c)
+   在 System.Data.Entity.Internal.RetryAction`1.PerformAction(TInput input)
+   在 System.Data.Entity.Internal.LazyInternalContext.InitializeDatabaseAction(Action`1 action)
+   在 System.Data.Entity.Internal.LazyInternalContext.InitializeDatabase()
+   在 System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   在 System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   在 System.Data.Entity.Internal.Linq.InternalSet`1.AsNoTracking()
+   在 System.Data.Entity.Infrastructure.DbQuery`1.AsNoTracking()
+   在 JuCheap.Service.Abstracts.UserService.GetOne(Expression`1 exp) 位置 C:\Users\admin\Desktop\工作文档\资源\jucheap-JuCheap.2.0-master\JuCheap.2.0\JuCheap.Service\Abstracts\UserService.Partial.cs:行号 167
+   在 JuCheap.Service.Abstracts.UserService.Login(UserDto dto) 位置 C:\Users\admin\Desktop\工作文档\资源\jucheap-JuCheap.2.0-master\JuCheap.2.0\JuCheap.Service\Abstracts\UserService.cs:行号 54
+ClientConnectionId:30af6273-f9c9-4a87-82dd-f30cc51874b1
+Error Number:2705,State:4,Class:16
+记录时间：2017-05-24 22:21:10,111 线程ID:[23] 日志级别：ERROR 出错类：logerror property:[(null)] - 错误描述：
+发生时间:2017/5/24 22:21:09
+用户IP:::1
+发生异常页: http://localhost:37297/Adm/HandleData/ExportCaiDan/0/44/0
+控制器: HandleData
+Action: ExportCaiDan
+
+System.Web.HttpException (0x80004005): 服务器无法在发送 HTTP 标头之后设置内容类型。
+   在 System.Web.HttpResponse.set_ContentType(String value)
+   在 System.Web.HttpResponseWrapper.set_ContentType(String value)
+   在 System.Web.Mvc.JsonResult.ExecuteResult(ControllerContext context)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+记录时间：2017-05-24 22:21:56,815 线程ID:[33] 日志级别：ERROR 出错类：logerror property:[(null)] - 错误描述：
+发生时间:2017/5/24 22:21:56
+用户IP:::1
+发生异常页: http://localhost:37297/Adm/HandleData/ExportCaiDan/0/44/0
+控制器: HandleData
+Action: ExportCaiDan
+
+System.Web.HttpException (0x80004005): 服务器无法在发送 HTTP 标头之后设置内容类型。
+   在 System.Web.HttpResponse.set_ContentType(String value)
+   在 System.Web.HttpResponseWrapper.set_ContentType(String value)
+   在 System.Web.Mvc.JsonResult.ExecuteResult(ControllerContext context)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)

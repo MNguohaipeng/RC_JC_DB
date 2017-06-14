@@ -9,35 +9,35 @@ namespace JuCheap.Entity //ĞŞ¸ÄÃû×Ö¿Õ¼ä
     public class XF_KZ_CodeSizeEntity:BaseEntity
     {
 
-        public string Code { get; set; }
+        public string Code { get; set; }//´úºÅ
 
-        public decimal DZ_HipLength_CP { get; set; }
+        public decimal DZ_HipLength_CP { get; set; }//µ¥ñŞÍÎÎ§
 
-        public decimal SZ_HipLength_CP { get; set; }
+        public decimal SZ_HipLength_CP { get; set; }//Ë«ñŞÍÎÎ§
 
-        public decimal Crosspiece { get; set; }
+        public decimal Crosspiece { get; set; }//ºáµµ
 
-        public decimal LegWidth_UnderTheWaves { get; set; }
+        public decimal LegWidth_UnderTheWaves { get; set; }//ÍÈ·Ê    ÀËÏÂ10CM
 
-        public decimal FrontRise_EvenWaist { get; set; }
+        public decimal FrontRise_EvenWaist { get; set; }//Ç°ÀËÁ¬Ñü
 
-        public decimal AfterTheWaves_EvenWaist { get; set; }
+        public decimal AfterTheWaves_EvenWaist { get; set; }//ºóÀËÁ¬Ñü
 
-        public string NetHip { get; set; }
+        public string NetHip { get; set; }//¾»ÍÎÎ§
 
-        public string CP_WaistWidth { get; set; }
+        public string CP_WaistWidth { get; set; }//³ÉÆ·ÑüÎ§
 
-        public string Height { get; set; }
+        public string Height { get; set; }//Éí¸ß
 
-        public string LongPants { get; set; }
+        public string LongPants { get; set; }//¿ã³¤
 
-        public string NetWaist { get; set; }
+        public string NetWaist { get; set; }//¾»ÑüÎ§
 
-        public string Size_Code { get; set; }
+        public string Size_Code { get; set; }//³ßÂë±àºÅ
 
-        public int Status { get; set; }
+        public int Status { get; set; }//×´Ì¬
 
-        public string RowData { get; set; }
+        public string RowData { get; set; }//Æ´½Óµ¥ĞĞÊı¾İ
 
     }
 }

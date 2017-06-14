@@ -5,51 +5,33 @@
     Layout = "~/Areas/Adm/Views/Shared/_Layout_Body.cshtml";
 }
 
+
+<script src="~/Template/Admin/jucheap/js/jquery-1.11.1.min.js"></script>
+<script src="~/Template/Admin/jucheap/js/angular.js"></script>
+
 @section StylesBefore{
     @Styles.Render("~/Template/Admin/jucheap/Css/DataTable")
 }
-@section Scripts{
-    @Scripts.Render("~/JS/Admin/jucheap/DataTable")
-    <script>
-        var grid = null;
 
-        function reload() {
-            $("#go_search").trigger("click");
-        }
 
-        $("input[name='GDH']").change(function () {
 
-            $("input[name='GDH_ZH']").val($(this).val());
-        })
+<script>
 
-        $(function () {
+            //var cols = [
+            //    { data: "Id", name: "Id", orderable: false },
+            //    { data: "Orderid", name: "orderid", orderable: false },
+            //    { data: "Option", name: "option", orderable: false },
+            //    { data: "Name", name: "name", orderable: false },
+            //    { data: "ReCodeSize", name: "reCodeSize", orderable: false },
+            //    { data: "Number", name: "Number", orderable: true },
 
-            $(".showtable").hide();
+            //    { data: "Note", name: "note", orderable: false }
+    //];
 
-            var cols = [
-                { data: "Id", name: "Id", orderable: false },
-                { data: "Orderid", name: "orderid", orderable: false },
-                { data: "Option", name: "option", orderable: false },
-                { data: "Name", name: "name", orderable: false },
-                { data: "ReCodeSize", name: "reCodeSize", orderable: false },
-                { data: "Number", name: "Number", orderable: true },
-               
-                { data: "Note", name: "note", orderable: false }
-            ];
-            var config = {
-                id: "table_server",
-                url: "@Url.Action("GetList",@ViewContext.RouteData.Values)",
-                columns: cols,
-                order: [[0, "desc"]]
-            };
-            grid = new jucheap.grid(config);
-            grid.load();
 
-            $(".box-refresh").click(function () {
-                grid.reload();
-            });
-        });
-
+    function gdhchange() {
+        $("input[name='GDH_ZH']").val($("input[name='GDH']").val());
+    }
 
         function Handle() {
 
@@ -59,11 +41,33 @@
                 type: "POST",
                 success: function (msg) {
                     if (msg.state == 1) {
+                        $("input[name='OrderName']")[0].click();
+                    } else {
+                        alert(msg.msg)
+                    }
+                },
+                error: function (a, b, c) {
+                    console.log(JSON.stringify(a));
+
+                }
+            });
+
+        }
+
+    function showHandleData() {
+
+
+               $.ajax({
+                url: "@Url.Action("GetListForHanderData", @ViewContext.RouteData.Values)",
+                data: { 'GDH': $("input[name='GDH']").val(), 'Order':"list.Height,list.Sleeve,list.Bust"},
+                type: "POST",
+                success: function (msg) {
+                    if (msg.state == 1) {
                         var thead;
                         var html = "";
                         var th_html = "";
                         var data = msg.msg;
-                        console.log(JSON.stringify(data));
+
                         switch (msg.action) {
                             case "HanderDataForXF_SY":
                                 thead = HanderDataForXF_SY_thead;
@@ -80,7 +84,6 @@
 
                         for (var i = 0; i < data.length; i++) {
                             html += "<tr class='even pointer insert_excel_list' >"
-
 
                             for (var a = 0; a < thead.length; a++) {
 
@@ -101,6 +104,7 @@
 
                 }
             });
+
 
         }
 
@@ -128,10 +132,18 @@
 
             })
 
-        }
+    }
+
+
 
         function ExportCaiDan() {
-            $("input[name='GDH_ZH']").val($("input[name='GDH']").val());
+
+
+            if (!$("input[name='caidanindex']").val()) {
+                alert("请输入裁单初始位置。");
+                return;
+            }
+
             $("#exportform").ajaxSubmit({
                 type: 'post',
                 url: '@Url.Action("ExportCaiDan", @ViewContext.RouteData.Values)',
@@ -141,7 +153,7 @@
                         alert(data.msg);
                         return;
                     } else {
-                   
+
                     }
 
                 },
@@ -231,124 +243,271 @@
             })
 
         }
-    </script>
+</script>
 
-}
+<div ng-app="myApp" ng-controller="myCtrl">
+    <section class="panel">
+        <header class="panel-heading head-border">
+            数据处理
+        </header>
+        <div class="panel-body">
+            <div class="col-md-12">
+                <form method="post" id="Importform">
+                    <div class="form-group">
+                        <label for="name">工单编号</label>
+                        <input type="text" class="form-control" name="GDH" ng-blur="loadOrder()" onchange="gdhchange()" />
 
-<section class="panel">
-    <header class="panel-heading head-border">
-        数据处理
-    </header>
-    <div class="panel-body">
-        <div class="col-md-12">
-            <form method="post" id="Importform">
-                <div class="form-group">
-                    <label for="name">工单编号</label>
-                    <input type="text" class="form-control" name="GDH" />
-                    <label for="name">尺码编号</label>
-                    <input type="text" class="form-control" name="Size_Code" />
-                </div>
+                    </div>
 
-            </form>
+                </form>
 
-            <button type="button" onclick="Import()" class="btn btn-success m-b-10">预览待处理数据</button>
-            <button type="button" onclick="Handle()" class="btn btn-success m-b-10">预览初排单</button>
-
-        </div>
-    </div>
-
-</section>
-
-
-
-
-
-<div class="hidden " id="hidden_filter">
-    @* 把需要搜索的条件放到hidden里面，在table格式化完成的时候直接调用$.html()赋值，免去了在js拼接标签的麻烦 *@
-    <div class="row" style="margin-right:0;">
-        <form class="form-inline" role="form">
-            <div class="form-group">
-                <label class="sr-only" for="keywords">关键字</label>
-                <input type="text" class="form-control" id="keywords" name="keywords" placeholder="标题" maxlength="20" />
-                <input type="hidden" class="form-control" id="dcl_sizecode" name="dcl_sizecode" value="" />
+                <button type="button" ng-click="getDCLList()" class="btn btn-success m-b-10">预览待处理数据</button>
+                <button type="button" onclick="Handle()" class="btn btn-success m-b-10">预览初排单</button>
+                <button type="button" onclick="showHandleData()" class="btn btn-success m-b-10">显示出排单</button>
             </div>
-            <button type="button" class="btn btn-success" name="go_search">搜索</button>
-        </form>
-    </div>
-</div>
-
-
-<section class="panel ">
-
-    <header class="panel-heading" style="margin-bottom: 10px;">
-        <div>
-            待处理数据表
         </div>
-        <span class="tools pull-right">
-            <a class="fa fa-repeat box-refresh" href="javascript:;"></a>
-            <a class="t-close fa fa-times" href="javascript:;"></a>
-        </span>
-    </header>
-    <table id="table_server" class="table responsive-data-table data-table table-hover">
-        <thead>
-            <tr>
-                <th style="width: 40px;">
-                    选择
-                </th>
-                <th>
-                    订单编号
-                </th>
-                <th>
-                    项次
-                </th>
-                <th>
-                    姓名
-                </th>
-                <th>
-                    归码前尺码
-                </th>
-                <th>
-                    数量
-                </th>
-               
-                <th>
-                    备注
-                </th>
-            </tr>
-        </thead>
-    </table>
-</section>
+
+    </section>
 
 
-<section class="panel ">
-    <header class="panel-heading" style="margin-bottom: 10px;">
-        <div>
+
+    <section class="panel ">
+
+        <header class="panel-heading" style="margin-bottom: 10px;">
             <div>
-                尺码初排表
+                待处理数据表
+            </div>
+            <span class="tools pull-right">
+                <a class="fa fa-repeat box-refresh" href="javascript:;"></a>
+                <a class="t-close fa fa-times" href="javascript:;"></a>
+            </span>
+        </header>
+        <table id="table_server" class="table responsive-data-table data-table table-hover">
+            <thead>
+                <tr>
+                    <th>
+                        订单编号
+                    </th>
+                    <th>
+                        项次
+                    </th>
+                    <th>
+                        姓名
+                    </th>
+                    <th>
+                        归码前尺码
+                    </th>
+                    <th>
+                        数量
+                    </th>
+
+                    <th>
+                        备注
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="x in DCLList">
+                    <td>
+                        {{x.Orderid}}
+                    </td>
+
+                    <td>
+                        {{x.Option}}
+                    </td>
+                    <td>
+                        {{x.Name}}
+                    </td>
+                    <td>
+                        {{x.ReCodeSize}}
+                    </td>
+                    <td>
+                        {{x.Number}}
+                    </td>
+                    <td>
+                        {{x.Note}}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+
+    <section class="panel ">
+        <header class="panel-heading" style="margin-bottom: 10px;">
+            <div>
+                <div>
+                    尺码初排表
+                </div>
+            </div>
+            <div>
+                <form action="@Url.Action("ExportCaiDan", @ViewContext.RouteData.Values)" enctype="multipart/form-data" method="post" id="exportform">
+                    <div style="border:1px #e6e4d8 solid;padding:5px">
+                        <table class="table responsive-data-table data-table table-hover">
+                            <tr><td colspan="4" style="text-align:center"><h4>设置排序字段</h4></td></tr>
+                            <tr>
+                                <td ng-repeat="x in orders">
+
+                                    <div style=" display:inline">
+                                        <input name="OrderName" type="checkbox" ng-change="changeOrder('Order')" ng-model="aValue" value="{{x.D_Value}}" />
+                                    </div>
+                                    {{x.D_Name}}
+                                </td>
+                            </tr>
+                        </table>
+
+                        <table class="table responsive-data-table data-table table-hover">
+                            <tr><td colspan="5" style="text-align:center"><h4>调整数据顺序</h4></td></tr>
+                            <tr>
+                                <td>要调整的序号：</td>
+                                <td><input type="text" class="form-control" name="startIndex" /></td>
+                                <td>调整到的位置：</td>
+                                <td><input type="text" class="form-control" name="stopIndex" /></td>
+                                <td><button type="button" class="btn btn-success" ng-click="UpdateOrder()">调整顺序</button></td>
+                            </tr>
+                        </table>
+                        <br />
+                        <table class="table responsive-data-table data-table table-hover">
+                            <tr><td colspan="3" style="text-align:center"><h4>导出裁单</h4></td></tr>
+                            <tr>
+
+                                <td><input type="hidden" name="GDH_ZH" />裁单初始位置：</td>
+                                <td><input type="number" class="form-control" name="caidanindex" /></td>
+                                <td><button type="submit" class="btn btn-success">导出裁单</button></td>
+                            </tr>
+                        </table>
+                    </div>
+
+                </form>
+            </div>
+            <span class="tools pull-right">
+                <a class="fa fa-repeat box-refresh" href="javascript:;"></a>
+                <a class="t-close fa fa-times" href="javascript:;"></a>
+            </span>
+        </header>
+        <div class="panel-body">
+            <div class="col-md-12">
+                <table id="chupaibiao" class="table responsive-data-table data-table table-hover">
+                    <thead>
+                    </thead>
+                    <tbody></tbody>
+                </table>
             </div>
         </div>
-        <div>
-            <form action="@Url.Action("ExportCaiDan", @ViewContext.RouteData.Values)" enctype="multipart/form-data" method="post" id="exportform">
-                <input type="hidden" name="GDH_ZH"  />
-                裁单初始位置：<input type="text" class="form-control" style="width:200px" name="caidanindex" /><button type="submit" class="btn btn-success">导出裁单</button>
-            </form>
-        </div>
-        <span class="tools pull-right">
-            <a class="fa fa-repeat box-refresh" href="javascript:;"></a>
-            <a class="t-close fa fa-times" href="javascript:;"></a>
-        </span>
-    </header>
-    <div class="panel-body">
-        <div class="col-md-12">
-            <table id="chupaibiao" class="table responsive-data-table data-table table-hover">
-                <thead>
-                </thead>
-                <tbody></tbody>
-            </table>
-        </div>
-    </div>
-</section>
+    </section>
 
-<br />
-<br />
-<br />
+    <br />
+    <br />
+    <br />
+</div>
+<script>
+
+    var app = angular.module('myApp', []);
+    app.controller('myCtrl', function ($scope, $http) {
+        $scope.loadOrder = function () {
+              $http({
+            method: "POST",
+            url: '@Url.Action("LoadOrder", @ViewContext.RouteData.Values)',
+            data: { GDH: $("input[name='GDH']").val() }
+            }).then(function successCallback(response) {
+                $scope.orders = response.data.msg;
+                }, function errorCallback(response) {
+                    alert(response.data.msg);
+            });
+
+        }
+
+        $scope.changeOrder = function (type) {
+
+                   var OrderName = "";
+                $("input[name='OrderName']").each(function () {
+                      if ($(this).is(':checked')) {
+                         OrderName += "list." + $(this).attr("value")+",";
+                    }
+                 })
+
+                $http({
+                method: "POST",
+                url: '@Url.Action("GetListForHanderData", @ViewContext.RouteData.Values)',
+                data: { 'GDH': $("input[name='GDH']").val(), 'Order': OrderName, 'type': type }
+            }).then(function successCallback(response) {
+
+                    var thead;
+                    var html = "";
+                    var th_html = "";
+                    var data = response.data.msg;
+
+                    switch (response.data.action) {
+                        case "HanderDataForXF_SY":
+                            thead = HanderDataForXF_SY_thead;
+                            break;
+                        case "HanderDataForXF_KZ":
+                            thead = HanderDataForXF_KZ_thead;
+                            break;
+                    }
+                    for (var i = 0; i < thead.length; i++) {
+                        th_html += '<th class="hidden-xs">' + thead[i].split("/")[0] + ' </th>';
+                    }
+                    $("#chupaibiao th").remove();
+                    $("#chupaibiao thead").append(th_html);
+                    $(".insert_excel_list").remove();
+                    for (var i = 0; i < data.length; i++) {
+                        html += "<tr class='even pointer insert_excel_list' >"
+
+                        for (var a = 0; a < thead.length; a++) {
+
+                            var txt = data[i][thead[a].split("/")[1]];
+                            html += "<td style='padding:2px 0px'>" + txt + "</td>";
+                        }
+
+                        html += "</tr>";
+                    }
+
+                    $("#chupaibiao tbody").append(html);
+                }, function errorCallback(response) {
+                    alert(response.data.msg);
+            });
+        }
+
+
+                   $scope.UpdateOrder = function () {
+
+                             $http({
+                method: "POST",
+                url: '@Url.Action("UpdateIndex", @ViewContext.RouteData.Values)',
+                data: { 'GDH': $("input[name='GDH']").val(), 'startIndex': $("input[name='startIndex']").val(), 'stopIndex': $("input[name='stopIndex']").val() }
+                             }).then(function successCallback(response) {
+                                 $scope.changeOrder("NotOrder");
+                                 alert(response.data.msg);
+                                 }, function errorCallback(response) {
+                                 alert(response.data.msg);
+                             });
+
+                   }
+
+                   $scope.getDCLList = function () {
+
+                       $http({ method: "POST", url: '@Url.Action("ImportHandleData", @ViewContext.RouteData.Values)', data: { 'GDH': $("input[name='GDH']").val() } }).then(function successCallback(response) {
+
+                             $http({
+                method: "POST",
+                url: '@Url.Action("GetList", @ViewContext.RouteData.Values)',
+                data: { 'GDH': $("input[name='GDH']").val()  }
+                             }).then(function successCallback(response) {
+                                 alert(JSON.stringify(response.data.msg))
+                                 $scope.DCLList = response.data.msg;
+                                 }, function errorCallback(response) {
+                                 alert(response.data.msg);
+                             });
+
+                                 }, function errorCallback(response) {
+                                 alert(response.data.msg);
+                             });
+
+
+                   }
+        });
+
+
+
+</script>

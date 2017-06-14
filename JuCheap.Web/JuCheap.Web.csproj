@@ -332,6 +332,7 @@
     <Content Include="Template\Admin\jucheap\img\w-p-img.jpg" />
     <Content Include="Template\Admin\jucheap\img\weather-1.jpg" />
     <Content Include="Template\Admin\jucheap\img\weather_background.jpg" />
+    <Content Include="Template\Admin\jucheap\js\angular.js" />
     <Content Include="Template\Admin\jucheap\js\bootstrap-colorpicker\css\colorpicker.css" />
     <Content Include="Template\Admin\jucheap\js\bootstrap-colorpicker\img\alpha.png" />
     <Content Include="Template\Admin\jucheap\js\bootstrap-colorpicker\img\hue.png" />

@@ -37,18 +37,21 @@ XF_KZ_NAN_thead[10] = "裤长/LongPants";
 XF_KZ_NAN_thead[11] = "净腰围/NetWaist";
 
 var HanderDataForXF_SY_thead = new Array(); //处理后西服上衣 
-HanderDataForXF_SY_thead[0] = '订单编号/OrderCode';
-HanderDataForXF_SY_thead[1] = '项次/option';
-HanderDataForXF_SY_thead[2] = '姓名/Name';
-HanderDataForXF_SY_thead[3] = "处理前数据/RtnQCode";
-HanderDataForXF_SY_thead[4] = "处理后数据/RtnHCode";
-HanderDataForXF_SY_thead[5] = "身高/Height";
-HanderDataForXF_SY_thead[6] = "数量/Number";
-HanderDataForXF_SY_thead[7] = "衣长/Yichang";
-HanderDataForXF_SY_thead[8] = "胸围/Bust";
-HanderDataForXF_SY_thead[9] = "袖长/Sleeve";
+HanderDataForXF_SY_thead[0] = "序号/Index";
+HanderDataForXF_SY_thead[1] = '订单编号/OrderCode';
+HanderDataForXF_SY_thead[2] = '项次/option';
+HanderDataForXF_SY_thead[3] = '姓名/Name';
+HanderDataForXF_SY_thead[4] = "处理前数据/RtnQCode";
+HanderDataForXF_SY_thead[5] = "处理后数据/RtnHCode";
+HanderDataForXF_SY_thead[6] = "身高/Height";
+HanderDataForXF_SY_thead[7] = "数量/Number";
+HanderDataForXF_SY_thead[8] = "衣长/Yichang";
+HanderDataForXF_SY_thead[9] = "胸围/Bust";
+HanderDataForXF_SY_thead[10] = "袖长/Sleeve";
+
 
 var HanderDataForXF_KZ_thead = new Array(); //西服裤子  男
+
 HanderDataForXF_KZ_thead[0] = '序号/Index';
 HanderDataForXF_KZ_thead[1] = '姓名/Name';
 HanderDataForXF_KZ_thead[2] = "身高/Height";

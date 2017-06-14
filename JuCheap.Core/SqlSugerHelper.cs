@@ -1,4 +1,4 @@
-﻿ 
+﻿
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,17 +9,13 @@ namespace JuCheap.Core
 {
     public class SqlSugerHelper
     {
-        public static string SqlConnString =
-    @"server=DESKTOP-OV0I35V\SQLEXPRESS;uid=sa;pwd=123456;database=DJ_JuCheap";
+        public static string SqlConnString =@"server=DESKTOP-OV0I35V\SQLEXPRESS;uid=sa;pwd=123456;database=DJ_JuCheap";
 
-        private static string MySqlConnString =
-        "server=localhost;Database=SqlSugarTest;Uid=root;Pwd=root";
+        private static string MySqlConnString ="server=localhost;Database=SqlSugarTest;Uid=root;Pwd=root";
 
-        private static string PlSqlConnString =
-        "Data Source=172.16.173.131/orcl.kutesmart.cn;User ID=system;Password=123456;";
+        private static string PlSqlConnString ="Data Source=172.16.173.131/orcl.kutesmart.cn;User ID=system;Password=123456;";
 
-        private static string SqliteSqlConnString =
-        @"DataSource=F:\SugarForOne\OrmTest\OrmTest\Database\demo.sqlite";
+        private static string SqliteSqlConnString =@"DataSource=F:\SugarForOne\OrmTest\OrmTest\Database\demo.sqlite";
 
         static void Main(string[] args)
         {
@@ -28,7 +24,7 @@ namespace JuCheap.Core
             {
                 //当前DB是SqlConnection1
                 var list = db.Database.Queryable<Student>().ToList(); //使用和其它一模一样只是多了个Database
-        
+
             }
         }
 

@@ -27,6 +27,8 @@ namespace JuCheap.Web.Areas.Adm.Controllers
 
         public IXF_SY_NU_CodeSizeService XF_SY_NU_ChiMa { get; set; }
 
+        public IXF_KZ_CodeSizeService XF_KZ_CodeSizeService { get; set; }
+
         // GET: Adm/Size
         public ActionResult Import()
         {
@@ -53,7 +55,7 @@ namespace JuCheap.Web.Areas.Adm.Controllers
 
         #region 审核
         [HttpPost]
-        public JsonResult Examine(string Action) 
+        public JsonResult Examine(string Action)
         {
             using (var db = new MySqlServer())
                 try
@@ -147,27 +149,17 @@ namespace JuCheap.Web.Areas.Adm.Controllers
                     {
                         case "XF_SY_NAN":
 
-                            XF_SY_NAN_ChiMaDto xfnan = new XF_SY_NAN_ChiMaDto();
-                            xfnan.Size_Code = Code;
-                            xfnan.Status = Convert.ToInt32(state);
-
-                            XF_SY_NAN_ChiMa.Update(xfnan);
-                           // db.Database.Update<XF_SY_NAN_ChiMaDto>(new { status = state }, it => it.Size_Code == Code);
-
+                            db.Database.GetInt(string.Format("update   XF_SY_NAN_ChiMa set status='{0}' where Size_Code='{1}'", state, Code));
                             return Json(new { state = 1, msg = "" }, JsonRequestBehavior.AllowGet);
-
                         case "XF_SY_NU":
-
-                            db.Database.Update<XF_SY_NAN_ChiMaDto>(new { status = state }, it => it.Size_Code == Code);
-
+                            db.Database.GetInt(string.Format("update XF_SY_NU_ChiMa set status='{0}' where Size_Code='{1}'", state, Code));
                             return Json(new { state = 1, msg = "" }, JsonRequestBehavior.AllowGet);
-
                         case "XF_KZ_NAN":
-                            throw new Exception("正在开发");
-
+                            db.Database.GetInt(string.Format("update XF_KZ_CodeSize set status='{0}' where Size_Code='{1}'", state, Code));
+                            return Json(new { state = 1, msg = "" }, JsonRequestBehavior.AllowGet);
                         case "XF_KZ_NU":
-                            throw new Exception("正在开发");
-
+                            db.Database.GetInt(string.Format("update XF_KZ_CodeSize set status='{0}' where Size_Code='{1}'", state, Code));
+                            return Json(new { state = 1, msg = "" }, JsonRequestBehavior.AllowGet);
                         default:
                             throw new Exception("系统出错：没有对应的Action");
 
@@ -195,7 +187,7 @@ namespace JuCheap.Web.Areas.Adm.Controllers
 
                             return Json(new { state = 1, msg = XF_SY_NAN_ChiMa.Query(T => T.Status == 1 && T.Size_Code == Size_Code, o => o.Id, false).ToList() }, JsonRequestBehavior.AllowGet);
                         case "XF_SY_NU":
-               
+
                             return Json(new { state = 1, msg = XF_SY_NU_ChiMa.Query(T => T.Status == 1 && T.Size_Code == Size_Code, o => o.Id, false).ToList() }, JsonRequestBehavior.AllowGet);
                         case "XF_KZ_NAN":
                             return Json(new { state = 1, msg = XF_KZ_Service.Query(T => T.Status == 1 && T.Size_Code == Size_Code, o => o.Id, false).ToList() }, JsonRequestBehavior.AllowGet);
@@ -236,25 +228,25 @@ namespace JuCheap.Web.Areas.Adm.Controllers
                                 {
                                     throw new Exception("数据ID格式不正确");
                                 }
-                                XF_SY_NAN_ChiMaDto xfnan = XF_SY_NAN_ChiMa.GetOne(t=>t.Id== upid);
+                                XF_SY_NAN_ChiMaDto xfnan = XF_SY_NAN_ChiMa.GetOne(t => t.Id == upid);
                                 xfnan.Height = Convert.ToInt32(fm["Height"].Split(',')[i]);
                                 xfnan.FrontLength = fm["FrontLength"].Split(',')[i];
                                 xfnan.NetBust = fm["NetBust"].Split(',')[i];
                                 xfnan.FinishedBust = Convert.ToDecimal(fm["FinishedBust"].Split(',')[i]);
                                 xfnan.InWaist = Convert.ToDecimal(fm["InWaist"].Split(',')[i]);
                                 xfnan.FinishedHem_NoFork = Convert.ToDecimal(fm["FinishedHem_NoFork"].Split(',')[i]);
-                                xfnan.FinishedHem_SplitEnds= Convert.ToDecimal(fm["FinishedHem_SplitEnds"].Split(',')[i]);
+                                xfnan.FinishedHem_SplitEnds = Convert.ToDecimal(fm["FinishedHem_SplitEnds"].Split(',')[i]);
                                 xfnan.ShoulderWidth = Convert.ToDecimal(fm["ShoulderWidth"].Split(',')[i]);
                                 xfnan.Sleecve_Show = fm["Sleecve_Show"].Split(',')[i];
                                 xfnan.Id = upid;
                                 xfnan.Status = 1;
                                 xfnanlist.Add(xfnan);
-                       
+
                             }
                             XF_SY_NAN_ChiMa.Update(xfnanlist);
                             break;
                         case "XF_SY_NU":
-                          
+
                             int count2 = fm["Height"].Split(',').Count();
                             List<XF_SY_NU_CodeSizeDto> synulist = new List<XF_SY_NU_CodeSizeDto>();
                             for (int i = 0; i < count2; i++)
@@ -264,9 +256,9 @@ namespace JuCheap.Web.Areas.Adm.Controllers
                                 {
                                     throw new Exception("数据ID格式不正确");
                                 }
-    
 
-                                XF_SY_NU_CodeSizeDto synu = XF_SY_NU_ChiMa.GetOne(T=>T.Id==upid);
+
+                                XF_SY_NU_CodeSizeDto synu = XF_SY_NU_ChiMa.GetOne(T => T.Id == upid);
 
                                 synu.Height = Convert.ToDecimal(fm["Height"].Split(',')[i]);
                                 synu.FrontLength = fm["FrontLength"].Split(',')[i];
@@ -276,18 +268,18 @@ namespace JuCheap.Web.Areas.Adm.Controllers
                                 synu.FinishedHem_NoFork = Convert.ToDecimal(fm["FinishedHem_NoFork"].Split(',')[i]);
                                 synu.SleeveWidth = Convert.ToDecimal(fm["SleeveWidth"].Split(',')[i]);
                                 synu.ShoulderWidth = Convert.ToDecimal(fm["ShoulderWidth"].Split(',')[i]);
-                                synu.Sleecve_Show =  fm["FinishedHem_NoFork"].Split(',')[i];
-                             
+                                synu.Sleecve_Show = fm["FinishedHem_NoFork"].Split(',')[i];
+
 
                                 synulist.Add(synu);
                             }
                             XF_SY_NU_ChiMa.Update(synulist);
                             break;
                         case "XF_KZ_NAN":
-                       
+
                             int count3 = fm["Height"].Split(',').Count();
                             List<XF_KZ_CodeSizeDto> xfkzlist = new List<XF_KZ_CodeSizeDto>();
-         
+
                             for (int i = 0; i < count3; i++)
                             {
                                 int upid = 0;
@@ -295,7 +287,7 @@ namespace JuCheap.Web.Areas.Adm.Controllers
                                 {
                                     throw new Exception("数据ID格式不正确");
                                 }
-                                XF_KZ_CodeSizeDto xfkz = XF_KZ_Service.GetOne(T=>T.Id==upid);
+                                XF_KZ_CodeSizeDto xfkz = XF_KZ_Service.GetOne(T => T.Id == upid);
                                 xfkz.Code = fm["Code"].Split(',')[i];
                                 xfkz.DZ_HipLength_CP = Convert.ToDecimal(fm["DZ_HipLength_CP"].Split(',')[i]);
                                 xfkz.SZ_HipLength_CP = Convert.ToDecimal(fm["SZ_HipLength_CP"].Split(',')[i]);
@@ -304,7 +296,7 @@ namespace JuCheap.Web.Areas.Adm.Controllers
                                 xfkz.FrontRise_EvenWaist = Convert.ToDecimal(fm["FrontRise_EvenWaist"].Split(',')[i]);
                                 xfkz.AfterTheWaves_EvenWaist = Convert.ToDecimal(fm["AfterTheWaves_EvenWaist"].Split(',')[i]);
                                 xfkz.NetHip = fm["NetHip"].Split(',')[i];
-                                xfkz.CP_WaistWidth =fm["CP_WaistWidth"].Split(',')[i];
+                                xfkz.CP_WaistWidth = fm["CP_WaistWidth"].Split(',')[i];
                                 xfkz.Height = Convert.ToDecimal(fm["Height"].Split(',')[i]);
                                 xfkz.LongPants = fm["LongPants"].Split(',')[i];
                                 xfkz.NetWaist = fm["NetWaist"].Split(',')[i];
@@ -355,8 +347,6 @@ namespace JuCheap.Web.Areas.Adm.Controllers
         }
 
         #endregion
-
-
 
         //比对
         [HttpPost]
@@ -471,6 +461,8 @@ namespace JuCheap.Web.Areas.Adm.Controllers
 
             try
             {
+                #region 验证数据是否正确
+
                 if (gender == "男")
                 {
                     table = Analysis.Excel_trousrs_NAN(Request.Files);
@@ -481,6 +473,7 @@ namespace JuCheap.Web.Areas.Adm.Controllers
 
                 }
 
+                #endregion
 
                 if (fm["import"] == "false")
                 {
@@ -920,9 +913,7 @@ namespace JuCheap.Web.Areas.Adm.Controllers
             try
             {
 
-
                 List<XF_SY_NAN_ChiMaDto> list = new List<XF_SY_NAN_ChiMaDto>();
-
 
                 for (int i = 0; i < table.Rows.Count; i++)
                 {
@@ -985,7 +976,7 @@ namespace JuCheap.Web.Areas.Adm.Controllers
 
                         cs.Status = 1;
 
-                        cs.RowData =table.Rows[i]["Height"] + "/" + table.Rows[i]["FrontLength"] + "/" + table.Rows[i]["NetBust"] + "/" + table.Rows[i]["FinishedBust"] + "-" + table.Rows[i]["InWaist"] + "-" + table.Rows[i]["FinishedHem_NoFork"] + "-" + table.Rows[i]["FinishedHem_SplitEnds"] + "-" + table.Rows[i]["ShoulderWidth"] + "-" + table.Rows[i]["FK_Sleeve_ID"];
+                        cs.RowData = table.Rows[i]["Height"] + "/" + table.Rows[i]["FrontLength"] + "/" + table.Rows[i]["NetBust"] + "/" + table.Rows[i]["FinishedBust"] + "-" + table.Rows[i]["InWaist"] + "-" + table.Rows[i]["FinishedHem_NoFork"] + "-" + table.Rows[i]["FinishedHem_SplitEnds"] + "-" + table.Rows[i]["ShoulderWidth"] + "-" + table.Rows[i]["FK_Sleeve_ID"];
 
                         list.Add(cs);
                     }
@@ -1069,16 +1060,20 @@ namespace JuCheap.Web.Areas.Adm.Controllers
                     switch (Action)
                     {
                         case "XF_SY_NAN"://西服上衣  男
-                            return Json(new { state = 1, msg = db.Database.Queryable<XF_SY_NAN_ChiMaDto>().Where(it => it.Size_Code == Code).ToList() }, JsonRequestBehavior.AllowGet);
+
+
+                            return Json(new { state = 1, msg = XF_SY_NAN_ChiMa.Query(T => T.Size_Code == Code, O => O.Id, false) }, JsonRequestBehavior.AllowGet);
+
 
                         case "XF_SY_NU":
+                            return Json(new { state = 1, msg = XF_SY_NU_ChiMa.Query(T => T.Size_Code == Code, O => O.Id, false) }, JsonRequestBehavior.AllowGet);
 
-                            return Json(new { state = 1, msg = db.Database.Queryable<XF_SY_NU_CodeSizeDto>().Where(it => it.Size_Code == Code).ToList() }, JsonRequestBehavior.AllowGet);
+
 
                         case "XF_KZ_NAN":
                         case "XF_KZ_NU":
 
-                            return Json(new { state = 1, msg = db.Database.Queryable<XF_KZ_CodeSizeDto>().Where(it => it.Size_Code == Code).ToList() }, JsonRequestBehavior.AllowGet);
+                            return Json(new { state = 1, msg = XF_KZ_CodeSizeService.Query(T => T.Size_Code == Code, O => O.Id, false) }, JsonRequestBehavior.AllowGet);
                         default:
                             throw new Exception("系统出错：没有对应的Action");
 
@@ -1107,18 +1102,22 @@ namespace JuCheap.Web.Areas.Adm.Controllers
                     {
                         case "XF_SY_NAN"://西服上衣  男
 
-                            List<XF_SY_NAN_ChiMaDto> XF_SY_NAN = db.Database.Queryable<XF_SY_NAN_ChiMaDto>().Where(c => c.Status == 0).GroupBy(it => it.Size_Code).Select<XF_SY_NAN_ChiMaDto>("Size_Code").ToList();
-
-
+                            // List<XF_SY_NAN_ChiMaDto> XF_SY_NAN = db.Database.Queryable<XF_SY_NAN_ChiMaDto>().Where(c => c.Status == 0).GroupBy(it => it.Size_Code).Select<XF_SY_NAN_ChiMaDto>("Size_Code").ToList();
+                            List<XF_SY_NAN_ChiMaDto> XF_SY_NAN = db.Database.GetList<XF_SY_NAN_ChiMaDto>("select Size_Code from XF_SY_NU_CodeSize where Status=1 Group By Size_Code");
                             return Json(new { state = 1, msg = XF_SY_NAN }, JsonRequestBehavior.AllowGet);
 
                         case "XF_SY_NU":
-
-                            List<XF_SY_NU_CodeSizeDto> XF_SY_NU = db.Database.Queryable<XF_SY_NU_CodeSizeDto>().Where(c => c.Status == 1).GroupBy(it => it.Size_Code).Select<XF_SY_NU_CodeSizeDto>("Size_Code").ToList();
-
+                            List<XF_SY_NU_CodeSizeDto> XF_SY_NU = db.Database.GetList<XF_SY_NU_CodeSizeDto>("select Size_Code from XF_SY_NU_CodeSize where Status=1 Group By Size_Code");
+                            //     List<XF_SY_NU_CodeSizeDto> XF_SY_NU = db.Database.Queryable<XF_SY_NU_CodeSizeDto>().Where(c => c.Status == 1).GroupBy(it => it.Size_Code).Select<XF_SY_NU_CodeSizeDto>("Size_Code").ToList();
 
                             return Json(new { state = 1, msg = XF_SY_NU }, JsonRequestBehavior.AllowGet);
 
+                        case "XF_KZ_NAN"://西服裤子
+                        case "XF_KZ_NU":
+                            //Queryable<XF_KZ_CodeSizeDto>().Where(c => c.Status == 1).GroupBy(it => it.Size_Code).Select<XF_KZ_CodeSizeDto>("Size_Code").ToList()
+                            List<XF_KZ_CodeSizeDto> XF_KZ = db.Database.GetList<XF_KZ_CodeSizeDto>("select Size_Code from XF_KZ_CodeSize where Status=1 Group By Size_Code");
+
+                            return Json(new { state = 1, msg = XF_KZ }, JsonRequestBehavior.AllowGet);
                         default:
                             throw new Exception("系统出错：没有对应的Action");
 
