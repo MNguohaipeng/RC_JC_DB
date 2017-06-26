@@ -1,4 +1,5 @@
-﻿var XF_SY_NAN_thead = new Array();// 西服上衣  男
+﻿ 
+var XF_SY_NAN_thead = new Array();// 西服上衣  男
 XF_SY_NAN_thead[0] = '身高/Height';
 XF_SY_NAN_thead[1] = '前身长/FrontLength';
 XF_SY_NAN_thead[2] = '净胸围/NetBust';
@@ -32,9 +33,7 @@ XF_KZ_NAN_thead[5] = "前浪连腰/FrontRise_EvenWaist";
 XF_KZ_NAN_thead[6] = "后浪连腰/AfterTheWaves_EvenWaist";
 XF_KZ_NAN_thead[7] = "净臀围/NetHip";
 XF_KZ_NAN_thead[8] = "成品腰围/CP_WaistWidth";
-XF_KZ_NAN_thead[9] = "身高/Height";
-XF_KZ_NAN_thead[10] = "裤长/LongPants";
-XF_KZ_NAN_thead[11] = "净腰围/NetWaist";
+XF_KZ_NAN_thead[9] = "净腰围/NetWaist";
 
 var HanderDataForXF_SY_thead = new Array(); //处理后西服上衣 
 HanderDataForXF_SY_thead[0] = "序号/Index";
@@ -122,8 +121,6 @@ function loadPopup(thead, data, buttonHtml, isInput, zdyTop) {
     PopupHtml +='</div>'
     PopupHtml +='</div>'
     PopupHtml +='</div>'
-
-
     $("body").append(PopupHtml);
 
     var th_html = "";

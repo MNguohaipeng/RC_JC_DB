@@ -24,5 +24,6 @@ namespace JuCheap.Entity //ĞŞ¸ÄÃû×Ö¿Õ¼ä
         public string Gender { get; set; }
 
         public string SizeCode { get; set; }
+
     }
 }

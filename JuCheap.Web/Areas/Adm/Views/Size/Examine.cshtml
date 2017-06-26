@@ -194,24 +194,34 @@
             for (var i = 0; i < thead.length; i++) {
                 th_html += '<th class="hidden-xs">' + thead[i].split("/")[0] + ' </th>';
             }
+          
             $("#show_ex_table thead th").remove();
             $("#show_ex_table thead").append(th_html)
             var html = "";
             for (var i = 0; i < data.length; i++) {
-                html += "<tr class='even pointer insert_excel_list' >"
-                html += "<input name='ID' type='hidden' value='" + data[i]["Id"] + "'   />";
+
+                html += "<tr class='even pointer insert_excel_list' >";
+
+                html += "<input name='ID' type='text' value='" + data[i]["Id"] + "'   />";
+
                 for (var a = 0; a < thead.length; a++) {
 
                     var txt = data[i][thead[a].split("/")[1]];
 
                     html += "<td style='padding:2px 0px'><input style='border:0px;width:105px' type='text' name='" + thead[a].split("/")[1] + "' value='" + txt + "'/></td>";
+
                 }
 
                 html += "</tr>";
+
             }
+
             $("#show_ex_table tbody tr").remove();
-            $("#show_ex_table tbody").append(html)
+
+            $("#show_ex_table tbody").append(html);
+
             show_dig();
+
         });
     }
 

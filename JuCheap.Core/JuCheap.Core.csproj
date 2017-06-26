@@ -89,6 +89,7 @@
     <Compile Include="Common.cs" />
     <Compile Include="Config\ReadDatabaseConfig.cs" />
     <Compile Include="Config\ReadDatabaseSection.cs" />
+    <Compile Include="CustomCatch.cs" />
     <Compile Include="Email\FTMail.cs" />
     <Compile Include="Email\SMTPMailer.cs" />
     <Compile Include="Encryption.cs" />

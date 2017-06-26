@@ -1,12 +1,12 @@
 ﻿
 @using System.Text
- 
+
 
 
 
 @{
-	ViewBag.Title = "Import";
-	Layout = "/Areas/Adm/Views/Shared/_Layout_Body.cshtml";
+    ViewBag.Title = "Import";
+    Layout = "/Areas/Adm/Views/Shared/_Layout_Body.cshtml";
 }
 
 @Styles.Render("~/css/front/web/home")
@@ -19,99 +19,107 @@
 
 <script src="~/Scripts/size/import.js"></script>
 
-
-
 <form id="size_form" action="~/Execl/import_jacket" method="post" enctype="multipart/form-data">
 
-	<input type="hidden" name="import" value="false" />
-	<input type="hidden" name="action" value="" />
-	<div class="panel panel-default">
-		<div class="panel-heading">
-			上传文件
-		</div>
-		<div class="panel-body">
-			<div class="col-md-12">
-				<div class="form-group">
-					<label for="name">尺码表适用版型</label>
-					<select class="form-control" name="size_banxing">
-						<option value="XF">西服</option>
-					</select>
-				</div>
-				<div class="form-group">
-					<label for="name">尺码表适用类型</label>
-					<select class="form-control" name="size_type">
-						<option value="SY">上衣</option>
-						<option value="KZ">裤子</option>
-					</select>
-				</div>
-				<div class="form-group">
-					<label for="name">尺码表适用性别</label>
-					<select class="form-control" name="size_gender">
-						<option value="NAN">男</option>
-						<option value="NU">女</option>
-					</select>
-				</div>
-				<br>
-				<div class="form-group">
-					<label for="name">尺码表编码</label>
-					<input type="text" class="form-control" name="Size_Code" placeholder="请输入尺码表编码">
-				</div>
-				<div class="form-group">
-					<label for="name">上传尺码表</label>
-					<input type="text" class="form-control" name="file_name" readonly="readonly" placeholder="点击文本框选择上传的文件">
-				</div>
-				<br>
-				<div class="input-group">
-					<button type="button" class="btn btn-success" onclick="analysis()">解析</button>
+    <input type="hidden" name="import" value="false" />
+    <input type="hidden" name="action" value="" />
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            上传文件
+        </div>
+        <div class="panel-body">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label for="name">尺码表适用版型</label>
+                    <select class="form-control" name="size_banxing">
+                        <option value="XF">西服</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="name">尺码表适用类型</label>
+                    <select class="form-control" name="size_type">
+                        <option value="SY">上衣</option>
+                        <option value="KZ">裤子</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="name">尺码表适用性别</label>
+                    <select class="form-control" name="size_gender">
+                        <option value="NAN">男</option>
+                        <option value="NU">女</option>
+                    </select>
+                </div>
+                <br>
+                <div class="form-group">
+                    <label for="name">尺码表编码</label>
+                    <input type="text" class="form-control" name="Size_Code" placeholder="请输入尺码表编码">
+                </div>
+                <div class="form-group">
+                    <label for="name">上传尺码表</label>
+                    <input type="text" class="form-control" name="file_name" readonly="readonly" placeholder="点击文本框选择上传的文件">
+                </div>
+                <br>
+                <div class="input-group">
+                    <button type="button" class="btn btn-success" onclick="analysis()">解析</button>
 
-				</div>
-				<input type="file" name="up_file" style="display:none" />
-			</div>
-		</div>
-	</div>
+                </div>
+                <input type="file" name="up_file" style="display:none" />
+            </div>
+        </div>
+    </div>
 </form>
 
 
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-	<div class="modal-dialog" style="width: 70%">
-		<div class="modal-content">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-					&times;
-				</button>
-				<h4 class="modal-title" id="myModalLabel">
-					预览
-				</h4>
-			</div>
-			<div class="modal-body">
-				<div class="x_panel">
-					<div class="x_title">
-						<h2>解析结果<small>请核对数据</small></h2>
-						<div class="clearfix"></div>
-					</div>
-					<div class="x_content">
-						<div class="table-responsive" style="height: 400px; overflow: auto" id="scroll-1">
-							<table class="table table-striped jambo_table bulk_action" id="exli01">
-								<thead>
-									<tr class="headings"></tr>
-								</thead>
-								<tbody id="excel_data_list"></tbody>
-							</table>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal" onclick="_import()">
-					导入
-				</button>
-				<button type="button" class="btn btn-default" data-dismiss="modal">
-					取消
-				</button>
-				
-			</div>
-		</div>
-	</div>
-	<!-- /.modal-content -->
+    <div class="modal-dialog" style="width: 70%">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <h4 class="modal-title" id="myModalLabel">
+                    预览
+                </h4>
+            </div>
+            <div class="modal-body">
+                <div class="x_panel">
+                    <div class="x_title">
+                        <h2>解析结果<small>请核对数据</small></h2>
+                        <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content">
+                        <div class="table-responsive" style="height: 400px; overflow: auto" id="scroll-1">
+                            <table class="table table-striped jambo_table bulk_action" id="exli01">
+                                <thead>
+                                    <tr class="headings"></tr>
+                                </thead>
+                                <tbody id="excel_data_list"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="x_content">
+                        <div class="table-responsive" style="height: 400px; overflow: auto" id="scroll-1">
+                            <table class="table table-striped jambo_table bulk_action" id="exli02">
+                                <thead>
+
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" onclick="_import()">
+                    导入
+                </button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">
+                    取消
+                </button>
+
+            </div>
+        </div>
+    </div>
+    <!-- /.modal-content -->
 </div>
 <!-- /.modal -->

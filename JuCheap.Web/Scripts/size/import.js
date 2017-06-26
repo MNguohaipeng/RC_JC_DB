@@ -27,7 +27,7 @@ function analysis() {
 	$("#size_form").ajaxSubmit({
 		type: 'post',
 		url: '/Adm/Size/Import',
-		success: function (data) {
+        success: function (data) {
  
 			if (data.state != "1") {
 				alert(data.msg);
@@ -62,17 +62,6 @@ function analysis() {
 			        break;
                     
                 case "XF_KZ_NAN":
-
-                    for (var i = 0; i < XF_KZ_NAN_thead.length; i++) {
-
-                        var th = XF_KZ_NAN_thead[i] + "";
-
-                        th_html += '<th class="column-title">' + th.split("/")[0] + ' </th>';
-
-                    }
-
-                    break;
-
 			    case "XF_KZ_NU":
 
                     for (var i = 0; i < XF_KZ_NAN_thead.length; i++) {
@@ -82,6 +71,8 @@ function analysis() {
                         th_html += '<th class="column-title">' + th.split("/")[0] + ' </th>';
 
                     }
+
+          
 
 					break;
 
@@ -98,7 +89,7 @@ function analysis() {
 			$(".insert_excel_list").remove();
 
 			var html = "";
-	
+ 
             switch (action) {
 
 				case "XF_SY_NAN":
@@ -118,6 +109,8 @@ function analysis() {
                     }
 
                     $("#excel_data_list").append(html)
+
+
 
                     break;
 
@@ -142,6 +135,7 @@ function analysis() {
                     break;
 
                 case "XF_KZ_NAN":
+                case "XF_KZ_NU":
 
                     $(".insert_excel_list").remove();
 
@@ -159,25 +153,25 @@ function analysis() {
 
                     }
 
-                    $("#excel_data_list").append(html);
+                    var ts_html = "";
+                    ts_html += "<tr class=\"headings\"><th >身高</th>";
+                    ts_html += "<th>袖长</th></tr>";
+                    $("#exli02 thead").append(ts_html);
 
-                    break;
+                    var height = data.Height.split(',');
 
-			    case "XF_KZ_NU":
-		
-                    for (var i = 0; i < json.length; i++) {
+                    var KuChang = data.KuChang.split(',');
 
-			            html += "<tr class='even pointer insert_excel_list' >"
+                    var tp_html = "";
+                    for (var i = 0; i < height.length; i++) {
 
-                        for (var a = 0; a < XF_KZ_NAN_thead.length; a++) {
-
-                            html += "<td>" + json[i][XF_KZ_NAN_thead[a].split("/")[1]] + "</td>";
-
+                        if (height[i] > 0) {
+                            tp_html += "<tr><td>" + height[i] + "</td><td>" + KuChang[i] + "</td></tr>";
                         }
-
-                        html += "</tr>";
-
                     }
+
+                    $("#exli02 tbody").append(tp_html);
+
 
                     $("#excel_data_list").append(html);
 
@@ -201,7 +195,7 @@ function _import() {
 		url: '/Adm/Size/Import',
 		success: function (data) {
 
-
+            alert(data.Height);
 			if (data.state == "1") {
 				alert("导入成功。");
 				hide_dig();

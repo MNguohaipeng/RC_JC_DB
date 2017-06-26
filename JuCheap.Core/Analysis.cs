@@ -484,8 +484,11 @@ namespace JuCheap.Core
 						execl_table.Rows[i]["F21"] = length_t;
 					}
 				}
+
 				#region  处理非数据部分
+
 				#endregion
+
 				for (int i = 0; i < execl_table.Rows.Count; i++)
 
 				{
@@ -494,8 +497,8 @@ namespace JuCheap.Core
 					{
 						DataRow row01 = execltable.NewRow();
 						row01["Height"] = execl_table.Rows[i]["F2"] + "";
-						row01["FrontLength"] = execl_table.Rows[i]["F3"] + "";
-						row01["NetBust"] = execl_table.Rows[i]["F4"] + "";
+						row01["FrontLength"] = execl_table.Rows[i]["F4"] + "";
+						row01["NetBust"] = execl_table.Rows[i]["F3"] + "";
 						row01["FinishedBust"] = execl_table.Rows[i]["F5"] + "";
 						row01["InWaist"] = execl_table.Rows[i]["F6"] + "";
 						row01["FinishedHem_NoFork"] = execl_table.Rows[i]["F7"] + "";
@@ -507,16 +510,14 @@ namespace JuCheap.Core
 					}
 				}
 
-
-
 				for (int i = 0; i < execl_table.Rows.Count; i++)
 				{
 					if (!string.IsNullOrEmpty(execl_table.Rows[i]["F12"] + ""))
 					{
 						DataRow row02 = execltable.NewRow();
 						row02["Height"] = execl_table.Rows[i]["F13"] + "";
-						row02["FrontLength"] = execl_table.Rows[i]["F14"] + "";
-						row02["NetBust"] = execl_table.Rows[i]["F15"] + "";
+						row02["FrontLength"] = execl_table.Rows[i]["F15"] + "";
+						row02["NetBust"] = execl_table.Rows[i]["F14"] + "";
 						row02["FinishedBust"] = execl_table.Rows[i]["F16"] + "";
 						row02["InWaist"] = execl_table.Rows[i]["F17"] + "";
 						row02["FinishedHem_NoFork"] = execl_table.Rows[i]["F18"] + "";
@@ -533,7 +534,6 @@ namespace JuCheap.Core
 
 				#endregion
 
-
 				return execltable;
 			}
 			catch (Exception ex)
@@ -545,24 +545,24 @@ namespace JuCheap.Core
 		}
 
 		//解析西服裤子尺码(男)
-		public static DataTable Excel_trousrs_NAN(HttpFileCollectionBase files)
+		public static DataTable Excel_trousrs_NAN(HttpFileCollectionBase files,out double[] HeightArrey,out double[] KuChangArrey)
 		{
+
 			DataTable execltable = new DataTable();
+
 			try
 			{
 
-
 				string url;
-				string errmsg;
 
+				string errmsg;
 
 				Common.UpLoadFile(files[0], "File" + DateTime.Now.ToString("sshhffffff") + ".xls", "~/Data", out url, out errmsg);
 
-
 				DataTable execl_table = ExcelHelper.InputFromExcel(HttpContext.Current.Server.MapPath(url), "sheet1");
 
-
 				#region 创建最终table
+
 				execltable = new DataTable();
 				execltable.Columns.Add("Code");
 				execltable.Columns.Add("DZ_HipLength_CP");
@@ -582,21 +582,29 @@ namespace JuCheap.Core
 				#region 处理数据
 
 				int[] del_index = new int[execl_table.Rows.Count];
+
+            
+
 				for (int i = 0; i < execl_table.Rows.Count; i++)
 				{
+
 					if (Common.IsChinses(execl_table.Rows[i][0].ToString().Trim()))
 					{
-						if (execl_table.Rows[i][0].ToString().Trim() != "代号")
+
+						if (execl_table.Rows[i][0].ToString().Trim() != "代号"&& execl_table.Rows[i][0].ToString().Trim() != "身高" && execl_table.Rows[i][0].ToString().Trim() != "裤长")
 						{
-							del_index[i] = i;
+                       
+                            del_index[i] = i;
+
 							continue;
+
 						}
-					}
 
-
+                    }
 
 					if (string.IsNullOrEmpty(execl_table.Rows[i]["F3"].ToString()))
 					{
+
 						del_index[i] = i;
 
 					}
@@ -604,42 +612,67 @@ namespace JuCheap.Core
 					{
 
 						double jyw;
+
 						if (double.TryParse(execl_table.Rows[i][0] + "", out jyw))
 						{
+
 							execl_table.Rows[i][0] += "~" + (jyw + 2);
+
 						}
+
 						double cpyw;
+
 						if (double.TryParse(execl_table.Rows[i]["F2"] + "", out cpyw))
 						{
-							execl_table.Rows[i]["F2"] += "~" + (cpyw + 2);
-						}
-					}
 
+							execl_table.Rows[i]["F2"] += "~" + (cpyw + 2);
+
+						}
+
+					}
 
 				}
 
 				int del_count = 0;
+
 				for (int i = 0; i < del_index.Length; i++)
 				{
+
 					if (del_index[i] != 0)
 					{
+
 						execl_table.Rows.RemoveAt(del_index[i] - del_count);
+
 						del_count++;
+
 					}
+
 				}
+
 				execl_table.Rows.RemoveAt(0);
 
-
-
-
-
-				#endregion
-
-				#region 填充数据
-				string[] code = new string[4];
+                #endregion
+               HeightArrey = new double[execl_table.Columns.Count];
+               KuChangArrey = new double[execl_table.Columns.Count];
+                #region 填充数据
+                string[] code = new string[4];
 				for (int i = 0; i < execl_table.Rows.Count; i++)
 				{
-					if (Common.IsEnglish_Length_One(execl_table.Rows[i]["F3"].ToString()))
+             
+                    if (execl_table.Rows[i][0].ToString() == "身高") {
+                        for (int e = 0; e < execl_table.Columns.Count; e++)
+                        {
+                            if (!Common.IsChinses(execl_table.Rows[i][e].ToString())&&!string.IsNullOrEmpty(execl_table.Rows[i][e].ToString())) {
+                                HeightArrey[e]= Convert.ToInt32(execl_table.Rows[i][e]);
+                                KuChangArrey[e] = Convert.ToInt32(execl_table.Rows[i+1][e]);
+                            }
+                        }
+                    }
+ 
+
+                  
+
+                    if (Common.IsEnglish_Length_One(execl_table.Rows[i]["F3"].ToString()))
 						code[0] = execl_table.Rows[i]["F3"].ToString();
 					if (Common.IsEnglish_Length_One(execl_table.Rows[i]["F10"].ToString()))
 						code[1] = execl_table.Rows[i]["F10"].ToString();
@@ -662,7 +695,8 @@ namespace JuCheap.Core
 					row0["LegWidth_UnderTheWaves"] = execl_table.Rows[i][6];
 					row0["FrontRise_EvenWaist"] = execl_table.Rows[i][7];
 					row0["AfterTheWaves_EvenWaist"] = execl_table.Rows[i][8];
-					execltable.Rows.Add(row0);
+ 
+                    execltable.Rows.Add(row0);
 					DataRow row1 = execltable.NewRow();
 					row1["Code"] = code[1];
 					row1["NetWaist"] = execl_table.Rows[i][0];
@@ -674,7 +708,8 @@ namespace JuCheap.Core
 					row1["LegWidth_UnderTheWaves"] = execl_table.Rows[i][13];
 					row1["FrontRise_EvenWaist"] = execl_table.Rows[i][14];
 					row1["AfterTheWaves_EvenWaist"] = execl_table.Rows[i][15];
-					execltable.Rows.Add(row1);
+           
+                    execltable.Rows.Add(row1);
 					DataRow row2 = execltable.NewRow();
 					row2["Code"] = code[2];
 					row2["NetWaist"] = execl_table.Rows[i][0];
@@ -686,7 +721,8 @@ namespace JuCheap.Core
 					row2["LegWidth_UnderTheWaves"] = execl_table.Rows[i][20];
 					row2["FrontRise_EvenWaist"] = execl_table.Rows[i][21];
 					row2["AfterTheWaves_EvenWaist"] = execl_table.Rows[i][22];
-					execltable.Rows.Add(row2);
+ 
+                    execltable.Rows.Add(row2);
 					DataRow row3 = execltable.NewRow();
 					row3["Code"] = code[3];
 					row3["NetWaist"] = execl_table.Rows[i][0];
@@ -698,7 +734,8 @@ namespace JuCheap.Core
 					row3["LegWidth_UnderTheWaves"] = execl_table.Rows[i][27];
 					row3["FrontRise_EvenWaist"] = execl_table.Rows[i][28];
 					row3["AfterTheWaves_EvenWaist"] = execl_table.Rows[i][29];
-					execltable.Rows.Add(row3);
+       
+                    execltable.Rows.Add(row3);
 				}
 
 				#endregion
@@ -708,7 +745,9 @@ namespace JuCheap.Core
 			}
 			catch (Exception ex)
 			{
-				return null;
+                HeightArrey = null;
+                KuChangArrey = null;
+                return null;
 
 			}
 

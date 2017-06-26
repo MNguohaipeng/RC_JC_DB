@@ -9,7 +9,7 @@ namespace JuCheap.Core
 {
     public class SqlSugerHelper
     {
-        public static string SqlConnString =@"server=DESKTOP-OV0I35V\SQLEXPRESS;uid=sa;pwd=123456;database=DJ_JuCheap";
+        public static string SqlConnString = @"server=DESKTOP-OV0I35V\SQLEXPRESS;uid=sa;pwd=123456;database=GUI_MA_DB";
 
         private static string MySqlConnString ="server=localhost;Database=SqlSugarTest;Uid=root;Pwd=root";
 

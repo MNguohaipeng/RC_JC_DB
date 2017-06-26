@@ -68,6 +68,7 @@ namespace JuCheap.Data
             modelBuilder.Configurations.Add(new HanderDataForXF_KZConfig());
            modelBuilder.Configurations.Add(new HanderDataForXF_SYConfig());
             modelBuilder.Configurations.Add(new  DictionariesConfig());
+            modelBuilder.Configurations.Add(new HeightKuChangConfig());
         }
         ///// <summary>
         ///// 重写SaveChanges方法，增加ID自动生成

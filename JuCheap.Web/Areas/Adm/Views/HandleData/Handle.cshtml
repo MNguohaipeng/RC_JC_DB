@@ -8,7 +8,7 @@
 
 <script src="~/Template/Admin/jucheap/js/jquery-1.11.1.min.js"></script>
 <script src="~/Template/Admin/jucheap/js/angular.js"></script>
-
+<script src="~/Template/Admin/jucheap/js/common.js"></script>
 @section StylesBefore{
     @Styles.Render("~/Template/Admin/jucheap/Css/DataTable")
 }
@@ -16,17 +16,6 @@
 
 
 <script>
-
-            //var cols = [
-            //    { data: "Id", name: "Id", orderable: false },
-            //    { data: "Orderid", name: "orderid", orderable: false },
-            //    { data: "Option", name: "option", orderable: false },
-            //    { data: "Name", name: "name", orderable: false },
-            //    { data: "ReCodeSize", name: "reCodeSize", orderable: false },
-            //    { data: "Number", name: "Number", orderable: true },
-
-            //    { data: "Note", name: "note", orderable: false }
-    //];
 
 
     function gdhchange() {
@@ -37,12 +26,17 @@
 
             $.ajax({
                 url: "@Url.Action("Handle", @ViewContext.RouteData.Values)",
-                data: { 'Size_Code': $("input[name='Size_Code']").val(), 'GDH': $("input[name='GDH']").val() },
+                data: { 'SizeCode': $("#Size_Code").val(), 'GDH': $("input[name='GDH']").val() },
                 type: "POST",
                 success: function (msg) {
+
+
                     if (msg.state == 1) {
                         $("input[name='OrderName']")[0].click();
-                    } else {
+                        $("#hidebcModal").click();
+
+                    } else if (msg.state == 2) {
+                        $("#showbcModal").click();
                         alert(msg.msg)
                     }
                 },
@@ -59,7 +53,7 @@
 
                $.ajax({
                 url: "@Url.Action("GetListForHanderData", @ViewContext.RouteData.Values)",
-                data: { 'GDH': $("input[name='GDH']").val(), 'Order':"list.Height,list.Sleeve,list.Bust"},
+                data: { 'GDH': $("input[name='GDH']").val(), 'Order':"list.Height"},
                 type: "POST",
                 success: function (msg) {
                     if (msg.state == 1) {
@@ -137,8 +131,6 @@
 
 
         function ExportCaiDan() {
-
-
             if (!$("input[name='caidanindex']").val()) {
                 alert("请输入裁单初始位置。");
                 return;
@@ -311,7 +303,6 @@
                     <td>
                         {{x.Orderid}}
                     </td>
-
                     <td>
                         {{x.Option}}
                     </td>
@@ -396,6 +387,46 @@
         </div>
     </section>
 
+    <section class="panel">
+        <div class="panel-body">
+            <a class="btn btn-success" data-toggle="modal" id="showbcModal" style="display:none" href="advanced-components.html#myModal">
+
+            </a>
+            <!-- Modal -->
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                            <h4 class="modal-title">补充信息</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="form-group ">
+                                    <label class="control-label col-md-4">
+                                        尺码表编号
+                                    </label>
+
+                                    <div class="col-md-8">
+                                        <input size="16" type="text" id="Size_Code" class=" form-control">
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-default" type="button" onclick="Handle()">保存</button>
+                            <button data-dismiss="modal" class="btn btn-default" type="button" id="hidebcModal">关闭</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- modal -->
+        </div>
+    </section>
+
+
     <br />
     <br />
     <br />
@@ -445,6 +476,7 @@
                             thead = HanderDataForXF_KZ_thead;
                             break;
                     }
+ 
                     for (var i = 0; i < thead.length; i++) {
                         th_html += '<th class="hidden-xs">' + thead[i].split("/")[0] + ' </th>';
                     }
@@ -453,7 +485,7 @@
                     $(".insert_excel_list").remove();
                     for (var i = 0; i < data.length; i++) {
                         html += "<tr class='even pointer insert_excel_list' >"
-
+ 
                         for (var a = 0; a < thead.length; a++) {
 
                             var txt = data[i][thead[a].split("/")[1]];
@@ -494,7 +526,7 @@
                 url: '@Url.Action("GetList", @ViewContext.RouteData.Values)',
                 data: { 'GDH': $("input[name='GDH']").val()  }
                              }).then(function successCallback(response) {
-                                 alert(JSON.stringify(response.data.msg))
+
                                  $scope.DCLList = response.data.msg;
                                  }, function errorCallback(response) {
                                  alert(response.data.msg);

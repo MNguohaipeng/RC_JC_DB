@@ -48,6 +48,9 @@ namespace JuCheap.Service
 			Mapper.CreateMap<HanderDataForXF_SYEntity, HanderDataForXF_SYDto>();
 			Mapper.CreateMap<HanderDataForXF_SYDto, HanderDataForXF_SYEntity>();
 
+			Mapper.CreateMap<HeightKuChangEntity, HeightKuChangDto>();
+			Mapper.CreateMap<HeightKuChangDto, HeightKuChangEntity>();
+
 			Mapper.CreateMap<LoginLogEntity, LoginLogDto>();
 			Mapper.CreateMap<LoginLogDto, LoginLogEntity>();
 

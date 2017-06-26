@@ -98,6 +98,9 @@
     <Compile Include="Abstracts\HanderDataForXF_SYService.Partial.cs">
       <DependentUpon>IService.tt</DependentUpon>
     </Compile>
+    <Compile Include="Abstracts\HeightKuChangService.Partial.cs">
+      <DependentUpon>IService.tt</DependentUpon>
+    </Compile>
     <Compile Include="Abstracts\IDCL_DataService.Partial.cs">
       <DependentUpon>IService.tt</DependentUpon>
     </Compile>
@@ -115,6 +118,9 @@
       <DependentUpon>IService.tt</DependentUpon>
     </Compile>
     <Compile Include="Abstracts\IHanderDataForXF_SYService.Partial.cs">
+      <DependentUpon>IService.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Abstracts\IHeightKuChangService.Partial.cs">
       <DependentUpon>IService.tt</DependentUpon>
     </Compile>
     <Compile Include="Abstracts\ILoginLogService.Partial.cs">
@@ -190,6 +196,7 @@
     <Compile Include="Dto\DictionariesDto.cs" />
     <Compile Include="Dto\HanderDataForXF_KZDto.cs" />
     <Compile Include="Dto\HanderDataForXF_SYDto.cs" />
+    <Compile Include="Dto\HeightKuChangDto.cs" />
     <Compile Include="Dto\SleeveDto.cs" />
     <Compile Include="Dto\XF_KZ_CodeSizeDto.cs" />
     <Compile Include="Dto\XF_SY_NAN_ChiMaDto.cs" />
